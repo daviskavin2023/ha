@@ -149,11 +149,13 @@ ha network update default \
 ### 4.1 集成插件安装与认证
 1. **安装 HACS**：
    * 网关与 DNS 指向 `10.10.10.15` 后，可通过标准命令直接安装 HACS。
-2. **安装 Xiaomi Miot Auto**：
-   * HACS 搜索 `Xiaomi Miot Auto`，安装最新稳定版并重启 HA。
+2. **安装 Xiaomi Miot Auto 与 2FA 修复**：
+   * HACS 安装 `Xiaomi Miot Auto`。
+   * **避坑补丁（已修复）**：官方 v1.1.5 版本中存在 2FA/短信验证码后提前 return 导致 `ssecurity` 未初始化，从而拉取设备报 `{"code":0,"message":"invalid signature"}`（未知错误）的已知 Bug（Issue #2947 / PR #2948）。已在 `/config/custom_components/xiaomi_miot/core/xiaomi_cloud.py` 中修补此逻辑并重载生效。
 3. **集成登录配置**：
    * 账号模式：输入小米账号及密码，服务器区域选 **`cn` (中国大陆)**。
-   * 筛选模式：**包含模式 (Include)**，仅勾选需要管理的开关、插座及中枢网关，避免无效设备污染实体库。
+   * 短信验证：如触发 2FA，填入短信验证码提交后即可顺畅进入“筛选设备”列表。
+   * 筛选模式：**包含模式 (Include)**，勾选需要管理的开关、插座及中枢网关，避免无效设备污染实体库。
    * 通信模式：选择 **“自动（优先本地局域网）”**。
 
 ### 4.2 实体命名与属性矩阵
