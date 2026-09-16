@@ -173,6 +173,20 @@
 * **原则**：同一开关插座的自动化控制权必须**唯一定位**。
 * 在 HA 调试好某项任务后，必须**进入米家 App 彻底关闭该自动化**，禁止两端同时存在控制逻辑导致“神仙打架”。
 
+### 6.4 外网访问与 Cloudflare Tunnel 反向代理防坑配置
+* **外网域名**：`https://ha.808608.xyz`
+* **内网反代目标**：`http://10.10.10.38:8123`（Cloudflare Tunnel ID: `808608`）
+* **⚠️ 核心避坑点 (HTTP 400 Bad Request)**：
+  Home Assistant 默认具备严格的反向代理防护机制，**禁止未授权的外部代理访问**。如果仅在 Cloudflare Tunnel 配置而不修改 HA 配置，访问 `ha.808608.xyz` 会直接报错 `400: Bad Request`。
+* **强制配置项**：在 HA 部署完成后，必须在 `/config/configuration.yaml` 中增加以下反代放行声明：
+  ```yaml
+  http:
+    use_x_forwarded_for: true
+    trusted_proxies:
+      - 127.0.0.1
+      - 10.10.10.0/24  # 放行局域网内的 Cloudflare Tunnel 容器/节点 IP
+  ```
+
 ---
 
 ## 7. 实施路线图 (分阶段执行计划)
