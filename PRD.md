@@ -422,6 +422,23 @@ mode: restart
 - 执行 `homeassistant --script check_config` 校验 100% 通过；
 - 通过 HA 内部安全 JWT 调用 API 完成无感热重载，4 条规则运行态已全部处于 **`on`（启用）**。现场实走实测待完成。
 
+### 5.12 主卧套房全域清扫联动、书房与次卧关灯模式（配置已加载并开启，现场验收待完成）
+
+包含主卧套房智能化空间拓扑联动及各房间关灯模式深度重构：
+
+| 规则名称 | 自动化 Entity ID | 控制设备实体 | 传感器/触发源实体 | 核心机制与优化说明 |
+| :--- | :--- | :--- | :--- | :--- |
+| **书房开灯** | `automation.shu_fang_kai_deng` | `switch.bean_blns1_af08_switch`<br>(书房灯 开关)<br>`switch.bean_blns2_8844_right_switch_service`<br>(主人房走廊灯 开关右键) | `sensor.linp_hb01_0f5b_occupancy_sensor`<br>(书房人体存在雷达)<br>`sensor.linp_hb01_0f5b_illumination` | **进门路过双灯协同点亮**：进套房或书房，书房雷达检测到有人（`has one`），且光线较暗（`< 70 Lux` 或夜间）时：① 开启书房灯（人在书房持续长亮不关）；② **同步点亮主卧走廊灯 30 秒**照亮进床通道后自动关闭走廊灯。 |
+| **书房关灯** | `automation.shu_fang_guan_deng` | `switch.bean_blns1_af08_switch`<br>(书房灯 开关) | `sensor.linp_hb01_0f5b_occupancy_sensor` | **人在不关，人走 2 分钟灭灯**：双模触发（Template 模板持续判定 + 状态判定），书房雷达检测无人持续满 **2 分钟** 自动熄灭书房照明。 |
+| **主人房关灯模式** | `automation.zhu_ren_fang_guan_deng_mo_shi` | `switch.bean_blns1_a867_switch` (大灯)<br>`switch.bean_blns2_8844_right_switch_service` (走廊灯)<br>`light.yeelink_mbulb3_95ab_light` (壁灯)<br>`switch.bean_blns1_af08_switch` (书房灯)<br>`switch.bean_blns2_aa02_left_switch_service` (主卫灯)<br>`switch.bean_blns2_aa7d_left_switch_service` (主卫排风) | `switch.bean_blns1_a867_switch`<br>(主卧大灯手动按键)<br>`sensor.lemesh_ts0_8a6c_switch_sensor`<br>(情景开关/语音) | **主卧套房全域清扫智能联动（用户定制神级逻辑）**：手动关闭主卧大灯或触发关灯模式时：<br>1. 确保主卧大灯、走廊灯、壁灯全部熄灭；<br>2. 自动检查书房雷达，**书房无人则同步关书房灯**；<br>3. 自动检查主卫雷达，**主卫无人则同步关主卫灯**；<br>4. 若主卫排气扇开启，**延后 1 分钟充分换气**；1分钟后若主卫仍无人则自动关停排气扇，若期间有人再次进入主卫则打断关停保持排气。 |
+| **乐乐房关灯模式** | `automation.le_le_fang_guan_deng_mo_shi` | `switch.bean_blns1_6f18_switch` (大灯)<br>`switch.bean_blns2_aa60_right_switch_service` (壁灯) | `sensor.lemesh_ts0_861f_switch_sensor`<br>(乐乐无线开关) | **乐乐房一键熄灯**：一键彻底关闭房间大吸顶灯及床头壁灯。纠正原草稿幽灵实体。 |
+| **客房关灯模式** | `automation.ke_fang_guan_deng_mo_shi` | `switch.bean_blns1_7258_switch` (大灯)<br>`switch.bean_blns2_acd4_right_switch_service` (壁灯) | `sensor.lemesh_ts00_d3bb_switch_sensor`<br>(客房无线开关) | **客房一键熄灯**：一键彻底关闭客房大灯及床头壁灯。纠正原草稿幽灵实体。 |
+
+**部署与运行态（2026-09-17）**：
+- 5 条规则已全量更新写入生产 `/config/automations.yaml`；
+- 执行 `homeassistant --script check_config` 校验 100% 通过；
+- 通过 HA 内部安全 JWT 调用 API 完成无感热重载，5 条规则运行态已全部处于 **`on`（启用）**。现场实走实测待完成。
+
 ---
 
 ## 6. 配置文件规范与长期运维保障
