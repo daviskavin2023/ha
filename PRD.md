@@ -396,8 +396,8 @@ mode: restart
 | 规则名称 | 自动化 Entity ID | 控制设备实体 | 传感器实体 | 核心机制与优化说明 |
 | :--- | :--- | :--- | :--- | :--- |
 | **厨房排气循环** | `automation.chu_fang_pai_qi_xun_huan` | `switch.bean_blns2_aa61_left_switch_service`<br>(玄关双键左键，实体注册名“阳台排气扇”) | 定时触发 (Time Pattern) | **修复实体绑定与定制用餐高峰**：原草稿填错为不存在的 `8673` 实体。根据用户确认，设定为在早中晚三段用餐高峰（**06:00~08:00、11:00~13:00、16:00~20:00**）内，每 10 分钟循环开启 5 分钟、停 5 分钟；在 08:00、13:00、20:00 窗口截止时自动触发关停，非高峰时段保留手动启停不干涉。 |
-| **厨房阳台灯** | `automation.chu_fang_yang_tai_deng` | `switch.lemesh_sw1f11_1334_switch`<br>(厨房阳台灯 开关) | `binary_sensor.linp_hs1bb2_44fa_motion_sensor`<br>(厨房阳台感应 移动检测)<br>`sensor.linp_hs1bb2_44fa_illumination` | **人体移动与暗光触发**：有人移动，且光照度 `< 60 Lux` 或处于日落后（`sun.sun == below_horizon`）时立即开灯。 |
-| **厨房阳台关灯** | `automation.chu_fang_yang_tai_guan_deng` | `switch.lemesh_sw1f11_1334_switch`<br>(厨房阳台灯 开关) | `binary_sensor.linp_hs1bb2_44fa_motion_sensor`<br>(厨房阳台感应 移动检测) | **模板状态持续判定防死锁**：采用模板判定 `无人移动持续 60 秒 且 厨房阳台灯为开启状态` 触发关灯，避免边缘触发丢失导致的常亮问题，延时由原版过短的 30 秒扩容至 60 秒。 |
+| **厨房阳台灯** | `automation.chu_fang_yang_tai_deng` | `switch.lemesh_sw1f11_1334_switch`<br>(厨房阳台灯 开关) | `binary_sensor.linp_hs1bb2_44fa_motion_sensor`<br>(厨房阳台感应 移动检测) | **严格白天不开、夜间有人开灯**：根据用户明确要求，白天自然光下彻底屏蔽开灯；仅在夜间（日落后至日出前，`sun.sun == below_horizon`）且感应到有人移动时立即开灯。 |
+| **厨房阳台关灯** | `automation.chu_fang_yang_tai_guan_deng` | `switch.lemesh_sw1f11_1334_switch`<br>(厨房阳台灯 开关) | `binary_sensor.linp_hs1bb2_44fa_motion_sensor`<br>(厨房阳台感应 移动检测) | **30秒无人自动关灯**：双触发机制（Template 模板持续判定 + 状态判定），只要检测到无移动持续满 **30 秒** 且灯处于开启，立即自动关灯。 |
 | **阳台开灯** | `automation.yang_tai_kai_deng` | `switch.lemesh_sw1f11_90f6_switch`<br>(阳台 开关) | `binary_sensor.linp_hs1bb2_4a9c_motion_sensor`<br>`sensor.linp_es2_465b_occupancy_sensor`<br>`sensor.linp_hs1bb2_4a9c_illumination` | **多感应器融合开灯**：检测到人体移动或领普 ES2 人在雷达状态转为 `'has one'`，且光照 `< 70 Lux` 或处于日落后时开灯。**修复了原草稿误将雷达状态设为数字 `'1'` 的严重 Bug**。 |
 | **阳台关灯** | `automation.yang_tai_guan_deng` | `switch.lemesh_sw1f11_90f6_switch`<br>(阳台 开关) | `binary_sensor.linp_hs1bb2_4a9c_motion_sensor`<br>`sensor.linp_es2_465b_occupancy_sensor` | **双模感应无人持续 60 秒模板关灯**：采用 Template 触发器，严格要求 `移动感应 off 且 雷达感应 no one 且 阳台灯处于 on 状态持续 60 秒` 触发关灯。彻底杜绝微动雷达状态判定失效导致的阳台灯长明问题。 |
 
