@@ -406,6 +406,22 @@ mode: restart
 - 执行 `homeassistant --script check_config` 校验 100% 通过；
 - 通过 HA 内部安全 JWT 调用 API 完成无感热重载，5 条规则运行态已全部处于 **`on`（启用）**。现场实走实测待完成。
 
+### 5.11 卫生间自动化（主卫与公卫开灯、排气扇联动与独立延时关停，配置已加载并开启，现场验收待完成）
+
+共包含 4 条卫生间专属自动化规则的深度重构与实体纠偏：
+
+| 规则名称 | 自动化 Entity ID | 控制设备实体 | 传感器实体 | 核心机制与优化说明 |
+| :--- | :--- | :--- | :--- | :--- |
+| **主卫开灯** | `automation.zhu_wei_kai_deng` | `switch.bean_blns2_aa7d_left_switch_service`<br>(主卫排气扇 左键)<br>`switch.bean_blns2_aa02_left_switch_service`<br>(主卫灯 左键) | `sensor.linp_hb01_2636_occupancy_sensor`<br>(主卫感应 雷达)<br>`sensor.linp_hb01_2636_illumination` | **纠正幽灵实体与排气扇优先开**：原草稿误填不存在的 `c03d`、`c94f` 幽灵实体。升级为：① 有人进入（`has one`），主卫排气扇**无条件立即开启**换气；② 照度优化开灯：仅在暗光（`< 70 Lux`）或日落后夜间，同步点亮主卫照明。白天自然光明亮时不额外亮灯。 |
+| **主卫关灯** | `automation.zhu_wei_guan_deng` | `switch.bean_blns2_aa02_left_switch_service`<br>(主卫灯 左键)<br>`switch.bean_blns2_aa7d_left_switch_service`<br>(主卫排气扇 左键) | `sensor.linp_hb01_2636_occupancy_sensor` | **灯光30秒快关，排气扇延时2分钟充分排风**：按用户明确要求实施分级关停：① 人离开满 **30 秒**（`no one` 持续 30s），立即关闭主卫灯光节约电能；② 人离开满 **2 分钟**（`no one` 持续 120s），关闭主卫排气扇以抽净湿气异味。仪表盘手动测试具备一键双关兜底。 |
+| **公卫开灯** | `automation.gong_wei_kai_deng` | `switch.lemesh_sw3g01_d2c0_switch`<br>(公卫排气扇 按键)<br>`switch.bean_blns2_8943_right_switch_service`<br>(公卫灯 右键) | `sensor.linp_hb01_fa37_occupancy_sensor`<br>(公卫感应 雷达)<br>`sensor.linp_hb01_fa37_illumination` | **纠正幽灵实体与排气扇优先开**：原草稿误填不存在的 `bf07` 实体。升级为：① 有人进入（`has one`），公卫排气扇**无条件立即开启**；② 照度优化开灯：暗光（`< 70 Lux`）或日落后夜间，同步开启公卫灯光。 |
+| **公卫关灯** | `automation.gong_wei_guan_deng` | `switch.bean_blns2_8943_right_switch_service`<br>(公卫灯 右键)<br>`switch.lemesh_sw3g01_d2c0_switch`<br>(公卫排气扇 按键) | `sensor.linp_hb01_fa37_occupancy_sensor` | **灯光30秒快关，排气扇延时2分钟充分排风**：按用户明确要求实施分级关停：① 人离开满 **30 秒** 立即关闭公卫灯光；② 人离开满 **2 分钟** 关闭公卫排气扇。 |
+
+**部署与运行态（2026-09-17）**：
+- 4 条规则已全量更新写入生产 `/config/automations.yaml`；
+- 执行 `homeassistant --script check_config` 校验 100% 通过；
+- 通过 HA 内部安全 JWT 调用 API 完成无感热重载，4 条规则运行态已全部处于 **`on`（启用）**。现场实走实测待完成。
+
 ---
 
 ## 6. 配置文件规范与长期运维保障
