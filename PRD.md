@@ -292,7 +292,7 @@ mode: restart
 | **卧室空调** | 悦悦房空调后半夜升温 | `automation.yue_yue_fang_kong_diao_hou_ban_ye_sheng_wen` | `yueyue_ac_night_raise_20260917` | `climate.kong_diao` (美的直连空调) | 每日 03:00 自动调高目标温度 +0.5℃ (防后半夜着凉) | **`on` 启用** |
 | 卧室空调 | 悦悦房空调早上8点关闭 | `automation.yue_yue_fang_kong_diao_zao_shang_8dian_guan_bi` | `yueyue_ac_morning_off_20260917` | `climate.kong_diao` (美的直连空调) | 每日 08:00 自动关机 | **`on` 启用** |
 | 卧室空调 | 乐乐房空调后半夜升温 | `automation.le_le_fang_kong_diao_hou_ban_ye_sheng_wen` | `lele_ac_night_raise_20260917` | `climate.lumi_mcn02_06f7_air_conditioner` (P3) | 每日 03:00 自动调高目标温度 +1℃ | **`on` 启用** |
-| 卧室空调 | 乐乐房空调早上8点关闭 | `automation.le_le_fang_kong_diao_zao_shang_8dian_guan_bi` | `lele_ac_morning_off_20260917` | `climate.lumi_mcn02_06f7_air_conditioner` (P3) | 每日 08:00 自动关机 | **`on` 启用** |
+| 卧室空调 | 乐乐房空调上学日早上7点关闭 | `automation.le_le_fang_kong_diao_shang_xue_ri_zao_shang_7dian_guan_bi` | `lele_ac_morning_off_20260917` | `climate.lumi_cn_878028546_mcn02` (P3) | 上学日(工作日/调休上班) 07:00 自动关机；非上学日(周末/节假日)不执行 | **`on` 启用** |
 | 卧室空调 | 主人房空调后半夜升温 | `automation.master_ac_night_raise_20260917` | `master_ac_night_raise_20260917` | `climate.lumi_mcn02_94a1_air_conditioner` (P3) | 每日 03:00 自动调高目标温度 +1℃ | **`on` 启用** |
 | 卧室空调 | 主人房空调早上8点关闭 | `automation.master_ac_morning_off_20260917` | `master_ac_morning_off_20260917` | `climate.lumi_mcn02_94a1_air_conditioner` (P3) | 每日 08:00 自动关机 | **`on` 启用** |
 | **走廊过道** | 走廊开灯 | `automation.zou_lang_kai_deng` | `1736919300667` | `switch.bean_blns1_70fc_switch` (走廊灯) | 夜间或暗光 (<12 Lux) 检测有人移动开灯；白天自然光屏蔽 | **`on` 启用** |
@@ -403,12 +403,18 @@ mode: restart
    - 若未开机、或处于制热/送风、或温度已 $\ge 27℃$，则不执行任何操作。
 2. **每天 08:00 早晨关闭**：仅在空调仍处于运行状态（`state not in ['off', 'unknown', 'unavailable']`）时下发关机命令。已关机则不下发冗余命令。
 3. **不在凌晨自动开机，不在早晨另行恢复温度**。
+4. **2026-09-19 乐乐房空调上学日 07:00 定时关机变更**：
+   - 乐乐房空调关机规则变更为“**上学日每日 07:00 自动关机；非上学日不执行**”；
+   - **中国节假日及调休自动适配**：通过 `binary_sensor.shang_xue_ri` 同步国家法定节假日及调休方案：
+     - 工作日（周一至周五）以及法定调休补班的周末（如周日补班）：识别为“上学日”，07:00 自动关机；
+     - 周末休息日以及法定节假日放假期间：识别为“非上学日”，**完全不执行关机**；
+   - 悦悦房与主人房原定时逻辑保持不变。
 
-**部署与运行态验证（2026-09-17）**：
-- 6 条规则已全量写入生产 `/config/automations.yaml`，并通过 `ha core check` 与 `automation.reload` 重载生效；
-- HA 运行态查得 6 条自动化状态均为 **`on`（启用）**；
-- 实体注册表中已将三个空调实体及 6 条自动化分别归属绑定到对应区域（`yue_yue_fang`、`le_le`、`zhu_ren_fang`），并将实体名称标准化为“悦悦房空调”、“乐乐房空调”、“主人房空调”；
-- 仪表盘“智能自动化 → 卧室与书房”已将 6 条规则与 3 台空调卡片全量加入展示。仍需等实际 03:00 和 08:00 执行后检查 Trace 与空调状态，完成最终定时验收。
+**部署与运行态验证（2026-09-19 最新更正）**：
+- 规则已全量更新写入生产 `/config/automations.yaml`，并通过 `check_config` 校验与热重载生效；
+- `binary_sensor.shang_xue_ri` 状态探针与每日同步任务已部署就绪，今日周六正确识别为 `off`（非上学日）；
+- 仪表盘“智能自动化 → 卧室与书房”已同步展示更新后的规则及上学日状态传感器。
+
 
 ### 5.10 厨房与阳台（厨房排气循环、厨房阳台与阳台控灯，配置已加载并开启，现场验收待完成）
 
