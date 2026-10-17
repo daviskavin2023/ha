@@ -7,7 +7,7 @@
    }
   }
  ],
- "alias": "客厅灯关联动关风扇",
+ "alias": "客厅灯关联动关风扇（自动发布验证）",
  "conditions": [
   {
    "condition": "state",
