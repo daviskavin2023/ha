@@ -1,0 +1,150 @@
+{
+ "actions": [
+  {
+   "variables": {
+    "closed": []
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+     "state": "off"
+    },
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+     "state": "off"
+    }
+   ],
+   "then": [
+    {
+     "repeat": {
+      "for_each": [
+       "switch.bean_cn_1124140556_blns2_on_p_3_1",
+       "switch.bean_cn_1124140556_blns2_on_p_2_1",
+       "switch.bean_cn_1124140065_blns2_on_p_2_1",
+       "switch.bean_cn_1124140065_blns2_on_p_3_1",
+       "switch.bean_cn_1124140980_blns2_on_p_2_1",
+       "switch.bean_cn_1124140980_blns2_on_p_3_1"
+      ],
+      "sequence": [
+       {
+        "if": [
+         {
+          "condition": "template",
+          "value_template": "{{ is_state(repeat.item, 'on') }}"
+         }
+        ],
+        "then": [
+         {
+          "action": "switch.turn_off",
+          "target": {
+           "entity_id": "{{ repeat.item }}"
+          }
+         },
+         {
+          "action": "persistent_notification.create",
+          "data": {
+           "message": "客厅 {{ state_attr(repeat.item, 'friendly_name') }} 无人却整晚开着，已自动关闭",
+           "title": "🌙 夜间灯光扫尾"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "above": 2,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1134456435_hb01_no_one_duration_p_2_4"
+      }
+     ]
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+     "state": "on"
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+     }
+    },
+    {
+     "action": "persistent_notification.create",
+     "data": {
+      "message": "厨房灯无人却整晚开着，已自动关闭",
+      "title": "🌙 夜间灯光扫尾"
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "or",
+     "conditions": [
+      {
+       "above": 120,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024"
+      },
+      {
+       "condition": "template",
+       "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') in ['unknown', 'unavailable'] }}"
+      }
+     ]
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+     "state": "on"
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+     }
+    },
+    {
+     "action": "persistent_notification.create",
+     "data": {
+      "message": "生活阳台灯无人却整晚开着，已自动关闭",
+      "title": "🌙 夜间灯光扫尾"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "夜间灯光扫尾检查",
+ "description": "每晚固定时间检查客厅(含舞台灯)、厨房、生活阳台的灯——如果对应区域当时确实无人却还开着，强制关闭，避免通宵亮；观影模式期间不检查客厅，避免误关灯带。2026-09-23：厨房这条加上PIR(原走廊人体感应2，已移至厨房)兜底，雷达被风扇骗成常年有人时，PIR连续180秒无真实移动照样能判定无人关灯",
+ "id": "1789630647384",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "at": "00:30:00",
+   "platform": "time"
+  }
+ ]
+}

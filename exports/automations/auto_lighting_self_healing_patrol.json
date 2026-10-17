@@ -1,0 +1,531 @@
+{
+ "actions": [
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1",
+         "state": "on"
+        },
+        {
+         "condition": "and",
+         "conditions": [
+          {
+           "condition": "state",
+           "entity_id": "sun.sun",
+           "state": "below_horizon"
+          },
+          {
+           "above": 40,
+           "condition": "numeric_state",
+           "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "above": 2,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1134456435_hb01_no_one_duration_p_2_4"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "if": [
+      {
+       "condition": "and",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+         "state": "off"
+        },
+        {
+         "condition": "state",
+         "entity_id": "sun.sun",
+         "state": "below_horizon"
+        },
+        {
+         "above": 40,
+         "condition": "numeric_state",
+         "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5"
+        }
+       ]
+      }
+     ],
+     "then": [
+      {
+       "action": "switch.toggle",
+       "target": {
+        "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+       }
+      },
+      {
+       "delay": {
+        "seconds": 1
+       }
+      }
+     ]
+    },
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+     }
+    },
+    {
+     "delay": {
+      "seconds": 1
+     }
+    },
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1"
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+       "state": "off"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "above": 15,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1130732284_hb01_no_one_duration_p_2_4"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140556_blns2_on_p_3_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140556_blns2_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140065_blns2_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140065_blns2_on_p_3_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140980_blns2_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140980_blns2_on_p_3_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1117205015_blns3_on_p_4_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+         "state": "on"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1124140556_blns2_on_p_3_1",
+       "switch.bean_cn_1124140556_blns2_on_p_2_1",
+       "switch.bean_cn_1124140065_blns2_on_p_2_1",
+       "switch.bean_cn_1124140065_blns2_on_p_3_1",
+       "switch.bean_cn_1124140980_blns2_on_p_2_1",
+       "switch.bean_cn_1124140980_blns2_on_p_3_1",
+       "switch.bean_cn_1117205015_blns3_on_p_4_1"
+      ]
+     }
+    },
+    {
+     "action": "input_boolean.turn_off",
+     "target": {
+      "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi"
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "above": 120,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_blt_3_1k0llp3d0c400_hs1bb2_no_motion_duration_p_2_1024"
+      },
+      {
+       "above": 120,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024"
+      },
+      {
+       "condition": "state",
+       "entity_id": "switch.bean_cn_1124143167_blns1_on_p_2_1",
+       "state": "on"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1124143167_blns1_on_p_2_1"
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "above": 120,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_no_motion_duration_p_2_1024"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+       "state": "off"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1117205015_blns3_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140522_blns2_on_p_3_1",
+         "state": "on"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1117205015_blns3_on_p_2_1",
+       "switch.bean_cn_1124140522_blns2_on_p_3_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "above": 3,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1130160808_hb01_no_one_duration_p_2_4"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1122794165_blns1_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140146_blns2_on_p_3_1",
+         "state": "on"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1122794165_blns1_on_p_2_1",
+       "switch.bean_cn_1124140146_blns2_on_p_3_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1114869602_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "above": 3,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1114869602_hb01_no_one_duration_p_2_4"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140372_blns2_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140601_blns2_on_p_2_1",
+         "state": "on"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1124140372_blns2_on_p_2_1",
+       "switch.bean_cn_1124140601_blns2_on_p_2_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "above": 3,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1130167279_hb01_no_one_duration_p_2_4"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140333_blns2_on_p_3_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1",
+         "state": "on"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1124140333_blns2_on_p_3_1",
+       "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "above": 120,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024"
+      },
+      {
+       "condition": "state",
+       "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+       "state": "on"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1122795934_blns1_on_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1",
+         "state": "on"
+        }
+       ]
+      },
+      {
+       "condition": "and",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+         "state": "off"
+        },
+        {
+         "above": 3,
+         "condition": "numeric_state",
+         "entity_id": "sensor.linp_cn_1207295174_hb01_no_one_duration_p_2_4"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1124140146_blns2_on_p_2_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "state",
+       "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+       "state": "on"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+       "state": "off"
+      },
+      {
+       "above": 2,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_no_one_duration_p_2_1079"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "全屋灯光自主巡检与幽灵灯自愈引擎",
+ "description": "全屋5分钟极速自愈巡检看门狗：全天候扫描客厅、厨房、卫浴、走廊、书房、阳台及所有卧室，彻底消灭假死、丢包、雷达风扇误报导致的长亮不灭问题 [工业级一劳永逸版]",
+ "id": "auto_lighting_self_healing_patrol",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "minutes": "/5",
+   "platform": "time_pattern"
+  }
+ ]
+}

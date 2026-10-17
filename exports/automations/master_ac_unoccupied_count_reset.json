@@ -1,0 +1,30 @@
+{
+ "actions": [
+  {
+   "action": "input_number.set_value",
+   "data": {
+    "value": 0
+   },
+   "target": {
+    "entity_id": "input_number.master_ac_unoccupied_count"
+   }
+  }
+ ],
+ "alias": "主人房空调白天无人检测次数重置",
+ "description": "当主人房有人感应到人或空调关机时，立即将无人检测进度清零",
+ "id": "master_ac_unoccupied_count_reset",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "climate.lumi_cn_750604112_mcn02",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "客厅风扇无人自动关闭 (15分钟延时)",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1",
+   "state": "on"
+  }
+ ],
+ "description": "客厅无人持续15分钟以上自动关闭风扇，杜绝空转浪费；人在客厅静坐看电视绝对不误关",
+ "id": "ke_ting_feng_shan_wu_ren_zi_dong_guan_bi",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 15
+   },
+   "id": "radar_off_15m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "above": 15,
+   "entity_id": "sensor.linp_cn_1130732284_hb01_no_one_duration_p_2_4",
+   "id": "no_one_15m",
+   "platform": "numeric_state"
+  },
+  {
+   "entity_id": "switch.bean_cn_1124140556_blns2_on_p_3_1",
+   "for": {
+    "minutes": 5
+   },
+   "id": "light_off_5m",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}

@@ -1,0 +1,176 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_on",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1117205015_blns3_on_p_2_1",
+     "switch.bean_cn_1124140522_blns2_on_p_3_1"
+    ]
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "door_open"
+      },
+      {
+       "condition": "state",
+       "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+       "state": "off"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+       "state": "off"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "above": 9,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1130732284_hb01_no_one_duration_p_2_4"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+       "state": "off"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_on",
+     "target": {
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+     }
+    },
+    {
+     "action": "switch.turn_on",
+     "target": {
+      "entity_id": "switch.bean_cn_1124140556_blns2_on_p_3_1"
+     }
+    },
+    {
+     "action": "switch.turn_on",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1124140065_blns2_on_p_2_1",
+       "switch.bean_cn_1124140065_blns2_on_p_3_1"
+      ]
+     }
+    },
+    {
+     "delay": {
+      "minutes": 2
+     }
+    },
+    {
+     "if": [
+      {
+       "condition": "state",
+       "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+       "state": "off"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+       "state": "off"
+      }
+     ],
+     "then": [
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": [
+         "switch.bean_cn_1124140065_blns2_on_p_2_1",
+         "switch.bean_cn_1124140065_blns2_on_p_3_1"
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "玄关开灯",
+ "conditions": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1117205015_blns3_on_p_2_1",
+     "state": "off"
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1124140522_blns2_on_p_3_1",
+     "state": "off"
+    }
+   ]
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "sun.sun",
+     "state": "below_horizon"
+    },
+    {
+     "condition": "state",
+     "entity_id": "sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_illumination_p_2_1",
+     "state": "弱"
+    },
+    {
+     "below": 30,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_illumination_p_2_1005"
+    }
+   ]
+  }
+ ],
+ "description": "开门或玄关有人移动，且夜间/暗光时自动开启玄关走廊灯；全家无人第一人推门回家时额外联动厨房灯、客厅大灯与左右双路灯带，灯带2分钟迎宾后自动熄灭，大灯完全匹配客厅有人雷达托管。",
+ "id": "1736917740057",
+ "initial_state": true,
+ "max": 10,
+ "mode": "parallel",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+   "id": "door_open",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "event.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_motion_detected_e_2_1008",
+   "id": "motion_event",
+   "platform": "state"
+  },
+  {
+   "below": 2,
+   "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_no_motion_duration_p_2_1024",
+   "id": "motion_duration",
+   "platform": "numeric_state"
+  }
+ ]
+}

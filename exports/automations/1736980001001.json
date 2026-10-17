@@ -1,0 +1,67 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_on",
+   "target": {
+    "entity_id": "switch.wiing_cn_1169934703_v7icm_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "厨房风扇自动开启 (高温且有人持续2分钟)",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.wiing_cn_1169934703_v7icm_on_p_2_1",
+   "state": "off"
+  },
+  {
+   "above": 25,
+   "condition": "numeric_state",
+   "entity_id": "sensor.miaomiaoc_cn_blt_3_1k06l11ckc801_t2_temperature_p_2_1"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "above": 1,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_1134456435_hb01_has_someone_duration_p_2_3"
+    },
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+     "for": {
+      "minutes": 2
+     },
+     "state": "on"
+    }
+   ]
+  },
+  {
+   "after": "07:30:00",
+   "before": "22:30:00",
+   "condition": "time"
+  }
+ ],
+ "description": "厨房温度在25度以上且做饭持续满2分钟时自动开启厨房风扇；绝不在刚进厨房或短暂停留时误开，关闭后不重复打扰",
+ "id": "1736980001001",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 2
+   },
+   "id": "occupancy_2min",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "above": 1,
+   "entity_id": "sensor.linp_cn_1134456435_hb01_has_someone_duration_p_2_3",
+   "id": "duration_2min",
+   "platform": "numeric_state"
+  }
+ ]
+}

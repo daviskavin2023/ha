@@ -1,0 +1,57 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.wiing_cn_1169934703_v7icm_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "厨房风扇无人自动关闭 (解除雷达死锁保护)",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.wiing_cn_1169934703_v7icm_on_p_2_1",
+   "state": "on"
+  }
+ ],
+ "description": "红外传感器无移动达15分钟(300秒满后维持10分钟)或厨房关灯满10分钟，自动关闭风扇，彻底解决雷达被风扇震动死锁问题",
+ "id": "chu_fang_feng_shan_zi_dong_guan_bi",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024",
+   "for": {
+    "minutes": 10
+   },
+   "id": "pir_quiet_15m",
+   "platform": "state",
+   "to": "300"
+  },
+  {
+   "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+   "for": {
+    "minutes": 10
+   },
+   "id": "light_off_10m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 15
+   },
+   "id": "radar_off_15m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "above": 15,
+   "entity_id": "sensor.linp_cn_1134456435_hb01_no_one_duration_p_2_4",
+   "id": "radar_duration_15m",
+   "platform": "numeric_state"
+  }
+ ]
+}

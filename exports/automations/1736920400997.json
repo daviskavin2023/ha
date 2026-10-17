@@ -1,0 +1,49 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_on",
+   "target": {
+    "entity_id": "switch.bean_cn_1124140601_blns2_on_p_2_1"
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "or",
+     "conditions": [
+      {
+       "below": 70,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1114869602_hb01_illumination_p_2_5"
+      },
+      {
+       "condition": "state",
+       "entity_id": "sun.sun",
+       "state": "below_horizon"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_on",
+     "target": {
+      "entity_id": "switch.bean_cn_1124140372_blns2_on_p_2_1"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "主卫开灯",
+ "description": "主卫有人立即开启排气扇；暗光(<70 Lux或日落后)同步开启主卫灯 [极速中枢]",
+ "id": "1736920400997",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1114869602_hb01_occupancy_status_p_2_1",
+   "platform": "state",
+   "to": "on"
+  }
+ ]
+}

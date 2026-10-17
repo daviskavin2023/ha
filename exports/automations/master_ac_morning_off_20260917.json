@@ -1,0 +1,32 @@
+{
+ "actions": [
+  {
+   "action": "climate.turn_off",
+   "target": {
+    "entity_id": "climate.lumi_cn_750604112_mcn02"
+   }
+  }
+ ],
+ "alias": "主人房空调上学日早上7点20关闭",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.shang_xue_ri",
+   "state": "on"
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ states('climate.lumi_cn_750604112_mcn02') not in ['off', 'unknown', 'unavailable'] }}"
+  }
+ ],
+ "description": "上学日每日 07:20 自动关闭；非上学日(周末与法定节假日)不执行；仅在空调运行时处理",
+ "id": "master_ac_morning_off_20260917",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "at": "07:20:00",
+   "platform": "time"
+  }
+ ]
+}

@@ -1,0 +1,327 @@
+{
+ "actions": [
+  {
+   "delay": {
+    "seconds": 15
+   }
+  },
+  {
+   "action": "input_boolean.turn_off",
+   "target": {
+    "entity_id": [
+     "input_boolean.yue_yue_fang_guan_deng_mo_shi",
+     "input_boolean.zhu_ren_fang_guan_deng_mo_shi"
+    ]
+   }
+  },
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1124140980_blns2_on_p_2_1",
+     "switch.bean_cn_1124140980_blns2_on_p_3_1",
+     "switch.bean_cn_1124140065_blns2_on_p_2_1",
+     "switch.bean_cn_1124140065_blns2_on_p_3_1",
+     "switch.bean_cn_1124140556_blns2_on_p_2_1",
+     "switch.bean_cn_1124140556_blns2_on_p_3_1",
+     "switch.bean_cn_1124140522_blns2_on_p_2_1",
+     "switch.bean_cn_1124140522_blns2_on_p_3_1",
+     "switch.bean_cn_1124143167_blns1_on_p_2_1",
+     "switch.bean_cn_1117205015_blns3_on_p_2_1",
+     "switch.bean_cn_1117205015_blns3_on_p_3_1",
+     "switch.bean_cn_1117205015_blns3_on_p_4_1",
+     "switch.bean_cn_1122794638_blns1_on_p_2_1",
+     "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1",
+     "switch.bean_cn_1124140333_blns2_on_p_2_1",
+     "switch.bean_cn_1124140333_blns2_on_p_3_1",
+     "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+     "switch.wiing_cn_1169602959_bm1_on_p_2_1",
+     "switch.wiing_cn_1169934703_v7icm_on_p_2_1"
+    ]
+   }
+  },
+  {
+   "delay": {
+    "seconds": 45
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+     "state": "off"
+    }
+   ],
+   "then": [
+    {
+     "action": "climate.turn_off",
+     "target": {
+      "entity_id": "climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao"
+     }
+    },
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1124139478_blns2_on_p_2_1",
+       "switch.bean_cn_1124139478_blns2_on_p_3_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+     "state": "off"
+    }
+   ],
+   "then": [
+    {
+     "action": "climate.turn_off",
+     "target": {
+      "entity_id": "climate.lumi_cn_750604112_mcn02"
+     }
+    },
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1122794165_blns1_on_p_2_1",
+       "switch.bean_cn_1122795934_blns1_on_p_2_1",
+       "switch.bean_cn_1124140146_blns2_on_p_2_1",
+       "switch.bean_cn_1124140146_blns2_on_p_3_1",
+       "switch.bean_cn_1124140372_blns2_on_p_2_1",
+       "switch.bean_cn_1124140372_blns2_on_p_3_1",
+       "switch.bean_cn_1124140601_blns2_on_p_2_1",
+       "switch.bean_cn_1124140601_blns2_on_p_3_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+     "state": "off"
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1124141619_blns1_on_p_2_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "action": "climate.turn_off",
+   "target": {
+    "entity_id": "climate.lumi_cn_878028546_mcn02"
+   }
+  },
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1122795665_blns1_on_p_2_1",
+     "switch.bean_cn_1124140377_blns2_on_p_2_1",
+     "switch.bean_cn_1124140377_blns2_on_p_3_1"
+    ]
+   }
+  },
+  {
+   "repeat": {
+    "sequence": [
+     {
+      "continue_on_timeout": true,
+      "timeout": {
+       "minutes": 5
+      },
+      "wait_for_trigger": [
+       {
+        "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+        "platform": "state",
+        "to": "on"
+       }
+      ]
+     },
+     {
+      "else": [
+       {
+        "action": "switch.turn_off",
+        "target": {
+         "entity_id": [
+          "switch.bean_cn_1124140980_blns2_on_p_2_1",
+          "switch.bean_cn_1124140980_blns2_on_p_3_1",
+          "switch.bean_cn_1124140065_blns2_on_p_2_1",
+          "switch.bean_cn_1124140065_blns2_on_p_3_1",
+          "switch.bean_cn_1124140556_blns2_on_p_2_1",
+          "switch.bean_cn_1124140556_blns2_on_p_3_1",
+          "switch.bean_cn_1124140522_blns2_on_p_2_1",
+          "switch.bean_cn_1124140522_blns2_on_p_3_1",
+          "switch.bean_cn_1124143167_blns1_on_p_2_1",
+          "switch.bean_cn_1117205015_blns3_on_p_2_1",
+          "switch.bean_cn_1117205015_blns3_on_p_3_1",
+          "switch.bean_cn_1117205015_blns3_on_p_4_1",
+          "switch.bean_cn_1122794638_blns1_on_p_2_1",
+          "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1",
+          "switch.bean_cn_1124140333_blns2_on_p_2_1",
+          "switch.bean_cn_1124140333_blns2_on_p_3_1",
+          "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+          "switch.wiing_cn_1169602959_bm1_on_p_2_1",
+          "switch.wiing_cn_1169934703_v7icm_on_p_2_1"
+         ]
+        }
+       },
+       {
+        "if": [
+         {
+          "condition": "state",
+          "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+          "state": "off"
+         }
+        ],
+        "then": [
+         {
+          "action": "climate.turn_off",
+          "target": {
+           "entity_id": "climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao"
+          }
+         },
+         {
+          "action": "switch.turn_off",
+          "target": {
+           "entity_id": [
+            "switch.bean_cn_1124139478_blns2_on_p_2_1",
+            "switch.bean_cn_1124139478_blns2_on_p_3_1"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "if": [
+         {
+          "condition": "state",
+          "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+          "state": "off"
+         }
+        ],
+        "then": [
+         {
+          "action": "climate.turn_off",
+          "target": {
+           "entity_id": "climate.lumi_cn_750604112_mcn02"
+          }
+         },
+         {
+          "action": "switch.turn_off",
+          "target": {
+           "entity_id": [
+            "switch.bean_cn_1122794165_blns1_on_p_2_1",
+            "switch.bean_cn_1122795934_blns1_on_p_2_1",
+            "switch.bean_cn_1124140146_blns2_on_p_2_1",
+            "switch.bean_cn_1124140146_blns2_on_p_3_1",
+            "switch.bean_cn_1124140372_blns2_on_p_2_1",
+            "switch.bean_cn_1124140372_blns2_on_p_3_1",
+            "switch.bean_cn_1124140601_blns2_on_p_2_1",
+            "switch.bean_cn_1124140601_blns2_on_p_3_1"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "if": [
+         {
+          "condition": "state",
+          "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+          "state": "off"
+         }
+        ],
+        "then": [
+         {
+          "action": "switch.turn_off",
+          "target": {
+           "entity_id": [
+            "switch.bean_cn_1124141619_blns1_on_p_2_1"
+           ]
+          }
+         }
+        ]
+       },
+       {
+        "action": "climate.turn_off",
+        "target": {
+         "entity_id": "climate.lumi_cn_878028546_mcn02"
+        }
+       },
+       {
+        "action": "switch.turn_off",
+        "target": {
+         "entity_id": [
+          "switch.bean_cn_1122795665_blns1_on_p_2_1",
+          "switch.bean_cn_1124140377_blns2_on_p_2_1",
+          "switch.bean_cn_1124140377_blns2_on_p_3_1"
+         ]
+        }
+       }
+      ],
+      "if": [
+       {
+        "condition": "template",
+        "value_template": "{{ wait.trigger is not none }}"
+       }
+      ],
+      "then": [
+       {
+        "stop": "大门已打开(折返或归家)，立即终止离家补关巡检流程"
+       }
+      ]
+     }
+    ],
+    "while": [
+     {
+      "condition": "template",
+      "value_template": "{{ is_state('binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2', 'off') and (repeat.index <= 2) }}"
+     }
+    ]
+   }
+  }
+ ],
+ "alias": "离家模式 (全屋关灯关空调)",
+ "conditions": [
+  {
+   "condition": "template",
+   "value_template": "{{ trigger.id == 'xh_door_remote_click' and trigger.entity_id == 'event.lemesh_cn_blt_3_1k06v2hek4c02_ts0_click_e_5_1012' and trigger.to_state is not none and trigger.to_state.state not in ['unknown', 'unavailable'] and trigger.from_state is not none and trigger.to_state.state != trigger.from_state.state and ((now() - as_datetime(trigger.to_state.state)).total_seconds() | abs) < 5 }}"
+  }
+ ],
+ "description": "【铁律：仅限物理按键触发，严禁任何形式软件触发】门口无线情景开关手动按下，15秒后立即关闭全屋公区；延时1分钟检测卧室雷达，有人留守则保留房间空调与大灯，无人则全部关闭；5分钟后自动巡检复闭，期间大门开启则立即中断。；投影仪插座(switch.sixwgh_cn_1208359541_v8icm1_on_p_2_1)为受保设备，任何自动化严禁关闭",
+ "id": "1736920574936",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "event.lemesh_cn_blt_3_1k06v2hek4c02_ts0_click_e_5_1012",
+   "id": "xh_door_remote_click",
+   "not_from": [
+    "unknown",
+    "unavailable"
+   ],
+   "not_to": [
+    "unknown",
+    "unavailable"
+   ],
+   "platform": "state"
+  }
+ ]
+}

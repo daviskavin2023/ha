@@ -1,0 +1,73 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_on",
+   "target": {
+    "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "客厅风扇自动开启 (高温且有人持续1分钟)",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1",
+   "state": "off"
+  },
+  {
+   "above": 25,
+   "condition": "numeric_state",
+   "entity_id": "sensor.miaomiaoc_cn_blt_3_1k06l11ckc801_t2_temperature_p_2_1"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+     "for": {
+      "minutes": 1
+     },
+     "state": "on"
+    },
+    {
+     "above": 0,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_1130732284_hb01_has_someone_duration_p_2_3"
+    }
+   ]
+  },
+  {
+   "after": "07:30:00",
+   "before": "22:30:00",
+   "condition": "time"
+  }
+ ],
+ "description": "客厅温度在25度以上且有人持续1分钟以上时，自动打开客厅风扇插座",
+ "id": "1736980001002",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 1
+   },
+   "id": "occupancy_1min",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "above": 0,
+   "entity_id": "sensor.linp_cn_1130732284_hb01_has_someone_duration_p_2_3",
+   "id": "duration_1min",
+   "platform": "numeric_state"
+  },
+  {
+   "above": 25,
+   "entity_id": "sensor.miaomiaoc_cn_blt_3_1k06l11ckc801_t2_temperature_p_2_1",
+   "id": "temp_above_25",
+   "platform": "numeric_state"
+  }
+ ]
+}

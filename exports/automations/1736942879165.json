@@ -1,0 +1,54 @@
+{
+ "action": [
+  {
+   "service": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1122794165_blns1_on_p_2_1",
+     "switch.bean_cn_1124140146_blns2_on_p_3_1"
+    ]
+   }
+  }
+ ],
+ "alias": "书房关灯",
+ "condition": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1122794165_blns1_on_p_2_1",
+     "state": "on"
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1124140146_blns2_on_p_3_1",
+     "state": "on"
+    }
+   ]
+  }
+ ],
+ "description": "书房无人持续 2 分钟，同步关闭书房灯与主卧走廊灯 [极速中枢]",
+ "id": "1736942879165",
+ "initial_state": true,
+ "mode": "restart",
+ "trigger": [
+  {
+   "for": {
+    "minutes": 2
+   },
+   "id": "study_off_tpl",
+   "platform": "template",
+   "value_template": "{{ is_state('binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1', 'off') and (is_state('switch.bean_cn_1122794165_blns1_on_p_2_1', 'on') or is_state('switch.bean_cn_1124140146_blns2_on_p_3_1', 'on')) }}"
+  },
+  {
+   "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 2
+   },
+   "id": "study_off_state",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}

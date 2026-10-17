@@ -1,0 +1,84 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_on",
+   "target": {
+    "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "主人房人在感应开灯",
+ "conditions": [
+  {
+   "after": "10:00:00",
+   "before": "23:00:00",
+   "condition": "time"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+     "state": "on"
+    },
+    {
+     "below": 1,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_1207295174_hb01_no_one_duration_p_2_4"
+    }
+   ]
+  },
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.zhu_ren_fang_guan_deng_mo_shi",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1",
+   "state": "off"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "sun.sun",
+     "state": "below_horizon"
+    },
+    {
+     "below": 35,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_1207295174_hb01_illumination_p_2_5"
+    }
+   ]
+  }
+ ],
+ "description": "主人房人在感应触发开灯(有人+暗光+未开防打扰)；23:00至次日10:00严禁感应开灯；暗光或日落后自动亮灯",
+ "id": "zhurenfang_motion_light_on",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "below": 1,
+   "entity_id": "sensor.linp_cn_1207295174_hb01_no_one_duration_p_2_4",
+   "platform": "numeric_state"
+  },
+  {
+   "below": 35,
+   "entity_id": "sensor.linp_cn_1207295174_hb01_illumination_p_2_5",
+   "platform": "numeric_state"
+  },
+  {
+   "entity_id": "sun.sun",
+   "platform": "state",
+   "to": "below_horizon"
+  }
+ ]
+}

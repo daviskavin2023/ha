@@ -1,0 +1,36 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "客厅风扇干扰雷达自动关风扇",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1",
+   "state": "on"
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ 4 <= states(\"sensor.linp_cn_1130732284_hb01_body_distance_p_3_3\")|float(0) <= 6.5 }}"
+  }
+ ],
+ "description": "客厅风扇开启时，雷达被风扇叶片误判为有人。若风扇开着、雷达连续30分钟报有人，且目标距离在4–6.5米(风扇所在距离段)，则只关闭风扇(不动灯)。",
+ "id": "ke_ting_fengshan_ganrao_guanji",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 30
+   },
+   "platform": "state",
+   "to": "on"
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "actions": [
+  {
+   "if": [
+    {
+     "condition": "trigger",
+     "id": "bedside_switch_clicked"
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1"
+     }
+    }
+   ]
+  },
+  {
+   "action": "input_boolean.turn_on",
+   "target": {
+    "entity_id": "input_boolean.zhu_ren_fang_guan_deng_mo_shi"
+   }
+  }
+ ],
+ "alias": "主人房手动关灯进入睡眠锁定",
+ "conditions": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "trigger",
+     "id": "auto_lock_23pm"
+    },
+    {
+     "condition": "trigger",
+     "id": "bedside_switch_clicked"
+    }
+   ]
+  }
+ ],
+ "description": "晚上通过床头情景开关关灯，或每晚23:00自动锁定，无条件激活关灯防打扰锁定，人在感应暂停工作避免半夜误亮",
+ "id": "zhurenfang_manual_sleep_lock",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "event.bean_cn_1122795934_blns1_click_e_3_1",
+   "id": "bedside_switch_clicked",
+   "platform": "state"
+  },
+  {
+   "at": "23:00:00",
+   "id": "auto_lock_23pm",
+   "platform": "time"
+  }
+ ]
+}

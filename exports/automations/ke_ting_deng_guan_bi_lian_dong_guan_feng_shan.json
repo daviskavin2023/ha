@@ -1,0 +1,29 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "客厅灯关联动关风扇",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1",
+   "state": "on"
+  }
+ ],
+ "description": "当客厅大灯关闭时，自动联动关闭客厅电风扇，防止人走关灯后风扇空转且干扰雷达检测",
+ "id": "ke_ting_deng_guan_bi_lian_dong_guan_feng_shan",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "switch.bean_cn_1124140556_blns2_on_p_3_1",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}

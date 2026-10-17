@@ -1,0 +1,31 @@
+{
+ "actions": [
+  {
+   "action": "notify.mobile_app_ptp_an00",
+   "data": {
+    "data": {
+     "tag": "ha_watch_ac_digest"
+    },
+    "message": "{% set m={\"climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao\":\"悦悦房\",\"climate.lumi_cn_878028546_mcn02\":\"乐乐房\",\"climate.lumi_cn_750604112_mcn02\":\"主人房\"} %}早上7点：以下空调仍离线，7:20自动关机可能失效：{% for e,n in m.items() if states(e)==\"unavailable\" %}{{n}} {% endfor %}",
+    "title": "智能家居"
+   }
+  }
+ ],
+ "alias": "监控：早上7点空调离线汇总",
+ "conditions": [
+  {
+   "condition": "template",
+   "value_template": "{{ [\"climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao\",\"climate.lumi_cn_878028546_mcn02\",\"climate.lumi_cn_750604112_mcn02\"] | select(\"is_state\",\"unavailable\") | list | count > 0 }}"
+  }
+ ],
+ "description": "每天07:00检查三个房间空调，仍不可用的合并成一条推送(覆盖夜间静音期间的掉线)。3045-ai-claude 2026-10-08",
+ "id": "ha_watch_ac_morning_digest_20261008",
+ "max_exceeded": "silent",
+ "mode": "single",
+ "triggers": [
+  {
+   "at": "07:00:00",
+   "platform": "time"
+  }
+ ]
+}

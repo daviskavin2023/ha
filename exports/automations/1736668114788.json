@@ -1,0 +1,92 @@
+{
+ "action": [
+  {
+   "choose": [
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "cycle"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "after": "06:00:00",
+         "before": "08:00:00",
+         "condition": "time"
+        },
+        {
+         "after": "11:00:00",
+         "before": "13:00:00",
+         "condition": "time"
+        },
+        {
+         "after": "16:00:00",
+         "before": "20:00:00",
+         "condition": "time"
+        }
+       ]
+      }
+     ],
+     "sequence": [
+      {
+       "service": "switch.turn_on",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140522_blns2_on_p_2_1"
+       }
+      },
+      {
+       "delay": {
+        "minutes": 5
+       }
+      },
+      {
+       "service": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140522_blns2_on_p_2_1"
+       }
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "window_end"
+      }
+     ],
+     "sequence": [
+      {
+       "service": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140522_blns2_on_p_2_1"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "厨房排气循环",
+ "description": "厨房排气循环: 06-08点、11-13点、16-20点每10分钟开启5分钟，其余时段关停",
+ "id": "1736668114788",
+ "initial_state": true,
+ "mode": "restart",
+ "trigger": [
+  {
+   "id": "cycle",
+   "minutes": "/10",
+   "platform": "time_pattern"
+  },
+  {
+   "at": [
+    "08:00:00",
+    "13:00:00",
+    "20:00:00"
+   ],
+   "id": "window_end",
+   "platform": "time"
+  }
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "actions": [
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+     "state": "off"
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": [
+       "switch.bean_cn_1122794165_blns1_on_p_2_1",
+       "switch.bean_cn_1124140146_blns2_on_p_3_1"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1114869602_hb01_occupancy_status_p_2_1",
+     "state": "off"
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1124140372_blns2_on_p_2_1"
+     }
+    },
+    {
+     "if": [
+      {
+       "condition": "state",
+       "entity_id": "switch.bean_cn_1124140601_blns2_on_p_2_1",
+       "state": "on"
+      }
+     ],
+     "then": [
+      {
+       "delay": {
+        "minutes": 1
+       }
+      },
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140601_blns2_on_p_2_1"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "主人房关灯模式",
+ "description": "主卧关灯后自动检查套房：书房无人同步关书房灯与主卧走廊灯；主卫无人同步关主卫灯与延后关排气扇",
+ "id": "1737093958838",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "event.bean_cn_1122795934_blns1_click_e_3_1",
+   "platform": "state"
+  }
+ ]
+}

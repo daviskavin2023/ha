@@ -1,0 +1,42 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_on",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1122794165_blns1_on_p_2_1",
+     "switch.bean_cn_1124140146_blns2_on_p_3_1"
+    ]
+   }
+  }
+ ],
+ "alias": "书房开灯",
+ "conditions": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "below": 70,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_1130160808_hb01_illumination_p_2_5"
+    },
+    {
+     "condition": "state",
+     "entity_id": "sun.sun",
+     "state": "below_horizon"
+    }
+   ]
+  }
+ ],
+ "description": "书房有人且暗光(<70Lux或日落后)，同步开启书房灯与主卧走廊灯 [极速中枢]",
+ "id": "1736919449440",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+   "platform": "state",
+   "to": "on"
+  }
+ ]
+}

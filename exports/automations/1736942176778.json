@@ -1,0 +1,60 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1117205015_blns3_on_p_2_1",
+     "switch.bean_cn_1124140522_blns2_on_p_3_1"
+    ]
+   }
+  }
+ ],
+ "alias": "玄关关灯",
+ "conditions": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1117205015_blns3_on_p_2_1",
+     "state": "on"
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1124140522_blns2_on_p_3_1",
+     "state": "on"
+    }
+   ]
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+   "state": "off"
+  },
+  {
+   "above": 59,
+   "condition": "numeric_state",
+   "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_no_motion_duration_p_2_1024"
+  }
+ ],
+ "description": "大门已关且玄关无人移动持续 1 分钟自动关闭玄关走廊灯与玄关灯带 [极速中枢修正版]",
+ "id": "1736942176778",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "above": 59,
+   "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_no_motion_duration_p_2_1024",
+   "platform": "numeric_state"
+  },
+  {
+   "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+   "for": {
+    "minutes": 1
+   },
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}

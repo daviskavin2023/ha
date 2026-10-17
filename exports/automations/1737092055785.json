@@ -1,0 +1,35 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1124140980_blns2_on_p_2_1",
+     "switch.bean_cn_1124140980_blns2_on_p_3_1",
+     "switch.bean_cn_1124140065_blns2_on_p_2_1",
+     "switch.bean_cn_1124140065_blns2_on_p_3_1",
+     "switch.bean_cn_1124140556_blns2_on_p_2_1",
+     "switch.bean_cn_1124140556_blns2_on_p_3_1",
+     "switch.bean_cn_1117205015_blns3_on_p_2_1"
+    ]
+   }
+  },
+  {
+   "action": "input_boolean.turn_off",
+   "target": {
+    "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi"
+   }
+  }
+ ],
+ "alias": "客厅关灯模式",
+ "description": "米家极客版场景还原: 客厅全区一键熄灯",
+ "id": "1737092055785",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "event_type": "ke_ting_guan_deng_mo_shi",
+   "platform": "event"
+  }
+ ]
+}

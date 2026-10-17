@@ -1,0 +1,81 @@
+{
+ "action": [
+  {
+   "if": [
+    {
+     "after": "10:00:00",
+     "before": "22:00:00",
+     "condition": "time"
+    }
+   ],
+   "then": []
+  },
+  {
+   "data": {
+    "message": "大门开启已满 3 分钟，请确认是否关好。",
+    "title": "🚪 入户门未关提醒"
+   },
+   "service": "persistent_notification.create"
+  },
+  {
+   "continue_on_timeout": true,
+   "timeout": {
+    "minutes": 2
+   },
+   "wait_for_trigger": [
+    {
+     "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+     "platform": "state",
+     "to": "off"
+    }
+   ]
+  },
+  {
+   "else": [
+    {
+     "if": [
+      {
+       "after": "10:00:00",
+       "before": "22:00:00",
+       "condition": "time"
+      }
+     ],
+     "then": []
+    },
+    {
+     "data": {
+      "message": "大门开启已满 5 分钟，请及时关好大门。",
+      "title": "⚠️ 入户门长时间未关提醒"
+     },
+     "service": "persistent_notification.create"
+    }
+   ],
+   "if": [
+    {
+     "condition": "template",
+     "value_template": "{{ wait.trigger is not none }}"
+    }
+   ],
+   "then": [
+    {
+     "stop": "大门已关闭，结束提醒"
+    }
+   ]
+  }
+ ],
+ "alias": "门未关提醒 (温和防打扰版)",
+ "description": "大门敞开满3分钟温和提醒，满5分钟二次提醒；22:00-10:00深夜与早晨完全静音，关门即刻终止",
+ "id": "1736915882262",
+ "initial_state": true,
+ "mode": "restart",
+ "trigger": [
+  {
+   "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+   "for": {
+    "minutes": 3
+   },
+   "platform": "state",
+   "to": "on"
+  }
+ ]
+}

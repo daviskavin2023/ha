@@ -1,0 +1,109 @@
+{
+ "actions": [
+  {
+   "choose": [
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "light_off"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140333_blns2_on_p_3_1"
+       }
+      },
+      {
+       "delay": {
+        "seconds": 2
+       }
+      },
+      {
+       "if": [
+        {
+         "condition": "state",
+         "entity_id": "switch.bean_cn_1124140333_blns2_on_p_3_1",
+         "state": "on"
+        }
+       ],
+       "then": [
+        {
+         "action": "switch.turn_off",
+         "target": {
+          "entity_id": "switch.bean_cn_1124140333_blns2_on_p_3_1"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "fan_off"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1"
+       }
+      },
+      {
+       "delay": {
+        "seconds": 2
+       }
+      },
+      {
+       "if": [
+        {
+         "condition": "state",
+         "entity_id": "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1",
+         "state": "on"
+        }
+       ],
+       "then": [
+        {
+         "action": "switch.turn_off",
+         "target": {
+          "entity_id": "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "公卫关灯",
+ "description": "公卫无人持续 30 秒关灯；无人持续 2 分钟关排气扇 [自愈闭环版]",
+ "id": "1740457273525",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
+   "for": {
+    "seconds": 30
+   },
+   "id": "light_off",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 2
+   },
+   "id": "fan_off",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}

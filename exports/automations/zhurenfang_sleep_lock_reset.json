@@ -1,0 +1,59 @@
+{
+ "actions": [
+  {
+   "action": "input_boolean.turn_off",
+   "target": {
+    "entity_id": "input_boolean.zhu_ren_fang_guan_deng_mo_shi"
+   }
+  }
+ ],
+ "alias": "主人房次日解除关灯防打扰",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.zhu_ren_fang_guan_deng_mo_shi",
+   "state": "on"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "trigger",
+     "id": "morning_10am"
+    },
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "switch_turned_on"
+      },
+      {
+       "after": "10:00:00",
+       "before": "23:00:00",
+       "condition": "time"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "description": "每天上午10点准时解除关灯防打扰；或白天(10点至23点)手动开灯时自动解除防打扰，恢复正常感应",
+ "id": "zhurenfang_sleep_lock_reset",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "at": "10:00:00",
+   "id": "morning_10am",
+   "platform": "time"
+  },
+  {
+   "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1",
+   "from": "off",
+   "id": "switch_turned_on",
+   "platform": "state",
+   "to": "on"
+  }
+ ]
+}

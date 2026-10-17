@@ -1,0 +1,141 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+   }
+  },
+  {
+   "delay": {
+    "seconds": 1
+   }
+  },
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1"
+   }
+  },
+  {
+   "delay": {
+    "seconds": 1
+   }
+  },
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.wiing_cn_1169934703_v7icm_on_p_2_1"
+   }
+  },
+  {
+   "delay": {
+    "seconds": 2
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "above": 40,
+       "condition": "numeric_state",
+       "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5"
+      },
+      {
+       "condition": "state",
+       "entity_id": "sun.sun",
+       "state": "below_horizon"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      }
+     ]
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.toggle",
+     "target": {
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+     }
+    },
+    {
+     "delay": {
+      "seconds": 1
+     }
+    },
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+     }
+    },
+    {
+     "delay": {
+      "seconds": 1
+     }
+    },
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "厨房关灯",
+ "conditions": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+     "state": "on"
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1",
+     "state": "on"
+    }
+   ]
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "state": "off"
+  }
+ ],
+ "description": "厨房雷达无人持续2分钟，或人体移动完全静止满5分钟，自动关闭厨房主灯与开关",
+ "id": "1736968786159",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 2
+   },
+   "id": "radar_off_2m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "above": 1,
+   "entity_id": "sensor.linp_cn_1134456435_hb01_no_one_duration_p_2_4",
+   "id": "radar_no_one_2m",
+   "platform": "numeric_state"
+  },
+  {
+   "above": 299,
+   "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024",
+   "id": "pir_no_motion_5m",
+   "platform": "numeric_state"
+  }
+ ]
+}

@@ -1,0 +1,171 @@
+{
+ "actions": [
+  {
+   "choose": [
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "mode_on"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": [
+         "switch.bean_cn_1124140980_blns2_on_p_2_1",
+         "switch.bean_cn_1124140980_blns2_on_p_3_1",
+         "switch.bean_cn_1124140556_blns2_on_p_2_1",
+         "switch.bean_cn_1124140556_blns2_on_p_3_1"
+        ]
+       }
+      },
+      {
+       "delay": {
+        "seconds": 1
+       }
+      },
+      {
+       "else": [
+        {
+         "action": "switch.turn_off",
+         "target": {
+          "entity_id": [
+           "switch.bean_cn_1124140065_blns2_on_p_2_1",
+           "switch.bean_cn_1124140065_blns2_on_p_3_1"
+          ]
+         }
+        }
+       ],
+       "if": [
+        {
+         "condition": "state",
+         "entity_id": "sun.sun",
+         "state": "below_horizon"
+        }
+       ],
+       "then": [
+        {
+         "action": "switch.turn_on",
+         "target": {
+          "entity_id": "switch.bean_cn_1124140065_blns2_on_p_2_1"
+         }
+        },
+        {
+         "action": "switch.turn_off",
+         "target": {
+          "entity_id": "switch.bean_cn_1124140065_blns2_on_p_3_1"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "mode_off"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": [
+         "switch.bean_cn_1124140065_blns2_on_p_2_1",
+         "switch.bean_cn_1124140065_blns2_on_p_3_1"
+        ]
+       }
+      },
+      {
+       "if": [
+        {
+         "condition": "state",
+         "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+         "state": "on"
+        },
+        {
+         "condition": "or",
+         "conditions": [
+          {
+           "condition": "state",
+           "entity_id": "sun.sun",
+           "state": "below_horizon"
+          },
+          {
+           "below": 50,
+           "condition": "numeric_state",
+           "entity_id": "sensor.linp_cn_1130732284_hb01_illumination_p_2_5"
+          }
+         ]
+        }
+       ],
+       "then": [
+        {
+         "action": "switch.turn_on",
+         "target": {
+          "entity_id": "switch.bean_cn_1124140556_blns2_on_p_3_1"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "sunset"
+      },
+      {
+       "condition": "state",
+       "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+       "state": "on"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.turn_on",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140065_blns2_on_p_2_1"
+       }
+      },
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140065_blns2_on_p_3_1"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "å®¢åè§å½±æ¨¡å¼ç¯åèå¨",
+ "description": "åªè¦è§å½±æ¨¡å¼å¼å³ååï¼è¿å¥æ¶å¤é´åªå¼ç¯å¸¦å·¦é®ãå¶ä»ç¯å¨å³ï¼ç½å¤©å¨å³ï¼éåºæ¶å³ç¯å¸¦ï¼è¥å®¢åæäººä¸æååèªå¨å¼å¯å¤§ç¯",
+ "id": "1789570686104",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "id": "mode_on",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "id": "mode_off",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "sun.sun",
+   "id": "sunset",
+   "to": "below_horizon",
+   "trigger": "state"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "actions": [
+  {
+   "action": "homeassistant.reload_config_entry",
+   "target": {
+    "entity_id": "climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao"
+   }
+  },
+  {
+   "delay": {
+    "seconds": 90
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao",
+     "state": "unavailable"
+    }
+   ],
+   "then": [
+    {
+     "if": [
+      {
+       "after": "07:00:00",
+       "before": "23:00:00",
+       "condition": "time"
+      }
+     ],
+     "then": [
+      {
+       "action": "notify.mobile_app_ptp_an00",
+       "data": {
+        "data": {
+         "tag": "ha_watch_yueyue_ac"
+        },
+        "message": "悦悦房空调掉线，自动重连失败，明早7:20自动关机可能失效",
+        "title": "智能家居"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "监控：悦悦房空调掉线自动重连",
+ "conditions": [
+  {
+   "condition": "template",
+   "value_template": "{{ this.attributes.last_triggered is none or (now() - this.attributes.last_triggered).total_seconds() > 3600 }}"
+  }
+ ],
+ "description": "悦悦房空调(美的)不可用超过10分钟→重新加载美的“空调”集成(只重连，不发设备指令)；90秒后仍不可用→手机推送。1小时内最多处理一次；23:00-07:00不推送，由07:00汇总。3045-ai-claude 2026-10-08",
+ "id": "ha_watch_yueyue_ac_offline_20261008",
+ "max_exceeded": "silent",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao",
+   "for": {
+    "minutes": 10
+   },
+   "platform": "state",
+   "to": "unavailable"
+  }
+ ]
+}

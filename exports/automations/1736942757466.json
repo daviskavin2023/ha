@@ -1,0 +1,126 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "阳台关灯",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+   "state": "on"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "ghost_cancel_35s"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
+       "state": "off"
+      }
+     ]
+    },
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "radar_clear_1m"
+      },
+      {
+       "condition": "template",
+       "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 60 }}"
+      }
+     ]
+    },
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "pir_no_motion_2m"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
+       "state": "off"
+      }
+     ]
+    },
+    {
+     "condition": "trigger",
+     "id": "anti_clutter_pir_5m"
+    },
+    {
+     "condition": "and",
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "safety_cap_6m"
+      },
+      {
+       "condition": "template",
+       "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 120 }}"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "description": "阳台关灯防线：35秒无雷达秒灭(防误触/过路)；离去雷达无人关灯；感应2被杂物卡死则5分钟门槛超时熔断；6分钟绝对强制定时兜底",
+ "id": "1736942757466",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+   "for": {
+    "seconds": 35
+   },
+   "id": "ghost_cancel_35s",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
+   "for": {
+    "minutes": 1
+   },
+   "id": "radar_clear_1m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
+   "id": "pir_no_motion_2m",
+   "platform": "state",
+   "to": "120"
+  },
+  {
+   "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
+   "id": "anti_clutter_pir_5m",
+   "platform": "state",
+   "to": "300"
+  },
+  {
+   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+   "for": {
+    "minutes": 6
+   },
+   "id": "safety_cap_6m",
+   "platform": "state",
+   "to": "on"
+  }
+ ]
+}

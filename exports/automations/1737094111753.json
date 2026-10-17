@@ -1,0 +1,30 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1122795665_blns1_on_p_2_1",
+     "switch.bean_cn_1124140377_blns2_on_p_3_1"
+    ]
+   }
+  }
+ ],
+ "alias": "乐乐房关灯模式",
+ "conditions": [
+  {
+   "condition": "template",
+   "value_template": "{{ trigger.from_state is not none and trigger.from_state.state not in ['unknown', 'unavailable'] }}"
+  }
+ ],
+ "description": "一键关闭乐乐房大灯与壁灯 [极速中枢]",
+ "id": "1737094111753",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "event.lemesh_cn_blt_3_1k0723d5k4g01_ts0_click_e_5_1012",
+   "platform": "state"
+  }
+ ]
+}

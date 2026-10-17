@@ -1,0 +1,56 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.bean_cn_1124143167_blns1_on_p_2_1"
+   }
+  },
+  {
+   "delay": {
+    "seconds": 2
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1124143167_blns1_on_p_2_1",
+     "state": "on"
+    }
+   ],
+   "then": [
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.bean_cn_1124143167_blns1_on_p_2_1"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "走廊关灯",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.bean_cn_1124143167_blns1_on_p_2_1",
+   "state": "on"
+  },
+  {
+   "above": 29,
+   "condition": "numeric_state",
+   "entity_id": "sensor.linp_cn_blt_3_1k0llp3d0c400_hs1bb2_no_motion_duration_p_2_1024"
+  }
+ ],
+ "description": "走廊单感应无移动持续30秒熄灯 [自愈闭环版]。2026-09-23：原走廊人体感应2已移至厨房，本条只保留走廊感应(1k0llp3d0c400)，不再需要两个都无人才关",
+ "id": "1736942627898",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "above": 29,
+   "entity_id": "sensor.linp_cn_blt_3_1k0llp3d0c400_hs1bb2_no_motion_duration_p_2_1024",
+   "platform": "numeric_state"
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "悦悦房无人自动关灯",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+   "state": "on"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+   "state": "off"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "trigger",
+     "id": "occupancy_cleared_2m"
+    },
+    {
+     "condition": "trigger",
+     "id": "switch_on_2m"
+    },
+    {
+     "above": 1,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_no_one_duration_p_2_1079"
+    }
+   ]
+  }
+ ],
+ "description": "悦悦房人在感应判定无人持续2分钟自动关灯(全天候24小时生效，任何情形不可禁用)",
+ "id": "yueyue_motion_light_off",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+   "for": {
+    "minutes": 2
+   },
+   "id": "occupancy_cleared_2m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+   "for": {
+    "minutes": 2
+   },
+   "id": "switch_on_2m",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_no_one_duration_p_2_1079",
+   "id": "no_one_duration_tick",
+   "platform": "state"
+  }
+ ]
+}

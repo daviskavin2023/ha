@@ -1,0 +1,155 @@
+{
+ "actions": [
+  {
+   "choose": [
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "check_20m"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "input_number.set_value",
+       "data": {
+        "value": 1
+       },
+       "target": {
+        "entity_id": "input_number.yueyue_ac_unoccupied_count"
+       }
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "check_40m"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "input_number.set_value",
+       "data": {
+        "value": 2
+       },
+       "target": {
+        "entity_id": "input_number.yueyue_ac_unoccupied_count"
+       }
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "trigger",
+         "id": "check_60m"
+        },
+        {
+         "condition": "trigger",
+         "id": "check_60m_num"
+        }
+       ]
+      }
+     ],
+     "sequence": [
+      {
+       "action": "input_number.set_value",
+       "data": {
+        "value": 3
+       },
+       "target": {
+        "entity_id": "input_number.yueyue_ac_unoccupied_count"
+       }
+      },
+      {
+       "action": "climate.turn_off",
+       "target": {
+        "entity_id": "climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao"
+       }
+      },
+      {
+       "delay": {
+        "seconds": 2
+       }
+      },
+      {
+       "action": "input_number.set_value",
+       "data": {
+        "value": 0
+       },
+       "target": {
+        "entity_id": "input_number.yueyue_ac_unoccupied_count"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "悦悦房白天空调无人三阶检测与关机",
+ "conditions": [
+  {
+   "after": "07:20:00",
+   "before": "21:30:00",
+   "condition": "time"
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ states('climate.yue_yue_fang_kong_diao_yue_yue_fang_kong_diao') not in ['off', 'unknown', 'unavailable'] }}"
+  },
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+   "state": "off"
+  }
+ ],
+ "description": "每天07:20-21:30，非睡眠模式下，分别在无人满20分、40分、60分阶梯确认，连续3次无人(满1小时)自动关闭空调",
+ "id": "yueyue_ac_daytime_unoccupied_off",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+   "for": {
+    "minutes": 20
+   },
+   "id": "check_20m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+   "for": {
+    "minutes": 40
+   },
+   "id": "check_40m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+   "for": {
+    "minutes": 60
+   },
+   "id": "check_60m",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "above": 59,
+   "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_no_one_duration_p_2_1079",
+   "id": "check_60m_num",
+   "platform": "numeric_state"
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "actions": [
+  {
+   "action": "input_boolean.turn_on",
+   "target": {
+    "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi"
+   }
+  },
+  {
+   "delay": {
+    "minutes": 30
+   }
+  },
+  {
+   "if": [
+    {
+     "condition": "template",
+     "value_template": "{{ not is_state('binary_sensor.tou_ying_yi_zai_yong', 'on') }}"
+    }
+   ],
+   "then": [
+    {
+     "action": "input_boolean.turn_off",
+     "target": {
+      "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "客厅手动关灯防打扰",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+   "state": "on"
+  },
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "state": "off"
+  }
+ ],
+ "description": "人在沙发上手动关灯（看电影/休息）时立即锁30分钟，绝不自动反弹开灯；30分钟到期时先检查投影仪(binary_sensor.tou_ying_yi_zai_yong)是否还在用——还在用就不解锁，等投影仪真关机后由「客厅观影模式联动」负责解锁；投影仪已关才会在到期时自动解锁",
+ "id": "ke_ting_manual_override_watcher",
+ "initial_state": false,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "switch.bean_cn_1124140556_blns2_on_p_3_1",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}

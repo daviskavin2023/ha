@@ -1,0 +1,36 @@
+{
+ "actions": [
+  {
+   "action": "notify.mobile_app_ptp_an00",
+   "data": {
+    "data": {
+     "tag": "ha_watch_lele_ac"
+    },
+    "message": "乐乐房空调已离线超过30分钟，明早自动关机可能失效",
+    "title": "智能家居"
+   }
+  }
+ ],
+ "alias": "监控：乐乐房空调掉线提醒",
+ "conditions": [
+  {
+   "after": "07:00:00",
+   "before": "23:00:00",
+   "condition": "time"
+  }
+ ],
+ "description": "乐乐房空调(小米插座)不可用超过30分钟→手机推送(不自动重连，避免影响其它小米设备)；23:00-07:00不推送，由07:00汇总。3045-ai-claude 2026-10-08",
+ "id": "ha_watch_lele_ac_offline_20261008",
+ "max_exceeded": "silent",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "climate.lumi_cn_878028546_mcn02",
+   "for": {
+    "minutes": 30
+   },
+   "platform": "state",
+   "to": "unavailable"
+  }
+ ]
+}

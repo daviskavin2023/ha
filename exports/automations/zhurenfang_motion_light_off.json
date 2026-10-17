@@ -1,0 +1,70 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "主人房无人自动关灯",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1",
+   "state": "on"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+   "state": "off"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "trigger",
+     "id": "occupancy_cleared_60s"
+    },
+    {
+     "condition": "trigger",
+     "id": "switch_on_60s"
+    },
+    {
+     "above": 0,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_1207295174_hb01_no_one_duration_p_2_4"
+    }
+   ]
+  }
+ ],
+ "description": "主人房人在感应判定无人持续60秒自动熄灭主灯(全天候24小时生效，任何情形不可禁用)",
+ "id": "zhurenfang_motion_light_off",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+   "for": {
+    "seconds": 60
+   },
+   "id": "occupancy_cleared_60s",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1",
+   "for": {
+    "seconds": 60
+   },
+   "id": "switch_on_60s",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "sensor.linp_cn_1207295174_hb01_no_one_duration_p_2_4",
+   "id": "no_one_duration_tick",
+   "platform": "state"
+  }
+ ]
+}

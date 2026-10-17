@@ -1,0 +1,62 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_on",
+   "target": {
+    "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+   }
+  }
+ ],
+ "alias": "阳台开灯",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+   "state": "off"
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "sun.sun",
+     "state": "below_horizon"
+    },
+    {
+     "below": 35,
+     "condition": "numeric_state",
+     "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_illumination_p_2_1005"
+    }
+   ]
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+     "state": "on"
+    },
+    {
+     "condition": "template",
+     "value_template": "{{ (now() - states.binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1.last_changed).total_seconds() < 180 }}"
+    }
+   ]
+  }
+ ],
+ "description": "阳台暗光(照度<35Lux或日落后)且人从客厅穿过门槛进入阳台秒开灯；白天阴暗暴雨天均能正常感应",
+ "id": "1736918907451",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008",
+   "platform": "state"
+  },
+  {
+   "below": 2,
+   "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
+   "platform": "numeric_state"
+  }
+ ]
+}

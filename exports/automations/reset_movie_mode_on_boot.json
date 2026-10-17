@@ -1,0 +1,28 @@
+{
+ "actions": [
+  {
+   "action": "input_boolean.turn_off",
+   "target": {
+    "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi"
+   }
+  }
+ ],
+ "alias": "系统自检复位观影模式",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+   "state": "off"
+  }
+ ],
+ "description": "HA启动时若投影仪未开机，自动确保观影模式开关处于关闭状态，防止开灯被卡死",
+ "id": "reset_movie_mode_on_boot",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "event": "start",
+   "platform": "homeassistant"
+  }
+ ]
+}

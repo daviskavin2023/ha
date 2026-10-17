@@ -1,0 +1,92 @@
+{
+ "actions": [
+  {
+   "action": "media_player.volume_mute",
+   "data": {
+    "is_volume_muted": false
+   },
+   "target": {
+    "entity_id": "media_player.xiaomi_cn_801280551_l05b"
+   }
+  },
+  {
+   "action": "media_player.volume_set",
+   "data": {
+    "volume_level": 0.18
+   },
+   "target": {
+    "entity_id": "media_player.xiaomi_cn_801280551_l05b"
+   }
+  },
+  {
+   "action": "notify.send_message",
+   "data": {
+    "message": "[\"播放轻音乐\", false]"
+   },
+   "target": {
+    "entity_id": "notify.xiaomi_cn_801280551_l05b_execute_text_directive_a_5_4"
+   }
+  },
+  {
+   "delay": {
+    "seconds": 10
+   }
+  },
+  {
+   "action": "media_player.volume_set",
+   "data": {
+    "volume_level": 0.25
+   },
+   "target": {
+    "entity_id": "media_player.xiaomi_cn_801280551_l05b"
+   }
+  },
+  {
+   "delay": {
+    "seconds": 20
+   }
+  },
+  {
+   "action": "notify.send_message",
+   "data": {
+    "message": "[\"停止播放\", false]"
+   },
+   "target": {
+    "entity_id": "notify.xiaomi_cn_801280551_l05b_execute_text_directive_a_5_4"
+   }
+  },
+  {
+   "action": "media_player.media_stop",
+   "target": {
+    "entity_id": "media_player.xiaomi_cn_801280551_l05b"
+   }
+  },
+  {
+   "action": "media_player.volume_set",
+   "data": {
+    "volume_level": 0.35
+   },
+   "target": {
+    "entity_id": "media_player.xiaomi_cn_801280551_l05b"
+   }
+  }
+ ],
+ "alias": "客厅小爱音箱上学日出门闹钟 (07:40)",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.shang_xue_ri",
+   "state": "on"
+  }
+ ],
+ "description": "上学日每天早上 07:40：平滑播放轻音乐 30 秒柔和提醒，无语音播报，30秒后自动彻底停止",
+ "id": "ke_ting_xiao_ai_shang_xue_ri_chu_men_nao_zhong_0740",
+ "initial_state": true,
+ "mode": "single",
+ "triggers": [
+  {
+   "at": "07:40:00",
+   "platform": "time"
+  }
+ ]
+}
