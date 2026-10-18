@@ -269,7 +269,7 @@ mode: restart
 | 客厅全域 | 客厅关灯模式 | `automation.ke_ting_guan_deng_mo_shi` | `1737092055785` | 客厅主控照明全关 (已彻底剔除厨房/客厅双开按键) | 睡前场景/语音触发 | **`on` 启用** |
 | 客厅全域 | 客厅观影模式联动 | `automation.ke_ting_guan_ying_mo_shi_lian_dong` | `1789568949322` | `input_boolean.ke_ting_guan_ying_mo_shi` | `binary_sensor.tou_ying_yi_zai_yong` (>50W 判定) | **`on` 启用** |
 | 客厅全域 | 客厅观影模式灯光联动 | `automation.ke_ting_guan_ying_mo_shi_deng_guang_lian_dong` | `1789570686104` | 关主灯/舞台灯，开温馨灯带（不接管厨房） | 观影辅助开关状态变更 | **`on` 启用** |
-| 客厅全域 | 开门 | `automation.kai_men` | `1736917740057` | `switch.bean_cn_1117205015_blns3_on_p_2_1` (玄关走廊灯)<br>`switch.bean_cn_1124140522_blns2_on_p_3_1` (玄关灯带) | 大门门磁打开 (`contact_state == on`) 或玄关有人移动 | **`on` 启用** |
+| 客厅全域 | 开门 | `automation.kai_men` | `1736917740057` | `switch.bean_cn_1117205015_blns3_on_p_2_1` (玄关走廊灯)<br>`switch.bean_cn_1124140522_blns2_on_p_3_1` (玄关灯带) | 大门门磁打开 (`contact_state == on`) 或玄关有人移动（夜间/暗光生效；全家无人回家联动客厅/厨房仅夜间生效，白天屏蔽） | **`on` 启用** |
 | 客厅全域 | 玄关关灯 | `automation.xuan_guan_guan_deng` | `1736942176778` | 玄关走廊灯与玄关灯带同步关停 | 门已关且玄关无移动持续满 1 分钟 (已剔除秒关模板) | **`on` 启用** |
 | **厨房阳台** | 厨房开灯 | `automation.chu_fang_kai_deng` | `1736917627387` | `switch.bean_blns1_aaab_switch` (厨房灯 开关) | 厨房雷达有人 (`has one`) 即开，不设照度门槛（2026-09-17 Claude 复核修正：此前文档写"已移除照度条件"但实际代码仍带 `<60Lux或夜间` 判断，跟§5.6确认目标矛盾，本次已实改） | **`on` 启用** |
 | 厨房阳台 | 厨房关灯 | `automation.chu_fang_guan_deng` | `1736968786159` | `switch.bean_blns1_aaab_switch` (厨房灯 开关) | 厨房雷达无人持续满 1 分 30 秒 (防做饭误熄) | **`on` 启用** |

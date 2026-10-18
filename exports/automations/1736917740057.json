@@ -52,6 +52,21 @@
        "condition": "state",
        "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
        "state": "off"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "sun.sun",
+         "state": "below_horizon"
+        },
+        {
+         "condition": "state",
+         "entity_id": "sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_illumination_p_2_1",
+         "state": "弱"
+        }
+       ]
       }
      ]
     }
@@ -140,16 +155,11 @@
      "condition": "state",
      "entity_id": "sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_illumination_p_2_1",
      "state": "弱"
-    },
-    {
-     "below": 30,
-     "condition": "numeric_state",
-     "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_illumination_p_2_1005"
     }
    ]
   }
  ],
- "description": "开门或玄关有人移动，且夜间/暗光时自动开启玄关走廊灯；全家无人第一人推门回家时额外联动厨房灯、客厅大灯与左右双路灯带，灯带2分钟迎宾后自动熄灭，大灯完全匹配客厅有人雷达托管。",
+ "description": "开门或玄关有人移动，且夜间/暗光(日落后或门外暗光)时自动开启玄关走廊灯；夜间/暗光且全家无人第一人推门回家时额外联动厨房灯、客厅大灯与左右双路灯带，灯带2分钟迎宾后自动熄灭，大灯完全匹配客厅有人雷达托管；白天自然光下彻底屏蔽全屋联动与玄关开灯。",
  "id": "1736917740057",
  "initial_state": true,
  "max": 10,
