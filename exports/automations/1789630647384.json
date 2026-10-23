@@ -74,9 +74,22 @@
        "entity_id": "sensor.linp_cn_1134456435_hb01_no_one_duration_p_2_4"
       },
       {
-       "above": 299,
-       "condition": "numeric_state",
-       "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024"
+       "condition": "or",
+       "conditions": [
+        {
+         "above": 299,
+         "condition": "numeric_state",
+         "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024"
+        },
+        {
+         "condition": "state",
+         "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024",
+         "state": [
+          "unavailable",
+          "unknown"
+         ]
+        }
+       ]
       }
      ]
     },
