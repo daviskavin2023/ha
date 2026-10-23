@@ -1,73 +1,33 @@
 {
  "actions": [
   {
-   "action": "switch.turn_off",
-   "target": {
-    "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
-   }
-  },
-  {
-   "delay": {
-    "seconds": 1
-   }
-  },
-  {
-   "action": "switch.turn_off",
-   "target": {
-    "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1"
-   }
-  },
-  {
-   "delay": {
-    "seconds": 1
-   }
-  },
-  {
-   "action": "switch.turn_off",
-   "target": {
-    "entity_id": "switch.wiing_cn_1169934703_v7icm_on_p_2_1"
-   }
-  },
-  {
-   "delay": {
-    "seconds": 2
-   }
-  },
-  {
    "if": [
     {
-     "condition": "and",
-     "conditions": [
-      {
-       "above": 40,
-       "condition": "numeric_state",
-       "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5"
-      },
-      {
-       "condition": "state",
-       "entity_id": "sun.sun",
-       "state": "below_horizon"
-      },
-      {
-       "condition": "state",
-       "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
-       "state": "off"
-      }
+     "condition": "state",
+     "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024",
+     "state": [
+      "unavailable",
+      "unknown"
      ]
     }
    ],
    "then": [
     {
-     "action": "switch.toggle",
-     "target": {
-      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
-     }
-    },
-    {
      "delay": {
-      "seconds": 1
+      "seconds": 30
      }
-    },
+    }
+   ]
+  },
+  {
+   "if": [
+    {
+     "condition": "state",
+     "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+     "state": "off"
+    }
+   ],
+   "then": [
     {
      "action": "switch.turn_off",
      "target": {
@@ -84,6 +44,76 @@
      "target": {
       "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1"
      }
+    },
+    {
+     "delay": {
+      "seconds": 1
+     }
+    },
+    {
+     "action": "switch.turn_off",
+     "target": {
+      "entity_id": "switch.wiing_cn_1169934703_v7icm_on_p_2_1"
+     }
+    },
+    {
+     "delay": {
+      "seconds": 2
+     }
+    },
+    {
+     "if": [
+      {
+       "condition": "and",
+       "conditions": [
+        {
+         "above": 40,
+         "condition": "numeric_state",
+         "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5"
+        },
+        {
+         "condition": "state",
+         "entity_id": "sun.sun",
+         "state": "below_horizon"
+        },
+        {
+         "condition": "state",
+         "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+         "state": "off"
+        }
+       ]
+      }
+     ],
+     "then": [
+      {
+       "action": "switch.toggle",
+       "target": {
+        "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+       }
+      },
+      {
+       "delay": {
+        "seconds": 1
+       }
+      },
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1"
+       }
+      },
+      {
+       "delay": {
+        "seconds": 1
+       }
+      },
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1"
+       }
+      }
+     ]
     }
    ]
   }
@@ -129,7 +159,7 @@
    ]
   }
  ],
- "description": "厨房雷达无人满2分钟且厨房PIR同时满5分钟无移动（两个都确认无人）才自动关厨房主灯与开关；PIR离线（unavailable/unknown）时退回只看雷达，保证灯仍能关",
+ "description": "雷达判无人满2分钟后再问PIR：PIR 5分钟内有移动则不关；PIR无移动则关；PIR失效（unavailable/unknown）则等30秒复检雷达，仍无人才关",
  "id": "1736968786159",
  "initial_state": true,
  "mode": "restart",
