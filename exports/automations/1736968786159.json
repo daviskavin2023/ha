@@ -111,25 +111,12 @@
    "state": "off"
   },
   {
-   "condition": "or",
-   "conditions": [
-    {
-     "above": 299,
-     "condition": "numeric_state",
-     "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024"
-    },
-    {
-     "condition": "state",
-     "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024",
-     "state": [
-      "unavailable",
-      "unknown"
-     ]
-    }
-   ]
+   "above": 299,
+   "condition": "numeric_state",
+   "entity_id": "sensor.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_no_motion_duration_p_2_1024"
   }
  ],
- "description": "厨房雷达无人满2分钟且厨房PIR同时满5分钟无移动，才自动关厨房主灯与开关（v0.1.3 起加PIR交叉确认，防止人在厨房静止/站在雷达远端被误关；PIR离线时退回只看雷达）",
+ "description": "厨房雷达无人满2分钟且厨房PIR同时满5分钟无移动（两个都确认无人）才自动关厨房主灯与开关；PIR离线时不关灯（宁可费电也不提前关）",
  "id": "1736968786159",
  "initial_state": true,
  "mode": "restart",
