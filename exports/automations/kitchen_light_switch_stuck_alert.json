@@ -1,0 +1,133 @@
+{
+ "actions": [
+  {
+   "continue_on_timeout": true,
+   "timeout": {
+    "minutes": 15
+   },
+   "wait_template": "{% set lx = states('sensor.linp_cn_1134456435_hb01_illumination_p_2_5') %}{{ is_number(lx) and lx | float <= 40 }}"
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ not wait.completed }}"
+  },
+  {
+   "condition": "state",
+   "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "switch.bean_cn_1117205015_blns3_on_p_3_1",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "sun.sun",
+   "state": "below_horizon"
+  },
+  {
+   "above": 40,
+   "condition": "numeric_state",
+   "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5"
+  },
+  {
+   "variables": {
+    "t0": "{{ as_timestamp(trigger.to_state.last_changed) }}"
+   }
+  },
+  {
+   "action": "logbook.log",
+   "data": {
+    "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+    "message": "关灯 15 分钟后灯仍亮（照度 {{ states('sensor.linp_cn_1134456435_hb01_illumination_p_2_5') }} lx）",
+    "name": "厨房灯开关不响应"
+   }
+  },
+  {
+   "action": "notify.mobile_app_ptp_an00",
+   "data": {
+    "data": {
+     "tag": "ha_watch_kitchen_light_stuck"
+    },
+    "message": "厨房灯开关不响应：已发关灯命令 15 分钟，灯还亮着（照度 {{ states('sensor.linp_cn_1134456435_hb01_illumination_p_2_5') }} lx）。巡检会每 5 分钟继续重试；一直不灭可手按开关，或给这一路断电 10 秒。",
+    "title": "智能家居"
+   }
+  },
+  {
+   "continue_on_timeout": true,
+   "timeout": {
+    "hours": 8
+   },
+   "wait_template": "{% set lx = states('sensor.linp_cn_1134456435_hb01_illumination_p_2_5') %}{{ is_number(lx) and lx | float <= 40 }}"
+  },
+  {
+   "else": [
+    {
+     "action": "logbook.log",
+     "data": {
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+      "message": "8 小时内未确认恢复（照度 {{ states('sensor.linp_cn_1134456435_hb01_illumination_p_2_5') }} lx）",
+      "name": "厨房灯开关不响应"
+     }
+    },
+    {
+     "action": "notify.mobile_app_ptp_an00",
+     "data": {
+      "data": {
+       "tag": "ha_watch_kitchen_light_stuck"
+      },
+      "message": "厨房灯开关 8 小时内没能确认恢复（白天照度高也会这样），请人工看一眼厨房灯。",
+      "title": "智能家居"
+     }
+    }
+   ],
+   "if": [
+    {
+     "condition": "template",
+     "value_template": "{{ wait.completed }}"
+    }
+   ],
+   "then": [
+    {
+     "action": "logbook.log",
+     "data": {
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+      "message": "已恢复，灯已灭，卡住约 {{ ((as_timestamp(now()) - t0) / 60) | round(0) | int }} 分钟",
+      "name": "厨房灯开关不响应"
+     }
+    },
+    {
+     "action": "notify.mobile_app_ptp_an00",
+     "data": {
+      "data": {
+       "tag": "ha_watch_kitchen_light_stuck"
+      },
+      "message": "厨房灯已灭，开关恢复响应（卡住约 {{ ((as_timestamp(now()) - t0) / 60) | round(0) | int }} 分钟）。",
+      "title": "智能家居"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "监控：厨房灯开关不响应提醒",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "sun.sun",
+   "state": "below_horizon"
+  }
+ ],
+ "description": "厨房灯开关(blns1)被关后 15 分钟照度仍 >40lx（命令没执行）→手机推送一次；照度降到 ≤40 再推一次“已恢复”；每次都写日志便于统计次数。只发通知，不控制任何设备。PRD-2026-10-27-厨房灯开关不响应报警.md",
+ "id": "kitchen_light_switch_stuck_alert",
+ "max_exceeded": "silent",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+   "from": "on",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}
