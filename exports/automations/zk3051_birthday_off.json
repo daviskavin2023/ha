@@ -1,0 +1,41 @@
+{
+ "actions": [
+  {
+   "else": [
+    {
+     "action": "persistent_notification.create",
+     "data": {
+      "message": "开启前的灯光快照不存在（HA 重启过），灯光未自动恢复，交给原来的感应自动化。",
+      "title": "生日模式已关闭"
+     }
+    }
+   ],
+   "if": [
+    {
+     "condition": "template",
+     "value_template": "{{ states('scene.sheng_ri_qian') != 'unknown' and states('scene.sheng_ri_qian') != 'unavailable' }}"
+    }
+   ],
+   "then": [
+    {
+     "action": "scene.turn_on",
+     "target": {
+      "entity_id": "scene.sheng_ri_qian"
+     }
+    }
+   ]
+  }
+ ],
+ "alias": "3051 生日模式·关闭恢复",
+ "description": "手动关闭生日：恢复开启前的灯和会客状态（原来是会客就回会客）；快照丢失（HA 重启过）则只发通知",
+ "id": "zk3051_birthday_off",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "from": "on",
+   "to": "off",
+   "trigger": "state"
+  }
+ ]
+}

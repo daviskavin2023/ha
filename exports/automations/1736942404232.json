@@ -33,6 +33,12 @@
    "condition": "state",
    "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
    "state": "off"
+  },
+  {
+   "alias": "3051 会客中不动作",
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off"
   }
  ],
  "description": "客厅无人持续 2 分钟后自动关闭所有灯光与灯带；投影仪在用时不执行 (风扇已彻底移出关灯列表，绝不误关风扇)",

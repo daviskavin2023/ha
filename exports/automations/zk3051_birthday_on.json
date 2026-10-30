@@ -1,0 +1,55 @@
+{
+ "actions": [
+  {
+   "action": "scene.create",
+   "data": {
+    "scene_id": "sheng_ri_qian",
+    "snapshot_entities": [
+     "switch.bean_cn_1124140556_blns2_on_p_3_1",
+     "switch.bean_cn_1124140556_blns2_on_p_2_1",
+     "switch.bean_cn_1124140980_blns2_on_p_2_1",
+     "switch.bean_cn_1124140980_blns2_on_p_3_1",
+     "switch.bean_cn_1124140065_blns2_on_p_2_1",
+     "switch.bean_cn_1124140065_blns2_on_p_3_1",
+     "switch.bean_cn_1122794638_blns1_on_p_2_1",
+     "switch.bean_cn_1124140522_blns2_on_p_3_1",
+     "switch.bean_cn_1124143167_blns1_on_p_2_1",
+     "input_boolean.hui_ke_mo_shi"
+    ]
+   }
+  },
+  {
+   "action": "input_boolean.turn_off",
+   "target": {
+    "entity_id": "input_boolean.hui_ke_mo_shi"
+   }
+  },
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1124140556_blns2_on_p_3_1",
+     "switch.bean_cn_1124140556_blns2_on_p_2_1",
+     "switch.bean_cn_1124140980_blns2_on_p_2_1",
+     "switch.bean_cn_1124140980_blns2_on_p_3_1",
+     "switch.bean_cn_1124140065_blns2_on_p_2_1",
+     "switch.bean_cn_1124140065_blns2_on_p_3_1",
+     "switch.bean_cn_1122794638_blns1_on_p_2_1",
+     "switch.bean_cn_1124140522_blns2_on_p_3_1",
+     "switch.bean_cn_1124143167_blns1_on_p_2_1"
+    ]
+   }
+  }
+ ],
+ "alias": "3051 生日模式·开启",
+ "description": "先快照灯和会客状态，再关闭卧室/卫生间/阳台以外的灯；只能手动关闭",
+ "id": "zk3051_birthday_on",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "to": "on",
+   "trigger": "state"
+  }
+ ]
+}

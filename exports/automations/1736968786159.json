@@ -157,6 +157,12 @@
      ]
     }
    ]
+  },
+  {
+   "alias": "3051 会客中不动作",
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off"
   }
  ],
  "description": "雷达判无人满2分钟后再问PIR：PIR 5分钟内有移动则不关；PIR无移动则关；PIR失效（unavailable/unknown）则等30秒复检雷达，仍无人才关",

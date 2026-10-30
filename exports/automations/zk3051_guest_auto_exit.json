@@ -1,0 +1,76 @@
+{
+ "actions": [
+  {
+   "delay": {
+    "minutes": 5
+   }
+  },
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "on"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 5
+   },
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 5
+   },
+   "state": "off"
+  },
+  {
+   "action": "input_boolean.turn_off",
+   "target": {
+    "entity_id": "input_boolean.hui_ke_mo_shi"
+   }
+  }
+ ],
+ "alias": "3051 会客模式·无人自动退出",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "on"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 5
+   },
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 5
+   },
+   "state": "off"
+  }
+ ],
+ "description": "客厅、厨房两个雷达同时连续 5 分钟没人 → 再等 5 分钟复查仍全部没人 → 退出会客",
+ "id": "zk3051_guest_auto_exit",
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": [
+    "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+    "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1"
+   ],
+   "for": {
+    "minutes": 5
+   },
+   "to": "off",
+   "trigger": "state"
+  }
+ ]
+}

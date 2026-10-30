@@ -41,6 +41,20 @@
   }
  ],
  "alias": "客厅舞台灯联动",
+ "conditions": [
+  {
+   "alias": "3051 会客中不动作",
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off"
+  },
+  {
+   "alias": "3051 生日中不动作",
+   "condition": "state",
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "state": "off"
+  }
+ ],
  "description": "厨房与客厅同时有人、非观影且暗光(夜间或<35Lux且<85Lux)时点亮舞台灯；任一区无人、进入观影或强光时关闭舞台灯",
  "id": "1749716052814",
  "initial_state": true,

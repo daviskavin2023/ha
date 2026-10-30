@@ -1,0 +1,43 @@
+{
+ "actions": [
+  {
+   "action": "switch.turn_off",
+   "target": {
+    "entity_id": [
+     "switch.bean_cn_1122794638_blns1_on_p_2_1",
+     "switch.bean_cn_1124140556_blns2_on_p_2_1",
+     "switch.bean_cn_1124140556_blns2_on_p_3_1"
+    ]
+   }
+  }
+ ],
+ "alias": "3051 会客模式·关闭",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "state": "off"
+  }
+ ],
+ "description": "会客关闭时若客厅、厨房都没人，关掉会客开的三盏灯；有人则交给原来的感应自动化；生日引起的关闭不动灯",
+ "id": "zk3051_guest_off",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "from": "on",
+   "to": "off",
+   "trigger": "state"
+  }
+ ]
+}

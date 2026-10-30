@@ -71,6 +71,12 @@
    "below": 85,
    "condition": "numeric_state",
    "entity_id": "sensor.linp_cn_1130732284_hb01_illumination_p_2_5"
+  },
+  {
+   "alias": "3051 生日中不动作",
+   "condition": "state",
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "state": "off"
   }
  ],
  "description": "客厅有人且室内昏暗时自动开灯；支持雷达翻转、雷达接近事件即时触发",

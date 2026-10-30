@@ -17,6 +17,12 @@
   {
    "condition": "template",
    "value_template": "{{ trigger.id == 'wall_switch_on' or trigger.id == 'pir_motion' or \n   states.switch.bean_cn_1122794638_blns1_on_p_2_1.last_changed is none or \n   (now() - states.switch.bean_cn_1122794638_blns1_on_p_2_1.last_changed).total_seconds() > 5 }}"
+  },
+  {
+   "alias": "3051 生日中不动作",
+   "condition": "state",
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "state": "off"
   }
  ],
  "description": "厨房有人(has one)就开灯，不设照度门槛，白天也开；人在做饭持续长亮；移除抖动误开并加入关灯防反弹保护。2026-09-23：新增PIR(原走廊人体感应2，已移至厨房)作为额外开灯触发源，跟雷达互为补充",

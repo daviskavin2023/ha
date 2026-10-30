@@ -536,6 +536,14 @@
   }
  ],
  "alias": "全屋灯光自主巡检与幽灵灯自愈引擎",
+ "conditions": [
+  {
+   "alias": "3051 会客中不动作",
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off"
+  }
+ ],
  "description": "全屋5分钟极速自愈巡检看门狗：全天候扫描客厅、厨房、卫浴、走廊、书房、阳台及所有卧室，彻底消灭假死、丢包、雷达风扇误报导致的长亮不灭问题 [工业级一劳永逸版]",
  "id": "auto_lighting_self_healing_patrol",
  "initial_state": true,
