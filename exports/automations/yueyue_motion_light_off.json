@@ -3,16 +3,29 @@
   {
    "action": "switch.turn_off",
    "target": {
-    "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1"
+    "entity_id": [
+     "switch.bean_cn_1124139478_blns2_on_p_2_1",
+     "switch.bean_cn_1124141619_blns1_on_p_2_1"
+    ]
    }
   }
  ],
  "alias": "悦悦房无人自动关灯",
  "conditions": [
   {
-   "condition": "state",
-   "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
-   "state": "on"
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+     "state": "on"
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+     "state": "on"
+    }
+   ]
   },
   {
    "condition": "state",

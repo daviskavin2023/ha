@@ -4,23 +4,84 @@
    "if": [
     {
      "condition": "trigger",
-     "id": "scene_switch_clicked"
+     "id": "auto_lock_23pm"
     }
    ],
    "then": [
     {
-     "action": "switch.turn_off",
+     "action": "input_boolean.turn_on",
      "target": {
-      "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1"
+      "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi"
      }
     }
    ]
   },
   {
-   "action": "input_boolean.turn_on",
-   "target": {
-    "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi"
-   }
+   "if": [
+    {
+     "condition": "trigger",
+     "id": "scene_switch_clicked"
+    }
+   ],
+   "then": [
+    {
+     "choose": [
+      {
+       "conditions": [
+        {
+         "condition": "or",
+         "conditions": [
+          {
+           "condition": "state",
+           "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+           "state": "on"
+          },
+          {
+           "condition": "state",
+           "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+           "state": "on"
+          }
+         ]
+        }
+       ],
+       "sequence": [
+        {
+         "action": "switch.turn_off",
+         "target": {
+          "entity_id": [
+           "switch.bean_cn_1124139478_blns2_on_p_2_1",
+           "switch.bean_cn_1124141619_blns1_on_p_2_1"
+          ]
+         }
+        },
+        {
+         "action": "input_boolean.turn_on",
+         "target": {
+          "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi"
+         }
+        }
+       ]
+      }
+     ],
+     "default": [
+      {
+       "action": "switch.turn_on",
+       "target": {
+        "entity_id": [
+         "switch.bean_cn_1124139478_blns2_on_p_2_1",
+         "switch.bean_cn_1124141619_blns1_on_p_2_1"
+        ]
+       }
+      },
+      {
+       "action": "input_boolean.turn_off",
+       "target": {
+        "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi"
+       }
+      }
+     ]
+    }
+   ]
   }
  ],
  "alias": "悦悦房手动关灯进入睡眠锁定",
@@ -39,7 +100,7 @@
    ]
   }
  ],
- "description": "晚上通过床头情景开关关灯，或每晚23:00自动锁定，激活关灯防打扰锁定，人在感应暂停工作避免半夜误亮",
+ "description": "床头情景开关点按：开着则关灯并进入防打扰；关着则开灯并解除防打扰；每晚23:00自动锁定防打扰",
  "id": "yueyue_manual_sleep_lock",
  "initial_state": true,
  "mode": "restart",
