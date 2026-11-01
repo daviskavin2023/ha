@@ -1,0 +1,76 @@
+esphome:
+  name: ld2410-test
+  friendly_name: "LD2410 Living Room Radar"
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+  hardware_uart: UART0
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+uart:
+  id: radar_uart
+  tx_pin: GPIO17
+  rx_pin: GPIO18
+  baud_rate: 256000
+  rx_buffer_size: 512
+  parity: NONE
+  stop_bits: 1
+
+ld2410:
+  uart_id: radar_uart
+
+binary_sensor:
+  - platform: ld2410
+    has_target:
+      name: "Presence"
+    has_moving_target:
+      name: "Moving"
+    has_still_target:
+      name: "Still"
+
+sensor:
+  - platform: ld2410
+    detection_distance:
+      name: "Detection Distance"
+    moving_distance:
+      name: "Moving Distance"
+    still_distance:
+      name: "Still Distance"
+    moving_energy:
+      name: "Moving Energy"
+    still_energy:
+      name: "Still Energy"
+
+number:
+  - platform: ld2410
+    timeout:
+      name: "Timeout"
+    max_move_distance_gate:
+      name: "Max Move Distance Gate"
+    max_still_distance_gate:
+      name: "Max Still Distance Gate"
+
+button:
+  - platform: ld2410
+    restart:
+      name: "Radar Restart"
+    query_params:
+      name: "Radar Query"
+  - platform: restart
+    name: "ESP32 Restart"

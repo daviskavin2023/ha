@@ -1,0 +1,6 @@
+# Local secrets and esphome build cache
+secrets.yaml
+esphome/secrets.yaml
+.esphome/
+esphome/.esphome/
+*.log
