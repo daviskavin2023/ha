@@ -1,0 +1,71 @@
+{
+ "actions": [
+  {
+   "action": "input_boolean.turn_off",
+   "target": {
+    "entity_id": "input_boolean.sheng_ri_mo_shi"
+   }
+  }
+ ],
+ "alias": "3051 生日模式·手动操作退出",
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "state": "on"
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ trigger.id == 'mode' or trigger.to_state.context.user_id is not none or trigger.to_state.context.parent_id is none }}"
+  }
+ ],
+ "description": "任意灯由关到开且来自用户或设备直接上报，或开启会客/观影时退出生日；不回放旧灯光快照，不覆盖新操作。自动化开灯及离线重连不触发。",
+ "id": "zk3051_birthday_manual_exit",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": [
+    "light.yeelink_cn_1135479085_mbulb3_s_2",
+    "switch.bean_cn_1124140065_blns2_on_p_2_1",
+    "switch.bean_cn_1124140065_blns2_on_p_3_1",
+    "switch.bean_cn_1124140556_blns2_on_p_2_1",
+    "switch.bean_cn_1124140556_blns2_on_p_3_1",
+    "switch.bean_cn_1124140980_blns2_on_p_2_1",
+    "switch.bean_cn_1124140980_blns2_on_p_3_1",
+    "switch.bean_cn_1124140522_blns2_on_p_3_1",
+    "switch.bean_cn_1124143167_blns1_on_p_2_1",
+    "switch.bean_cn_1117205015_blns3_on_p_2_1",
+    "switch.bean_cn_1117205015_blns3_on_p_3_1",
+    "switch.bean_cn_1117205015_blns3_on_p_4_1",
+    "switch.bean_cn_1122794638_blns1_on_p_2_1",
+    "switch.bean_cn_1124140333_blns2_on_p_3_1",
+    "switch.bean_cn_1124140372_blns2_on_p_2_1",
+    "switch.bean_cn_1122794165_blns1_on_p_2_1",
+    "switch.bean_cn_1122795934_blns1_on_p_2_1",
+    "switch.bean_cn_1124140146_blns2_on_p_2_1",
+    "switch.bean_cn_1124140146_blns2_on_p_3_1",
+    "switch.bean_cn_1122795665_blns1_on_p_2_1",
+    "switch.bean_cn_1124140377_blns2_on_p_2_1",
+    "switch.bean_cn_1124140377_blns2_on_p_3_1",
+    "switch.bean_cn_1124139478_blns2_on_p_2_1",
+    "switch.bean_cn_1124139478_blns2_on_p_3_1",
+    "switch.bean_cn_1124141619_blns1_on_p_2_1",
+    "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+   ],
+   "from": "off",
+   "id": "light",
+   "to": "on",
+   "trigger": "state"
+  },
+  {
+   "entity_id": [
+    "input_boolean.hui_ke_mo_shi",
+    "input_boolean.ke_ting_guan_ying_mo_shi"
+   ],
+   "from": "off",
+   "id": "mode",
+   "to": "on",
+   "trigger": "state"
+  }
+ ]
+}

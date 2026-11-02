@@ -27,7 +27,13 @@
   }
  ],
  "alias": "3051 生日模式·关闭恢复",
- "description": "手动关闭生日：恢复开启前的灯和会客状态（原来是会客就回会客）；快照丢失（HA 重启过）则只发通知",
+ "conditions": [
+  {
+   "condition": "template",
+   "value_template": "{{ trigger.to_state.context.user_id is not none or trigger.to_state.context.parent_id is none }}"
+  }
+ ],
+ "description": "直接手动关闭生日时恢复旧快照；开灯或切模式引起的自动退出不恢复，保留新操作",
  "id": "zk3051_birthday_off",
  "mode": "single",
  "triggers": [

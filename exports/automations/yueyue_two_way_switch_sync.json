@@ -10,12 +10,12 @@
       },
       {
        "condition": "template",
-       "value_template": "{{ states(switch.bean_cn_1124139478_blns2_on_p_2_1) != states(switch.bean_cn_1124141619_blns1_on_p_2_1) and states(switch.bean_cn_1124139478_blns2_on_p_2_1) in [on, off] }}"
+       "value_template": "{{ states('switch.bean_cn_1124139478_blns2_on_p_2_1') != states('switch.bean_cn_1124141619_blns1_on_p_2_1') and states('switch.bean_cn_1124139478_blns2_on_p_2_1') in ['on', 'off'] }}"
       }
      ],
      "sequence": [
       {
-       "action": "switch.{{ states(switch.bean_cn_1124139478_blns2_on_p_2_1) }}",
+       "action": "switch.{{ states('switch.bean_cn_1124139478_blns2_on_p_2_1') }}",
        "target": {
         "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1"
        }
@@ -30,12 +30,12 @@
       },
       {
        "condition": "template",
-       "value_template": "{{ states(switch.bean_cn_1124139478_blns2_on_p_2_1) != states(switch.bean_cn_1124141619_blns1_on_p_2_1) and states(switch.bean_cn_1124141619_blns1_on_p_2_1) in [on, off] }}"
+       "value_template": "{{ states('switch.bean_cn_1124139478_blns2_on_p_2_1') != states('switch.bean_cn_1124141619_blns1_on_p_2_1') and states('switch.bean_cn_1124141619_blns1_on_p_2_1') in ['on', 'off'] }}"
       }
      ],
      "sequence": [
       {
-       "action": "switch.{{ states(switch.bean_cn_1124141619_blns1_on_p_2_1) }}",
+       "action": "switch.{{ states('switch.bean_cn_1124141619_blns1_on_p_2_1') }}",
        "target": {
         "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1"
        }

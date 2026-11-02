@@ -147,9 +147,8 @@
  "conditions": [
   {
    "alias": "3051 生日中不动作",
-   "condition": "state",
-   "entity_id": "input_boolean.sheng_ri_mo_shi",
-   "state": "off"
+   "condition": "template",
+   "value_template": "{{ is_state('input_boolean.sheng_ri_mo_shi', 'off') or (trigger is defined and trigger.id == 'mode_on') }}"
   }
  ],
  "description": "åªè¦è§å½±æ¨¡å¼å¼å³ååï¼è¿å¥æ¶å¤é´åªå¼ç¯å¸¦å·¦é®ãå¶ä»ç¯å¨å³ï¼ç½å¤©å¨å³ï¼éåºæ¶å³ç¯å¸¦ï¼è¥å®¢åæäººä¸æååèªå¨å¼å¯å¤§ç¯",
