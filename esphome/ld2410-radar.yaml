@@ -1,6 +1,11 @@
 esphome:
   name: ld2410-test
   friendly_name: "LD2410 Living Room Radar"
+  on_boot:
+    priority: -100
+    then:
+      - delay: 2s
+      - rtttl.play: "dingdong:d=4,o=5,b=120:e,c"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -66,6 +71,10 @@ number:
     max_still_distance_gate:
       name: "Max Still Distance Gate"
 
+rtttl:
+  id: my_rtttl
+  speaker: my_speaker
+
 button:
   - platform: ld2410
     restart:
@@ -74,3 +83,28 @@ button:
       name: "Radar Query"
   - platform: restart
     name: "ESP32 Restart"
+  - platform: template
+    name: "Play Test Chime"
+    id: play_test_chime
+    on_press:
+      - rtttl.play: "dingdong:d=4,o=5,b=120:e,c"
+
+i2s_audio:
+  - id: i2s_out
+    i2s_lrclk_pin: GPIO7
+    i2s_bclk_pin: GPIO15
+
+speaker:
+  - platform: i2s_audio
+    id: my_speaker
+    i2s_audio_id: i2s_out
+    dac_type: external
+    i2s_dout_pin: GPIO16
+
+media_player:
+  - platform: speaker
+    name: "Xiaozhi Speaker"
+    id: xiaozhi_speaker
+    announcement_pipeline:
+      speaker: my_speaker
+      format: NONE
