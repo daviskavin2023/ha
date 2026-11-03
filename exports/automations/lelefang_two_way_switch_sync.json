@@ -1,0 +1,66 @@
+{
+ "actions": [
+  {
+   "choose": [
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "main_changed"
+      },
+      {
+       "condition": "template",
+       "value_template": "{{ states('switch.bean_cn_1122795665_blns1_on_p_2_1') != states('switch.bean_cn_1124140377_blns2_on_p_2_1') and states('switch.bean_cn_1122795665_blns1_on_p_2_1') in ['on', 'off'] }}"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.{{ states('switch.bean_cn_1122795665_blns1_on_p_2_1') }}",
+       "target": {
+        "entity_id": "switch.bean_cn_1124140377_blns2_on_p_2_1"
+       }
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "sub_changed"
+      },
+      {
+       "condition": "template",
+       "value_template": "{{ states('switch.bean_cn_1122795665_blns1_on_p_2_1') != states('switch.bean_cn_1124140377_blns2_on_p_2_1') and states('switch.bean_cn_1124140377_blns2_on_p_2_1') in ['on', 'off'] }}"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.{{ states('switch.bean_cn_1124140377_blns2_on_p_2_1') }}",
+       "target": {
+        "entity_id": "switch.bean_cn_1122795665_blns1_on_p_2_1"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "alias": "乐乐房主副开关双控状态双向同步",
+ "conditions": [],
+ "description": "确保乐乐房主开关与副开关物理状态保持绝对一致，杜绝双控状态脱节与回弹",
+ "id": "lelefang_two_way_switch_sync",
+ "initial_state": true,
+ "mode": "queued",
+ "triggers": [
+  {
+   "entity_id": "switch.bean_cn_1122795665_blns1_on_p_2_1",
+   "id": "main_changed",
+   "platform": "state"
+  },
+  {
+   "entity_id": "switch.bean_cn_1124140377_blns2_on_p_2_1",
+   "id": "sub_changed",
+   "platform": "state"
+  }
+ ]
+}
