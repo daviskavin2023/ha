@@ -1,0 +1,28 @@
+{
+ "actions": [
+  {
+   "action": "persistent_notification.dismiss",
+   "data": {
+    "notification_id": "rx600pro_forgot_to_start"
+   }
+  }
+ ],
+ "alias": "洗碗机启动或开门自动消除提醒",
+ "conditions": [],
+ "description": "当洗碗机重新开门、或开始加热洗涤(温度>45℃)时，自动撤销未启动提醒",
+ "id": "rx600pro_forgot_to_start_dismiss",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.rx600pro_opening",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "above": 45,
+   "entity_id": "sensor.rx600pro_temperature",
+   "platform": "numeric_state"
+  }
+ ]
+}

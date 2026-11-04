@@ -1,0 +1,40 @@
+{
+ "actions": [
+  {
+   "action": "persistent_notification.create",
+   "data": {
+    "message": "检测到洗碗机门已闭合超过 20 分钟但尚未启动（当前常温），是否忘记按开始了？",
+    "notification_id": "rx600pro_forgot_to_start",
+    "title": "🍽️ 洗碗机提醒"
+   }
+  }
+ ],
+ "alias": "洗碗机放碗后未启动提醒",
+ "conditions": [
+  {
+   "after": "18:00:00",
+   "before": "23:30:00",
+   "condition": "time"
+  },
+  {
+   "below": 45,
+   "condition": "numeric_state",
+   "entity_id": "sensor.rx600pro_temperature"
+  }
+ ],
+ "description": "晚饭时段(18:00至23:30)洗碗机门闭合持续20分钟，若内腔未升温(处于常温)，判定为放入餐具后忘记启动洗涤，触发静默提醒",
+ "id": "rx600pro_forgot_to_start",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.rx600pro_opening",
+   "for": {
+    "minutes": 20
+   },
+   "from": "on",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}
