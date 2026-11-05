@@ -1,0 +1,37 @@
+{
+ "actions": [
+  {
+   "action": "weather.get_forecasts",
+   "data": {
+    "type": "daily"
+   },
+   "response_variable": "f",
+   "target": {
+    "entity_id": "weather.forecast_wo_de_jia"
+   }
+  },
+  {
+   "action": "input_text.set_value",
+   "data": {
+    "value": "{% set m={\"sunny\":\"晴\",\"clear-night\":\"晴\",\"partlycloudy\":\"多云\",\"cloudy\":\"阴\",\"rainy\":\"雨\",\"pouring\":\"大雨\",\"lightning\":\"雷电\",\"lightning-rainy\":\"雷阵雨\",\"snowy\":\"雪\",\"snowy-rainy\":\"雨夹雪\",\"hail\":\"冰雹\",\"fog\":\"雾\",\"windy\":\"有风\",\"windy-variant\":\"有风\",\"exceptional\":\"极端天气\"} %}{% set fc=f[\"weather.forecast_wo_de_jia\"].forecast %}{% set tm=(now()+timedelta(days=1)).date() %}{% set ns=namespace(d=(fc[1] if fc|length>1 else fc[0])) %}{% for x in fc %}{% if as_local(as_datetime(x.datetime)).date()==tm %}{% set ns.d=x %}{% endif %}{% endfor %}{% set d=ns.d %}明天{{ m.get(d.condition,d.condition) }},{{ d.templow|default(d.temperature)|round(0)|int }}到{{ d.temperature|round(0)|int }}度,降水{{ d.precipitation|default(0) }}毫米"
+   },
+   "target": {
+    "entity_id": "input_text.mingtian_tianqi_raw"
+   }
+  }
+ ],
+ "alias": "小智-明天天气更新",
+ "description": "每小时把 weather.forecast_wo_de_jia 明天预报写入 input_text.mingtian_tianqi_raw",
+ "id": "xiaozhi_mingtian_tianqi",
+ "mode": "single",
+ "triggers": [
+  {
+   "event": "start",
+   "trigger": "homeassistant"
+  },
+  {
+   "hours": "/1",
+   "trigger": "time_pattern"
+  }
+ ]
+}
