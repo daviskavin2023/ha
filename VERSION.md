@@ -2,6 +2,13 @@
 
 > 2026-10-25 起版本号以 PRD.md 抬头为准，统一接续 v1.4.x（PRD 原为 v1.4.0）。下方 v0.1.0~v0.1.6 是 10-17~10-24 期间使用的旧编号，不改写，提交信息里的 (v0.1.x) 与之对应；提交 608d0d1 信息中的 (v0.1.7) 即本文件的 v1.4.1。
 
+## v1.4.6 (2026-11-08) — 客卫 ESP32-C3 启用 Bluetooth Proxy 蓝牙中继网关
+
+- 客卫环境传感器（`guest-bathroom-climate`，`10.10.10.133`）固件升级：
+  - 启用 `esp32_ble_tracker` 与 `bluetooth_proxy: active: true`；
+  - 成功接入 Home Assistant 原生 Bluetooth 代理集成（`bluetooth guest-bathroom-climate`）；
+  - 作为家庭蓝牙网关中继，监听并转发周边低功耗蓝牙广播（如米家蓝牙温度计、BTHome 传感器等）。
+
 ## v1.4.5 (2026-11-08) — 客厅风扇干扰雷达自动关风扇实体迁移（红外场景适配）
 
 - 修复 `ke_ting_fengshan_ganrao_guanji`（客厅风扇干扰雷达自动关风扇）：

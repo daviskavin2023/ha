@@ -19,6 +19,11 @@ api:
   encryption:
     key: !secret api_key
 
+esp32_ble_tracker:
+
+bluetooth_proxy:
+  active: true
+
 ota:
   - platform: esphome
     password: !secret ota_password
