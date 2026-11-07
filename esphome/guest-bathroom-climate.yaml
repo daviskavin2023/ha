@@ -1,0 +1,71 @@
+esphome:
+  name: guest-bathroom-climate
+  friendly_name: "Guest Bathroom Climate"
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: DEBUG
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  reboot_timeout: 0s
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+i2c:
+  sda: GPIO8
+  scl: GPIO9
+  scan: true
+
+sensor:
+  - platform: sht3xd
+    temperature:
+      name: "Guest Bathroom Temperature"
+      id: guest_bath_temp
+      force_update: true
+      on_value:
+        then:
+          - logger.log:
+              level: WARN
+              format: ">>> [公卫 实时温度]: %.2f °C"
+              args: [ 'x' ]
+    humidity:
+      name: "Guest Bathroom Humidity"
+      id: guest_bath_humidity
+      force_update: true
+      on_value:
+        then:
+          - logger.log:
+              level: WARN
+              format: ">>> [公卫 实时湿度]: %.2f %%"
+              args: [ 'x' ]
+    address: 0x44
+    update_interval: 2s
+
+  - platform: sgp4x
+    voc_index:
+      name: "Guest Bathroom VOC Index"
+      id: guest_bath_voc
+      force_update: true
+      on_value:
+        then:
+          - logger.log:
+              level: WARN
+              format: ">>> [公卫 实时异味 VOC]: %.0f"
+              args: [ 'x' ]
+    address: 0x59
+    compensation:
+      temperature_source: guest_bath_temp
+      humidity_source: guest_bath_humidity
+    update_interval: 2s

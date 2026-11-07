@@ -13,8 +13,12 @@ esp32:
     type: esp-idf
 
 logger:
-  level: INFO
+  level: DEBUG
   hardware_uart: UART0
+  logs:
+    sensor: INFO
+    binary_sensor: INFO
+    ld2410: INFO
 
 wifi:
   ssid: !secret wifi_ssid
@@ -88,11 +92,28 @@ button:
     id: play_test_chime
     on_press:
       - rtttl.play: "dingdong:d=4,o=5,b=120:e,c"
+  - platform: template
+    name: "Start Voice Listening"
+    id: start_listening
+    on_press:
+      - voice_assistant.start:
 
 i2s_audio:
   - id: i2s_out
     i2s_lrclk_pin: GPIO7
     i2s_bclk_pin: GPIO15
+  - id: i2s_in
+    i2s_lrclk_pin: GPIO4
+    i2s_bclk_pin: GPIO5
+
+microphone:
+  - platform: i2s_audio
+    id: my_mic
+    i2s_audio_id: i2s_in
+    i2s_din_pin: GPIO6
+    adc_type: external
+    pdm: false
+    channel: left
 
 speaker:
   - platform: i2s_audio
@@ -101,10 +122,15 @@ speaker:
     dac_type: external
     i2s_dout_pin: GPIO16
 
+voice_assistant:
+  microphone: my_mic
+  speaker: my_speaker
+
 media_player:
   - platform: speaker
     name: "Xiaozhi Speaker"
     id: xiaozhi_speaker
+    buffer_size: 32768
     announcement_pipeline:
       speaker: my_speaker
       format: NONE
