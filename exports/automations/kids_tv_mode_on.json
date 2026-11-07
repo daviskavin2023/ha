@@ -1,0 +1,19 @@
+{
+ "actions": [
+  {
+   "action": "shell_command.kids_tv_pause_and_quiz"
+  }
+ ],
+ "alias": "儿童答题模式启动",
+ "conditions": [],
+ "description": "答题模式开启时，通知机顶盒开始20分钟防沉迷倒计时",
+ "id": "kids_tv_mode_on",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.da_ti_mo_shi",
+   "platform": "state",
+   "to": "on"
+  }
+ ]
+}

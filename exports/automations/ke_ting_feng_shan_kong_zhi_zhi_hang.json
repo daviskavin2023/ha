@@ -1,0 +1,30 @@
+{
+ "actions": [
+  {
+   "action": "scene.turn_on",
+   "target": {
+    "entity_id": "scene.feng_shan"
+   }
+  }
+ ],
+ "alias": "客厅风扇红外控制执行",
+ "conditions": [],
+ "description": "无论是由自动化还是中控屏/UI手动改变风扇状态，统一在此执行涂鸦一键执行场景",
+ "id": "ke_ting_feng_shan_kong_zhi_zhi_hang",
+ "initial_state": true,
+ "mode": "restart",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai",
+   "from": [
+    "off",
+    "on"
+   ],
+   "platform": "state",
+   "to": [
+    "on",
+    "off"
+   ]
+  }
+ ]
+}

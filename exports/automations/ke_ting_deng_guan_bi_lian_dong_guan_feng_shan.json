@@ -1,9 +1,9 @@
 {
  "actions": [
   {
-   "action": "switch.turn_off",
+   "action": "input_boolean.turn_off",
    "target": {
-    "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1"
+    "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai"
    }
   }
  ],
@@ -11,11 +11,11 @@
  "conditions": [
   {
    "condition": "state",
-   "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1",
+   "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai",
    "state": "on"
   }
  ],
- "description": "当客厅大灯关闭时，自动联动关闭客厅电风扇，防止人走关灯后风扇空转且干扰雷达检测",
+ "description": "当客厅大灯关闭时，如果风扇开着，自动设置风扇状态为off触发关闭",
  "id": "ke_ting_deng_guan_bi_lian_dong_guan_feng_shan",
  "initial_state": true,
  "mode": "restart",

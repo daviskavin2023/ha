@@ -1,0 +1,19 @@
+{
+ "actions": [
+  {
+   "action": "shell_command.kids_tv_resume_play"
+  }
+ ],
+ "alias": "儿童答题模式关闭",
+ "conditions": [],
+ "description": "答题模式关闭或关机时，通知机顶盒停止防沉迷并解除弹窗",
+ "id": "kids_tv_mode_off",
+ "mode": "single",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.da_ti_mo_shi",
+   "platform": "state",
+   "to": "off"
+  }
+ ]
+}
