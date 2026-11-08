@@ -2,6 +2,16 @@
 
 > 2026-10-25 起版本号以 PRD.md 抬头为准，统一接续 v1.4.x（PRD 原为 v1.4.0）。下方 v0.1.0~v0.1.6 是 10-17~10-24 期间使用的旧编号，不改写，提交信息里的 (v0.1.x) 与之对应；提交 608d0d1 信息中的 (v0.1.7) 即本文件的 v1.4.1。
 
+## v1.4.7 (2026-11-08) — 客厅影音与风扇彻底本地化及关机前置阻断修复
+
+- **影音关机彻底本地化与逻辑去阻断 (`ke_ting_ji_ding_he_tou_ying_lian_dong`)**：
+  - 彻底剔除关机时对 `binary_sensor.tou_ying_yi_zai_yong == 'on'` 的前置条件检查，杜绝因功率传感器提前待机或状态脱节导致的关机信号漏发；
+  - 关机序列无条件走内网 `remote.send_command` 连发 2 次优派 PX747-4K 本地关机红外码（间隔 1.5s 确认关机），彻底解除关机死锁。
+- **客厅风扇红外控制彻底纯本地化 (`ke_ting_feng_shan_kong_zhi_zhi_hang`)**：
+  - 废除依赖涂鸦外网的 `scene.feng_shan` 云端场景；
+  - 替换为 Home Assistant 本地 `remote.zhi_neng_hong_wai_yao_kong_qi` 局域网直发美的风扇标准 NEC 工业红外脉冲码；
+  - 彻底终结涂鸦 App 冲突、离线报错及外网延迟，实现断网可用与毫秒级即时控制。
+
 ## v1.4.6 (2026-11-08) — 客卫 ESP32-C3 启用 Bluetooth Proxy 蓝牙中继网关
 
 - 客卫环境传感器（`guest-bathroom-climate`，`10.10.10.133`）固件升级：

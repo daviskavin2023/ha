@@ -1,0 +1,149 @@
+{
+  "id": "ke_ting_ji_ding_he_tou_ying_lian_dong",
+  "alias": "客厅机顶盒与投影仪影音联动 (开机关机协同)",
+  "description": "开机顶盒时自动开投影仪，关机顶盒时自动关投影仪（不控制音响，投影仪绝不断插座电）",
+  "triggers": [
+    {
+      "platform": "state",
+      "entity_id": "input_boolean.ke_ting_dian_shi_he_zi_zhuang_tai",
+      "to": "on",
+      "id": "box_turn_on"
+    },
+    {
+      "platform": "state",
+      "entity_id": "input_boolean.ke_ting_dian_shi_he_zi_zhuang_tai",
+      "to": "off",
+      "id": "box_turn_off"
+    },
+    {
+      "platform": "state",
+      "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+      "to": "off",
+      "for": {
+        "seconds": 30
+      },
+      "id": "projector_stopped"
+    }
+  ],
+  "conditions": [],
+  "actions": [
+    {
+      "choose": [
+        {
+          "conditions": [
+            {
+              "condition": "trigger",
+              "id": "box_turn_on"
+            }
+          ],
+          "sequence": [
+            {
+              "action": "scene.turn_on",
+              "target": {
+                "entity_id": "scene.he_zi"
+              }
+            },
+            {
+              "delay": {
+                "seconds": 1
+              }
+            },
+            {
+              "if": [
+                {
+                  "condition": "state",
+                  "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+                  "state": "off"
+                }
+              ],
+              "then": [
+                {
+                  "action": "remote.send_command",
+                  "target": {
+                    "entity_id": "remote.zhi_neng_hong_wai_yao_kong_qi"
+                  },
+                  "data": {
+                    "command": "b64:KCOUETACmgYwApoGMAIwAjACMAIwAjACMAIwAjACMAIwApoGMAIwAjACMAIwApoGMAIwAjACmgYwApoGMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAIwAjACMAIwApoGMAIwAjACMAIwAjACMAIwAjACMAIwApoGMAKaBjACMAIwApoGMAIQJw=="
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "conditions": [
+            {
+              "condition": "trigger",
+              "id": "box_turn_off"
+            }
+          ],
+          "sequence": [
+            {
+              "action": "scene.turn_on",
+              "target": {
+                "entity_id": "scene.he_zi"
+              }
+            },
+            {
+              "delay": {
+                "seconds": 1
+              }
+            },
+            {
+              "action": "remote.send_command",
+              "target": {
+                "entity_id": "remote.zhi_neng_hong_wai_yao_kong_qi"
+              },
+              "data": {
+                "command": "b64:KCOUETACmgYwApoGMAIwAjACMAIwAjACMAIwAjACMAIwApoGMAIwAjACMAIwApoGMAIwAjACmgYwApoGMAKaBjACmgYwAjACMAKaBjACmgYwApoGMAIwAjACMAIwApoGMAIwAjACmgYwAjACMAIwAjACMAIwApoGMAKaBjACMAIwApoGMAIQJw=="
+              }
+            },
+            {
+              "delay": {
+                "milliseconds": 1500
+              }
+            },
+            {
+              "action": "remote.send_command",
+              "target": {
+                "entity_id": "remote.zhi_neng_hong_wai_yao_kong_qi"
+              },
+              "data": {
+                "command": "b64:KCOUETACmgYwApoGMAIwAjACMAIwAjACMAIwAjACMAIwApoGMAIwAjACMAIwApoGMAIwAjACmgYwApoGMAKaBjACmgYwAjACMAKaBjACmgYwApoGMAIwAjACMAIwApoGMAIwAjACmgYwAjACMAIwAjACMAIwApoGMAKaBjACMAIwApoGMAIQJw=="
+              }
+            }
+          ]
+        },
+        {
+          "conditions": [
+            {
+              "condition": "trigger",
+              "id": "projector_stopped"
+            },
+            {
+              "condition": "state",
+              "entity_id": "input_boolean.ke_ting_dian_shi_he_zi_zhuang_tai",
+              "state": "on"
+            }
+          ],
+          "sequence": [
+            {
+              "action": "scene.turn_on",
+              "target": {
+                "entity_id": "scene.he_zi"
+              }
+            },
+            {
+              "action": "input_boolean.turn_off",
+              "target": {
+                "entity_id": "input_boolean.ke_ting_dian_shi_he_zi_zhuang_tai"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "initial_state": true,
+  "mode": "single"
+}

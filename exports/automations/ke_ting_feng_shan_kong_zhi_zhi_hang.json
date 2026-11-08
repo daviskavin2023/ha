@@ -1,0 +1,30 @@
+{
+  "id": "ke_ting_feng_shan_kong_zhi_zhi_hang",
+  "alias": "客厅风扇红外控制执行",
+  "description": "无论是由自动化还是中控屏/UI手动改变风扇状态，统一在本地通过内网智能红外遥控器下发美的风扇红外脉冲指令，不依赖云端",
+  "triggers": [
+    {
+      "platform": "state",
+      "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai",
+      "from": ["off", "on"],
+      "to": ["on", "off"]
+    }
+  ],
+  "conditions": [],
+  "actions": [
+    {
+      "action": "remote.send_command",
+      "target": {
+        "entity_id": "remote.zhi_neng_hong_wai_yao_kong_qi"
+      },
+      "data": {
+        "command": [
+          "b64:KCOUETACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAKaBjACmgYwAjACMAKaBjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACmgYwAjACMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAI=",
+          "b64:KCOUETACmgYwApoGMAKaBjACmgYwApoGMAKaBjACMAIwApoGMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAKaBjACMAIwApoGMAKaBjACmgYwApoGMAIwAjACMAIwApoGMAKaBjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAI="
+        ]
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "restart"
+}
