@@ -44,7 +44,50 @@
      "conditions": [
       {
        "condition": "trigger",
-       "id": "fan_off"
+       "id": [
+        "fan_normal_check",
+        "humidity_recovered",
+        "voc_recovered",
+        "fan_max_timeout"
+       ]
+      },
+      {
+       "condition": "state",
+       "entity_id": "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1",
+       "state": "on"
+      },
+      {
+       "condition": "state",
+       "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
+       "state": "off"
+      },
+      {
+       "condition": "or",
+       "conditions": [
+        {
+         "condition": "trigger",
+         "id": "fan_max_timeout"
+        },
+        {
+         "condition": "and",
+         "conditions": [
+          {
+           "condition": "template",
+           "value_template": "{{ (now() - states.binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1.last_changed).total_seconds() >= 115 }}"
+          },
+          {
+           "below": 70,
+           "condition": "numeric_state",
+           "entity_id": "sensor.guest_bathroom_climate_guest_bathroom_humidity"
+          },
+          {
+           "below": 120,
+           "condition": "numeric_state",
+           "entity_id": "sensor.guest_bathroom_climate_guest_bathroom_voc_index"
+          }
+         ]
+        }
+       ]
       }
      ],
      "sequence": [
@@ -82,7 +125,7 @@
   }
  ],
  "alias": "公卫关灯",
- "description": "公卫无人持续 30 秒关灯；无人持续 2 分钟关排气扇 [自愈闭环版]",
+ "description": "公卫无人持续 30 秒关灯；无人且温湿度/异味达标关排气扇，无人满 10 分钟强制关扇兜底 [智能环境自愈版]",
  "id": "1740457273525",
  "initial_state": true,
  "mode": "restart",
@@ -101,7 +144,28 @@
    "for": {
     "minutes": 2
    },
-   "id": "fan_off",
+   "id": "fan_normal_check",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "below": 70,
+   "entity_id": "sensor.guest_bathroom_climate_guest_bathroom_humidity",
+   "id": "humidity_recovered",
+   "platform": "numeric_state"
+  },
+  {
+   "below": 120,
+   "entity_id": "sensor.guest_bathroom_climate_guest_bathroom_voc_index",
+   "id": "voc_recovered",
+   "platform": "numeric_state"
+  },
+  {
+   "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
+   "for": {
+    "minutes": 10
+   },
+   "id": "fan_max_timeout",
    "platform": "state",
    "to": "off"
   }
