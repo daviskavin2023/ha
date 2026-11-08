@@ -1,0 +1,46 @@
+ke_ting_feng_shan_yao_tou_toggle:
+  alias: 客厅风扇-摇头切换
+  description: 本地发射美的电风扇左右摆风/摇头红外脉冲指令
+  sequence:
+  - action: remote.send_command
+    target:
+      entity_id: remote.zhi_neng_hong_wai_yao_kong_qi
+    data:
+      command:
+      - b64:KCOUETACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAKaBjACmgYwAjACMAKaBjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACmgYwAjACMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAI=
+      - b64:KCOUETACmgYwApoGMAKaBjACmgYwApoGMAKaBjACMAIwApoGMAIwAjACMAIwApoGMAIwAjACMAIwAjACMAKaBjACMAIwApoGMAKaBjACmgYwApoGMAIwAjACMAIwApoGMAKaBjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAI=
+
+ke_ting_feng_shan_feng_su_jia:
+  alias: 客厅风扇-风速+
+  description: 本地发射美的电风扇风速增加红外脉冲指令
+  sequence:
+  - action: remote.send_command
+    target:
+      entity_id: remote.zhi_neng_hong_wai_yao_kong_qi
+    data:
+      command:
+      - b64:KCOUETACmgYwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACmgYwApoGMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwApoGMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAI=
+      - b64:KCOUETACmgYwApoGMAKaBjACmgYwApoGMAKaBjACMAIwApoGMAKaBjACMAIwAjACMAIwAjACMAIwAjACMAKaBjACMAIwApoGMAKaBjACmgYwApoGMAIwAjACMAIwApoGMAKaBjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAI=
+
+ke_ting_feng_shan_feng_su_jian:
+  alias: 客厅风扇-风速-
+  description: 本地发射美的电风扇风速减少红外脉冲指令
+  sequence:
+  - action: remote.send_command
+    target:
+      entity_id: remote.zhi_neng_hong_wai_yao_kong_qi
+    data:
+      command:
+      - b64:KCOUETACmgYwApoGMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAKaBjACMAIwApoGMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwApoGMAKaBjACmgYwApoGMAKaBjACmgYwApoGMAI=
+      - b64:KCOUETACmgYwApoGMAKaBjACmgYwApoGMAKaBjACMAIwApoGMAIwAjACMAApoGMAIwAjACMAIwAjACMAKaBjACMAIwApoGMAKaBjACmgYwApoGMAIwAjACMAIwApoGMAKaBjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAIwAjACMAI=
+
+ke_ting_feng_shan_she_zhi_8dang:
+  alias: 客厅风扇-一键8档
+  description: 循环升档至常用8档风速
+  sequence:
+  - repeat:
+      count: 7
+      sequence:
+      - action: script.ke_ting_feng_shan_feng_su_jia
+      - delay:
+          milliseconds: 250
