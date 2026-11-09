@@ -1,0 +1,255 @@
+{
+  "date": "2026-11-09",
+  "source": "sources/坐标参考图.png",
+  "source_size_px": [
+    1888,
+    1334
+  ],
+  "method": "标注尺寸约束下按轴最小二乘估计像素比例；端点约±2px；不改变原示意图的数据坐标",
+  "pixels_per_meter": {
+    "x": 64.36754989442136,
+    "y": 64.4377589828007
+  },
+  "controls": [
+    {
+      "axis": "x",
+      "label": "客厅横向",
+      "dimension_m": 4.2,
+      "endpoints_px": [
+        1090,
+        1360
+      ],
+      "residual_m": -0.0053
+    },
+    {
+      "axis": "x",
+      "label": "舞台横向",
+      "dimension_m": 2.4,
+      "endpoints_px": [
+        864,
+        1018
+      ],
+      "residual_m": -0.0075
+    },
+    {
+      "axis": "x",
+      "label": "主卫横向",
+      "dimension_m": 2.0,
+      "endpoints_px": [
+        1025,
+        1154
+      ],
+      "residual_m": 0.0041
+    },
+    {
+      "axis": "x",
+      "label": "主卧横向",
+      "dimension_m": 3.05,
+      "endpoints_px": [
+        1160,
+        1357
+      ],
+      "residual_m": 0.0105
+    },
+    {
+      "axis": "y",
+      "label": "主卧床区",
+      "dimension_m": 2.5,
+      "endpoints_px": [
+        234,
+        395
+      ],
+      "residual_m": -0.0015
+    },
+    {
+      "axis": "y",
+      "label": "主卧内通行段",
+      "dimension_m": 1.1,
+      "endpoints_px": [
+        395,
+        466
+      ],
+      "residual_m": 0.0018
+    },
+    {
+      "axis": "y",
+      "label": "客厅纵向",
+      "dimension_m": 4.15,
+      "endpoints_px": [
+        847,
+        1115
+      ],
+      "residual_m": 0.0091
+    },
+    {
+      "axis": "y",
+      "label": "东阳台纵向",
+      "dimension_m": 4.4,
+      "endpoints_px": [
+        834,
+        1117
+      ],
+      "residual_m": -0.0082
+    }
+  ],
+  "metric_origin_reference_px": [
+    1090,
+    1115
+  ],
+  "metric_axes": "east,north",
+  "point_reference_px": {
+    "S02_original_approx": [
+      1000,
+      680
+    ],
+    "kitchen_stove_case": [
+      945,
+      594
+    ],
+    "kitchen_table_case": [
+      855,
+      710
+    ],
+    "kitchen_west_entry_case": [
+      720,
+      710
+    ],
+    "S01_original_approx": [
+      1130,
+      1110
+    ],
+    "stage_nw_case": [
+      864,
+      850
+    ],
+    "stage_sw_case": [
+      864,
+      1110
+    ],
+    "LD_case_A": [
+      1210,
+      860
+    ],
+    "LD_case_B": [
+      1270,
+      860
+    ],
+    "sofa_seat_case_L": [
+      1190,
+      1075
+    ],
+    "sofa_seat_case_R": [
+      1250,
+      1075
+    ],
+    "south_curtain_case": [
+      1210,
+      1115
+    ],
+    "fan_case": [
+      1310,
+      890
+    ]
+  },
+  "point_warning": "S01/S02仍是旧图近似位置；所有case都是图纸物体/候选示例，尤其LD_case_A/B不是已确认设备坐标。小数仅为可复算中间结果，建议解读精度0.1-0.3m；人体高度/朝向/家具高未测。",
+  "measurements": [
+    {
+      "from": "S02_original_approx",
+      "to": "kitchen_stove_case",
+      "plan_distance_m": 1.585,
+      "azimuth_deg_north_clockwise": 327.4,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "S02_original_approx",
+      "to": "kitchen_table_case",
+      "plan_distance_m": 2.3,
+      "azimuth_deg_north_clockwise": 258.3,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "S02_original_approx",
+      "to": "kitchen_west_entry_case",
+      "plan_distance_m": 4.375,
+      "azimuth_deg_north_clockwise": 263.9,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "S01_original_approx",
+      "to": "stage_nw_case",
+      "plan_distance_m": 5.776,
+      "azimuth_deg_north_clockwise": 314.3,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "S01_original_approx",
+      "to": "stage_sw_case",
+      "plan_distance_m": 4.133,
+      "azimuth_deg_north_clockwise": 270.0,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "LD_case_A",
+      "to": "sofa_seat_case_L",
+      "plan_distance_m": 3.351,
+      "azimuth_deg_north_clockwise": 185.3,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "LD_case_A",
+      "to": "sofa_seat_case_R",
+      "plan_distance_m": 3.394,
+      "azimuth_deg_north_clockwise": 169.4,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "LD_case_A",
+      "to": "south_curtain_case",
+      "plan_distance_m": 3.957,
+      "azimuth_deg_north_clockwise": 180.0,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "LD_case_A",
+      "to": "fan_case",
+      "plan_distance_m": 1.622,
+      "azimuth_deg_north_clockwise": 106.7,
+      "status": "conditional_geometry_not_measured_coverage"
+    },
+    {
+      "from": "LD_case_B",
+      "to": "fan_case",
+      "plan_distance_m": 0.776,
+      "azimuth_deg_north_clockwise": 126.8,
+      "status": "conditional_geometry_not_measured_coverage"
+    }
+  ],
+  "nominal_model": {
+    "LD2410C": {
+      "source": "https://www.hlktech.com/Goods-239.html",
+      "nominal_max_range_m": 6,
+      "nominal_half_angle_deg": 60,
+      "range_resolution_m": 0.75,
+      "actual_heading": null,
+      "actual_range_settings": null
+    },
+    "HS3": {
+      "source": "https://www.linptech.com/2122161624.html",
+      "image": "analysis-sources/linptech-hs3-official-range.jpg",
+      "nominal_moving_max_m": 8,
+      "nominal_total_angle_deg": 120,
+      "manufacturer_test_mount_height_m": [
+        1.2,
+        1.5
+      ],
+      "binding_to_S04_or_S13": "unresolved"
+    },
+    "HB01": {
+      "exact_primary_radiation_pattern_verified": false
+    },
+    "es2_model": {
+      "exact_primary_radiation_pattern_verified": false,
+      "warning": "不以es2b/ES5/其他厂家的规格替代linp.sensor_occupy.es2"
+    }
+  }
+}

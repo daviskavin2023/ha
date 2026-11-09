@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1320" viewBox="0 0 1640 1320"><rect width="100%" height="100%" fill="#f5f7fb"/>
+<rect x="0" y="0" width="1640" height="1320" rx="4" fill="#f5f7fb"/>
+<text x="50" y="49" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="30" fill="#12263d">全屋空间与设备点位</text>
+<text x="50" y="81" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">2 栋 03 户型  /  HA 基础数据草稿 v0.33  /  2026-11-08</text>
+<rect x="40" y="105" width="870" height="1155" rx="4" fill="#ffffff"/>
+<rect x="935" y="105" width="665" height="1155" rx="4" fill="#ffffff"/>
+<rect x="245" y="160" width="175" height="270" rx="4" fill="#f6f4ef"/>
+<text x="255" y="188" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">书房</text>
+<rect x="425" y="195" width="140" height="160" rx="4" fill="#f6f4ef"/>
+<text x="435" y="223" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">主卫</text>
+<rect x="603" y="160" width="162" height="265" rx="4" fill="#f6f4ef"/>
+<text x="613" y="188" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">主人房</text>
+<rect x="420" y="355" width="183" height="70" rx="4" fill="#f6f4ef"/>
+<text x="430" y="383" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">主卧内走道</text>
+<rect x="243" y="435" width="177" height="93" rx="4" fill="#f6f4ef"/>
+<text x="253" y="463" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">客卫</text>
+<rect x="115" y="540" width="305" height="225" rx="4" fill="#eef4f7"/>
+<text x="275" y="732" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">厨房 / 餐桌</text>
+<rect x="105" y="615" width="105" height="150" rx="4" fill="#f6f4ef"/>
+<text x="115" y="643" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">玄关</text>
+<rect x="425" y="430" width="70" height="370" rx="4" fill="#f6f4ef"/>
+<text x="433" y="510" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="15" fill="#334155">走道</text>
+<rect x="500" y="435" width="265" height="170" rx="4" fill="#f6f4ef"/>
+<text x="510" y="463" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">乐乐房</text>
+<rect x="500" y="615" width="265" height="183" rx="4" fill="#f6f4ef"/>
+<text x="510" y="643" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">悦悦房</text>
+<rect x="265" y="775" width="155" height="295" rx="4" fill="#eef4f7"/>
+<text x="275" y="803" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">舞台</text>
+<rect x="430" y="810" width="335" height="260" rx="4" fill="#eef4f7"/>
+<text x="440" y="838" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">客厅</text>
+<rect x="775" y="800" width="110" height="385" rx="4" fill="#f6f4ef"/>
+<text x="785" y="828" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">东侧阳台</text>
+<path d="M195,150 L805,150" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M195,150 L195,240" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M235,240 L235,430" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M195,240 L235,240" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M805,150 L805,430" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M770,240 L770,425" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M375,150 L375,355" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M425,190 L565,190" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M425,190 L425,355" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M425,355 L497,355" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M563,190 L563,355" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M235,430 L420,430" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M495,430 L885,430" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M885,430 L885,640" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M770,610 L885,640" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M495,430 L495,540" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M495,600 L770,600" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M495,610 L495,630" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M495,690 L495,800" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M495,800 L770,800" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M770,640 L770,800" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M235,430 L235,528" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M235,528 L370,528" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M420,430 L420,470" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M420,525 L420,760" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M105,565 L235,565" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M105,565 L105,615" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M105,710 L105,770" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M105,770 L265,770" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M265,770 L265,1075" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M265,1075 L770,1075" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M770,800 L885,800" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M885,800 L885,1185" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M525,1185 L885,1185" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M525,1080 L525,1185" stroke="#344356" stroke-width="5" fill="none"/>
+<path d="M265,770 L420,770" stroke="#baa58b" stroke-width="2" fill="none" stroke-dasharray="7 5"/>
+<path d="M420,770 L420,1075" stroke="#baa58b" stroke-width="2" fill="none" stroke-dasharray="7 5"/>
+<path d="M280,1075 L410,1075" stroke="#65b4ca" stroke-width="5" fill="none"/>
+<path d="M555,1075 L750,1075" stroke="#65b4ca" stroke-width="5" fill="none"/>
+<path d="M770,845 L770,1050" stroke="#65b4ca" stroke-width="5" fill="none"/>
+<path d="M600,150 L755,150" stroke="#65b4ca" stroke-width="5" fill="none"/>
+<path d="M245,150 L370,150" stroke="#65b4ca" stroke-width="5" fill="none"/>
+<rect x="575" y="950" width="140" height="110" rx="4" fill="#e3d3bb" stroke="#baa58b"/>
+<text x="590" y="1015" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#334155">沙发</text>
+<rect x="565" y="815" width="155" height="24" rx="4" fill="#dde2ea" stroke="#9eabba"/>
+<text x="565" y="862" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="14" fill="#334155">电视 / 背景墙</text>
+<rect x="515" y="918" width="40" height="85" rx="4" fill="#e7edf2" stroke="#bcc9d5"/>
+<rect x="585" y="912" width="68" height="38" rx="4" fill="#e7edf2" stroke="#bcc9d5"/>
+<rect x="215" y="630" width="80" height="58" rx="4" fill="#e3d3bb"/>
+<text x="220" y="664" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="14" fill="#334155">餐桌</text>
+<path d="M770,900 L770,1045" stroke="#bc8aa1" stroke-width="8" fill="none"/>
+<text x="795" y="1120" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="14" fill="#97667f">窗帘</text>
+<text x="65" y="150" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="19" fill="#183b56">北 N ↑</text>
+<text x="65" y="177" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="14" fill="#334155">西 ←       → 东</text>
+<text x="65" y="202" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="14" fill="#334155">南 ↓</text>
+<path d="M65,665 L117,665" stroke="#183b56" stroke-width="3" fill="none"/>
+<text x="25" y="645" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="15" fill="#334155">主入口 · 西</text>
+<path d="M770,990 L885,990" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="7 5"/>
+<text x="785" y="1025" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#64748b">出阳台横梁</text>
+<circle cx="535" cy="1070" r="16" fill="#087f8c"/>
+<text x="523" y="1075" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">S01</text>
+<circle cx="405" cy="640" r="16" fill="#087f8c"/>
+<text x="393" y="645" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">S02</text>
+<circle cx="460" cy="450" r="16" fill="#087f8c"/>
+<text x="448" y="455" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">S03</text>
+<circle cx="840" cy="990" r="16" fill="#087f8c"/>
+<text x="828" y="995" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">S04</text>
+<circle cx="555" cy="714" r="16" fill="#087f8c"/>
+<text x="543" y="719" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">S07</text>
+<circle cx="605" cy="955" r="16" fill="#b77912"/>
+<text x="593" y="960" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">L01</text>
+<circle cx="345" cy="955" r="16" fill="#b77912"/>
+<text x="333" y="960" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">L02</text>
+<circle cx="260" cy="590" r="16" fill="#b77912"/>
+<text x="248" y="595" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">L03</text>
+<circle cx="460" cy="580" r="16" fill="#b77912"/>
+<text x="448" y="585" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">L04</text>
+<circle cx="690" cy="1080" r="16" fill="#087f8c"/>
+<text x="678" y="1085" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#ffffff">S13</text>
+<circle cx="310" cy="315" r="19" fill="#ffffff" stroke="#c56a27"/>
+<text x="294" y="320" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="11" fill="#a45c10">S05?</text>
+<text x="266" y="353" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#a45c10">侧墙 · 离地30cm</text>
+<circle cx="665" cy="300" r="19" fill="#ffffff" stroke="#c56a27"/>
+<text x="649" y="305" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="11" fill="#a45c10">S06?</text>
+<text x="621" y="338" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="12" fill="#a45c10">墙位待定</text>
+<text x="565" y="1140" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="14" fill="#087f8c">南侧阳台段 · S13已确认</text>
+<circle cx="505" cy="844" r="8" fill="#b486a0"/>
+<text x="517" y="849" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="13" fill="#865974">风扇</text>
+<circle cx="382" cy="750" r="8" fill="#b486a0"/>
+<text x="394" y="755" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="13" fill="#865974">风扇</text>
+<text x="62" y="1230" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="15" fill="#334155">示意重绘：门洞、家具与点位非测绘精度；以尺寸原图为准。</text>
+<text x="962" y="145" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="23" fill="#12263d">图例与核对状态</text>
+<circle cx="974" cy="178" r="11" fill="#087f8c"/>
+<text x="996" y="185" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S  感应点：原图 / 照片定位，坐标近似</text>
+<circle cx="974" cy="210" r="11" fill="#b77912"/>
+<text x="996" y="217" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">L  灯具 / 灯组：照片投影，坐标近似</text>
+<text x="962" y="251" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#a45c10">空心 S? = 仅知房间，不代表安装点。</text>
+<text x="962" y="280" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">实体取自本地导出；尚未核对生产 HA 注册表。</text>
+<path d="M962,299 L1570,299" stroke="#dbe3eb" stroke-width="1" fill="none"/>
+<text x="962" y="334" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="21" fill="#12263d">已落图感应点</text>
+<text x="962" y="362" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S01 客厅领普 · 南侧沙发墙</text>
+<text x="962" y="392" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S02 厨房领普 · 东侧操作台附近</text>
+<text x="962" y="422" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S03 走道感应 · 单杠上方顶面</text>
+<text x="962" y="452" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S04 阳台感应 · 出阳台横梁 / 约2.6m（单位推断）</text>
+<text x="962" y="482" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S05 书房感应 · 梳妆台侧墙 / 离地30cm（确认）</text>
+<text x="962" y="512" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S06 主人房感应 · 空调下方墙 / 离地30cm（确认）</text>
+<text x="962" y="542" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S07 悦悦房感应 · 书桌上（用户确认）</text>
+<text x="962" y="572" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S13 墙面感应 · 南侧阳台段北墙（用户确认）</text>
+<text x="962" y="626" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="21" fill="#12263d">已落图灯具 / 灯组</text>
+<text x="962" y="660" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">L01  客厅主灯</text>
+<text x="962" y="693" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">L02  舞台灯</text>
+<text x="962" y="726" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">L03  厨房顶灯组</text>
+<text x="962" y="759" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#334155">L04  走道筒灯组</text>
+<path d="M962,779 L1570,779" stroke="#dbe3eb" stroke-width="1" fill="none"/>
+<text x="962" y="816" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="21" fill="#12263d">已登记、待定位</text>
+<text x="962" y="850" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S08 厨房天花感应（已确认） · S09 主卫感应</text>
+<text x="962" y="880" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S10 客卫感应 · S11 玄关 PIR</text>
+<text x="962" y="910" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S12 LD2410 · 电视柜插座处（用户确认；后台区域待核） · D01入户门磁</text>
+<text x="962" y="940" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">L07-L14 其他照明回路 / 区域占位</text>
+<text x="962" y="970" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">卧室、卫生间、阳台灯具尚缺安装点</text>
+<text x="962" y="1038" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="21" fill="#b45309">阳台：误触 / 不稳定重点区</text>
+<text x="962" y="1073" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">用户确认问题；根因尚未查明</text>
+<text x="962" y="1103" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">S04 梁上 + S13 墙面：同一个客厅阳台</text>
+<text x="962" y="1133" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">洗衣机、晾晒衣物等仅记环境线索</text>
+<text x="962" y="1163" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#334155">不据照片断定干扰原因，不修改硬件参数</text>
+<text x="962" y="1231" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="16" fill="#087f8c">坐标、实体与来源见 home-layout.json</text>
+</svg>

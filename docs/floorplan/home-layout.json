@@ -1,0 +1,865 @@
+{
+  "schema_version": "0.1.0",
+  "revision": "2026-11-08-draft-33",
+  "status": "review_required",
+  "orientation": {
+    "top": "north",
+    "right": "east",
+    "bottom": "south",
+    "left": "west",
+    "source": "用户本次确认：主入口西、客厅出阳台东、沙发南"
+  },
+  "coordinate_system": {
+    "type": "drawing_pixel",
+    "reference": "sources/坐标参考图.png",
+    "reference_size": [
+      1888,
+      1334
+    ],
+    "origin": "top_left",
+    "x_axis": "east",
+    "y_axis": "south",
+    "metric_transform": null,
+    "warning": "底图归一化像素坐标；未完成尺寸标定，禁止当作毫米或米。SVG显示坐标为x-650+55,y-150+110。"
+  },
+  "rooms": [
+    {
+      "id": "study",
+      "name": "书房",
+      "bounds_px": [
+        840,
+        200,
+        1015,
+        470
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "master_bath",
+      "name": "主卫",
+      "bounds_px": [
+        1020,
+        235,
+        1160,
+        395
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "master",
+      "name": "主人房",
+      "bounds_px": [
+        1198,
+        200,
+        1360,
+        465
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "master_hall",
+      "name": "主卧内走道",
+      "bounds_px": [
+        1015,
+        395,
+        1198,
+        465
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "guest_bath",
+      "name": "客卫",
+      "bounds_px": [
+        838,
+        475,
+        1015,
+        568
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "kitchen",
+      "name": "厨房 / 餐桌",
+      "bounds_px": [
+        710,
+        580,
+        1015,
+        805
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "entrance",
+      "name": "玄关",
+      "bounds_px": [
+        700,
+        655,
+        805,
+        805
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "corridor",
+      "name": "走道",
+      "bounds_px": [
+        1020,
+        470,
+        1090,
+        840
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "lele",
+      "name": "乐乐房",
+      "bounds_px": [
+        1095,
+        475,
+        1360,
+        645
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "yueyue",
+      "name": "悦悦房",
+      "bounds_px": [
+        1095,
+        655,
+        1360,
+        838
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "stage",
+      "name": "舞台",
+      "bounds_px": [
+        860,
+        815,
+        1015,
+        1110
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "living",
+      "name": "客厅",
+      "bounds_px": [
+        1025,
+        850,
+        1360,
+        1110
+      ],
+      "bounds_status": "schematic"
+    },
+    {
+      "id": "balcony",
+      "name": "客厅外L形阳台（东段与南侧返边）",
+      "bounds_px": [
+        1120,
+        840,
+        1480,
+        1225
+      ],
+      "bounds_status": "schematic",
+      "polygon_px": [
+        [
+          1365,
+          840
+        ],
+        [
+          1480,
+          840
+        ],
+        [
+          1480,
+          1225
+        ],
+        [
+          1120,
+          1225
+        ],
+        [
+          1120,
+          1115
+        ],
+        [
+          1365,
+          1115
+        ]
+      ],
+      "polygon_status": "schematic_from_original_plan"
+    }
+  ],
+  "points": [
+    {
+      "id": "S01",
+      "name": "客厅领普",
+      "room_id": "living",
+      "kind": "presence",
+      "position_px": [
+        1130,
+        1110
+      ],
+      "position_status": "approximate",
+      "position_sources": [
+        "原图：客厅领普",
+        "实景-02/06/07"
+      ],
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736664474841.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "南侧沙发后墙；照片支持所在墙面，安装高度与朝向未测。"
+    },
+    {
+      "id": "S02",
+      "name": "厨房领普",
+      "room_id": "kitchen",
+      "kind": "presence",
+      "position_px": [
+        1000,
+        680
+      ],
+      "position_status": "approximate",
+      "position_sources": [
+        "原图：厨房领普",
+        "实景-01"
+      ],
+      "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736917627387.json",
+      "height_m": 1.5,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "厨房东侧操作台/玻璃隔断附近。",
+      "height_source": "用户回答1.5，按米记录",
+      "height_reference": "测量基准未说明",
+      "confirmation_source": "placement-confirmations.json#S02"
+    },
+    {
+      "id": "S03",
+      "name": "走道感应",
+      "room_id": "corridor",
+      "kind": "motion",
+      "position_px": [
+        1055,
+        490
+      ],
+      "position_status": "approximate",
+      "position_sources": [
+        "实景-04/05/12"
+      ],
+      "entity_id": "event.linp_cn_blt_3_1k0llp3d0c400_hs1bb2_motion_detected_e_2_1008",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736919300667.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "新照片确认在走道北端顶面、单杠上方；不是装在单杠上，平面坐标仍近似。"
+    },
+    {
+      "id": "S04",
+      "name": "客厅阳台梁上感应",
+      "room_id": "balcony",
+      "kind": "motion",
+      "position_px": [
+        1435,
+        1030
+      ],
+      "position_status": "user_confirmed_approximate",
+      "position_sources": [
+        "原图：阳台梁上",
+        "实景-09",
+        "本轮对话平面图红框确认（45473191）",
+        "本轮出阳台梁上实景（a6f47d52，同实景-09）"
+      ],
+      "entity_id": "event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736918907451.json",
+      "height_m": 2.6,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "用户红框确认在客厅出阳台后的东侧阳台段横梁立面、近下缘。梁位已确认，像素为示意落点非实测，替换前版北端角点与待定标签。型号及实体仍未实物核对，旧导出仅作为候选；高度与朝向未测。",
+      "height_source": "用户答2.6；推断单位为米，待纠正",
+      "height_reference": "测量基准未说明",
+      "confirmation_source": "placement-confirmations.json#S04",
+      "mounting_surface": "beam_vertical_face_near_lower_edge"
+    },
+    {
+      "id": "S05",
+      "name": "书房领普",
+      "room_id": "study",
+      "kind": "presence",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "原图：书房领普",
+        "实景-10"
+      ],
+      "entity_id": "binary_sensor.linp_cn_1130160808_hb01_occupancy_status_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736919449440.json",
+      "height_m": 0.3,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "用户确认：照片所示梳妆台侧墙，离地30cm；插座上方，附近有椅背与柜体。实景相对位置已确认，不要求重复标图。墙面方位与平面精确坐标未标定，旧南侧门口坐标已撤销。",
+      "mounting_surface": "wall_beside_vanity",
+      "diagram_label_anchor_px": [
+        905,
+        355
+      ],
+      "diagram_label_is_installation_point": false,
+      "height_source": "用户明确说明离地30cm",
+      "confirmation_source": "placement-confirmations.json#S05"
+    },
+    {
+      "id": "S06",
+      "name": "主人房领普",
+      "room_id": "master",
+      "kind": "presence",
+      "position_px": null,
+      "position_status": "room_located",
+      "position_sources": [
+        "原图：主人房领普",
+        "实景-11"
+      ],
+      "entity_id": "binary_sensor.linp_cn_1207295174_hb01_occupancy_status_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/zhurenfang_motion_light_on.json",
+      "height_m": 0.3,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "照片标注设备在空调下方、靠床尾通道的墙面，明显低于空调插座；撤销前版北侧床头点。墙面方位、离地高度待确认。",
+      "mounting_surface": "wall_below_ac_near_bed_foot",
+      "diagram_label_anchor_px": [
+        1260,
+        340
+      ],
+      "diagram_label_is_installation_point": false,
+      "height_source": "用户明确说明离地30cm",
+      "confirmation_source": "placement-confirmations.json#S06"
+    },
+    {
+      "id": "S07",
+      "name": "悦悦房感应",
+      "room_id": "yueyue",
+      "kind": "presence",
+      "position_px": [
+        1150,
+        754
+      ],
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "原图：悦悦房领普"
+      ],
+      "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/yueyue_motion_light_on.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "图纸写领普；自动化导出为ES2，型号与物理设备待核对。",
+      "mounting_surface": "desk_surface",
+      "confirmation_source": "placement-confirmations.json#S07"
+    },
+    {
+      "id": "S08",
+      "name": "厨房补充PIR",
+      "room_id": "kitchen",
+      "kind": "motion",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "exports/automations/1736917627387.json"
+      ],
+      "entity_id": "event.linp_cn_blt_3_1k0stsh8sk400_hs1bb2_motion_detected_e_2_1008",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736917627387.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "导出说明原走廊感应2已移厨房；未在照片中确认安装点。",
+      "mounting_surface": "kitchen_ceiling",
+      "confirmation_source": "placement-confirmations.json#S08"
+    },
+    {
+      "id": "S09",
+      "name": "主卫存在感应",
+      "room_id": "master_bath",
+      "kind": "presence",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "exports/automations/1736920400997.json"
+      ],
+      "entity_id": "binary_sensor.linp_cn_1114869602_hb01_occupancy_status_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736920400997.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "",
+      "mounting_surface": "master_bath_ceiling_above_toilet",
+      "confirmation_source": "placement-confirmations.json#S09"
+    },
+    {
+      "id": "S10",
+      "name": "客卫存在感应",
+      "room_id": "guest_bath",
+      "kind": "presence",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "exports/automations/1740457164269.json"
+      ],
+      "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1740457164269.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "",
+      "mounting_surface": "guest_bath_ceiling_above_toilet",
+      "confirmation_source": "placement-confirmations.json#S10"
+    },
+    {
+      "id": "S11",
+      "name": "玄关PIR",
+      "room_id": "entrance",
+      "kind": "motion",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "exports/automations/1736917740057.json"
+      ],
+      "entity_id": "event.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_motion_detected_e_2_1008",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736917740057.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "",
+      "mounting_surface": "unknown_at_entrance",
+      "confirmation_source": "placement-confirmations.json#S11"
+    },
+    {
+      "id": "S12",
+      "name": "客厅第二雷达 ESP32 + LD2410",
+      "room_id": "living",
+      "kind": "presence",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "docs/2026-11-08-全屋人体存在感应拓扑与客厅双雷达布防基准.md",
+        "PRD-2026-10-29-ESP32客厅雷达.md"
+      ],
+      "entity_id": null,
+      "entity_status": "unbound",
+      "entity_source": null,
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "文档记录/候选位置：电视柜近走道端；未确认实际摆放及现用实体，不画作已安装点。",
+      "mounting_surface": "tv_console_outlet",
+      "confirmation_source": "placement-confirmations.json#S12"
+    },
+    {
+      "id": "D01",
+      "name": "入户门磁",
+      "room_id": "entrance",
+      "kind": "door",
+      "position_px": null,
+      "position_status": "unlocated",
+      "position_sources": [
+        "exports/automations/1736917740057.json"
+      ],
+      "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736917740057.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "入户门已知在西侧；门磁在门框哪一侧未知。"
+    },
+    {
+      "id": "L01",
+      "name": "客厅主灯",
+      "room_id": "living",
+      "kind": "light",
+      "position_px": [
+        1200,
+        995
+      ],
+      "position_status": "user_confirmed_approximate",
+      "position_sources": [
+        "实景-06/07"
+      ],
+      "entity_id": "switch.bean_cn_1124140556_blns2_on_p_3_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736664474841.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "水晶吸顶灯；照片投影到平面的示意位置。",
+      "mounting_surface": "living_ceiling",
+      "fixture": "crystal_ceiling_light",
+      "relative_position": "above_sofa",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L01"
+    },
+    {
+      "id": "L02",
+      "name": "舞台灯",
+      "room_id": "stage",
+      "kind": "light",
+      "position_px": [
+        940,
+        995
+      ],
+      "position_status": "user_confirmed_approximate",
+      "position_sources": [
+        "实景-02/03/07"
+      ],
+      "entity_id": "switch.bean_cn_1124140556_blns2_on_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1749716052814.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "圆形吸顶灯；回路与照片灯具对应需最终确认。",
+      "mounting_surface": "stage_ceiling",
+      "fixture": "round_ceiling_light",
+      "relative_position": "stage_area_center_approximate",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L02"
+    },
+    {
+      "id": "L03",
+      "name": "厨房顶灯组",
+      "room_id": "kitchen",
+      "kind": "light",
+      "position_px": [
+        855,
+        630
+      ],
+      "position_status": "user_confirmed_approximate",
+      "position_sources": [
+        "实景-01/04"
+      ],
+      "entity_id": "switch.bean_cn_1122794638_blns1_on_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736917627387.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "照片可见多块方形灯板；组点，不表示每块灯板独立受控。",
+      "mounting_surface": "kitchen_ceiling",
+      "fixture": "square_light_panel_group",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L03"
+    },
+    {
+      "id": "L04",
+      "name": "走道筒灯组",
+      "room_id": "corridor",
+      "kind": "light",
+      "position_px": [
+        1055,
+        620
+      ],
+      "position_status": "user_confirmed_approximate",
+      "position_sources": [
+        "实景-04/05"
+      ],
+      "entity_id": "switch.bean_cn_1124143167_blns1_on_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736919300667.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "照片可见顶面小圆灯；数量与单灯坐标未测。",
+      "mounting_surface": "corridor_ceiling",
+      "fixture": "downlight_group",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L04"
+    },
+    {
+      "id": "L05",
+      "name": "客厅灯带左路",
+      "room_id": "living",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "exports/automations/1736664474841.json"
+      ],
+      "entity_id": "switch.bean_cn_1124140065_blns2_on_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736664474841.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "本地导出记录回路，未确认灯具具体安装位置。",
+      "mounting_surface": "curtain_side_linear_path",
+      "fixture": "linear_light_strip",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L05"
+    },
+    {
+      "id": "L06",
+      "name": "书房灯",
+      "room_id": "study",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "exports/automations/1736919449440.json"
+      ],
+      "entity_id": "switch.bean_cn_1122794165_blns1_on_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736919449440.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "本地导出记录回路，未确认灯具具体安装位置。",
+      "mounting_surface": "study_ceiling",
+      "fixture": "central_ceiling_light",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L06"
+    },
+    {
+      "id": "L07",
+      "name": "主人房走廊灯",
+      "room_id": "master_hall",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "unlocated",
+      "position_sources": [
+        "exports/automations/1736919449440.json"
+      ],
+      "entity_id": "switch.bean_cn_1124140146_blns2_on_p_3_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736919449440.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "本地导出记录回路，未确认灯具具体安装位置。"
+    },
+    {
+      "id": "L08",
+      "name": "主卫灯",
+      "room_id": "master_bath",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "unlocated",
+      "position_sources": [
+        "exports/automations/1736920400997.json"
+      ],
+      "entity_id": "switch.bean_cn_1124140372_blns2_on_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/1736920400997.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "本地导出记录回路，未确认灯具具体安装位置。"
+    },
+    {
+      "id": "L09",
+      "name": "悦悦房大灯候选",
+      "room_id": "yueyue",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "exports/automations/yueyue_motion_light_on.json"
+      ],
+      "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+      "entity_status": "local_export_unverified",
+      "entity_source": "exports/automations/yueyue_motion_light_on.json",
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "本地导出记录回路，未确认灯具具体安装位置。",
+      "fixture": "yueyue_main_ceiling_light",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L09"
+    },
+    {
+      "id": "L10",
+      "name": "乐乐房照明",
+      "room_id": "lele",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "user_confirmed_relative",
+      "position_sources": [
+        "待补充现场核对"
+      ],
+      "entity_id": null,
+      "entity_status": "unbound",
+      "entity_source": null,
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "区域占位记录；灯具数量、位置及实体均待核对，不作为可调用控制项。",
+      "fixture": "lele_main_ceiling_light",
+      "control_relation_status": "user_confirmed_entity_candidate_from_local_export",
+      "confirmation_source": "placement-confirmations.json#L10"
+    },
+    {
+      "id": "L11",
+      "name": "主人房主灯/壁灯",
+      "room_id": "master",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "unlocated",
+      "position_sources": [
+        "待补充现场核对"
+      ],
+      "entity_id": null,
+      "entity_status": "unbound",
+      "entity_source": null,
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "区域占位记录；灯具数量、位置及实体均待核对，不作为可调用控制项。 用户说明主人房双开控制吸顶灯，另有单开控制走道灯；注册表键映射与该现场描述冲突，待核。",
+      "control_relation_status": "user_confirmed_but_registry_conflict",
+      "confirmation_source": "placement-confirmations.json#L11"
+    },
+    {
+      "id": "L12",
+      "name": "客卫照明",
+      "room_id": "guest_bath",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "unlocated",
+      "position_sources": [
+        "待补充现场核对"
+      ],
+      "entity_id": null,
+      "entity_status": "unbound",
+      "entity_source": null,
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "区域占位记录；灯具数量、位置及实体均待核对，不作为可调用控制项。"
+    },
+    {
+      "id": "L13",
+      "name": "玄关照明",
+      "room_id": "entrance",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "unlocated",
+      "position_sources": [
+        "待补充现场核对"
+      ],
+      "entity_id": null,
+      "entity_status": "unbound",
+      "entity_source": null,
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "区域占位记录；灯具数量、位置及实体均待核对，不作为可调用控制项。"
+    },
+    {
+      "id": "L14",
+      "name": "阳台照明",
+      "room_id": "balcony",
+      "kind": "light",
+      "position_px": null,
+      "position_status": "unlocated",
+      "position_sources": [
+        "待补充现场核对"
+      ],
+      "entity_id": null,
+      "entity_status": "unbound",
+      "entity_source": null,
+      "height_m": null,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "区域占位记录；灯具数量、位置及实体均待核对，不作为可调用控制项。"
+    },
+    {
+      "id": "S13",
+      "name": "客厅阳台墙面感应",
+      "room_id": "balcony",
+      "kind": "sensor_unclassified",
+      "position_px": [
+        1285,
+        1120
+      ],
+      "position_status": "user_confirmed_approximate",
+      "position_sources": [
+        "实景-08",
+        "实景-13：用户红线确认",
+        "用户确认：两颗设备都在客厅外同一个阳台"
+      ],
+      "entity_id": null,
+      "entity_status": "unbound",
+      "entity_source": null,
+      "height_m": 1.0,
+      "heading_deg": null,
+      "coverage_polygon": null,
+      "notes": "用户确认在拐角后的南侧阳台段，客厅南侧沙发墙室外侧（该阳台段北侧瓷砖墙），洗衣机旁。墙段已确认，像素为示意落点非实测；型号、HA实体、离地高度及朝向待核对。",
+      "height_source": "用户明确说明离地100cm",
+      "height_reference": "测量基准未说明",
+      "confirmation_source": "placement-confirmations.json#S13",
+      "mounting_surface": "exterior_face_of_living_south_wall"
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISSUE-BALCONY-001",
+      "status": "reported_unresolved",
+      "priority": "high",
+      "source": "用户2026-11-08本轮反馈",
+      "statement": "阳台感应误触频繁、运行不稳定，是重点问题区",
+      "point_ids": [
+        "S04",
+        "S13"
+      ],
+      "scope_status": "用户确认两颗均在客厅外同一个阳台；未确认分别有哪些误触表现，问题暂按区域记录",
+      "root_cause": null,
+      "observed_environment": [
+        "实景-08：洗衣机、衣架、拖把、玻璃门、置物架",
+        "实景-09：晾晒衣物、晾衣杆、开放护栏、玻璃门"
+      ],
+      "environment_causality_verified": false,
+      "next_evidence": [
+        "核对两颗感应各自HA实体、型号与误触表现",
+        "只读对照事件历史、灯光历史与自动化trace",
+        "记录误触发生时间与当时人员、洗衣和晾晒情况"
+      ],
+      "parameter_change_authorized": false
+    }
+  ],
+  "safety": {
+    "read_only_dataset": true,
+    "service_calls_allowed": false,
+    "production_verified": false,
+    "unknown_is_not_absent": true,
+    "coverage_is_not_measured": true
+  },
+  "sources": [
+    "sources/户型尺寸原图.pdf",
+    "sources/实景-01.png",
+    "sources/实景-02.png",
+    "sources/实景-03.png",
+    "sources/实景-04.png",
+    "sources/实景-05.png",
+    "sources/实景-06.png",
+    "sources/实景-07.png",
+    "sources/实景-08.png",
+    "sources/实景-09.png",
+    "sources/实景-10.png",
+    "sources/实景-11.png",
+    "sources/实景-12.png",
+    "sources/实景-13.png"
+  ]
+}

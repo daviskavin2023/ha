@@ -1,0 +1,97 @@
+esphome:
+  name: desk-lamp
+  friendly_name: "Desk Lamp"
+  on_boot:
+    priority: -100
+    then:
+      - delay: 2s
+      - logger.log: ">>> [开机测试：发送开/关脉冲！]"
+      - output.turn_on: pin_g1
+      - output.turn_on: pin_g2
+      - output.turn_on: pin_g3
+      - delay: 150ms
+      - output.turn_off: pin_g1
+      - output.turn_off: pin_g2
+      - output.turn_off: pin_g3
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: DEBUG
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  reboot_timeout: 0s
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+# 覆盖焊接的引脚 (GPIO1, GPIO2, GPIO3 全部同步发脉冲)
+output:
+  - platform: gpio
+    pin: GPIO1
+    id: pin_g1
+  - platform: gpio
+    pin: GPIO2
+    id: pin_g2
+  - platform: gpio
+    pin: GPIO3
+    id: pin_g3
+
+# 自动循环测试：每隔 5 秒切换一次开关
+interval:
+  - interval: 5s
+    then:
+      - logger.log: ">>> [触发测试脉冲 (150ms)：切换台灯开关！]"
+      - output.turn_on: pin_g1
+      - output.turn_on: pin_g2
+      - output.turn_on: pin_g3
+      - delay: 150ms
+      - output.turn_off: pin_g1
+      - output.turn_off: pin_g2
+      - output.turn_off: pin_g3
+
+# Home Assistant 一键开关按键实体
+button:
+  - platform: template
+    name: "Toggle Desk Lamp"
+    id: toggle_lamp_btn
+    on_press:
+      - output.turn_on: pin_g1
+      - output.turn_on: pin_g2
+      - output.turn_on: pin_g3
+      - delay: 150ms
+      - output.turn_off: pin_g1
+      - output.turn_off: pin_g2
+      - output.turn_off: pin_g3
+
+# 桌面人体存在雷达 (LD2410) 预留配置
+uart:
+  id: radar_uart
+  tx_pin: GPIO5
+  rx_pin: GPIO4
+  baud_rate: 256000
+  rx_buffer_size: 512
+
+ld2410:
+  uart_id: radar_uart
+
+binary_sensor:
+  - platform: ld2410
+    has_target:
+      name: "Desk Target Present"
+      id: desk_presence
+
+sensor:
+  - platform: ld2410
+    detection_distance:
+      name: "Desk Target Distance"
