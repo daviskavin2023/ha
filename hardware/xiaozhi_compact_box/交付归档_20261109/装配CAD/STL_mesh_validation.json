@@ -1,0 +1,158 @@
+{
+  "front_shell": {
+    "triangles": 21342,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 30697.97059168603,
+    "printed_bbox_mm": [
+      59.99999984999998,
+      93.99999984999998,
+      39.99999984999998
+    ],
+    "bed_z_min_mm": 1.50000019516483e-07
+  },
+  "rear_shell": {
+    "triangles": 7396,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 31061.148212610962,
+    "printed_bbox_mm": [
+      59.999999849999995,
+      93.99999985000001,
+      35.999999849999995
+    ],
+    "bed_z_min_mm": 1.500000053056283e-07
+  },
+  "module_tray": {
+    "triangles": 2172,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 6381.1844199378465,
+    "printed_bbox_mm": [
+      51.999999849999995,
+      70.99999985,
+      2.000000088418574
+    ],
+    "bed_z_min_mm": 1.500000053056283e-07
+  },
+  "screen_retainer": {
+    "triangles": 2036,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 1519.9041909491891,
+    "printed_bbox_mm": [
+      45.999999849999995,
+      55.999999849999995,
+      2.000000088418574
+    ],
+    "bed_z_min_mm": 1.500000053056283e-07
+  },
+  "jack_plate": {
+    "triangles": 1728,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 734.225090395999,
+    "printed_bbox_mm": [
+      25.79999908706054,
+      25.79999908706054,
+      2.000000088418588
+    ],
+    "bed_z_min_mm": 1.4999999109477358e-07
+  },
+  "speaker_bar_10": {
+    "triangles": 692,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 284.8088401748784,
+    "printed_bbox_mm": [
+      49.9999999,
+      2.999999899999999,
+      1.9999998999999988
+    ],
+    "bed_z_min_mm": 1.0000000116860974e-07
+  },
+  "speaker_bar_38": {
+    "triangles": 692,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 284.8088401748784,
+    "printed_bbox_mm": [
+      49.9999999,
+      2.999999899999999,
+      1.9999998999999988
+    ],
+    "bed_z_min_mm": 1.0000000116860974e-07
+  },
+  "amp_spacer": {
+    "triangles": 352,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 517.2133008234065,
+    "printed_bbox_mm": [
+      23.99999989999999,
+      14.999999899999992,
+      1.5000000192092813
+    ],
+    "bed_z_min_mm": 1.000000082740371e-07
+  },
+  "patch_spacer": {
+    "triangles": 12,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 647.9999693999977,
+    "printed_bbox_mm": [
+      17.99999989999999,
+      11.999999899999992,
+      2.9999998999999917
+    ],
+    "bed_z_min_mm": 1.000000082740371e-07
+  },
+  "dac_spacer": {
+    "triangles": 12,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 1727.9999273999954,
+    "printed_bbox_mm": [
+      31.99999989999999,
+      17.9999999,
+      2.9999998999999917
+    ],
+    "bed_z_min_mm": 1.000000082740371e-07
+  },
+  "jack_plate_blank_spare": {
+    "triangles": 1388,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 960.2088986454424,
+    "printed_bbox_mm": [
+      25.79999908706054,
+      25.79999908706054,
+      2.000000088418574
+    ],
+    "bed_z_min_mm": 1.500000053056283e-07
+  },
+  "screen_fit_gauge": {
+    "triangles": 1056,
+    "watertight_edges": true,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_volume_mm3": 1647.398021743679,
+    "printed_bbox_mm": [
+      43.999999849999995,
+      55.999999849999995,
+      2.000000088418574
+    ],
+    "bed_z_min_mm": 1.500000053056283e-07
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "result": "PASS",
+  "functional_mappings": [
+    {
+      "symbol": "MIC_DATA_PIN",
+      "gpio": 4,
+      "carrier": "J_MIC.3",
+      "net": "MIC_SD_IO4"
+    },
+    {
+      "symbol": "MIC_WS_PIN",
+      "gpio": 5,
+      "carrier": "J_MIC.5",
+      "net": "MIC_WS_IO5"
+    },
+    {
+      "symbol": "MIC_SCK_PIN",
+      "gpio": 6,
+      "carrier": "J_MIC.6",
+      "net": "MIC_SCK_IO6"
+    },
+    {
+      "symbol": "DAC_BCK_PIN",
+      "gpio": 7,
+      "carrier": "J_DAC_IN.3",
+      "net": "DAC_BCK_IO7"
+    },
+    {
+      "symbol": "DAC_LRCK_PIN",
+      "gpio": 15,
+      "carrier": "J_DAC_IN.5",
+      "net": "DAC_LCK_IO15"
+    },
+    {
+      "symbol": "DAC_DATA_PIN",
+      "gpio": 16,
+      "carrier": "J_DAC_IN.4",
+      "net": "DAC_DIN_IO16"
+    },
+    {
+      "symbol": "AMP_SD_PIN",
+      "gpio": 9,
+      "carrier": "J_AMP_IN.3",
+      "net": "AMP_SD_IO9"
+    },
+    {
+      "symbol": "RADAR_OUT_PIN",
+      "gpio": 8,
+      "carrier": "J_RADAR.3",
+      "net": "RADAR_OUT_IO8"
+    },
+    {
+      "symbol": "TOUCH_SDA_PIN",
+      "gpio": 2,
+      "carrier": "J_LCD_PWR.4",
+      "net": "TOUCH_SDA_IO2"
+    },
+    {
+      "symbol": "TOUCH_SCL_PIN",
+      "gpio": 1,
+      "carrier": "J_LCD_PWR.3",
+      "net": "TOUCH_SCL_IO1"
+    },
+    {
+      "symbol": "DISPLAY_MOSI_PIN",
+      "gpio": 12,
+      "carrier": "J_LCD_SPI.1",
+      "net": "LCD_MOSI_IO12"
+    },
+    {
+      "symbol": "DISPLAY_DC_PIN",
+      "gpio": 10,
+      "carrier": "J_LCD_SPI.2",
+      "net": "LCD_DC_IO10"
+    },
+    {
+      "symbol": "DISPLAY_CLK_PIN",
+      "gpio": 11,
+      "carrier": "J_LCD_SPI.3",
+      "net": "LCD_SCK_IO11"
+    },
+    {
+      "symbol": "DISPLAY_CS_PIN",
+      "gpio": 13,
+      "carrier": "J_LCD_SPI.4",
+      "net": "LCD_CS_IO13"
+    }
+  ],
+  "duplicate_GPIO": 0,
+  "unidentified_BL_RST_INT_driven": false,
+  "service_UART_pins_match": true,
+  "native_firmware_compile_checked_by_this_script": false,
+  "hardware_run_checked_by_this_script": false
+}

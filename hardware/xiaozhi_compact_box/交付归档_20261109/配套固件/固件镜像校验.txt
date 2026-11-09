@@ -1,0 +1,47 @@
+esptool v5.6.0
+Image size: 2682880 bytes
+
+ESP32-S3 Image Header
+=====================
+Image version: 1
+Entry point: 0x403799a4
+Segments: 6
+Flash size: 16MB
+Flash freq: 80m
+Flash mode: DIO
+
+ESP32-S3 Extended Image Header
+==============================
+WP pin: 0xee (disabled)
+Flash pins drive settings: clk_drv: 0x0, q_drv: 0x0, d_drv: 0x0, cs0_drv: 0x0, hd_drv: 0x0, wp_drv: 0x0
+Chip ID: 9 (ESP32-S3)
+Minimal chip revision: v0.0, (legacy min_rev = 0)
+Maximal chip revision: v0.99
+
+Segments Information
+====================
+Segment   Length   Load addr   File offs  Memory types
+-------  -------  ----------  ----------  ------------
+      0  0x9cd88  0x3c1e0020  0x00000018  DROM
+      1  0x03268  0x3fc9b400  0x0009cda8  BYTE_ACCESSIBLE, MEM_INTERNAL, DRAM
+      2  0x1d64a0  0x42000020  0x000a0018  IROM
+      3  0x05738  0x3fc9e668  0x002764c0  BYTE_ACCESSIBLE, MEM_INTERNAL, DRAM
+      4  0x133a4  0x40378000  0x0027bc00  MEM_INTERNAL, IRAM
+      5  0x00024  0x50000000  0x0028efac  RTC_DATA
+
+ESP32-S3 Image Footer
+=====================
+Checksum: 0x0d (valid)
+Validation hash: 95d57ff91fb820c85970cf7a66d1a8ddffa974473e3972898c544208a867628c (valid)
+
+Application Information
+=======================
+Project name: xiaozhi
+App version: 2.5.2
+Compile time: Nov  9 2026 17:25:25
+ELF file SHA256: 3c12da9f916ae9a3e5fbeb4ee3c1dae292363687f7d82708931bd803dad111e7
+ESP-IDF: v6.1
+Minimal eFuse block revision: 0.0
+Maximal eFuse block revision: 1.99
+MMU page size: 64 KB
+Secure version: 0

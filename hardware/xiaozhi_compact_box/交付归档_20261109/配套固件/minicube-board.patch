@@ -1,0 +1,400 @@
+diff --git a/main/CMakeLists.txt b/main/CMakeLists.txt
+index 633ef85..f82cfa8 100644
+--- a/main/CMakeLists.txt
++++ b/main/CMakeLists.txt
+@@ -595,6 +595,11 @@ elseif(CONFIG_BOARD_TYPE_ESP_MOSAICO)
+     set(BUILTIN_TEXT_FONT font_noto_sans_basic_30_4)
+     set(BUILTIN_ICON_FONT font_material_symbols_30_4)
+     set(DEFAULT_EMOJI_COLLECTION noto-color-emoji_64)
++elseif(CONFIG_BOARD_TYPE_XIAOZHI_MINICUBE)
++    set(BOARD_DIR "xiaozhi-minicube")
++    set(BUILTIN_TEXT_FONT font_noto_sans_basic_16_4)
++    set(BUILTIN_ICON_FONT font_material_symbols_16_4)
++    set(DEFAULT_EMOJI_COLLECTION noto-color-emoji_32)
+ elseif(CONFIG_BOARD_TYPE_BREAD_COMPACT_WIFI_LCD)
+     set(BOARD_DIR "bread-compact-wifi-lcd")
+     set(BUILTIN_TEXT_FONT font_noto_sans_basic_16_4)
+diff --git a/main/Kconfig.projbuild b/main/Kconfig.projbuild
+index 6a7c0fb..55e68b7 100644
+--- a/main/Kconfig.projbuild
++++ b/main/Kconfig.projbuild
+@@ -614,6 +614,9 @@ choice BOARD_TYPE
+     config BOARD_TYPE_WK_ESP32S3_DEV
+         bool "WK ESP32-S3 Dev Board (维控智能开发板)"
+         depends on IDF_TARGET_ESP32S3
++    config BOARD_TYPE_XIAOZHI_MINICUBE
++        bool "XiaoZhi MiniCube TK020F1131 PB (custom carrier)"
++        depends on IDF_TARGET_ESP32S3
+     config BOARD_TYPE_XMINI_C3
+         bool "Xmini C3"
+         depends on IDF_TARGET_ESP32C3
+@@ -1172,4 +1175,6 @@ menu "TAIJIPAI_S3_CONFIG"
+         启动双声道
+ endmenu
+ 
++rsource "boards/xiaozhi-minicube/Kconfig.projbuild"
++
+ endmenu
+diff --git a/main/boards/xiaozhi-minicube/Kconfig.projbuild b/main/boards/xiaozhi-minicube/Kconfig.projbuild
+new file mode 100644
+index 0000000..ce6f34f
+--- /dev/null
++++ b/main/boards/xiaozhi-minicube/Kconfig.projbuild
+@@ -0,0 +1,21 @@
++menu "MiniCube TK020F1131 PB panel"
++    depends on BOARD_TYPE_XIAOZHI_MINICUBE
++
++config MINICUBE_LCD_HEIGHT
++    int "Visible panel height (verify with vendor/test pattern)"
++    range 240 320
++    default 296
++
++config MINICUBE_LCD_OFFSET_Y
++    int "ST7789 vertical RAM offset"
++    range 0 80
++    default 0
++
++config MINICUBE_TOUCH_POLL
++    bool "Poll CST816x over I2C without using unidentified INT/RST pads"
++    default y
++    help
++        Probe 0x15 and read registers without writing reset or sleep registers.
++        A timeout is reported as a touch error, not a fabricated release event.
++        Actual CST816D operation on this adapter still requires hardware testing.
++endmenu
+diff --git a/main/boards/xiaozhi-minicube/README.md b/main/boards/xiaozhi-minicube/README.md
+new file mode 100644
+index 0000000..fb7b5be
+--- /dev/null
++++ b/main/boards/xiaozhi-minicube/README.md
+@@ -0,0 +1,34 @@
++# XiaoZhi MiniCube / TK020F1131_PB
++
++Unique board identity: `xiaozhi-minicube`; release variant:
++`xiaozhi-minicube-tk020-pb`. ESP32-S3 N16R8, 16MB flash / octal PSRAM.
++
++Pins follow the v3.1 carrier. Microphone: DIN4/WS5/SCK6. PCM5102A:
++BCK7/LRCK15/DATA16. PAM8302A SD9, active high. Display:
++MOSI12/DC10/SCK11/CS13. Touch: SDA2/SCL1. Radar OUT8 is read only;
++UART17/18 remain reserved for radar and are not reused by a generic lamp tool.
++
++Required audio hardware: PATCH-A01 15k/1k passive attenuator and input coupling.
++The firmware does not claim an arbitrary digital volume guarantees no clipping.
++SD is low during startup/disabled playback and enabled asynchronously 10ms after
++the I2S output is enabled. This is not an AUX insertion detector.
++
++Only the two labeled 4P connectors are used. BL/RST/INT solder points are not
++driven. The ST7789 uses its software-reset command. CST816x is probed at 0x15
++and polled via the same register layout used by the upstream CST816D board.
++Read failures are logged and never treated as a release event. A matching
++controller/batch and proper I2C pullups must be verified on actual hardware.
++The driver's weak internal pullups do not establish production signal margins.
++
++The 240x296, y-offset=0 display profile is an initial unverified BOM profile,
++not a vendor-confirmed resolution/offset. Both height and offset are configurable
++through Kconfig. Compilation cannot prove that these values fit the actual glass.
++
++Build with ESP-IDF 6.1 using:
++
++```
++python3 scripts/build.py xiaozhi-minicube --name xiaozhi-minicube-tk020-pb
++```
++
++No flashing is performed by adding/building this board. Confirm the carrier,
++power topology, wiring and panel profile before installing any image.
+diff --git a/main/boards/xiaozhi-minicube/config.h b/main/boards/xiaozhi-minicube/config.h
+new file mode 100644
+index 0000000..8c3d5ee
+--- /dev/null
++++ b/main/boards/xiaozhi-minicube/config.h
+@@ -0,0 +1,48 @@
++#pragma once
++
++#include <driver/gpio.h>
++#include "sdkconfig.h"
++
++// These assignments follow the actual carrier nets, not the stock breadboard.
++#define AUDIO_INPUT_SAMPLE_RATE 16000
++#define AUDIO_OUTPUT_SAMPLE_RATE 24000
++#define MIC_DATA_PIN GPIO_NUM_4
++#define MIC_WS_PIN GPIO_NUM_5
++#define MIC_SCK_PIN GPIO_NUM_6
++#define DAC_BCK_PIN GPIO_NUM_7
++#define DAC_LRCK_PIN GPIO_NUM_15
++#define DAC_DATA_PIN GPIO_NUM_16
++#define AMP_SD_PIN GPIO_NUM_9
++#define RADAR_OUT_PIN GPIO_NUM_8
++#define TOUCH_SCL_PIN GPIO_NUM_1
++#define TOUCH_SDA_PIN GPIO_NUM_2
++#define DISPLAY_MOSI_PIN GPIO_NUM_12
++#define DISPLAY_DC_PIN GPIO_NUM_10
++#define DISPLAY_CLK_PIN GPIO_NUM_11
++#define DISPLAY_CS_PIN GPIO_NUM_13
++#define BOOT_BUTTON_GPIO GPIO_NUM_0
++
++// Eight-wire panel: do not drive unidentified BL/RST/INT solder pads.
++#define DISPLAY_RST_PIN GPIO_NUM_NC
++#define DISPLAY_BACKLIGHT_PIN GPIO_NUM_NC
++#define DISPLAY_WIDTH 240
++#define DISPLAY_HEIGHT CONFIG_MINICUBE_LCD_HEIGHT
++#define DISPLAY_OFFSET_X 0
++#define DISPLAY_OFFSET_Y CONFIG_MINICUBE_LCD_OFFSET_Y
++
++#if DISPLAY_HEIGHT + DISPLAY_OFFSET_Y > 320
++#error "MiniCube display height plus offset exceeds ST7789 RAM height"
++#endif
++
++// This profile excludes PSRAM, UART0, USB, strap and optional solder-pad pins.
++constexpr int kMinicubeFunctionalPins[] = {4, 5, 6, 7, 15, 16, 9, 8, 1, 2, 12, 10, 11, 13};
++constexpr bool MinicubePinsAreDistinct() {
++    for (unsigned i = 0; i < sizeof(kMinicubeFunctionalPins) / sizeof(int); ++i) {
++        for (unsigned j = i + 1; j < sizeof(kMinicubeFunctionalPins) / sizeof(int); ++j) {
++            if (kMinicubeFunctionalPins[i] == kMinicubeFunctionalPins[j])
++                return false;
++        }
++    }
++    return true;
++}
++static_assert(MinicubePinsAreDistinct(), "MiniCube functional GPIO conflict");
+diff --git a/main/boards/xiaozhi-minicube/config.json b/main/boards/xiaozhi-minicube/config.json
+new file mode 100644
+index 0000000..5fcab46
+--- /dev/null
++++ b/main/boards/xiaozhi-minicube/config.json
+@@ -0,0 +1,14 @@
++{
++    "type": "xiaozhi-minicube",
++    "target": "esp32s3",
++    "builds": [
++        {
++            "name": "xiaozhi-minicube-tk020-pb",
++            "sdkconfig_append": [
++                "CONFIG_MINICUBE_LCD_HEIGHT=296",
++                "CONFIG_MINICUBE_LCD_OFFSET_Y=0",
++                "CONFIG_MINICUBE_TOUCH_POLL=y"
++            ]
++        }
++    ]
++}
+diff --git a/main/boards/xiaozhi-minicube/minicube_board.cc b/main/boards/xiaozhi-minicube/minicube_board.cc
+new file mode 100644
+index 0000000..f673762
+--- /dev/null
++++ b/main/boards/xiaozhi-minicube/minicube_board.cc
+@@ -0,0 +1,216 @@
++#include "application.h"
++#include "button.h"
++#include "codecs/no_audio_codec.h"
++#include "config.h"
++#include "display/lcd_display.h"
++#include "mcp_server.h"
++#include "wifi_board.h"
++
++#include <driver/i2c_master.h>
++#include <driver/spi_common.h>
++#include <esp_lcd_panel_io.h>
++#include <esp_lcd_panel_ops.h>
++#include <esp_lcd_panel_vendor.h>
++#include <esp_log.h>
++#include <esp_timer.h>
++#include <atomic>
++
++static const char* TAG = "MiniCube";
++
++class MinicubeCodec : public NoAudioCodecSimplex {
++    esp_timer_handle_t enable_timer_ = nullptr;
++    std::mutex transition_mutex_;
++    std::mutex gate_mutex_;
++    bool requested_ = false;
++    int64_t enable_after_us_ = 0;
++
++public:
++    MinicubeCodec()
++        : NoAudioCodecSimplex(AUDIO_INPUT_SAMPLE_RATE, AUDIO_OUTPUT_SAMPLE_RATE, DAC_BCK_PIN,
++                              DAC_LRCK_PIN, DAC_DATA_PIN, MIC_SCK_PIN, MIC_WS_PIN, MIC_DATA_PIN) {
++        esp_timer_create_args_t timer = {};
++        timer.callback = [](void* arg) {
++            auto* self = static_cast<MinicubeCodec*>(arg);
++            std::lock_guard<std::mutex> lock(self->gate_mutex_);
++            if (self->requested_ && esp_timer_get_time() >= self->enable_after_us_)
++                gpio_set_level(AMP_SD_PIN, 1);
++        };
++        timer.arg = this;
++        timer.name = "amp_settle";
++        ESP_ERROR_CHECK(esp_timer_create(&timer, &enable_timer_));
++    }
++
++    void EnableOutput(bool enable) override {
++        // The timer runs on ESP_TIMER_TASK. It does not block the audio thread.
++        std::lock_guard<std::mutex> transition(transition_mutex_);
++        if (enable == output_enabled_)
++            return;
++        esp_timer_stop(enable_timer_);  // An inactive timer is harmless.
++        {
++            std::lock_guard<std::mutex> lock(gate_mutex_);
++            requested_ = false;
++            gpio_set_level(AMP_SD_PIN, 0);
++        }
++        NoAudioCodec::EnableOutput(enable);
++        if (enable) {
++            std::lock_guard<std::mutex> lock(gate_mutex_);
++            requested_ = true;
++            enable_after_us_ = esp_timer_get_time() + 10000;
++            ESP_ERROR_CHECK(esp_timer_start_once(enable_timer_, 10000));
++        }
++    }
++};
++
++class MinicubeBoard : public WifiBoard {
++    Button boot_button_{BOOT_BUTTON_GPIO};
++    LcdDisplay* display_ = nullptr;
++    i2c_master_bus_handle_t touch_bus_ = nullptr;
++    i2c_master_dev_handle_t touch_dev_ = nullptr;
++    std::atomic<bool> touch_available_{false};
++    std::atomic<bool> touch_pressed_{false};
++    std::atomic<int> touch_x_{-1};
++    std::atomic<int> touch_y_{-1};
++
++    void InitializeControlPins() {
++        ESP_ERROR_CHECK(gpio_set_level(AMP_SD_PIN, 0));
++        gpio_config_t amp = {};
++        amp.pin_bit_mask = 1ULL << AMP_SD_PIN;
++        amp.mode = GPIO_MODE_OUTPUT;
++        ESP_ERROR_CHECK(gpio_config(&amp));
++        gpio_config_t radar = {};
++        radar.pin_bit_mask = 1ULL << RADAR_OUT_PIN;
++        radar.mode = GPIO_MODE_INPUT;
++        ESP_ERROR_CHECK(gpio_config(&radar));
++    }
++
++    void InitializeDisplay() {
++        spi_bus_config_t bus = {};
++        bus.mosi_io_num = DISPLAY_MOSI_PIN;
++        bus.miso_io_num = GPIO_NUM_NC;
++        bus.sclk_io_num = DISPLAY_CLK_PIN;
++        bus.quadwp_io_num = GPIO_NUM_NC;
++        bus.quadhd_io_num = GPIO_NUM_NC;
++        bus.max_transfer_sz = DISPLAY_WIDTH * DISPLAY_HEIGHT * sizeof(uint16_t);
++        ESP_ERROR_CHECK(spi_bus_initialize(SPI3_HOST, &bus, SPI_DMA_CH_AUTO));
++        esp_lcd_panel_io_spi_config_t io = {};
++        io.cs_gpio_num = DISPLAY_CS_PIN;
++        io.dc_gpio_num = DISPLAY_DC_PIN;
++        io.spi_mode = 0;
++        io.pclk_hz = 20 * 1000 * 1000;
++        io.trans_queue_depth = 10;
++        io.lcd_cmd_bits = 8;
++        io.lcd_param_bits = 8;
++        esp_lcd_panel_io_handle_t panel_io = nullptr;
++        ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi(SPI3_HOST, &io, &panel_io));
++        esp_lcd_panel_dev_config_t cfg = {};
++        cfg.reset_gpio_num = GPIO_NUM_NC;  // IDF uses ST7789 software reset.
++        cfg.rgb_ele_order = LCD_RGB_ELEMENT_ORDER_RGB;
++        cfg.bits_per_pixel = 16;
++        esp_lcd_panel_handle_t panel = nullptr;
++        ESP_ERROR_CHECK(esp_lcd_new_panel_st7789(panel_io, &cfg, &panel));
++        ESP_ERROR_CHECK(esp_lcd_panel_reset(panel));
++        ESP_ERROR_CHECK(esp_lcd_panel_init(panel));
++        ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel, true));
++        display_ = new SpiLcdDisplay(panel_io, panel, DISPLAY_WIDTH, DISPLAY_HEIGHT,
++                                     DISPLAY_OFFSET_X, DISPLAY_OFFSET_Y, false, false, false);
++        ESP_LOGW(TAG, "Panel profile %dx%d, y-offset=%d requires physical validation",
++                 DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_OFFSET_Y);
++    }
++
++    static void TouchTask(void* arg) {
++        auto* self = static_cast<MinicubeBoard*>(arg);
++        bool was_pressed = false;
++        unsigned errors = 0;
++        for (;;) {
++            uint8_t reg = 0x02;
++            uint8_t state[5] = {};
++            esp_err_t err =
++                i2c_master_transmit_receive(self->touch_dev_, &reg, 1, state, sizeof(state), 20);
++            if (err == ESP_OK) {
++                self->touch_available_.store(true);
++                errors = 0;
++                bool pressed = (state[0] & 0x0f) != 0;
++                self->touch_pressed_.store(pressed);
++                self->touch_x_.store(((state[1] & 0x0f) << 8) | state[2]);
++                self->touch_y_.store(((state[3] & 0x0f) << 8) | state[4]);
++                if (was_pressed && !pressed) {
++                    auto& app = Application::GetInstance();
++                    app.Schedule([&app]() { app.ToggleChatState(); });
++                }
++                was_pressed = pressed;
++            } else {
++                // Do not turn a failed read into a tap/release or a reboot.
++                self->touch_available_.store(false);
++                self->touch_pressed_.store(false);
++                was_pressed = false;
++                if (++errors == 1 || errors % 250 == 0)
++                    ESP_LOGW(TAG, "Touch polling failed: %s", esp_err_to_name(err));
++            }
++            vTaskDelay(pdMS_TO_TICKS(20));
++        }
++    }
++
++    void InitializeTouch() {
++#if CONFIG_MINICUBE_TOUCH_POLL
++        i2c_master_bus_config_t cfg = {};
++        cfg.i2c_port = I2C_NUM_0;
++        cfg.sda_io_num = TOUCH_SDA_PIN;
++        cfg.scl_io_num = TOUCH_SCL_PIN;
++        cfg.clk_source = I2C_CLK_SRC_DEFAULT;
++        cfg.glitch_ignore_cnt = 7;
++        cfg.flags.enable_internal_pullup = true;
++        ESP_ERROR_CHECK(i2c_new_master_bus(&cfg, &touch_bus_));
++        if (i2c_master_probe(touch_bus_, 0x15, 100) != ESP_OK) {
++            ESP_LOGW(TAG, "No initial touch ACK at 0x15; polling will retry in background");
++        }
++        i2c_device_config_t dev = {};
++        dev.dev_addr_length = I2C_ADDR_BIT_LEN_7;
++        dev.device_address = 0x15;
++        dev.scl_speed_hz = 100000;
++        ESP_ERROR_CHECK(i2c_master_bus_add_device(touch_bus_, &dev, &touch_dev_));
++        BaseType_t created = xTaskCreate(TouchTask, "minicube_touch", 3072, this, 1, nullptr);
++        if (created != pdPASS)
++            ESP_LOGE(TAG, "Cannot create touch polling task");
++#endif
++    }
++
++    void InitializeTools() {
++        McpServer::GetInstance().AddTool(
++            "self.minicube.status",
++            "Read presence OUT and touch status; does not change sensor settings", PropertyList(),
++            [this](const PropertyList&) -> ReturnValue {
++                return std::string("{\"presence_out\":") +
++                       (gpio_get_level(RADAR_OUT_PIN) ? "true" : "false") +
++                       ",\"touch_available\":" + (touch_available_.load() ? "true" : "false") +
++                       ",\"touch_pressed\":" + (touch_pressed_.load() ? "true" : "false") +
++                       ",\"touch_x\":" + std::to_string(touch_x_.load()) +
++                       ",\"touch_y\":" + std::to_string(touch_y_.load()) + "}";
++            });
++    }
++
++public:
++    MinicubeBoard() {
++        InitializeControlPins();
++        InitializeDisplay();
++        InitializeTouch();
++        InitializeTools();
++        boot_button_.OnClick([this]() {
++            auto& app = Application::GetInstance();
++            app.Schedule([this, &app]() {
++                if (app.GetDeviceState() == kDeviceStateStarting)
++                    EnterWifiConfigMode();
++                else
++                    app.ToggleChatState();
++            });
++        });
++    }
++
++    AudioCodec* GetAudioCodec() override {
++        static MinicubeCodec codec;
++        return &codec;
++    }
++    Display* GetDisplay() override { return display_; }
++    Backlight* GetBacklight() override { return nullptr; }
++};
++
++DECLARE_BOARD(MinicubeBoard);

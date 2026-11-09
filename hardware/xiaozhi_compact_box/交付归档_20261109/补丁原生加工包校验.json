@@ -1,0 +1,16 @@
+{
+  "zip_sha256": "e6cb80f1112a0d5ad725eaf98effecaf8e7107fb0b8fd3e1ebe6ba1bd8d8b60d",
+  "zip_crc": "PASS",
+  "files": 12,
+  "native_top_copper_matches_source": true,
+  "tracks": 9,
+  "pads": 12,
+  "unique_drills": 4,
+  "board_mm": [
+    18,
+    12
+  ],
+  "silk_to_mask_min_gap_mm": 0.4083065909410431,
+  "native_DRC_checks": 141,
+  "native_DRC_errors": 0
+}

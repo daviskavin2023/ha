@@ -1,0 +1,423 @@
+{
+  "printed_parts": {
+    "front_shell": {
+      "volume_mm3": 30701.441705027446,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          1.500000186517468e-07
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.0000001500000177
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.500000177635684e-07
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "rear_shell": {
+      "volume_mm3": 31063.827609353044,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          1.500000008881784e-07
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          92.00000015
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          66.00000015
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "module_tray": {
+      "volume_mm3": 6381.123788544315,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -3.999999849999987
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -15.99999985
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -27.99999985
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "screen_retainer": {
+      "volume_mm3": 1519.8176534589168,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -6.999999849999998
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -33.99999985
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -5.499999849999999
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "jack_plate": {
+      "volume_mm3": 734.00002049816,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.1102230246251565e-16,
+          0.0,
+          -1.0,
+          29.900000149999993
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -12.09999985
+        ],
+        [
+          1.0,
+          0.0,
+          1.1102230246251565e-16,
+          -57.99999985
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "speaker_bar_10": {
+      "volume_mm3": 284.79469155662537,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -4.9999999
+        ],
+        [
+          0.0,
+          1.1102230246251565e-16,
+          -1.0,
+          11.500000099999998
+        ],
+        [
+          0.0,
+          1.0,
+          1.1102230246251565e-16,
+          -14.499999900000002
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "speaker_bar_38": {
+      "volume_mm3": 284.79469155662537,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -4.9999999
+        ],
+        [
+          0.0,
+          1.1102230246251565e-16,
+          -1.0,
+          39.5000001
+        ],
+        [
+          0.0,
+          1.0,
+          1.1102230246251565e-16,
+          -14.499999900000004
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "amp_spacer": {
+      "volume_mm3": 517.192037334938,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -22.399999899999994
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -19.999999899999995
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -29.999999899999995
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "patch_spacer": {
+      "volume_mm3": 648.0,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -20.999999899999995
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -66.99999989999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -24.999999899999995
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "dac_spacer": {
+      "volume_mm3": 1728.0,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -21.999999899999995
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -37.9999999
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          -24.999999899999995
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "jack_plate_blank_spare": {
+      "volume_mm3": 960.1946915566251,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.1102230246251565e-16,
+          0.0,
+          -1.0,
+          29.900000149999993
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -12.09999985
+        ],
+        [
+          1.0,
+          0.0,
+          1.1102230246251565e-16,
+          -57.99999985
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "screen_fit_gauge": {
+      "volume_mm3": 1647.1898419624456,
+      "valid_BRep": true,
+      "solids": 1,
+      "step_roundtrip": true,
+      "assembly_to_print": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -7.99999985
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -33.99999985
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5e-07
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  "module_budget_pair_intersections": [],
+  "printed_part_intersections": [],
+  "nominal_module_to_printed_material_intersections": [],
+  "screw_head_to_nominal_component_intersections": [],
+  "printed_front_opening_translation_checks": [
+    {
+      "front_shift_z_mm": -1,
+      "printed_intersection_mm3": 0
+    },
+    {
+      "front_shift_z_mm": -2,
+      "printed_intersection_mm3": 0
+    },
+    {
+      "front_shift_z_mm": -5,
+      "printed_intersection_mm3": 0
+    },
+    {
+      "front_shift_z_mm": -10,
+      "printed_intersection_mm3": 0
+    },
+    {
+      "front_shift_z_mm": -20,
+      "printed_intersection_mm3": 0
+    }
+  ],
+  "minimum_module_budget_distance_mm": [
+    1.5,
+    "carrier_pcb",
+    "c1"
+  ],
+  "physical_test": false,
+  "RF_antenna_position_not_measured": true,
+  "carrier_pad_table_sha256": "dcdf5e63008c08b9f016bfdf6c159bda985c5372633f11237a66e4a50ba37e67",
+  "generator_sha256": "7c17b0e125600e960ba4a15783a564d1fccfd3d01757c6f29191b97060edec8a"
+}

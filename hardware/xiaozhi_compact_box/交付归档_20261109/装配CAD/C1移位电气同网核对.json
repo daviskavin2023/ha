@@ -1,0 +1,8 @@
+{
+  "C1_original_footprint_populated": false,
+  "C1_positive_branch": "J_RADAR.1 same +5V net as original C1.1",
+  "C1_negative_branch": "J_RADAR.2 same GND net as original C1.2",
+  "same_nets_verified_from_pad_table": true,
+  "physical_wiring_tested": false,
+  "original_PCB_tracks_changed": false
+}

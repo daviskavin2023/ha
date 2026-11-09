@@ -1,0 +1,16 @@
+reference,carrier_assembly,max_projection_from_PCB_front_mm,notes
+J_AMP_IN,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_AMP_OUT,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_DAC_IN,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_DAC_OUT,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_ESP_L,22P socket,8.5,one left + ONE matching right rail; other rail not populated
+J_ESP_R1,22P socket,8.5,one left + ONE matching right rail; other rail not populated
+J_ESP_R2,22P socket,8.5,one left + ONE matching right rail; other rail not populated
+J_LCD_PWR,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_LCD_SPI,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_MIC,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_PJ324M,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_PWR_5V,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_RADAR,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+J_SPK,insulated solder pigtail,3,module-side inline detachable connector; no tall carrier socket+jumper stack
+C1_100uF,DNP; capacitor in rear cradle,,parallel short branch at rear-side radar +5V/GND harness

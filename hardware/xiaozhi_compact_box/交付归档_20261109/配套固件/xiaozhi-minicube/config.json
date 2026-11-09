@@ -1,0 +1,14 @@
+{
+    "type": "xiaozhi-minicube",
+    "target": "esp32s3",
+    "builds": [
+        {
+            "name": "xiaozhi-minicube-tk020-pb",
+            "sdkconfig_append": [
+                "CONFIG_MINICUBE_LCD_HEIGHT=296",
+                "CONFIG_MINICUBE_LCD_OFFSET_Y=0",
+                "CONFIG_MINICUBE_TOUCH_POLL=y"
+            ]
+        }
+    ]
+}

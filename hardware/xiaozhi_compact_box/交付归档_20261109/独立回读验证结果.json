@@ -1,0 +1,15 @@
+{
+  "readback_PCB": "PASS",
+  "patch_networks": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 1
+  },
+  "min_gap_mm": 0.6999999999999986,
+  "interface_pad_count": 120,
+  "new_screen_GPIO_points": "PASS",
+  "main_manufacturing_zip_unchanged": true,
+  "svg_XML": "PASS"
+}

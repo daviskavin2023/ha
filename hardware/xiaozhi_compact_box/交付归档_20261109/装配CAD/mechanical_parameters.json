@@ -1,0 +1,299 @@
+{
+  "outer_body_mm": [
+    60.0,
+    92.0,
+    66.0
+  ],
+  "internal_mm": [
+    56.0,
+    88.0,
+    62.0
+  ],
+  "wall_mm": 2,
+  "pcb_mm": [
+    48,
+    68,
+    1.6
+  ],
+  "pcb_origin_xy": [
+    6,
+    12
+  ],
+  "pcb_front_z": 59.4,
+  "pcb_back_z": 61,
+  "pcb_standoff_mm": 3,
+  "pcb_mount_centers_xy": [
+    [
+      9.0,
+      77.0
+    ],
+    [
+      51.0,
+      77.0
+    ],
+    [
+      9.0,
+      15.0
+    ],
+    [
+      51.0,
+      15.0
+    ]
+  ],
+  "tray_mount_centers_xy": [
+    [
+      8,
+      60
+    ],
+    [
+      52,
+      60
+    ],
+    [
+      8,
+      80
+    ],
+    [
+      52,
+      80
+    ],
+    [
+      30,
+      28
+    ]
+  ],
+  "seam_tongue_radial_gap_mm": 0.3,
+  "magnet_pocket_diameter_mm": 4.2,
+  "magnet_pocket_depth_mm": 2.2,
+  "nominal_magnets_mm": [
+    4,
+    2
+  ],
+  "foot_height_mm": 2,
+  "speaker_nominal_depth_to_core_budget_gap_mm": 8.399999999999999,
+  "speaker_budget_to_core_budget_gap_mm": 7.399999999999999,
+  "amp_budget_to_core_budget_gap_mm": 2.8999999999999986,
+  "body_sizes_are_unmeasured_BOM_inputs": true,
+  "jack_access_hole_mm": 12,
+  "jack_retention": "universal internal cradle with straps; not threaded panel hole",
+  "screw_reference": {
+    "head_diameter_mm": 4,
+    "head_height_mm": 1.5,
+    "M2x4_qty": 12,
+    "M2x6_qty": 9,
+    "pilot_mm": 1.6
+  },
+  "carrier_connection_policy": "only ESP rows use 8.5mm sockets; all other carrier ends are insulated solder pigtails <=3mm; inline connectors at module side",
+  "C1_connection": "off-board at rear left cradle; short 5V/GND branch from J_RADAR pins 1/2; original C1 footprint not populated",
+  "modules": {
+    "carrier_pcb": {
+      "nominal": [
+        6,
+        12,
+        59.4,
+        48,
+        68,
+        1.6
+      ],
+      "budget": [
+        6,
+        12,
+        59.4,
+        48,
+        68,
+        1.6
+      ],
+      "source": "source PCB outline and mounting-hole coordinates"
+    },
+    "esp32_s3": {
+      "nominal": [
+        16.2,
+        11.635,
+        47.4,
+        28,
+        63.39,
+        3.5
+      ],
+      "budget": [
+        13.5,
+        10.5,
+        46.4,
+        32,
+        66,
+        4.5
+      ],
+      "source": "old BOM; includes either ESP rail spacing, exact board unmeasured"
+    },
+    "screen_adapter": {
+      "nominal": [
+        12,
+        38,
+        1,
+        36,
+        48,
+        4.5
+      ],
+      "budget": [
+        9,
+        36,
+        1,
+        42,
+        52,
+        12.5
+      ],
+      "source": "old BOM + user TK020F1131_PB rear image; connector depth budget, not measured"
+    },
+    "radar": {
+      "nominal": [
+        19,
+        8,
+        2.5,
+        22,
+        16,
+        4
+      ],
+      "budget": [
+        18,
+        7,
+        1.5,
+        24,
+        18,
+        6
+      ],
+      "source": "old BOM LD2410C-P; rotated in plane to face front below display"
+    },
+    "speaker": {
+      "nominal": [
+        10,
+        3,
+        10,
+        40,
+        11.5,
+        28
+      ],
+      "budget": [
+        9,
+        2,
+        9,
+        42,
+        13.5,
+        30
+      ],
+      "source": "old BOM 2840; downward outlet, foam clearance included"
+    },
+    "dac": {
+      "nominal": [
+        22,
+        38,
+        17,
+        32,
+        18,
+        8
+      ],
+      "budget": [
+        20,
+        36,
+        16,
+        36,
+        22,
+        12
+      ],
+      "source": "old BOM PCM5102A 32x18; height/connector allowance is design budget"
+    },
+    "amp": {
+      "nominal": [
+        22.4,
+        20,
+        32,
+        24,
+        15,
+        8
+      ],
+      "budget": [
+        20.4,
+        18,
+        31.5,
+        28,
+        19,
+        12
+      ],
+      "source": "old BOM PAM8302A 24x15; height/connector allowance is design budget"
+    },
+    "microphone": {
+      "nominal": [
+        5,
+        22,
+        18,
+        10,
+        16,
+        18
+      ],
+      "budget": [
+        3.5,
+        20,
+        16,
+        14,
+        20,
+        22
+      ],
+      "source": "no verified module outline; reserved 22x20x14 envelope for pre-soldered header and leads"
+    },
+    "audio_patch": {
+      "nominal": [
+        21,
+        67,
+        22,
+        18,
+        12,
+        3
+      ],
+      "budget": [
+        19,
+        65,
+        16,
+        22,
+        16,
+        9
+      ],
+      "source": "actual PATCH-A01 source PCB 18x12; solder/wire allowance"
+    },
+    "pj324m": {
+      "nominal": [
+        42,
+        20,
+        12,
+        16,
+        10,
+        10
+      ],
+      "budget": [
+        38,
+        18,
+        9,
+        20,
+        16,
+        16
+      ],
+      "source": "unverified purchased jack; universal bay and blank adapter plate"
+    },
+    "c1": {
+      "nominal": [
+        5.5,
+        22.5,
+        45.9,
+        5,
+        5,
+        11
+      ],
+      "budget": [
+        4.5,
+        21.5,
+        44.9,
+        7,
+        7,
+        13
+      ],
+      "source": "old BOM diameter5 x11; moved off carrier with short leads at radar 5V/GND"
+    }
+  }
+}

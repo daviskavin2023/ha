@@ -1,0 +1,23 @@
+module,kind,X_mm,Y_mm,Z_mm,width_X_mm,height_Y_mm,depth_Z_mm,input_source
+carrier_pcb,nominal,6,12,59.4,48,68,1.6,source PCB outline and mounting-hole coordinates
+carrier_pcb,budget,6,12,59.4,48,68,1.6,source PCB outline and mounting-hole coordinates
+esp32_s3,nominal,16.2,11.635,47.4,28,63.39,3.5,"old BOM; includes either ESP rail spacing, exact board unmeasured"
+esp32_s3,budget,13.5,10.5,46.4,32,66,4.5,"old BOM; includes either ESP rail spacing, exact board unmeasured"
+screen_adapter,nominal,12,38,1,36,48,4.5,"old BOM + user TK020F1131_PB rear image; connector depth budget, not measured"
+screen_adapter,budget,9,36,1,42,52,12.5,"old BOM + user TK020F1131_PB rear image; connector depth budget, not measured"
+radar,nominal,19,8,2.5,22,16,4,old BOM LD2410C-P; rotated in plane to face front below display
+radar,budget,18,7,1.5,24,18,6,old BOM LD2410C-P; rotated in plane to face front below display
+speaker,nominal,10,3,10,40,11.5,28,"old BOM 2840; downward outlet, foam clearance included"
+speaker,budget,9,2,9,42,13.5,30,"old BOM 2840; downward outlet, foam clearance included"
+dac,nominal,22,38,17,32,18,8,old BOM PCM5102A 32x18; height/connector allowance is design budget
+dac,budget,20,36,16,36,22,12,old BOM PCM5102A 32x18; height/connector allowance is design budget
+amp,nominal,22.4,20,32,24,15,8,old BOM PAM8302A 24x15; height/connector allowance is design budget
+amp,budget,20.4,18,31.5,28,19,12,old BOM PAM8302A 24x15; height/connector allowance is design budget
+microphone,nominal,5,22,18,10,16,18,no verified module outline; reserved 22x20x14 envelope for pre-soldered header and leads
+microphone,budget,3.5,20,16,14,20,22,no verified module outline; reserved 22x20x14 envelope for pre-soldered header and leads
+audio_patch,nominal,21,67,22,18,12,3,actual PATCH-A01 source PCB 18x12; solder/wire allowance
+audio_patch,budget,19,65,16,22,16,9,actual PATCH-A01 source PCB 18x12; solder/wire allowance
+pj324m,nominal,42,20,12,16,10,10,unverified purchased jack; universal bay and blank adapter plate
+pj324m,budget,38,18,9,20,16,16,unverified purchased jack; universal bay and blank adapter plate
+c1,nominal,5.5,22.5,45.9,5,5,11,old BOM diameter5 x11; moved off carrier with short leads at radar 5V/GND
+c1,budget,4.5,21.5,44.9,7,7,13,old BOM diameter5 x11; moved off carrier with short leads at radar 5V/GND

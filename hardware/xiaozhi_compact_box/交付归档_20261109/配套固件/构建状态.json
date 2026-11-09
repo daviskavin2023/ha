@@ -1,0 +1,34 @@
+{
+  "upstream": "https://github.com/78/xiaozhi-esp32",
+  "tag": "v2.5.2",
+  "commit": "49b4380b3faa0ceadd28a3e78aaf0f311c46c57e",
+  "custom_board": "xiaozhi-minicube",
+  "variant": "xiaozhi-minicube-tk020-pb",
+  "idf_tag": "v6.1",
+  "idf_commit": "fff9895c82d744c7237be8847347bdd1b07c6643",
+  "build_complete": true,
+  "build_exit_code": 0,
+  "host_tests": 110,
+  "host_tests_pass": true,
+  "format_check_pass": true,
+  "amp_gate_host_test_pass": true,
+  "carrier_14_GPIO_mapping_pass": true,
+  "app_bytes": 2682880,
+  "merged_bytes": 9603133,
+  "app_partition_bytes": 4128768,
+  "image_checksum_and_validation_hash": "valid, esptool image-info",
+  "hardware_run": false,
+  "flashed": false,
+  "display_profile": {
+    "width": 240,
+    "height": 296,
+    "y_offset": 0,
+    "physically_verified": false
+  },
+  "ota_default": "https://api.tenclass.net/xiaozhi/ota/",
+  "UART_radar": "GPIO17/18 reserved, OUT8 is read; UART parameter protocol not implemented",
+  "sha256": {
+    "xiaozhi-minicube-tk020-pb-full.bin": "d56c51059056f8f71ab7dcccbcaea14e2b51c7e13e1bbf2f1f4874891347f03a",
+    "xiaozhi-minicube-tk020-pb-app.bin": "4488dde6c0d104a8f105e80d7040c0e14971bdcff7076d1e8387b1b905e3d4c7"
+  }
+}

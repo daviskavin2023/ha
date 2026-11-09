@@ -1,0 +1,21 @@
+menu "MiniCube TK020F1131 PB panel"
+    depends on BOARD_TYPE_XIAOZHI_MINICUBE
+
+config MINICUBE_LCD_HEIGHT
+    int "Visible panel height (verify with vendor/test pattern)"
+    range 240 320
+    default 296
+
+config MINICUBE_LCD_OFFSET_Y
+    int "ST7789 vertical RAM offset"
+    range 0 80
+    default 0
+
+config MINICUBE_TOUCH_POLL
+    bool "Poll CST816x over I2C without using unidentified INT/RST pads"
+    default y
+    help
+        Probe 0x15 and read registers without writing reset or sleep registers.
+        A timeout is reported as a touch error, not a fabricated release event.
+        Actual CST816D operation on this adapter still requires hardware testing.
+endmenu

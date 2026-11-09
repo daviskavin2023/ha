@@ -1,0 +1,79 @@
+{
+  "adapter_marking": "TK020F1131_PB",
+  "source": "user_supplied_back_photo",
+  "view": "rear; text upright; connectors at right; rows top to bottom",
+  "mapping": [
+    {
+      "connector": "upper",
+      "row": 1,
+      "label": "MOSI",
+      "carrier": "J_LCD_SPI",
+      "pin": 1,
+      "net": "LCD_MOSI_IO12"
+    },
+    {
+      "connector": "upper",
+      "row": 2,
+      "label": "DC",
+      "carrier": "J_LCD_SPI",
+      "pin": 2,
+      "net": "LCD_DC_IO10"
+    },
+    {
+      "connector": "upper",
+      "row": 3,
+      "label": "SCK",
+      "carrier": "J_LCD_SPI",
+      "pin": 3,
+      "net": "LCD_SCK_IO11"
+    },
+    {
+      "connector": "upper",
+      "row": 4,
+      "label": "CS",
+      "carrier": "J_LCD_SPI",
+      "pin": 4,
+      "net": "LCD_CS_IO13"
+    },
+    {
+      "connector": "lower",
+      "row": 1,
+      "label": "GND",
+      "carrier": "J_LCD_PWR",
+      "pin": 1,
+      "net": "GND"
+    },
+    {
+      "connector": "lower",
+      "row": 2,
+      "label": "3V3",
+      "carrier": "J_LCD_PWR",
+      "pin": 2,
+      "net": "+3V3"
+    },
+    {
+      "connector": "lower",
+      "row": 3,
+      "label": "SCL",
+      "carrier": "J_LCD_PWR",
+      "pin": 3,
+      "net": "TOUCH_SCL_IO1"
+    },
+    {
+      "connector": "lower",
+      "row": 4,
+      "label": "SDA",
+      "carrier": "J_LCD_PWR",
+      "pin": 4,
+      "net": "TOUCH_SDA_IO2"
+    }
+  ],
+  "all_8_signals_match_carrier": true,
+  "additional_visible_labels": [
+    "BL",
+    "RST",
+    "INT"
+  ],
+  "additional_pad_electrical_function_verified": false,
+  "carrier_zip_modified": false
+}

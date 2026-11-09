@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620">
+<rect width="900" height="620" fill="#fff"/><g font-family="Arial, sans-serif" fill="#172033">
+<text x="32" y="36" font-size="23">PATCH-A01 — 15k / 1k audio attenuator</text>
+<text x="32" y="63" font-size="16">18 × 12 mm, top view; 1 µF non-polar input coupling on both legs</text>
+<rect x="70" y="105" width="720" height="480" rx="3" fill="#e9f4ed" stroke="#375b45" stroke-width="2"/>
+<path d="M150,225 L272.0,225" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M348.0,225 L410.0,225" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M410.0,225 L512.0,225" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M410.0,225 L410.0,267.0" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M410.0,343.0 L410.0,425" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M150,425 L410.0,425" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M410.0,425 L512.0,425" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M588.0,225 L710,225" stroke="#b11f31" stroke-width="12" fill="none"/>
+<path d="M588.0,425 L710,425" stroke="#b11f31" stroke-width="12" fill="none"/>
+<circle cx="150" cy="225" r="36" fill="#caa742"/><circle cx="150" cy="225" r="18" fill="white"/>
+<circle cx="150" cy="425" r="36" fill="#caa742"/><circle cx="150" cy="425" r="18" fill="white"/>
+<text x="150.0" y="283.0" font-size="17" text-anchor="middle">J1: MIX / GND</text>
+<circle cx="710" cy="225" r="36" fill="#caa742"/><circle cx="710" cy="225" r="18" fill="white"/>
+<circle cx="710" cy="425" r="36" fill="#caa742"/><circle cx="710" cy="425" r="18" fill="white"/>
+<text x="710.0" y="283.0" font-size="17" text-anchor="middle">J2: IN+ / IN−</text>
+<rect x="248.0" y="201" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<rect x="324.0" y="201" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<text x="310.0" y="183.0" font-size="17" text-anchor="middle">RA 15k</text>
+<rect x="386.0" y="243.0" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<rect x="386.0" y="319.0" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<text x="410.0" y="263.0" font-size="17" text-anchor="middle">RB 1k</text>
+<rect x="488.0" y="201" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<rect x="564.0" y="201" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<text x="550.0" y="183.0" font-size="17" text-anchor="middle">CP 1µF</text>
+<rect x="488.0" y="401" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<rect x="564.0" y="401" width="48" height="48" fill="#caa742" stroke="#374151"/>
+<text x="550.0" y="383.0" font-size="17" text-anchor="middle">CN 1µF</text>
+</g></svg>
