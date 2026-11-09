@@ -1,0 +1,52 @@
+# =============================================================================
+# 待审片段 — 追加到 HA /config/configuration.yaml（需重启 core，勿只 reload automation）
+# 与现有 sensor: 合并时注意只能有一个顶层 sensor: 列表，或改用 packages/
+# 直通后把 serial_port 换成实际 by-id；dsrdtr/rtscts 必须 false，避免 CH343 拉 DTR 复位板子
+# =============================================================================
+
+sensor:
+  - platform: serial
+    name: ld2410_usb_json
+    serial_port: /dev/serial/by-id/usb-1a86_USB_Single_Serial_5D33083851-if00
+    # 直通后以 HA 内 ls /dev/serial/by-id 为准；也可能是 ...-if00-port0
+    baudrate: 115200
+    bytesize: 8
+    parity: N
+    stopbits: 1
+    xonxoff: false
+    rtscts: false
+    dsrdtr: false
+    value_template: "{{ value }}"
+
+template:
+  - sensor:
+      - name: "客厅USB雷达 检测距离"
+        unique_id: living_usb_ld2410_detection_distance
+        unit_of_measurement: cm
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).detection_distance | default(none) }}"
+      - name: "客厅USB雷达 运动距离"
+        unique_id: living_usb_ld2410_moving_distance
+        unit_of_measurement: cm
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).moving_distance | default(none) }}"
+      - name: "客厅USB雷达 静止距离"
+        unique_id: living_usb_ld2410_still_distance
+        unit_of_measurement: cm
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).still_distance | default(none) }}"
+      - name: "客厅USB雷达 运动能量"
+        unique_id: living_usb_ld2410_moving_energy
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).moving_energy | default(none) }}"
+      - name: "客厅USB雷达 静止能量"
+        unique_id: living_usb_ld2410_still_energy
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).still_energy | default(none) }}"
+  - binary_sensor:
+      - name: "客厅USB雷达 有人"
+        unique_id: living_usb_ld2410_occupancy
+        device_class: occupancy
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).occupancy | default(false) }}"
+      - name: "客厅USB雷达 运动"
+        unique_id: living_usb_ld2410_moving
+        device_class: motion
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).moving | default(false) }}"
+      - name: "客厅USB雷达 静止"
+        unique_id: living_usb_ld2410_still
+        state: "{{ (states('sensor.ld2410_usb_json')|from_json).still | default(false) }}"

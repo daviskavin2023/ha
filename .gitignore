@@ -4,3 +4,9 @@ esphome/secrets.yaml
 .esphome/
 esphome/.esphome/
 *.log
+
+# ESP32 full flash / firmware binaries (keep sha256 notes only)
+backups/esp32-ld2410-*/**/*.bin
+backups/esp32-ld2410-*/**/*.tgz
+backups/**/pio-upload*/**
+drafts/usb-serial-radar/firmware/.pio/
