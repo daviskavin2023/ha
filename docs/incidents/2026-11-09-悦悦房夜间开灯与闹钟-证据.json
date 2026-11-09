@@ -1,0 +1,93 @@
+{
+  "reported_date": "2026-11-09",
+  "user_reports": {
+    "night_light": "昨晚悦悦房大灯半夜自行开启，用户认为感应相关；具体时刻及触发根因未证实",
+    "physical_inventory_correction": "壁灯早已没有；旧实体/双开右键的名称不等于现存壁灯",
+    "alarm": "悦悦房小爱闹钟不响；用户尚未区分HA 07:20音乐与小爱原生闹钟"
+  },
+  "snapshot_captured_at": "2026-11-08T04:15:12.646747+00:00",
+  "snapshot_evidence": [
+    {
+      "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi",
+      "state": "off",
+      "name": "悦悦房关灯防打扰模式",
+      "device_class": null,
+      "unit": null,
+      "last_changed": "2026-11-07T16:03:02.607201+00:00",
+      "last_updated": "2026-11-07T16:03:02.607201+00:00"
+    },
+    {
+      "entity_id": "binary_sensor.shang_xue_ri",
+      "state": "off",
+      "name": "上学日",
+      "device_class": null,
+      "unit": null,
+      "last_changed": "2026-11-06T16:00:02.110039+00:00",
+      "last_updated": "2026-11-07T16:00:02.108640+00:00"
+    },
+    {
+      "entity_id": "media_player.xiaomi_cn_981493908_l05b",
+      "state": "unavailable",
+      "name": "悦悦房-小爱同学",
+      "device_class": "speaker",
+      "unit": null,
+      "last_changed": "2026-11-05T15:56:38.942892+00:00",
+      "last_updated": "2026-11-05T15:56:38.942892+00:00"
+    },
+    {
+      "entity_id": "notify.xiaomi_cn_981493908_l05b_execute_text_directive_a_5_4",
+      "state": "unavailable",
+      "name": "小爱音箱Play-妹妹  智能音箱 执行文本指令",
+      "device_class": null,
+      "unit": null,
+      "last_changed": "2026-11-05T15:56:38.943058+00:00",
+      "last_updated": "2026-11-05T15:56:38.943058+00:00"
+    }
+  ],
+  "configuration_checks": {
+    "sensor_light_time_gate": "10:00–23:00；该导出不应在半夜由普通传感器触发执行",
+    "scene_button": "直接监听event实体所有state变化；无事件新鲜度/恢复过滤，灯关时默认开灯",
+    "two_way_sync": "两方向监听所有state变化；仅验证当前源是on/off，未验证真实on↔off变更；重连/属性更新可以进入同步",
+    "alarm": "07:20且上学日；依次解除静音、设音量、向notify下发播放轻音乐，无显式播放确认/失败通知分支"
+  },
+  "configuration_source": "本地导出，未验证当前生产版本",
+  "night_root_cause": "unconfirmed_no_current_trace",
+  "alarm_current_root_cause": "unconfirmed; prior_snapshot_control_path_unavailable",
+  "read_only_condition_simulations": [
+    {
+      "scenario": "恢复/属性变化/真实切换对照",
+      "from": "unavailable",
+      "current_source": "on",
+      "current_target": "off",
+      "legacy_would_sync_on": true,
+      "proposed_valid_transition_only": false,
+      "scope": "条件语义的有限模拟；不是HA运行测试或事故复现"
+    },
+    {
+      "scenario": "恢复/属性变化/真实切换对照",
+      "from": "on",
+      "current_source": "on",
+      "current_target": "off",
+      "legacy_would_sync_on": true,
+      "proposed_valid_transition_only": false,
+      "scope": "条件语义的有限模拟；不是HA运行测试或事故复现"
+    },
+    {
+      "scenario": "恢复/属性变化/真实切换对照",
+      "from": "off",
+      "current_source": "on",
+      "current_target": "off",
+      "legacy_would_sync_on": true,
+      "proposed_valid_transition_only": true,
+      "scope": "条件语义的有限模拟；不是HA运行测试或事故复现"
+    }
+  ],
+  "current_access_attempts": {
+    "lan_ha": "10.10.10.38:8123 timeout",
+    "pve_ssh": "10.10.10.10:22 timeout",
+    "central_ssh": "10.10.10.51:22 timeout",
+    "public_api": "ha.808608.xyz HTTP403",
+    "public_browser": "frontend loaded then Unable to connect to Home Assistant"
+  },
+  "changes_applied_to_ha": false
+}

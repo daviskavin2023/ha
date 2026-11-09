@@ -1,0 +1,19 @@
+** Drc report for /Users/kavin/Desktop/【唯一放行文件】小智AI小方盒_v3.0_20261108.kicad_pcb **
+** Created on 2026-11-09 10:22:14 **
+
+** Found 0 DRC violations **
+
+** DRC Detailed Summary **
+  - Short Circuits (< 0.00mm):        0 (PASSED)
+  - Clearance Violations (< 0.2016mm): 0 (PASSED, Min Clearance = 0.2017mm)
+  - Edge Violations (< 0.2016mm):      0 (PASSED, Min Edge Margin = 0.2943mm)
+  - Annular Ring Violations:          0 (PASSED, All vias >= 0.20mm ring)
+  - Drill-to-Copper Violations:       0 (PASSED)
+  - Net 1 (GND) Isolated Islands:     0 (PASSED, Total GND Groups = 1, 100% Contiguous Ground Plane)
+  - Total Routed Nets Continuity:     100% (All 26 active nets continuous)
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

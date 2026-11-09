@@ -11198,5 +11198,15 @@
       "backend_findings": "HS1BB2名为阳台传感器，查询24小时62条移动事件；ES2名为阳台感应2，此查询未返回历史，不能直接比较或据此唯一绑定",
       "next": "确认墙面与梁上设备分别对应HS1BB2还是ES2"
     }
+  ],
+  "room_inventory_corrections": [
+    {
+      "id": "YUEYUE-NO-WALL-LIGHT",
+      "confirmed_at": "2026-11-09",
+      "room_id": "yueyue",
+      "user_statement": "大灯，壁灯早就没有",
+      "physical_wall_light_present": false,
+      "notes": "悦悦房双开旧右键名称或旧图壁灯不是现存灯具证据；不推断该键其他负载，不修改HA实体。"
+    }
   ]
 }

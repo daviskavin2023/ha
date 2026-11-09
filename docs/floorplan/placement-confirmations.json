@@ -585,5 +585,15 @@
       "entity_id": null,
       "binding_status": "existing_local_entity_mapping_unverified"
     }
+  ],
+  "room_inventory_corrections": [
+    {
+      "id": "YUEYUE-NO-WALL-LIGHT",
+      "confirmed_at": "2026-11-09",
+      "room_id": "yueyue",
+      "user_statement": "大灯，壁灯早就没有",
+      "physical_wall_light_present": false,
+      "notes": "悦悦房双开旧右键名称或旧图壁灯不是现存灯具证据；不推断该键其他负载，不修改HA实体。"
+    }
   ]
 }
