@@ -218,6 +218,16 @@ for p in points:
  if p['id']=='S13':
   p['mounting_surface']='exterior_face_of_living_south_wall'
   p['confirmation_source']='placement-confirmations.json#S13'
+# 最新用户现场位置优先于旧照片/旧文档。
+latest=json.loads((ROOT/'placement-confirmations.json').read_text())
+for cp in latest['confirmations']:
+ if cp['point_id'] in ('S12','K02'):
+  for p in points:
+   if p['id']==cp['point_id']:
+    p['notes']=cp['relative_position']+'；'+cp['position_accuracy']
+    p['relative_position']=cp['relative_position']
+    p['position_status']='user_confirmed_relative'
+    p['heading_deg']=cp.get('heading_deg')
 (ROOT/'home-layout.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 # 原始尺寸图渲染统一为坐标参考尺寸。
 Image.open(SRC/'户型尺寸原图.png').resize((1888,1334)).save(SRC/'坐标参考图.png')
@@ -305,7 +315,7 @@ txt(sx,626,'已落图灯具 / 灯组',21,'#12263d')
 for j,p in enumerate([p for p in points if p['id'] in ['L01','L02','L03','L04']]):txt(sx,660+j*33,p['id']+'  '+p['name'],17)
 line(sx,779,1570,779,'#dbe3eb',1)
 txt(sx,816,'已登记、待定位',21,'#12263d')
-for j,t in enumerate(['S08 厨房天花感应（已确认） · S09 主卫感应','S10 客卫感应 · S11 玄关 PIR','S12 LD2410 · 电视柜插座处（用户确认；后台区域待核） · D01入户门磁','L07-L14 其他照明回路 / 区域占位','卧室、卫生间、阳台灯具尚缺安装点']):txt(sx,850+j*30,t,16)
+for j,t in enumerate(['S08 厨房天花感应（已确认） · S09 主卫感应','S10 客卫感应 · S11 玄关 PIR','S12 LD2410 · 电视柜中间插座（用户确认；朝向未定） · D01入户门磁','L07-L14 其他照明回路 / 区域占位','卧室、卫生间、阳台灯具尚缺安装点']):txt(sx,850+j*30,t,16)
 txt(sx,1038,'阳台：误触 / 不稳定重点区',21,'#b45309')
 for j,t in enumerate(['用户确认问题；根因尚未查明','S04 梁上 + S13 墙面：同一个客厅阳台','洗衣机、晾晒衣物等仅记环境线索','不据照片断定干扰原因，不修改硬件参数']):txt(sx,1073+j*30,t,16)
 txt(sx,1231,'坐标、实体与来源见 home-layout.json',16,'#087f8c')

@@ -465,9 +465,10 @@
       "height_m": null,
       "heading_deg": null,
       "coverage_polygon": null,
-      "notes": "文档记录/候选位置：电视柜近走道端；未确认实际摆放及现用实体，不画作已安装点。",
+      "notes": "客厅电视柜中间的插座处；用户确认沿柜中段；安装高度、板面正向、精确坐标未测",
       "mounting_surface": "tv_console_outlet",
-      "confirmation_source": "placement-confirmations.json#S12"
+      "confirmation_source": "placement-confirmations.json#S12",
+      "relative_position": "客厅电视柜中间的插座处"
     },
     {
       "id": "D01",

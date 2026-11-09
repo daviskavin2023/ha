@@ -130,10 +130,6 @@
       1210,
       860
     ],
-    "LD_case_B": [
-      1270,
-      860
-    ],
     "sofa_seat_case_L": [
       1190,
       1075
@@ -145,13 +141,14 @@
     "south_curtain_case": [
       1210,
       1115
-    ],
-    "fan_case": [
-      1310,
-      890
     ]
   },
-  "point_warning": "S01/S02仍是旧图近似位置；所有case都是图纸物体/候选示例，尤其LD_case_A/B不是已确认设备坐标。小数仅为可复算中间结果，建议解读精度0.1-0.3m；人体高度/朝向/家具高未测。",
+  "latest_user_confirmation": {
+    "S12": "电视柜中间；板面正向未确认",
+    "K02": "风扇已移至东侧窗帘附近；沿帘位置和离帘距离未确认",
+    "old_fan_case_status": "撤回为现址依据，不再参与当前几何计算"
+  },
+  "point_warning": "S01/S02仍是旧图近似位置；LD_case_A是已确认电视柜中段的近似算例，不是实测坐标；板面朝向未知。小数仅为中间结果，建议解读精度0.1-0.3m。",
   "measurements": [
     {
       "from": "S02_original_approx",
@@ -207,20 +204,6 @@
       "to": "south_curtain_case",
       "plan_distance_m": 3.957,
       "azimuth_deg_north_clockwise": 180.0,
-      "status": "conditional_geometry_not_measured_coverage"
-    },
-    {
-      "from": "LD_case_A",
-      "to": "fan_case",
-      "plan_distance_m": 1.622,
-      "azimuth_deg_north_clockwise": 106.7,
-      "status": "conditional_geometry_not_measured_coverage"
-    },
-    {
-      "from": "LD_case_B",
-      "to": "fan_case",
-      "plan_distance_m": 0.776,
-      "azimuth_deg_north_clockwise": 126.8,
       "status": "conditional_geometry_not_measured_coverage"
     }
   ],

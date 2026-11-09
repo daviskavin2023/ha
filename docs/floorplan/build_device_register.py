@@ -51,7 +51,7 @@ for n,d in enumerate(snapshot['devices'],1):
   c=confirmations.get('S12')
   if c:
    confirmed_points.append({k:c[k] for k in ['point_id','room_id','mounting_surface','relative_position','height_m','binding_status','user_statement'] if k in c})
-   status='partially_placed_from_user_confirmation';scope='用户确认设备在客厅电视柜插座处；HA后台区域当前为厨房，待核对区域映射'
+   status='partially_placed_from_user_confirmation';scope='用户确认设备在客厅电视柜中间插座处；板面正向未确认；HA后台区域当前为厨房，待核对区域映射'
  if refs and not confirmed_points and kind=='physical_device_candidate':
   status='plan_or_photo_candidate_unconfirmed';scope='图纸/实景中有候选点位，但尚未逐项得到用户确认；不作为已确认实装位置'
  if any(x.get('point_id')=='A06' for x in confirmed_points):
@@ -67,6 +67,6 @@ oldpath.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 md=['# HA全设备逐项落位核对表','','来源：2026-11-08实时只读注册表；93条设备记录，不能直接当作93件实物。后台区域仅作线索，可能过时。','','| 编号 | 后台名称 | 型号 | 后台区域（未确认） | 类别 | 落位状态 | 已有图纸候选 |','|---|---|---|---|---|---|---|']
 labels={'software_or_scene':'软件/场景','mobile_device':'移动设备','identity_review':'身份待核对','physical_device_candidate':'实物候选'}
 for r in rows:md.append('| '+' | '.join([r['record_id'],r['ha_name'],r['model'] or '',r['backend_area_name'] or '未分配/区域不明',labels[r['classification']],r['placement_status'],','.join(x['point_id'] for x in r['layout_point_candidates']) or '无'])+' |')
-md+=['','## 已确认实物安装资料','','S05书房感应：梳妆台侧墙，离地30cm；S06主人房感应：空调下方、床尾通道侧墙，离地30cm；S07悦悦房感应：书桌桌面；S08厨房补充感应：厨房天花；S09主卫感应：马桶正上方天花；S10客卫感应：马桶正上方天花；S11玄关感应：玄关门口区域（安装面待定）；S12客厅第二雷达：电视柜插座处（用户确认，后台区域需核对）。十六处位置或灯具控制关系已确认；主人房面板实体映射存在冲突，详见placement-confirmations.json。','','## 当前核对：客厅阳台两颗感应','','- 用户确认：两颗均在客厅外同一阳台，墙面S13在洗衣机旁、南侧阳台段的北侧瓷砖墙（客厅沙发墙室外侧，用户红线确认）；梁上S04在客厅出阳台后的东侧阳台段横梁立面，用户红框确认梁位。','- 用户记忆：触发次数更多的“应该是阳台感应1”，是辨认线索，不是实体绑定已确认。','- 后台HS1BB2：阳台传感器，近24小时62条移动事件。','- 后台ES2：阳台感应2，查询窗口未返回历史；有人状态及部分属性更新时间较旧。不能把无历史当成0次触发或无人。','- S04原有HS1BB2映射只作为候选，S13未绑定；须确认物理设备与型号，不能反向根据旧图证明映射。','','## 完成标准','','每件实物记录房间、墙面/天花/梁/柜等安装面、相对位置、主实体；高度和方向可后补。开关还要区分开关面板位置与它控制的灯/负载位置。软件服务无需画物理点，移动设备不编造固定坐标，疑似重复记录先核对身份。']
+md+=['','## 已确认实物安装资料','','S05书房感应：梳妆台侧墙，离地30cm；S06主人房感应：空调下方、床尾通道侧墙，离地30cm；S07悦悦房感应：书桌桌面；S08厨房补充感应：厨房天花；S09主卫感应：马桶正上方天花；S10客卫感应：马桶正上方天花；S11玄关感应：玄关门口区域（安装面待定）；S12客厅第二雷达：电视柜中间插座处（用户确认，朝向未确认）；K02客厅风扇：已移到东侧窗帘附近，沿帘位置未确认。十六处位置或灯具控制关系已确认；主人房面板实体映射存在冲突，详见placement-confirmations.json。','','## 当前核对：客厅阳台两颗感应','','- 用户确认：两颗均在客厅外同一阳台，墙面S13在洗衣机旁、南侧阳台段的北侧瓷砖墙（客厅沙发墙室外侧，用户红线确认）；梁上S04在客厅出阳台后的东侧阳台段横梁立面，用户红框确认梁位。','- 用户记忆：触发次数更多的“应该是阳台感应1”，是辨认线索，不是实体绑定已确认。','- 后台HS1BB2：阳台传感器，近24小时62条移动事件。','- 后台ES2：阳台感应2，查询窗口未返回历史；有人状态及部分属性更新时间较旧。不能把无历史当成0次触发或无人。','- S04原有HS1BB2映射只作为候选，S13未绑定；须确认物理设备与型号，不能反向根据旧图证明映射。','','## 完成标准','','每件实物记录房间、墙面/天花/梁/柜等安装面、相对位置、主实体；高度和方向可后补。开关还要区分开关面板位置与它控制的灯/负载位置。软件服务无需画物理点，移动设备不编造固定坐标，疑似重复记录先核对身份。']
 (P/'全设备落位核对表.md').write_text('\n'.join(md)+'\n')
 print(dict(Counter(r['classification'] for r in rows)))

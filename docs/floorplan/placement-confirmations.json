@@ -162,20 +162,26 @@
     },
     {
       "point_id": "S12",
-      "confirmed_at": "2026-11-08",
-      "user_statement": "电视柜插座",
+      "confirmed_at": "2026-11-09",
+      "user_statement": "电视柜中间",
       "room_id": "living",
       "mounting_surface": "电视柜插座处（设备放置/供电位置，是否固定安装待核）",
-      "relative_position": "客厅电视柜插座处，靠近背景墙",
+      "relative_position": "客厅电视柜中间的插座处",
       "height_m": null,
       "position_px": null,
-      "position_accuracy": "用户确认相对位置；坐标未标定",
+      "position_accuracy": "用户确认沿柜中段；安装高度、板面正向、精确坐标未测",
       "heading_deg": null,
       "ha_device_id": null,
       "entity_id": null,
       "binding_status": "ESP32/LD2410 device candidate; registry area mismatch requires review",
       "notes": [
         "当前HA注册表中的设备“LD2410 Living Room Radar”分配在厨房区域；不据此覆盖用户确认位置。"
+      ],
+      "location_history": [
+        {
+          "date": "2026-11-08",
+          "relative_position": "客厅电视柜插座处，靠近背景墙"
+        }
       ]
     },
     {
@@ -381,19 +387,26 @@
     },
     {
       "point_id": "K02",
-      "confirmed_at": "2026-11-08",
-      "source": "sources/实景-06.png",
-      "user_statement": "是（照片中靠阳台的客厅落地风扇由客厅风扇插座控制）",
+      "confirmed_at": "2026-11-09",
+      "source": "conversation:2026-11-09-user-correction",
+      "user_statement": "电风扇移到靠近东边窗帘了（更正上一条空调一侧的表述）",
       "room_id": "living",
       "mounting_surface": "floor_standing",
       "fixture": "standing_fan",
-      "relative_position": "客厅背景墙靠阳台一端，邻近阳台窗帘",
+      "relative_position": "客厅靠东侧窗帘；沿东帘南北位置与离帘距离未确认",
       "height_m": null,
       "position_px": null,
-      "position_accuracy": "用户确认照片中的位置与插座控制关系；图上坐标未标定",
+      "position_accuracy": "用户确认迁移至东帘附近；旧照片位置不再作为现址",
       "ha_device_id": "969866bd3ee01948f20abc590dfb6a53",
       "entity_id": "switch.wiing_cn_1169602959_bm1_on_p_2_1",
-      "binding_status": "user_confirmed_load_relation_registry_device_and_entity_verified"
+      "binding_status": "user_confirmed_load_relation_registry_device_and_entity_verified",
+      "location_history": [
+        {
+          "date": "2026-11-08",
+          "relative_position": "客厅背景墙靠阳台一端，邻近阳台窗帘",
+          "source": "sources/实景-06.png"
+        }
+      ]
     },
     {
       "point_id": "A01",
