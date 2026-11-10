@@ -1,7 +1,7 @@
 {
  "id": "1736918907451",
  "alias": "阳台开灯",
- "description": "阳台暗光(照度<35Lux或日落后)且S04触发；2026-11-10 草案：要求客厅USB雷达15秒内在2.3米内测到走动（坐沙发约3.3米、静止不算），通过则开灯并置「阳台有人」锁存；雷达JSON不可用或>60秒未上报时退回旧条件(客厅双雷达有人/3分钟内)且不锁存；S13不参与",
+ "description": "阳台暗光(照度<35Lux或日落后)且S04触发；2026-11-10 草案：要求客厅USB雷达15秒内在2.3米内测到走动（坐沙发约3.3米、静止不算），通过则开灯并置「阳台有人」锁存；雷达JSON不可用或>60秒未上报时退回旧条件(客厅双雷达有人/3分钟内)且不锁存；S13不参与；2026-11-11 v2：S04 先于雷达触发时，再等 5 秒客厅雷达近处走动，等到即开灯并锁存",
  "triggers": [
   {
    "platform": "state",
@@ -33,24 +33,25 @@
      "below": 35
     }
    ]
+  }
+ ],
+ "actions": [
+  {
+   "variables": {
+    "radar_ok": "{% set j = states.sensor.ld2410_usb_json %}{{ j is not none and j.state not in ['unavailable','unknown'] and (now() - j.last_reported).total_seconds() <= 60 }}"
+   }
   },
   {
-   "condition": "or",
-   "alias": "客厅雷达近处走动门控(失效时退回旧条件)",
-   "conditions": [
+   "choose": [
     {
-     "condition": "template",
-     "alias": "雷达有效且15秒内2.3米内走动",
-     "value_template": "{% set j = states.sensor.ld2410_usb_json %}{% set fresh = j is not none and j.state not in ['unavailable','unknown'] and (now() - j.last_reported).total_seconds() <= 60 %}{% set nt = as_datetime(states('sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian')) %}{{ fresh and nt is not none and (now() - nt).total_seconds() <= 15 }}"
-    },
-    {
-     "condition": "and",
-     "alias": "雷达失效→旧条件",
+     "alias": "雷达失效→旧条件，不锁存",
      "conditions": [
       {
        "condition": "template",
-       "value_template": "{% set j = states.sensor.ld2410_usb_json %}{% set fresh = j is not none and j.state not in ['unavailable','unknown'] and (now() - j.last_reported).total_seconds() <= 60 %}{{ not fresh }}"
-      },
+       "value_template": "{{ not radar_ok }}"
+      }
+     ],
+     "sequence": [
       {
        "condition": "or",
        "conditions": [
@@ -64,32 +65,64 @@
          "value_template": "{{ (now() - states.binary_sensor.ke_ting_shuang_lei_da_you_ren.last_changed).total_seconds() < 180 }}"
         }
        ]
+      },
+      {
+       "action": "switch.turn_on",
+       "target": {
+        "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+       }
+      }
+     ]
+    },
+    {
+     "alias": "雷达15秒内已见近处走动",
+     "conditions": [
+      {
+       "condition": "template",
+       "value_template": "{% set nt = as_datetime(states('sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian')) %}{{ nt is not none and (now() - nt).total_seconds() <= 15 }}"
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.turn_on",
+       "target": {
+        "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+       }
+      },
+      {
+       "action": "input_boolean.turn_on",
+       "target": {
+        "entity_id": "input_boolean.yang_tai_you_ren"
+       }
       }
      ]
     }
-   ]
-  }
- ],
- "actions": [
-  {
-   "variables": {
-    "radar_ok": "{% set j = states.sensor.ld2410_usb_json %}{% set fresh = j is not none and j.state not in ['unavailable','unknown'] and (now() - j.last_reported).total_seconds() <= 60 %}{{ fresh }}"
-   }
-  },
-  {
-   "action": "switch.turn_on",
-   "target": {
-    "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
-   }
-  },
-  {
-   "if": [
-    {
-     "condition": "template",
-     "value_template": "{{ radar_ok }}"
-    }
    ],
-   "then": [
+   "default": [
+    {
+     "alias": "S04先于雷达：再等5秒雷达近处走动",
+     "wait_for_trigger": [
+      {
+       "trigger": "state",
+       "entity_id": "sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian"
+      }
+     ],
+     "timeout": {
+      "seconds": 5
+     },
+     "continue_on_timeout": false
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+     "state": "off"
+    },
+    {
+     "action": "switch.turn_on",
+     "target": {
+      "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+     }
+    },
     {
      "action": "input_boolean.turn_on",
      "target": {
