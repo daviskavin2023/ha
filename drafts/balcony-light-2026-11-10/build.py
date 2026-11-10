@@ -81,15 +81,11 @@ new_off = {
    "sequence": [{"stop": "S04 有动作，取消待关"}]},
   {"conditions": [{"condition": "trigger", "id": ["latched_30m", "unlatched_5m"]}],
    "sequence": TURN_OFF},
-  {"conditions": [{"condition": "trigger", "id": ["light_off", "ha_start"]},
-                  {"condition": "state", "entity_id": LIGHT, "state": "on", "enabled": True} ],
-   "sequence": []},
  ], "default": [
   {"if": [{"condition": "not", "conditions": [LIGHT_ON]}],
    "then": [{"action": "input_boolean.turn_off", "target": {"entity_id": LATCH}}]}]}],
 }
-# light_off/ha_start：灯亮(重启后灯仍亮)保留锁存；灯不亮清锁存 → 用 default 分支处理，删掉占位分支
-new_off["actions"][0]["choose"].pop()
+# light_off/ha_start 走 default：灯不亮才清锁存（重启后灯仍亮则保留锁存）
 json.dump(new_off, open("new/1736942757466.json", "w"), ensure_ascii=False, indent=1)
 
 # ---------- 巡检阳台分支 ----------
