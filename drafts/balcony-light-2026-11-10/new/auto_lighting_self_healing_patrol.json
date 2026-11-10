@@ -448,7 +448,7 @@
    ]
   },
   {
-   "alias": "阳台：锁存时S04 30分钟无动作才关；未锁存S04 5分钟无动作关(2026-11-10 草案)",
+   "alias": "阳台：锁存时S04 30分钟无动作才关；未锁存S04 5分钟无动作关；亮满2小时必关(2026-11-10 草案)",
    "if": [
     {
      "condition": "state",
@@ -457,7 +457,7 @@
     },
     {
      "condition": "template",
-     "value_template": "{% set e = states('event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008') %}{% set s04 = as_datetime(e) if e not in ['unknown','unavailable'] else none %}{% set ref = [s04, states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed] | reject('none') | max %}{% set idle = (now() - ref).total_seconds() %}{{ idle >= 1800 if is_state('input_boolean.yang_tai_you_ren','on') else idle >= 300 }}"
+     "value_template": "{% set e = states('event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008') %}{% set s04 = as_datetime(e) if e not in ['unknown','unavailable'] else none %}{% set ref = [s04, states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed] | reject('none') | max %}{% set idle = (now() - ref).total_seconds() %}{% set on_for = (now() - states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed).total_seconds() %}{{ on_for >= 7200 or (idle >= 1800 if is_state('input_boolean.yang_tai_you_ren','on') else idle >= 300) }}"
     }
    ],
    "then": [

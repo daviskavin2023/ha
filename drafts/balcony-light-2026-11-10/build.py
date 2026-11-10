@@ -53,8 +53,8 @@ TURN_OFF = [{"action": "switch.turn_off", "target": {"entity_id": LIGHT}},
             {"action": "input_boolean.turn_off", "target": {"entity_id": LATCH}}]
 new_off = {
  "id": off["id"], "alias": off["alias"],
- "description": ("2026-11-10 草案：锁存「阳台有人」期间不按时间关；锁存后≥10秒客厅雷达在2.3米内测到走动=人回客厅→60秒后关"
-                 "（期间S04再动或再走动则重新计时/取消）；锁存时S04连续30分钟无动作兜底关；未锁存(手动开/雷达失效开)S04 5分钟无动作关；"
+ "description": ("2026-11-10 草案：锁存「阳台有人」期间不按时间关；锁存后≥10秒客厅雷达在2.3米内测到走动=人回客厅→120秒后关"
+                 "（期间S04再动则取消，再走动则重新计时）；锁存时S04连续30分钟无动作兜底关；未锁存(手动开/雷达失效开)S04 5分钟无动作关；灯亮满2小时无条件关(硬上限)；"
                  "灯关即清锁存；S13不参与"),
  "initial_state": True, "mode": "restart", "max_exceeded": "silent",
  "triggers": [
@@ -62,6 +62,7 @@ new_off = {
   {"trigger": "state", "entity_id": S04, "not_to": ["unknown", "unavailable"], "id": "s04_motion"},
   {"trigger": "template", "value_template": idle(1800, True), "id": "latched_30m"},
   {"trigger": "template", "value_template": idle(300, False), "id": "unlatched_5m"},
+  {"trigger": "state", "entity_id": LIGHT, "to": "on", "for": {"hours": 2}, "id": "hard_cap_2h"},
   {"trigger": "state", "entity_id": LIGHT, "to": "off", "id": "light_off"},
   {"trigger": "homeassistant", "event": "start", "id": "ha_start"},
  ],
@@ -71,15 +72,15 @@ new_off = {
      {"condition": "template", "value_template": "{% set b = states." + LATCH + " %}{{ b is not none and (now() - b.last_changed).total_seconds() >= 10 }}"}]},
   {"condition": "and", "alias": "S04再动：取消待关", "conditions": [
      {"condition": "trigger", "id": "s04_motion"}, LATCH_ON]},
-  {"condition": "trigger", "id": ["latched_30m", "unlatched_5m"]},
+  {"condition": "trigger", "id": ["latched_30m", "unlatched_5m", "hard_cap_2h"]},
   {"condition": "and", "conditions": [{"condition": "trigger", "id": ["light_off", "ha_start"]}, LATCH_ON]},
  ]}],
  "actions": [{"choose": [
   {"conditions": [{"condition": "trigger", "id": "exit_walk"}],
-   "sequence": [{"delay": {"seconds": 60}}] + TURN_OFF},
+   "sequence": [{"delay": {"seconds": 120}}] + TURN_OFF},
   {"conditions": [{"condition": "trigger", "id": "s04_motion"}],
    "sequence": [{"stop": "S04 有动作，取消待关"}]},
-  {"conditions": [{"condition": "trigger", "id": ["latched_30m", "unlatched_5m"]}],
+  {"conditions": [{"condition": "trigger", "id": ["latched_30m", "unlatched_5m", "hard_cap_2h"]}],
    "sequence": TURN_OFF},
  ], "default": [
   {"if": [{"condition": "not", "conditions": [LIGHT_ON]}],
@@ -94,10 +95,11 @@ new_pt = copy.deepcopy(pt)
 idx = [i for i, a in enumerate(pt["actions"]) if LIGHT in json.dumps(a)]
 assert len(idx) == 1
 new_pt["actions"][idx[0]] = {
- "alias": "阳台：锁存时S04 30分钟无动作才关；未锁存S04 5分钟无动作关(2026-11-10 草案)",
+ "alias": "阳台：锁存时S04 30分钟无动作才关；未锁存S04 5分钟无动作关；亮满2小时必关(2026-11-10 草案)",
  "if": [LIGHT_ON, {"condition": "template", "value_template":
         REF + "{% set idle = (now() - ref).total_seconds() %}"
-        "{{ idle >= 1800 if is_state('" + LATCH + "','on') else idle >= 300 }}"}],
+        "{% set on_for = (now() - states." + LIGHT + ".last_changed).total_seconds() %}"
+        "{{ on_for >= 7200 or (idle >= 1800 if is_state('" + LATCH + "','on') else idle >= 300) }}"}],
  "then": TURN_OFF}
 json.dump(new_pt, open("new/auto_lighting_self_healing_patrol.json", "w"), ensure_ascii=False, indent=1)
 print("patrol balcony branch index", idx[0])
