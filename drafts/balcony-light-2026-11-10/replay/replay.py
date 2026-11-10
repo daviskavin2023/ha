@@ -6,7 +6,7 @@ P = lambda s: dt.datetime.fromisoformat(s).astimezone(tz)
 f = lambda t: t.strftime('%H:%M:%S')
 d = json.load(open(sys.argv[1] if len(sys.argv) > 1 else 'replay/history-raw.json'))
 VARIANT = sys.argv[2] if len(sys.argv) > 2 else 'A'   # A=moving<=230 (约定方案)；B=moving或still<=230
-NEAR_CM, ON_WIN, EXIT_GUARD, EXIT_DELAY = 230, 15, 10, 60
+NEAR_CM, ON_WIN, EXIT_GUARD, EXIT_DELAY, HARD_CAP = 230, 15, 10, 120, 7200
 LATCH_MAX, UNLATCH_MAX, STALE = 1800, 300, 60
 start = dt.datetime(2026, 11, 10, 17, 0, 0, tzinfo=tz)
 J = []
@@ -40,7 +40,7 @@ def dark(t): return at(sun, t) == 'below_horizon' or (at(lux, t, 999) < 35)
 def fresh(t):
     prev = [x for x in jt if x <= t]
     return bool(prev) and (t - prev[-1]).total_seconds() <= STALE
-MANUAL_OFF = [dt.datetime(2026, 11, 10, 20, 25, 45, tzinfo=tz)]  # 实际历史里唯一一次手动关灯
+MANUAL_OFF = [P(x['when']) for x in d['_logbook_light'] if x.get('state') == 'off' and x.get('context_user_id')]  # 实际手动关灯
 # ---- 旧逻辑：实际历史 ----
 L = [(P(x['last_changed']), x['state']) for x in d['switch.lemesh_cn_888711197_sw1f11_on_p_2_1']]
 old_on_sec, cur = 0, None
@@ -80,7 +80,7 @@ while t <= end:
                         light, on_t = True, et; new_on.append((et, 'fallback')); log.append((et, '开灯(兜底,不锁存)'))
         elif kind == 'near':
             if light and latch and (et - latch_t).total_seconds() >= EXIT_GUARD:
-                if not pend: log.append((et, '雷达近处走动→60s后关'))
+                if not pend: log.append((et, '雷达近处走动→120s后关'))
                 pend = et + dt.timedelta(seconds=EXIT_DELAY)
         elif kind == 'manual_off' and light:
             light, latch, pend = False, False, None; new_off.append((et, 'manual')); log.append((et, '手动关'))
@@ -88,7 +88,8 @@ while t <= end:
         new_on_sec += 1
         ref = max([x for x in (last_s, on_t) if x])
         reason = None
-        if pend and t >= pend: reason = 'exit_60s'
+        if (t - on_t).total_seconds() >= HARD_CAP: reason = 'hard_cap_2h'
+        elif pend and t >= pend: reason = 'exit_120s'
         elif latch and (t - ref).total_seconds() >= LATCH_MAX: reason = 'latch_30min'
         elif not latch and (t - ref).total_seconds() >= UNLATCH_MAX: reason = 'unlatched_5min'
         if reason:
