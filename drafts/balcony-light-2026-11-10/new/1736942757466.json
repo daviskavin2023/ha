@@ -70,7 +70,7 @@
       },
       {
        "condition": "template",
-       "value_template": "{{ (now() - states.input_boolean.yang_tai_you_ren.last_changed).total_seconds() >= 10 }}"
+       "value_template": "{% set b = states.input_boolean.yang_tai_you_ren %}{{ b is not none and (now() - b.last_changed).total_seconds() >= 10 }}"
       }
      ]
     },

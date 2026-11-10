@@ -68,7 +68,7 @@ new_off = {
  "conditions": [{"condition": "or", "conditions": [
   {"condition": "and", "alias": "回客厅走动：已锁存、灯亮、锁存≥10秒(排除进门那段尾巴)", "conditions": [
      {"condition": "trigger", "id": "exit_walk"}, LATCH_ON, LIGHT_ON,
-     {"condition": "template", "value_template": "{{ (now() - states." + LATCH + ".last_changed).total_seconds() >= 10 }}"}]},
+     {"condition": "template", "value_template": "{% set b = states." + LATCH + " %}{{ b is not none and (now() - b.last_changed).total_seconds() >= 10 }}"}]},
   {"condition": "and", "alias": "S04再动：取消待关", "conditions": [
      {"condition": "trigger", "id": "s04_motion"}, LATCH_ON]},
   {"condition": "trigger", "id": ["latched_30m", "unlatched_5m"]},
