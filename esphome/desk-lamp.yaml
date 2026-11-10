@@ -25,6 +25,8 @@ logger:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  output_power: 10.0dBm
+  power_save_mode: LIGHT
   reboot_timeout: 0s
 
 api:
@@ -47,15 +49,15 @@ output:
     pin: GPIO3
     id: pin_g3
 
-# 自动循环测试：每隔 5 秒切换一次开关
+# 自动循环测试：每隔 4 秒进行一次“轻触点按”(250ms)
 interval:
-  - interval: 5s
+  - interval: 4s
     then:
-      - logger.log: ">>> [触发测试脉冲 (150ms)：切换台灯开关！]"
+      - logger.log: ">>> [模拟手指轻触点按 (250ms)：开/关台灯！]"
       - output.turn_on: pin_g1
       - output.turn_on: pin_g2
       - output.turn_on: pin_g3
-      - delay: 150ms
+      - delay: 250ms
       - output.turn_off: pin_g1
       - output.turn_off: pin_g2
       - output.turn_off: pin_g3

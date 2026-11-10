@@ -1,4 +1,38 @@
 {
+ "id": "yueyue_manual_sleep_lock",
+ "alias": "悦悦房手动关灯进入睡眠锁定",
+ "description": "床头情景开关点按：开着则关灯并进入防打扰；关着则开灯并解除防打扰；每晚23:00自动锁定防打扰；2026-11-09：只接受5秒内新按键时间戳，过滤不可用/恢复旧事件/属性刷新；23点锁定保留",
+ "triggers": [
+  {
+   "platform": "state",
+   "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
+   "id": "scene_switch_clicked"
+  },
+  {
+   "platform": "time",
+   "at": "23:00:00",
+   "id": "auto_lock_23pm"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "trigger",
+     "id": "auto_lock_23pm"
+    },
+    {
+     "condition": "trigger",
+     "id": "scene_switch_clicked"
+    }
+   ]
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ trigger.id == 'auto_lock_23pm' or (trigger.id == 'scene_switch_clicked' and trigger.from_state is not none and trigger.to_state is not none and trigger.to_state.state not in ['unknown', 'unavailable'] and trigger.to_state.state != trigger.from_state.state and 0 <= (as_timestamp(now()) - as_timestamp(trigger.to_state.state, 0)) <= 5) }}"
+  }
+ ],
  "actions": [
   {
    "if": [
@@ -84,36 +118,6 @@
    ]
   }
  ],
- "alias": "悦悦房手动关灯进入睡眠锁定",
- "conditions": [
-  {
-   "condition": "or",
-   "conditions": [
-    {
-     "condition": "trigger",
-     "id": "auto_lock_23pm"
-    },
-    {
-     "condition": "trigger",
-     "id": "scene_switch_clicked"
-    }
-   ]
-  }
- ],
- "description": "床头情景开关点按：开着则关灯并进入防打扰；关着则开灯并解除防打扰；每晚23:00自动锁定防打扰",
- "id": "yueyue_manual_sleep_lock",
  "initial_state": true,
- "mode": "restart",
- "triggers": [
-  {
-   "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
-   "id": "scene_switch_clicked",
-   "platform": "state"
-  },
-  {
-   "at": "23:00:00",
-   "id": "auto_lock_23pm",
-   "platform": "time"
-  }
- ]
+ "mode": "restart"
 }

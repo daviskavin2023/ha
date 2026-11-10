@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-10",
+  "point_id": "S12",
+  "connection_method": "LD2410 -> USB串口 -> HA serial JSON -> 模板有人实体",
+  "entity_id": "binary_sensor.ke_ting_usblei_da_you_ren",
+  "raw_entity_id": "sensor.ld2410_usb_json",
+  "fusion_entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+  "previous_ble_entity_id": "binary_sensor.hlk_ld2410_63f5_occupancy",
+  "verification_source": "../changes/2026-11-10-living-dual-radar/final-verification.json",
+  "physical_position": "沿用用户已确认电视柜中段；本次未重新测量高度、朝向及覆盖",
+  "hardware_parameters_changed": false
+}

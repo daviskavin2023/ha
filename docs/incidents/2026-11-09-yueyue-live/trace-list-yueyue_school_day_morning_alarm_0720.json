@@ -1,0 +1,68 @@
+[
+  {
+    "last_step": "action/23",
+    "run_id": "953a4560a27983c43388a4563659d3dd",
+    "state": "stopped",
+    "script_execution": "error",
+    "timestamp": {
+      "start": "2026-11-04T23:20:00.308190+00:00",
+      "finish": "2026-11-04T23:21:27.364914+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_school_day_morning_alarm_0720",
+    "error": "执行错误, 未知错误, code=-4003, media_player.xiaomi_cn_981493908_l05b,  音箱, stop",
+    "trigger": "time"
+  },
+  {
+    "last_step": "action/24",
+    "run_id": "d9cb4b14a26c9121c622722b18df932d",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-05T23:20:00.308513+00:00",
+      "finish": "2026-11-05T23:21:26.329415+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_school_day_morning_alarm_0720",
+    "trigger": "time"
+  },
+  {
+    "last_step": "condition/0/entity_id/0",
+    "run_id": "70c130b1a9423339282e03e1695cc34d",
+    "state": "stopped",
+    "script_execution": "failed_conditions",
+    "timestamp": {
+      "start": "2026-11-06T23:20:00.307618+00:00",
+      "finish": "2026-11-06T23:20:00.307701+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_school_day_morning_alarm_0720",
+    "trigger": "time"
+  },
+  {
+    "last_step": "condition/0/entity_id/0",
+    "run_id": "04c14fc5fb0b5cb6a5579e7ee9617686",
+    "state": "stopped",
+    "script_execution": "failed_conditions",
+    "timestamp": {
+      "start": "2026-11-07T23:20:00.307747+00:00",
+      "finish": "2026-11-07T23:20:00.307826+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_school_day_morning_alarm_0720",
+    "trigger": "time"
+  },
+  {
+    "last_step": "action/24",
+    "run_id": "00857c45070ee13fcbbb2c684ed78d3b",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-08T23:20:00.307883+00:00",
+      "finish": "2026-11-08T23:21:26.323546+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_school_day_morning_alarm_0720",
+    "trigger": "time"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "case": "23点锁定",
+    "expected": true,
+    "got": true
+  },
+  {
+    "case": "真实新按键",
+    "expected": true,
+    "got": true
+  },
+  {
+    "case": "掉线",
+    "expected": false,
+    "got": false
+  },
+  {
+    "case": "旧事件恢复",
+    "expected": false,
+    "got": false
+  },
+  {
+    "case": "属性刷新",
+    "expected": false,
+    "got": false
+  },
+  {
+    "case": "未知",
+    "expected": false,
+    "got": false
+  },
+  {
+    "case": "未来事件",
+    "expected": false,
+    "got": false
+  },
+  {
+    "case": "初始化",
+    "expected": false,
+    "got": false
+  }
+]

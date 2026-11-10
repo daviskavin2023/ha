@@ -1,0 +1,7 @@
+{
+  "type": "abort",
+  "flow_id": "01M70D3H9TM9HTEGHMRAYGJXY9",
+  "handler": "ld2410_ble",
+  "reason": "no_devices_found",
+  "description_placeholders": null
+}

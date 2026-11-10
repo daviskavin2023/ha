@@ -1,0 +1,67 @@
+[
+  {
+    "last_step": "condition/3/entity_id/0",
+    "run_id": "39ade78a9dc0b9442236108c40c6885e",
+    "state": "stopped",
+    "script_execution": "failed_conditions",
+    "timestamp": {
+      "start": "2026-11-09T14:04:00.900013+00:00",
+      "finish": "2026-11-09T14:04:00.900172+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_motion_light_on",
+    "trigger": "numeric state of sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005"
+  },
+  {
+    "last_step": "condition/3/entity_id/0",
+    "run_id": "89b00f44f836bb5df3c245940ae0c27b",
+    "state": "stopped",
+    "script_execution": "failed_conditions",
+    "timestamp": {
+      "start": "2026-11-09T14:04:32.929998+00:00",
+      "finish": "2026-11-09T14:04:32.930135+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_motion_light_on",
+    "trigger": "numeric state of sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005"
+  },
+  {
+    "last_step": "condition/3/entity_id/0",
+    "run_id": "2db31d9d93619c3afa9503d8469097bf",
+    "state": "stopped",
+    "script_execution": "failed_conditions",
+    "timestamp": {
+      "start": "2026-11-09T14:06:15.981068+00:00",
+      "finish": "2026-11-09T14:06:15.981211+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_motion_light_on",
+    "trigger": "numeric state of sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005"
+  },
+  {
+    "last_step": "condition/3/entity_id/0",
+    "run_id": "378a48de52287e0f0ebdb5cd7aa2b663",
+    "state": "stopped",
+    "script_execution": "failed_conditions",
+    "timestamp": {
+      "start": "2026-11-09T14:07:28.052060+00:00",
+      "finish": "2026-11-09T14:07:28.052209+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_motion_light_on",
+    "trigger": "numeric state of sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005"
+  },
+  {
+    "last_step": "condition/3/entity_id/0",
+    "run_id": "b4d54acd647da5fbcb877482d3132b28",
+    "state": "stopped",
+    "script_execution": "failed_conditions",
+    "timestamp": {
+      "start": "2026-11-09T14:08:40.245260+00:00",
+      "finish": "2026-11-09T14:08:40.245405+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_motion_light_on",
+    "trigger": "numeric state of sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005"
+  }
+]

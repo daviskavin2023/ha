@@ -1,0 +1,204 @@
+[
+  {
+    "entity_id": "number.ld2410_living_room_radar_timeout",
+    "state": "unavailable",
+    "attributes": {
+      "min": 0.0,
+      "max": 65535.0,
+      "step": 1.0,
+      "mode": "auto",
+      "unit_of_measurement": "s",
+      "icon": "mdi:timelapse",
+      "friendly_name": "LD2410 Living Room Radar Timeout"
+    },
+    "last_changed": "2026-11-04T15:47:38.302756+00:00",
+    "last_reported": "2026-11-04T15:47:38.302756+00:00",
+    "last_updated": "2026-11-04T15:47:38.302756+00:00",
+    "context": {
+      "id": "01M6KKX4NY39W051G0FSFTR1KC",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.ld2410_living_room_radar_max_move_distance_gate",
+    "state": "unavailable",
+    "attributes": {
+      "min": 2.0,
+      "max": 8.0,
+      "step": 1.0,
+      "mode": "auto",
+      "device_class": "distance",
+      "icon": "mdi:motion-sensor",
+      "friendly_name": "LD2410 Living Room Radar Max Move Distance Gate"
+    },
+    "last_changed": "2026-11-04T15:47:38.302803+00:00",
+    "last_reported": "2026-11-04T15:47:38.302803+00:00",
+    "last_updated": "2026-11-04T15:47:38.302803+00:00",
+    "context": {
+      "id": "01M6KKX4NYQJ5350BMSS0XX1ND",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.ld2410_living_room_radar_max_still_distance_gate",
+    "state": "unavailable",
+    "attributes": {
+      "min": 2.0,
+      "max": 8.0,
+      "step": 1.0,
+      "mode": "auto",
+      "device_class": "distance",
+      "icon": "mdi:motion-sensor",
+      "friendly_name": "LD2410 Living Room Radar Max Still Distance Gate"
+    },
+    "last_changed": "2026-11-04T15:47:38.302519+00:00",
+    "last_reported": "2026-11-04T15:47:38.302519+00:00",
+    "last_updated": "2026-11-04T15:47:38.302519+00:00",
+    "context": {
+      "id": "01M6KKX4NY42ZB1344XHPHSDJH",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_moving_distance",
+    "state": "unavailable",
+    "attributes": {
+      "unit_of_measurement": "cm",
+      "device_class": "distance",
+      "icon": "mdi:signal-distance-variant",
+      "friendly_name": "LD2410 Living Room Radar Moving Distance"
+    },
+    "last_changed": "2026-11-04T15:47:38.302203+00:00",
+    "last_reported": "2026-11-04T15:47:38.302203+00:00",
+    "last_updated": "2026-11-04T15:47:38.302203+00:00",
+    "context": {
+      "id": "01M6KKX4NYCHFN9AF2HERK9JHW",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_still_distance",
+    "state": "unavailable",
+    "attributes": {
+      "unit_of_measurement": "cm",
+      "device_class": "distance",
+      "icon": "mdi:signal-distance-variant",
+      "friendly_name": "LD2410 Living Room Radar Still Distance"
+    },
+    "last_changed": "2026-11-04T15:47:38.302959+00:00",
+    "last_reported": "2026-11-04T15:47:38.302959+00:00",
+    "last_updated": "2026-11-04T15:47:38.302959+00:00",
+    "context": {
+      "id": "01M6KKX4NYW8DD9WC6D6Y7AM2Y",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_moving_energy",
+    "state": "unavailable",
+    "attributes": {
+      "unit_of_measurement": "%",
+      "icon": "mdi:motion-sensor",
+      "friendly_name": "LD2410 Living Room Radar Moving Energy"
+    },
+    "last_changed": "2026-11-04T15:47:38.303000+00:00",
+    "last_reported": "2026-11-04T15:47:38.303000+00:00",
+    "last_updated": "2026-11-04T15:47:38.303000+00:00",
+    "context": {
+      "id": "01M6KKX4NY3JQ291DKA5T76N6D",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_still_energy",
+    "state": "unavailable",
+    "attributes": {
+      "unit_of_measurement": "%",
+      "icon": "mdi:flash",
+      "friendly_name": "LD2410 Living Room Radar Still Energy"
+    },
+    "last_changed": "2026-11-04T15:47:38.302668+00:00",
+    "last_reported": "2026-11-04T15:47:38.302668+00:00",
+    "last_updated": "2026-11-04T15:47:38.302668+00:00",
+    "context": {
+      "id": "01M6KKX4NY4398EHCMDQV3Y251",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_detection_distance",
+    "state": "unavailable",
+    "attributes": {
+      "unit_of_measurement": "cm",
+      "device_class": "distance",
+      "icon": "mdi:signal-distance-variant",
+      "friendly_name": "LD2410 Living Room Radar Detection Distance"
+    },
+    "last_changed": "2026-11-04T15:47:38.302885+00:00",
+    "last_reported": "2026-11-04T15:47:38.302885+00:00",
+    "last_updated": "2026-11-04T15:47:38.302885+00:00",
+    "context": {
+      "id": "01M6KKX4NYE141YB71M4TPMX3N",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "binary_sensor.ld2410_living_room_radar_presence",
+    "state": "unavailable",
+    "attributes": {
+      "device_class": "occupancy",
+      "icon": "mdi:account",
+      "friendly_name": "LD2410 Living Room Radar Presence"
+    },
+    "last_changed": "2026-11-04T15:47:38.302845+00:00",
+    "last_reported": "2026-11-04T15:47:38.302845+00:00",
+    "last_updated": "2026-11-04T15:47:38.302845+00:00",
+    "context": {
+      "id": "01M6KKX4NY7W1GVEYAZETHNAX6",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "binary_sensor.ld2410_living_room_radar_moving",
+    "state": "unavailable",
+    "attributes": {
+      "device_class": "motion",
+      "icon": "mdi:motion-sensor",
+      "friendly_name": "LD2410 Living Room Radar Moving"
+    },
+    "last_changed": "2026-11-04T15:47:38.302620+00:00",
+    "last_reported": "2026-11-04T15:47:38.302620+00:00",
+    "last_updated": "2026-11-04T15:47:38.302620+00:00",
+    "context": {
+      "id": "01M6KKX4NY9XQEM98E74A0N95W",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "binary_sensor.ld2410_living_room_radar_still",
+    "state": "unavailable",
+    "attributes": {
+      "device_class": "occupancy",
+      "icon": "mdi:motion-sensor",
+      "friendly_name": "LD2410 Living Room Radar Still"
+    },
+    "last_changed": "2026-11-04T15:47:38.302710+00:00",
+    "last_reported": "2026-11-04T15:47:38.302710+00:00",
+    "last_updated": "2026-11-04T15:47:38.302710+00:00",
+    "context": {
+      "id": "01M6KKX4NYQFJ11GQSZYNWVAKM",
+      "parent_id": null,
+      "user_id": null
+    }
+  }
+]

@@ -1,0 +1,68 @@
+# =============================================================================
+# 待审草稿（未部署、未写入 HA、未 git commit）
+# 用途: 客厅 LD2410 蓝牙雷达 (ld2410_ble / HLK-LD2410_63F5) 掉线后自动 reload 集成
+# 核实: entry_id=01M70D66ZPDT04Q7W9T85A5N2J  address=3E:42:C4:93:63:F5
+# 对齐: automations.yaml 中 ha_watch_yueyue_ac_offline_20261008 的 reload 写法
+# 流程: 审核 → 校验 → 用户点头后再追加进 /config/automations.yaml
+# 禁止: 企业微信/任何 notify；不 reload 其他集成；不碰 3051
+# =============================================================================
+#
+# 【部署位置】追加到 HAOS: /config/automations.yaml 末尾
+#   （configuration.yaml 已有 automation: !include automations.yaml）
+#
+# 【备份】部署前在 HA 宿主机执行:
+#   cp /config/automations.yaml /config/automations.yaml.bak.$(date +%Y%m%d-%H%M%S)
+#   或从 Mac SSH:
+#   ssh -p 22222 root@10.10.10.38 \
+#     'cp /mnt/data/supervisor/homeassistant/automations.yaml \
+#         /mnt/data/supervisor/homeassistant/automations.yaml.bak.$(date +%Y%m%d-%H%M%S)'
+#   建议同时拷一份到本仓库 backups/
+#
+# 【生效】仅在用户点头后: 开发者工具 → YAML → 重新加载自动化
+#   或: 服务 automation.reload （不要重启 HA）
+#
+# 【回滚】
+#   1) 删掉本条 id: ha_watch_ld2410_ble_offline_reload_20261110
+#   2) 或整文件恢复: cp automations.yaml.bak.XXXX automations.yaml
+#   3) automation.reload
+#   失败时不影响其他自动化实体本身；3051 中控不读此条
+#
+# 【影响面】
+#   - 只调用 homeassistant.reload_config_entry，目标实体属 ld2410_ble 该条目
+#   - 不控制灯/空调/插座；无通知
+#   - 冷却 10 分钟 + mode:single，避免距离不够时狂刷客卫蓝牙代理连接槽
+#   - HA 启动短暂 unavailable: 靠 for: 2 分钟过滤（本机无 uptime 实体）
+# =============================================================================
+
+- id: ha_watch_ld2410_ble_offline_reload_20261110
+  alias: 监控：客厅LD2410蓝牙雷达掉线自动重载
+  description: >-
+    客厅LD2410蓝牙雷达(ld2410_ble / HLK-LD2410_63F5 / 3E:42:C4:93:63:F5,
+    entry_id=01M70D66ZPDT04Q7W9T85A5N2J) 实体 unavailable 持续 2 分钟，
+    或每 10 分钟巡检仍 unavailable 时，自动 reload 该集成条目。
+    10 分钟冷却防狂重载（远距离扫不到时不每分钟刷客卫蓝牙代理）。
+    无通知。草稿 2026-11-10，待审未部署。
+  triggers:
+  - platform: state
+    entity_id: binary_sensor.hlk_ld2410_63f5_occupancy
+    to: unavailable
+    for:
+      minutes: 2
+    id: unavailable_2min
+  - platform: time_pattern
+    minutes: /10
+    id: periodic_10min
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.hlk_ld2410_63f5_occupancy
+    state: unavailable
+  - condition: template
+    value_template: >-
+      {{ this.attributes.last_triggered is none
+         or (now() - this.attributes.last_triggered).total_seconds() > 600 }}
+  actions:
+  - action: homeassistant.reload_config_entry
+    target:
+      entity_id: binary_sensor.hlk_ld2410_63f5_occupancy
+  mode: single
+  max_exceeded: silent

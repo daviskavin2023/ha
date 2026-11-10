@@ -1,4 +1,34 @@
 {
+ "id": "1789570686104",
+ "alias": "å®¢åè§å½±æ¨¡å¼ç¯åèå¨",
+ "description": "åªè¦è§å½±æ¨¡å¼å¼å³ååï¼è¿å¥æ¶å¤é´åªå¼ç¯å¸¦å·¦é®ãå¶ä»ç¯å¨å³ï¼ç½å¤©å¨å³ï¼éåºæ¶å³ç¯å¸¦ï¼è¥å®¢åæäººä¸æååèªå¨å¼å¯å¤§ç¯；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+ "triggers": [
+  {
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "id": "mode_on",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "id": "mode_off",
+   "platform": "state",
+   "to": "off"
+  },
+  {
+   "trigger": "state",
+   "entity_id": "sun.sun",
+   "to": "below_horizon",
+   "id": "sunset"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "template",
+   "alias": "3051 生日中不动作",
+   "value_template": "{{ is_state('input_boolean.sheng_ri_mo_shi', 'off') or (trigger is defined and trigger.id == 'mode_on') }}"
+  }
+ ],
  "actions": [
   {
    "choose": [
@@ -27,17 +57,6 @@
        }
       },
       {
-       "else": [
-        {
-         "action": "switch.turn_off",
-         "target": {
-          "entity_id": [
-           "switch.bean_cn_1124140065_blns2_on_p_2_1",
-           "switch.bean_cn_1124140065_blns2_on_p_3_1"
-          ]
-         }
-        }
-       ],
        "if": [
         {
          "condition": "state",
@@ -56,6 +75,17 @@
          "action": "switch.turn_off",
          "target": {
           "entity_id": "switch.bean_cn_1124140065_blns2_on_p_3_1"
+         }
+        }
+       ],
+       "else": [
+        {
+         "action": "switch.turn_off",
+         "target": {
+          "entity_id": [
+           "switch.bean_cn_1124140065_blns2_on_p_2_1",
+           "switch.bean_cn_1124140065_blns2_on_p_3_1"
+          ]
          }
         }
        ]
@@ -83,7 +113,7 @@
        "if": [
         {
          "condition": "state",
-         "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+         "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
          "state": "on"
         },
         {
@@ -95,9 +125,9 @@
            "state": "below_horizon"
           },
           {
-           "below": 50,
            "condition": "numeric_state",
-           "entity_id": "sensor.linp_cn_1130732284_hb01_illumination_p_2_5"
+           "entity_id": "sensor.linp_cn_1130732284_hb01_illumination_p_2_5",
+           "below": 50
           }
          ]
         }
@@ -143,36 +173,6 @@
    ]
   }
  ],
- "alias": "å®¢åè§å½±æ¨¡å¼ç¯åèå¨",
- "conditions": [
-  {
-   "alias": "3051 生日中不动作",
-   "condition": "template",
-   "value_template": "{{ is_state('input_boolean.sheng_ri_mo_shi', 'off') or (trigger is defined and trigger.id == 'mode_on') }}"
-  }
- ],
- "description": "åªè¦è§å½±æ¨¡å¼å¼å³ååï¼è¿å¥æ¶å¤é´åªå¼ç¯å¸¦å·¦é®ãå¶ä»ç¯å¨å³ï¼ç½å¤©å¨å³ï¼éåºæ¶å³ç¯å¸¦ï¼è¥å®¢åæäººä¸æååèªå¨å¼å¯å¤§ç¯",
- "id": "1789570686104",
  "initial_state": true,
- "mode": "restart",
- "triggers": [
-  {
-   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
-   "id": "mode_on",
-   "platform": "state",
-   "to": "on"
-  },
-  {
-   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
-   "id": "mode_off",
-   "platform": "state",
-   "to": "off"
-  },
-  {
-   "entity_id": "sun.sun",
-   "id": "sunset",
-   "to": "below_horizon",
-   "trigger": "state"
-  }
- ]
+ "mode": "restart"
 }

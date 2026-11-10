@@ -1,4 +1,21 @@
 {
+ "id": "auto_lighting_self_healing_patrol",
+ "alias": "全屋灯光自主巡检与幽灵灯自愈引擎",
+ "description": "全屋5分钟极速自愈巡检看门狗：全天候扫描客厅、厨房、卫浴、走廊、书房、阳台及所有卧室，彻底消灭假死、丢包、雷达风扇误报导致的长亮不灭问题 [工业级一劳永逸版]；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+ "triggers": [
+  {
+   "minutes": "/5",
+   "platform": "time_pattern"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off",
+   "alias": "3051 会客中不动作"
+  }
+ ],
  "actions": [
   {
    "if": [
@@ -135,7 +152,7 @@
       },
       {
        "condition": "state",
-       "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+       "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
        "state": "off"
       },
       {
@@ -189,6 +206,10 @@
        ]
       }
      ]
+    },
+    {
+     "condition": "template",
+     "value_template": "{{ is_state('binary_sensor.ke_ting_shuang_lei_da_you_ren','off') and (as_timestamp(now()) - as_timestamp(states.binary_sensor.ke_ting_shuang_lei_da_you_ren.last_changed)) >= 120 }}"
     }
    ],
    "then": [
@@ -535,23 +556,6 @@
    ]
   }
  ],
- "alias": "全屋灯光自主巡检与幽灵灯自愈引擎",
- "conditions": [
-  {
-   "alias": "3051 会客中不动作",
-   "condition": "state",
-   "entity_id": "input_boolean.hui_ke_mo_shi",
-   "state": "off"
-  }
- ],
- "description": "全屋5分钟极速自愈巡检看门狗：全天候扫描客厅、厨房、卫浴、走廊、书房、阳台及所有卧室，彻底消灭假死、丢包、雷达风扇误报导致的长亮不灭问题 [工业级一劳永逸版]",
- "id": "auto_lighting_self_healing_patrol",
  "initial_state": true,
- "mode": "single",
- "triggers": [
-  {
-   "minutes": "/5",
-   "platform": "time_pattern"
-  }
- ]
+ "mode": "single"
 }

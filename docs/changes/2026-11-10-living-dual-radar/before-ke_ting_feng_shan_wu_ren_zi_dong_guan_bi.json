@@ -1,0 +1,44 @@
+{
+  "id": "ke_ting_feng_shan_wu_ren_zi_dong_guan_bi",
+  "alias": "客厅风扇无人自动关闭 (持续5分钟)",
+  "description": "客厅无人持续5分钟以上自动设置风扇状态为off触发关闭",
+  "triggers": [
+    {
+      "platform": "state",
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "to": "off",
+      "for": {
+        "minutes": 5
+      },
+      "id": "radar_off_5m"
+    },
+    {
+      "platform": "numeric_state",
+      "entity_id": "sensor.linp_cn_1130732284_hb01_no_one_duration_p_2_4",
+      "above": 4,
+      "id": "no_one_5m"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai",
+      "state": "on"
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "state": "off"
+    }
+  ],
+  "actions": [
+    {
+      "action": "input_boolean.turn_off",
+      "target": {
+        "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai"
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "restart"
+}

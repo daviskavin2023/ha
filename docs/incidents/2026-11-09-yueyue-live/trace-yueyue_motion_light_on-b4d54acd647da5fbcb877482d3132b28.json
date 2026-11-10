@@ -1,0 +1,248 @@
+{
+  "last_step": "condition/3/entity_id/0",
+  "run_id": "b4d54acd647da5fbcb877482d3132b28",
+  "state": "stopped",
+  "script_execution": "failed_conditions",
+  "timestamp": {
+    "start": "2026-11-09T14:08:40.245260+00:00",
+    "finish": "2026-11-09T14:08:40.245405+00:00"
+  },
+  "domain": "automation",
+  "item_id": "yueyue_motion_light_on",
+  "trigger": "numeric state of sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005",
+  "trace": {
+    "trigger/1": [
+      {
+        "path": "trigger/1",
+        "timestamp": "2026-11-09T14:08:40.245304+00:00",
+        "changed_variables": {
+          "this": {
+            "entity_id": "automation.yue_yue_fang_ren_zai_gan_ying_kai_deng",
+            "state": "on",
+            "attributes": {
+              "id": "yueyue_motion_light_on",
+              "last_triggered": "2026-11-09T14:03:33.854031+00:00",
+              "mode": "restart",
+              "current": 0,
+              "friendly_name": "悦悦房人在感应开灯"
+            },
+            "last_changed": "2026-10-31T07:48:58.285022+00:00",
+            "last_reported": "2026-11-09T14:03:33.910457+00:00",
+            "last_updated": "2026-11-09T14:03:33.910457+00:00",
+            "context": {
+              "id": "01M709Y5JXYM4SHJFB23WDX2BD",
+              "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+              "user_id": null
+            }
+          },
+          "trigger": {
+            "id": "1",
+            "idx": "1",
+            "alias": null,
+            "platform": "numeric_state",
+            "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005",
+            "below": 35.0,
+            "above": null,
+            "from_state": {
+              "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005",
+              "state": "42",
+              "attributes": {
+                "state_class": "measurement",
+                "unit_of_measurement": "lx",
+                "device_class": "illuminance",
+                "friendly_name": "悦悦房人在感应  标准 光照度"
+              },
+              "last_changed": "2026-11-09T14:08:09.227613+00:00",
+              "last_reported": "2026-11-09T14:08:09.227613+00:00",
+              "last_updated": "2026-11-09T14:08:09.227613+00:00",
+              "context": {
+                "id": "01M70A6JGBB3DJ6YMRNB8JXV13",
+                "parent_id": null,
+                "user_id": null
+              }
+            },
+            "to_state": {
+              "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005",
+              "state": "28",
+              "attributes": {
+                "state_class": "measurement",
+                "unit_of_measurement": "lx",
+                "device_class": "illuminance",
+                "friendly_name": "悦悦房人在感应  标准 光照度"
+              },
+              "last_changed": "2026-11-09T14:08:40.245162+00:00",
+              "last_reported": "2026-11-09T14:08:40.245162+00:00",
+              "last_updated": "2026-11-09T14:08:40.245162+00:00",
+              "context": {
+                "id": "01M70A7GSNYQ2RW5DMV85CR8Q9",
+                "parent_id": null,
+                "user_id": null
+              }
+            },
+            "for": null,
+            "description": "numeric state of sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005"
+          }
+        }
+      }
+    ],
+    "condition/0": [
+      {
+        "path": "condition/0",
+        "timestamp": "2026-11-09T14:08:40.245320+00:00",
+        "result": {
+          "after": {
+            "__type": "<class 'datetime.time'>",
+            "isoformat": "10:00:00"
+          },
+          "now_time": {
+            "__type": "<class 'datetime.time'>",
+            "isoformat": "22:08:40.245335"
+          },
+          "before": {
+            "__type": "<class 'datetime.time'>",
+            "isoformat": "23:00:00"
+          },
+          "result": true
+        }
+      }
+    ],
+    "condition/1": [
+      {
+        "path": "condition/1",
+        "timestamp": "2026-11-09T14:08:40.245350+00:00",
+        "result": {
+          "result": true
+        }
+      }
+    ],
+    "condition/1/entity_id/0": [
+      {
+        "path": "condition/1/entity_id/0",
+        "timestamp": "2026-11-09T14:08:40.245358+00:00",
+        "result": {
+          "result": true,
+          "state": "on",
+          "wanted_state": "on"
+        }
+      }
+    ],
+    "condition/2": [
+      {
+        "path": "condition/2",
+        "timestamp": "2026-11-09T14:08:40.245372+00:00",
+        "result": {
+          "result": true
+        }
+      }
+    ],
+    "condition/2/entity_id/0": [
+      {
+        "path": "condition/2/entity_id/0",
+        "timestamp": "2026-11-09T14:08:40.245378+00:00",
+        "result": {
+          "result": true,
+          "state": "off",
+          "wanted_state": "off"
+        }
+      }
+    ],
+    "condition/3": [
+      {
+        "path": "condition/3",
+        "timestamp": "2026-11-09T14:08:40.245388+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "condition/3/entity_id/0": [
+      {
+        "path": "condition/3/entity_id/0",
+        "timestamp": "2026-11-09T14:08:40.245393+00:00",
+        "result": {
+          "result": false,
+          "state": "on",
+          "wanted_state": "off"
+        }
+      }
+    ]
+  },
+  "config": {
+    "id": "yueyue_motion_light_on",
+    "alias": "悦悦房人在感应开灯",
+    "description": "悦悦房人在感应触发开灯(严格有人+暗光+未开防打扰)；23:00至次日10:00严禁感应开灯",
+    "triggers": [
+      {
+        "platform": "state",
+        "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+        "to": "on"
+      },
+      {
+        "platform": "numeric_state",
+        "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005",
+        "below": 35
+      },
+      {
+        "platform": "state",
+        "entity_id": "sun.sun",
+        "to": "below_horizon"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "time",
+        "after": "10:00:00",
+        "before": "23:00:00"
+      },
+      {
+        "condition": "state",
+        "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+        "state": "on"
+      },
+      {
+        "condition": "state",
+        "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi",
+        "state": "off"
+      },
+      {
+        "condition": "state",
+        "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+        "state": "off"
+      },
+      {
+        "condition": "or",
+        "conditions": [
+          {
+            "condition": "state",
+            "entity_id": "sun.sun",
+            "state": "below_horizon"
+          },
+          {
+            "condition": "numeric_state",
+            "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005",
+            "below": 35
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "switch.turn_on",
+        "target": {
+          "entity_id": [
+            "switch.bean_cn_1124139478_blns2_on_p_2_1",
+            "switch.bean_cn_1124141619_blns1_on_p_2_1"
+          ]
+        }
+      }
+    ],
+    "initial_state": true,
+    "mode": "restart"
+  },
+  "blueprint_inputs": null,
+  "context": {
+    "id": "01M70A7GSNSPYB2N54ERH3X6BM",
+    "parent_id": "01M70A7GSNYQ2RW5DMV85CR8Q9",
+    "user_id": null
+  }
+}

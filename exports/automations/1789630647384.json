@@ -1,4 +1,21 @@
 {
+ "id": "1789630647384",
+ "alias": "夜间灯光扫尾检查",
+ "description": "每晚固定时间检查客厅(含舞台灯)、厨房、生活阳台的灯——如果对应区域当时确实无人却还开着，强制关闭，避免通宵亮；观影模式期间不检查客厅，避免误关灯带。2026-09-23：厨房这条加上PIR(原走廊人体感应2，已移至厨房)兜底，雷达被风扇骗成常年有人时，PIR连续180秒无真实移动照样能判定无人关灯；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+ "triggers": [
+  {
+   "at": "00:30:00",
+   "platform": "time"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off",
+   "alias": "3051 会客中不动作"
+  }
+ ],
  "actions": [
   {
    "variables": {
@@ -14,8 +31,12 @@
     },
     {
      "condition": "state",
-     "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+     "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
      "state": "off"
+    },
+    {
+     "condition": "template",
+     "value_template": "{{ is_state('binary_sensor.ke_ting_shuang_lei_da_you_ren','off') and (as_timestamp(now()) - as_timestamp(states.binary_sensor.ke_ting_shuang_lei_da_you_ren.last_changed)) >= 120 }}"
     }
    ],
    "then": [
@@ -154,23 +175,6 @@
    ]
   }
  ],
- "alias": "夜间灯光扫尾检查",
- "conditions": [
-  {
-   "alias": "3051 会客中不动作",
-   "condition": "state",
-   "entity_id": "input_boolean.hui_ke_mo_shi",
-   "state": "off"
-  }
- ],
- "description": "每晚固定时间检查客厅(含舞台灯)、厨房、生活阳台的灯——如果对应区域当时确实无人却还开着，强制关闭，避免通宵亮；观影模式期间不检查客厅，避免误关灯带。2026-09-23：厨房这条加上PIR(原走廊人体感应2，已移至厨房)兜底，雷达被风扇骗成常年有人时，PIR连续180秒无真实移动照样能判定无人关灯",
- "id": "1789630647384",
  "initial_state": true,
- "mode": "single",
- "triggers": [
-  {
-   "at": "00:30:00",
-   "platform": "time"
-  }
- ]
+ "mode": "single"
 }

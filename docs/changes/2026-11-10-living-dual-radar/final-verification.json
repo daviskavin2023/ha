@@ -1,0 +1,102 @@
+{
+  "verified_ids": [
+    "1736664474841",
+    "1736917740057",
+    "1736918907451",
+    "1736942404232",
+    "1736980001002",
+    "1749716052814",
+    "1789570686104",
+    "1789630647384",
+    "auto_lighting_self_healing_patrol",
+    "ke_ting_feng_shan_wu_ren_zi_dong_guan_bi",
+    "ke_ting_fengshan_ganrao_guanji",
+    "zk3051_guest_auto_exit",
+    "zk3051_guest_off"
+  ],
+  "automation_enabled_state_differences": [],
+  "check_config": {
+    "result": "valid",
+    "errors": null,
+    "warnings": null
+  },
+  "entities": [
+    {
+      "entity_id": "sensor.ld2410_usb_json",
+      "state": "{\"occupancy\":false,\"moving\":false,\"still\":false,\"detection_distance\":0,\"moving_distance\":30,\"still_distance\":30,\"moving_energy\":0,\"still_energy\":23}",
+      "attributes": {
+        "occupancy": false,
+        "moving": false,
+        "still": false,
+        "detection_distance": 0,
+        "moving_distance": 30,
+        "still_distance": 30,
+        "moving_energy": 0,
+        "still_energy": 23,
+        "friendly_name": "ld2410_usb_json"
+      },
+      "last_changed": "2026-11-10T01:09:42.397172+00:00",
+      "last_reported": "2026-11-10T01:09:42.397172+00:00",
+      "last_updated": "2026-11-10T01:09:42.397172+00:00",
+      "context": {
+        "id": "01M71G1XBXT4C3X6KV71C32Q0W",
+        "parent_id": null,
+        "user_id": null
+      }
+    },
+    {
+      "entity_id": "binary_sensor.ke_ting_usblei_da_you_ren",
+      "state": "off",
+      "attributes": {
+        "device_class": "occupancy",
+        "friendly_name": "客厅USB雷达 有人"
+      },
+      "last_changed": "2026-11-10T01:07:20.399429+00:00",
+      "last_reported": "2026-11-10T01:07:20.399429+00:00",
+      "last_updated": "2026-11-10T01:07:20.399429+00:00",
+      "context": {
+        "id": "01M71FXJPE7J3FG12PSC1PZ5K9",
+        "parent_id": null,
+        "user_id": null
+      }
+    },
+    {
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "state": "off",
+      "attributes": {
+        "device_class": "occupancy",
+        "friendly_name": "客厅-人在感应"
+      },
+      "last_changed": "2026-11-10T00:58:32.195623+00:00",
+      "last_reported": "2026-11-10T00:58:32.195623+00:00",
+      "last_updated": "2026-11-10T00:58:32.195623+00:00",
+      "context": {
+        "id": "01M71FDEW35XMJE1QGFBKQTK3W",
+        "parent_id": null,
+        "user_id": null
+      }
+    },
+    {
+      "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+      "state": "off",
+      "attributes": {
+        "hb01_state": "off",
+        "usb_data_valid": true,
+        "usb_occupancy": false,
+        "policy": "任一有效有人即有人；两路有效无人即无人；串口20秒未上报视为无效",
+        "device_class": "occupancy",
+        "friendly_name": "客厅双雷达有人"
+      },
+      "last_changed": "2026-11-10T01:07:20.400133+00:00",
+      "last_reported": "2026-11-10T01:07:20.400156+00:00",
+      "last_updated": "2026-11-10T01:07:20.400133+00:00",
+      "context": {
+        "id": "01M71FXJPE7J3FG12PSC1PZ5K9",
+        "parent_id": null,
+        "user_id": null
+      }
+    }
+  ],
+  "stage_unavailable_default_off_blocked": true,
+  "checked_at": "2026-11-10T01:09:43.631057+00:00"
+}

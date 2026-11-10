@@ -1,0 +1,1571 @@
+[
+  {
+    "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi",
+    "state": "off",
+    "attributes": {
+      "editable": false,
+      "icon": "mdi:sleep",
+      "friendly_name": "悦悦房关灯防打扰模式"
+    },
+    "last_changed": "2026-11-09T12:47:45.605646+00:00",
+    "last_reported": "2026-11-09T12:47:45.605646+00:00",
+    "last_updated": "2026-11-09T12:47:45.605646+00:00",
+    "context": {
+      "id": "01M705KBY5B1Q843ZFASPNVH3V",
+      "parent_id": "01M705KBWD4E8X9778ZDXJWTGN",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736664474841",
+      "last_triggered": "2026-11-09T14:11:20.540810+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅开灯"
+    },
+    "last_changed": "2026-10-30T09:13:37.332427+00:00",
+    "last_reported": "2026-11-09T14:11:20.590533+00:00",
+    "last_updated": "2026-11-09T14:11:20.590533+00:00",
+    "context": {
+      "id": "01M70ACDAWSEWMSKDC9KGAMNVK",
+      "parent_id": "01M70ACDAW9RNC4T39E2608853",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736942404232",
+      "last_triggered": "2026-11-09T14:10:44.924012+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅关灯"
+    },
+    "last_changed": "2026-10-30T09:13:39.226259+00:00",
+    "last_reported": "2026-11-09T14:10:44.980978+00:00",
+    "last_updated": "2026-11-09T14:10:44.980978+00:00",
+    "context": {
+      "id": "01M70ABAHV66HGE1V7WMD9C8P8",
+      "parent_id": "01M70ABAHVKHMQVR92RFKMNHWW",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_shou_dong_guan_deng_fang_da_rao",
+    "state": "off",
+    "attributes": {
+      "id": "ke_ting_manual_override_watcher",
+      "last_triggered": "2026-09-19T14:08:39.646310+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅手动关灯防打扰"
+    },
+    "last_changed": "2026-10-12T11:52:46.192296+00:00",
+    "last_reported": "2026-10-12T11:52:46.192296+00:00",
+    "last_updated": "2026-10-12T11:52:46.192296+00:00",
+    "context": {
+      "id": "01M4QZAHVGVJ6PBVBCEE6AVV9C",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_guan_deng_mo_shi",
+    "state": "on",
+    "attributes": {
+      "id": "1737092055785",
+      "last_triggered": "2026-09-16T11:34:56.557849+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "客厅关灯模式"
+    },
+    "last_changed": "2026-10-12T11:52:46.192384+00:00",
+    "last_reported": "2026-10-12T11:52:46.192384+00:00",
+    "last_updated": "2026-10-12T11:52:46.192384+00:00",
+    "context": {
+      "id": "01M4QZAHVGGJSM85JZYQRW6MSB",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.wan_an",
+    "state": "on",
+    "attributes": {
+      "id": "1736920574936",
+      "last_triggered": "2026-11-05T05:49:46.718681+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "离家模式 (全屋关灯关空调)"
+    },
+    "last_changed": "2026-10-16T11:44:19.642126+00:00",
+    "last_reported": "2026-11-05T06:00:48.976765+00:00",
+    "last_updated": "2026-11-05T06:00:48.976765+00:00",
+    "context": {
+      "id": "01M6N4QBJGFWCVP1TSTRBNJFWW",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.kai_men",
+    "state": "on",
+    "attributes": {
+      "id": "1736917740057",
+      "last_triggered": "2026-11-09T13:34:14.225028+00:00",
+      "mode": "parallel",
+      "current": 0,
+      "max": 10,
+      "friendly_name": "玄关开灯"
+    },
+    "last_changed": "2026-10-30T09:13:37.980784+00:00",
+    "last_reported": "2026-11-09T13:34:14.275277+00:00",
+    "last_updated": "2026-11-09T13:34:14.275277+00:00",
+    "context": {
+      "id": "01M7088F6GR072GTVDS03JGY83",
+      "parent_id": "01M7088F6G6FZG3BZ01JXEX270",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zou_lang_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736919300667",
+      "last_triggered": "2026-11-09T14:07:22.290053+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "走廊开灯"
+    },
+    "last_changed": "2026-10-30T09:13:38.166882+00:00",
+    "last_reported": "2026-11-09T14:07:22.338854+00:00",
+    "last_updated": "2026-11-09T14:07:22.338854+00:00",
+    "context": {
+      "id": "01M70A54NHEXYCPZGFNASWWF2W",
+      "parent_id": "01M70A54NHT37XH170H7ZJ7T1W",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_wei_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736943010121",
+      "last_triggered": "2026-11-09T14:07:05.255993+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主卫关灯"
+    },
+    "last_changed": "2026-11-07T15:09:47.359355+00:00",
+    "last_reported": "2026-11-09T14:07:07.303128+00:00",
+    "last_updated": "2026-11-09T14:07:07.303128+00:00",
+    "context": {
+      "id": "01M70A4M177KZ5A2QRSSPWYR53",
+      "parent_id": "01M70A0YV6E7EJ053ABFJ1WYKB",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.chu_fang_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736917627387",
+      "last_triggered": "2026-11-09T11:59:18.226721+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "厨房开灯"
+    },
+    "last_changed": "2026-11-01T04:00:02.730882+00:00",
+    "last_reported": "2026-11-09T11:59:18.275154+00:00",
+    "last_updated": "2026-11-09T11:59:18.275154+00:00",
+    "context": {
+      "id": "01M702TMPJGHKW559MSB1KDHMW",
+      "parent_id": "01M702TMPJSWM5HAA8AKT86751",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_guan_deng_mo_shi",
+    "state": "on",
+    "attributes": {
+      "id": "1737093958838",
+      "last_triggered": "2026-11-09T13:36:59.024721+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主人房关灯模式"
+    },
+    "last_changed": "2026-10-12T11:52:46.192924+00:00",
+    "last_reported": "2026-11-09T13:36:59.077948+00:00",
+    "last_updated": "2026-11-09T13:36:59.077948+00:00",
+    "context": {
+      "id": "01M708DG4G92RAARB7YQV6CSQV",
+      "parent_id": "01M708DG313WVZPC19YB5MJHPS",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.chu_fang_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736968786159",
+      "last_triggered": "2026-11-09T11:36:20.870740+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "厨房关灯"
+    },
+    "last_changed": "2026-10-30T09:13:39.447363+00:00",
+    "last_reported": "2026-11-09T11:36:24.968549+00:00",
+    "last_updated": "2026-11-09T11:36:24.968549+00:00",
+    "context": {
+      "id": "01M701GKM6QQ28EDBS088R14G2",
+      "parent_id": "01M701GKM6JCPBH4B4QQP6FQEM",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.gong_wei_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1740457273525",
+      "last_triggered": "2026-11-09T14:10:58.310209+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "公卫关灯"
+    },
+    "last_changed": "2026-11-07T15:09:59.619808+00:00",
+    "last_reported": "2026-11-09T14:11:00.358423+00:00",
+    "last_updated": "2026-11-09T14:11:00.358423+00:00",
+    "context": {
+      "id": "01M70ABQM67YZJHSJ87SQ8QBSM",
+      "parent_id": "01M70AATAMGM016B26GW75H2YY",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.chu_fang_pai_qi_xun_huan",
+    "state": "on",
+    "attributes": {
+      "id": "1736668114788",
+      "last_triggered": "2026-11-09T14:10:00.113135+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "厨房排气循环"
+    },
+    "last_changed": "2026-10-12T11:52:46.193162+00:00",
+    "last_reported": "2026-11-09T14:10:00.113482+00:00",
+    "last_updated": "2026-11-09T14:10:00.113482+00:00",
+    "context": {
+      "id": "01M70A9YSGN3MG7M631YPV6GKN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yang_tai_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736942757466",
+      "last_triggered": "2026-11-09T14:09:18.105861+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "阳台关灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.193239+00:00",
+    "last_reported": "2026-11-09T14:09:18.152609+00:00",
+    "last_updated": "2026-11-09T14:09:18.152609+00:00",
+    "context": {
+      "id": "01M70A8NRS29DF2ZNXCRQZY9H4",
+      "parent_id": "01M70A8NRSKA27C9YQ3VTBZZEV",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_wei_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736920400997",
+      "last_triggered": "2026-11-09T13:32:41.242330+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主卫开灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.193317+00:00",
+    "last_reported": "2026-11-09T13:32:41.338986+00:00",
+    "last_updated": "2026-11-09T13:32:41.338986+00:00",
+    "context": {
+      "id": "01M7085MCT889CD3AMP70QWW00",
+      "parent_id": "01M7085MCTV85A2P1XC1SAKN0M",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yang_tai_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736918907451",
+      "last_triggered": "2026-11-09T14:04:06.618299+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "阳台开灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.193553+00:00",
+    "last_reported": "2026-11-09T14:04:06.676653+00:00",
+    "last_updated": "2026-11-09T14:04:06.676653+00:00",
+    "context": {
+      "id": "01M709Z5JSCQNRGR8GZWC8HPVT",
+      "parent_id": "01M709Z5JSNC4P57WY2SCQ2VD6",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.men_wei_guan_ti_xing",
+    "state": "on",
+    "attributes": {
+      "id": "1736915882262",
+      "last_triggered": "2026-11-07T14:28:04.557408+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "门未关提醒 (温和防打扰版)"
+    },
+    "last_changed": "2026-10-12T11:52:46.193637+00:00",
+    "last_reported": "2026-11-07T14:30:04.559715+00:00",
+    "last_updated": "2026-11-07T14:30:04.559715+00:00",
+    "context": {
+      "id": "01M6V6N90FX2R4BAKS97VS9XNY",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.gong_wei_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1740457164269",
+      "last_triggered": "2026-11-09T14:11:31.708618+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "公卫开灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.193727+00:00",
+    "last_reported": "2026-11-09T14:11:31.806456+00:00",
+    "last_updated": "2026-11-09T14:11:31.806456+00:00",
+    "context": {
+      "id": "01M70ACR7WXCBZ3XMRX3E6TS78",
+      "parent_id": "01M70ACR7WQ0RHYF03X614A67Z",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_wu_tai_deng_lian_dong",
+    "state": "on",
+    "attributes": {
+      "id": "1749716052814",
+      "last_triggered": "2026-11-09T14:11:25.443601+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅舞台灯联动"
+    },
+    "last_changed": "2026-10-30T09:13:38.754198+00:00",
+    "last_reported": "2026-11-09T14:11:25.443964+00:00",
+    "last_updated": "2026-11-09T14:11:25.443964+00:00",
+    "context": {
+      "id": "01M70ACJ43AM9H2TDAYCQV7BB6",
+      "parent_id": "01M70ACJ43FK1YF6A7WAJRHXDH",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.xuan_guan_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736942176778",
+      "last_triggered": "2026-11-09T13:36:19.926467+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "玄关关灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.193883+00:00",
+    "last_reported": "2026-11-09T13:36:19.975498+00:00",
+    "last_updated": "2026-11-09T13:36:19.975498+00:00",
+    "context": {
+      "id": "01M708C9YP2V4GGR9QRGMQXT52",
+      "parent_id": "01M708C9YPEZ6RSC65KP5DD1ZV",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.le_le_fang_guan_deng_mo_shi",
+    "state": "on",
+    "attributes": {
+      "id": "1737094111753",
+      "last_triggered": "2026-09-17T13:53:56.657043+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "乐乐房关灯模式"
+    },
+    "last_changed": "2026-10-12T11:52:46.193975+00:00",
+    "last_reported": "2026-10-12T11:52:46.193975+00:00",
+    "last_updated": "2026-10-12T11:52:46.193975+00:00",
+    "context": {
+      "id": "01M4QZAHVHWZH58NHAF3ASDQ23",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.shu_fang_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736919449440",
+      "last_triggered": "2026-11-09T14:11:53.515881+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "书房开灯"
+    },
+    "last_changed": "2026-11-07T14:57:20.652779+00:00",
+    "last_reported": "2026-11-09T14:11:53.567081+00:00",
+    "last_updated": "2026-11-09T14:11:53.567081+00:00",
+    "context": {
+      "id": "01M70ADDHBR8425DM2DYGMZDDP",
+      "parent_id": "01M70ADDHBXMY4ATE4MF71NJV7",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.shu_fang_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736942879165",
+      "last_triggered": "2026-11-09T14:06:27.688122+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "书房关灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.194146+00:00",
+    "last_reported": "2026-11-09T14:06:27.744483+00:00",
+    "last_updated": "2026-11-09T14:06:27.744483+00:00",
+    "context": {
+      "id": "01M70A3FB7XZD4925HJB6KFN2J",
+      "parent_id": "01M709ZT55DZKA5Y1T29KJN147",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zou_lang_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "1736942627898",
+      "last_triggered": "2026-11-09T14:07:18.427340+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "走廊关灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.194223+00:00",
+    "last_reported": "2026-11-09T14:07:20.523093+00:00",
+    "last_updated": "2026-11-09T14:07:20.523093+00:00",
+    "context": {
+      "id": "01M70A50WVGB75ZJ8N4ZGQP2CG",
+      "parent_id": "01M70A50WVX79YF80Z84YJ27QW",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_guan_ying_mo_shi_lian_dong",
+    "state": "on",
+    "attributes": {
+      "id": "1789568949322",
+      "last_triggered": "2026-11-07T18:41:38.654082+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅观影模式联动"
+    },
+    "last_changed": "2026-10-12T11:52:46.194296+00:00",
+    "last_reported": "2026-11-07T18:41:38.656312+00:00",
+    "last_updated": "2026-11-07T18:41:38.656312+00:00",
+    "context": {
+      "id": "01M6VN1XAXSWPWP6AKGNZWQ19W",
+      "parent_id": "01M6VMY84WT35EXHFGG7A51SDB",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_guan_ying_mo_shi_deng_guang_lian_dong",
+    "state": "on",
+    "attributes": {
+      "id": "1789570686104",
+      "last_triggered": "2026-11-09T09:46:50.665721+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "å®¢åè§å½±æ¨¡å¼ç¯åèå¨"
+    },
+    "last_changed": "2026-11-02T03:34:06.584355+00:00",
+    "last_reported": "2026-11-09T09:46:50.665941+00:00",
+    "last_updated": "2026-11-09T09:46:50.665941+00:00",
+    "context": {
+      "id": "01M6ZV83D962CNGHFDGS1MEPP2",
+      "parent_id": "01M6ZV83D8VZ22F9ZWH7YZSR92",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_kong_diao_hou_ban_ye_sheng_wen",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_ac_night_raise_20260917",
+      "last_triggered": "2026-11-07T20:00:00.268717+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房空调睡眠温控 (初始25度-1点26度-4点26.5度)"
+    },
+    "last_changed": "2026-11-02T03:32:10.591344+00:00",
+    "last_reported": "2026-11-07T20:00:00.271446+00:00",
+    "last_updated": "2026-11-07T20:00:00.271446+00:00",
+    "context": {
+      "id": "01M6VSHCRCDAB633MDYMW4Y0EJ",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_kong_diao_zao_shang_8dian_guan_bi",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_ac_morning_off_20260917",
+      "last_triggered": "2026-11-05T23:20:00.063857+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "悦悦房空调上学日早上7点20关闭"
+    },
+    "last_changed": "2026-10-12T11:52:46.194541+00:00",
+    "last_reported": "2026-11-05T23:20:00.065186+00:00",
+    "last_updated": "2026-11-05T23:20:00.065186+00:00",
+    "context": {
+      "id": "01M6Q0659Z5N0TT0MV98VE8M0G",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.le_le_fang_kong_diao_hou_ban_ye_sheng_wen",
+    "state": "on",
+    "attributes": {
+      "id": "lele_ac_night_raise_20260917",
+      "last_triggered": null,
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "乐乐房空调后半夜升温"
+    },
+    "last_changed": "2026-10-12T11:52:46.194617+00:00",
+    "last_reported": "2026-10-12T11:52:46.194617+00:00",
+    "last_updated": "2026-10-12T11:52:46.194617+00:00",
+    "context": {
+      "id": "01M4QZAHVJQX35GF86H4V1SS8F",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.le_le_fang_kong_diao_shang_xue_ri_zao_shang_7dian_guan_bi",
+    "state": "on",
+    "attributes": {
+      "id": "lele_ac_morning_off_20260917",
+      "last_triggered": "2026-11-08T23:00:00.391570+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "乐乐房空调上学日早上7点关闭"
+    },
+    "last_changed": "2026-10-12T11:52:46.194693+00:00",
+    "last_reported": "2026-11-08T23:00:00.395602+00:00",
+    "last_updated": "2026-11-08T23:00:00.395602+00:00",
+    "context": {
+      "id": "01M6YP7PR7VREWXKPZGKQZDZ2Z",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_kong_diao_hou_ban_ye_sheng_wen",
+    "state": "on",
+    "attributes": {
+      "id": "master_ac_night_raise_20260917",
+      "last_triggered": "2026-10-27T19:00:00.099607+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "主人房空调后半夜升温"
+    },
+    "last_changed": "2026-10-12T11:52:46.194769+00:00",
+    "last_reported": "2026-10-27T19:00:00.414330+00:00",
+    "last_updated": "2026-10-27T19:00:00.414330+00:00",
+    "context": {
+      "id": "01M5ZBQKZ3QJ141BNAF0E4HKTC",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_kong_diao_zao_shang_8dian_guan_bi",
+    "state": "on",
+    "attributes": {
+      "id": "master_ac_morning_off_20260917",
+      "last_triggered": "2026-10-27T23:20:00.260782+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "主人房空调上学日早上7点20关闭"
+    },
+    "last_changed": "2026-10-12T11:52:46.194844+00:00",
+    "last_reported": "2026-10-27T23:20:00.586828+00:00",
+    "last_updated": "2026-10-27T23:20:00.586828+00:00",
+    "context": {
+      "id": "01M5ZTKPG47V6BCNXACHV76SAX",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ye_jian_deng_guang_sao_wei_jian_cha",
+    "state": "on",
+    "attributes": {
+      "id": "1789630647384",
+      "last_triggered": "2026-11-08T16:30:00.449307+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "夜间灯光扫尾检查"
+    },
+    "last_changed": "2026-10-30T09:13:40.149592+00:00",
+    "last_reported": "2026-11-08T16:30:00.451220+00:00",
+    "last_updated": "2026-11-08T16:30:00.451220+00:00",
+    "context": {
+      "id": "01M6XZXK81YYPQXGXVFC4B88J4",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.xi_tong_zi_jian_fu_wei_guan_ying_mo_shi",
+    "state": "on",
+    "attributes": {
+      "id": "reset_movie_mode_on_boot",
+      "last_triggered": "2026-10-12T11:53:13.260536+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "系统自检复位观影模式"
+    },
+    "last_changed": "2026-10-12T11:52:46.195009+00:00",
+    "last_reported": "2026-10-12T11:53:13.260981+00:00",
+    "last_updated": "2026-10-12T11:53:13.260981+00:00",
+    "context": {
+      "id": "01M4QZBC9CBM515M6ECXC0NF37",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_ren_zai_gan_ying_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_motion_light_on",
+      "last_triggered": "2026-11-09T14:03:33.854031+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房人在感应开灯"
+    },
+    "last_changed": "2026-10-31T07:48:58.285022+00:00",
+    "last_reported": "2026-11-09T14:03:33.910457+00:00",
+    "last_updated": "2026-11-09T14:03:33.910457+00:00",
+    "context": {
+      "id": "01M709Y5JXYM4SHJFB23WDX2BD",
+      "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_wu_ren_zi_dong_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_motion_light_off",
+      "last_triggered": "2026-11-09T13:54:05.276672+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房无人自动关灯"
+    },
+    "last_changed": "2026-10-31T07:49:08.007582+00:00",
+    "last_reported": "2026-11-09T13:54:05.339962+00:00",
+    "last_updated": "2026-11-09T13:54:05.339962+00:00",
+    "context": {
+      "id": "01M709CTAWJ88YFAGTY90MD308",
+      "parent_id": "01M709954P42TSVPT6QCZP4460",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_shou_dong_guan_deng_jin_ru_shui_mian_suo_ding",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_manual_sleep_lock",
+      "last_triggered": "2026-11-09T12:47:45.549665+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房手动关灯进入睡眠锁定"
+    },
+    "last_changed": "2026-11-09T14:12:09.264845+00:00",
+    "last_reported": "2026-11-09T14:12:09.264845+00:00",
+    "last_updated": "2026-11-09T14:12:09.264845+00:00",
+    "context": {
+      "id": "01M70ADWXGTVT3V675B49M38R5",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_jie_chu_guan_deng_fang_da_rao",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_sleep_lock_reset",
+      "last_triggered": "2026-11-09T12:47:45.605420+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房解除关灯防打扰"
+    },
+    "last_changed": "2026-10-12T11:52:46.195324+00:00",
+    "last_reported": "2026-11-09T12:47:45.605698+00:00",
+    "last_updated": "2026-11-09T12:47:45.605698+00:00",
+    "context": {
+      "id": "01M705KBY5B1Q843ZFASPNVH3V",
+      "parent_id": "01M705KBWD4E8X9778ZDXJWTGN",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.quan_wu_deng_guang_zi_zhu_xun_jian_yu_you_ling_deng_zi_yu_yin_qing",
+    "state": "on",
+    "attributes": {
+      "id": "auto_lighting_self_healing_patrol",
+      "last_triggered": "2026-11-09T14:10:00.409293+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "全屋灯光自主巡检与幽灵灯自愈引擎"
+    },
+    "last_changed": "2026-10-30T09:13:39.912966+00:00",
+    "last_reported": "2026-11-09T14:10:00.455835+00:00",
+    "last_updated": "2026-11-09T14:10:00.455835+00:00",
+    "context": {
+      "id": "01M70A9Z2SH3WWXGW37ER1VN0H",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.chu_fang_feng_shan_zi_dong_kai_qi_gao_wen_qie_you_ren_chi_xu_2fen_zhong",
+    "state": "on",
+    "attributes": {
+      "id": "1736980001001",
+      "last_triggered": "2026-11-09T12:51:27.895063+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "厨房风扇自动开启 (高温且有人持续2分钟)"
+    },
+    "last_changed": "2026-10-12T11:52:46.195474+00:00",
+    "last_reported": "2026-11-09T12:51:27.940944+00:00",
+    "last_updated": "2026-11-09T12:51:27.940944+00:00",
+    "context": {
+      "id": "01M705T50PRXHM7A292VEA5DD3",
+      "parent_id": "01M705T50PTKBNNZCS45NYFZ7F",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_feng_shan_zi_dong_kai_qi_gao_wen_qie_you_ren_chi_xu_1fen_zhong",
+    "state": "on",
+    "attributes": {
+      "id": "1736980001002",
+      "last_triggered": "2026-11-08T23:34:15.293630+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "客厅风扇自动开启 (温度>=27℃且连续有人满2分钟)"
+    },
+    "last_changed": "2026-11-07T11:57:13.006521+00:00",
+    "last_reported": "2026-11-08T23:34:15.293953+00:00",
+    "last_updated": "2026-11-08T23:34:15.293953+00:00",
+    "context": {
+      "id": "01M6YR6DFX1K6229B2KBMZ7S1S",
+      "parent_id": "01M6YR6DFX1443CY6ZK5231HQD",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_ren_zai_gan_ying_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "zhurenfang_motion_light_on",
+      "last_triggered": "2026-11-09T13:36:04.177109+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主人房人在感应开灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.195642+00:00",
+    "last_reported": "2026-11-09T13:36:04.223542+00:00",
+    "last_updated": "2026-11-09T13:36:04.223542+00:00",
+    "context": {
+      "id": "01M708BTJG3CZNNGAGHZ580ZTV",
+      "parent_id": "01M708BTJG9JDFQDG3MHB53Z54",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_wu_ren_zi_dong_guan_deng",
+    "state": "on",
+    "attributes": {
+      "id": "zhurenfang_motion_light_off",
+      "last_triggered": "2026-11-09T13:36:58.977649+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主人房无人自动关灯"
+    },
+    "last_changed": "2026-10-12T11:52:46.195719+00:00",
+    "last_reported": "2026-11-09T13:36:59.026006+00:00",
+    "last_updated": "2026-11-09T13:36:59.026006+00:00",
+    "context": {
+      "id": "01M708DG313WVZPC19YB5MJHPS",
+      "parent_id": "01M708BNG0D5FYS7YZJXS5N3TK",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_shou_dong_guan_deng_jin_ru_shui_mian_suo_ding",
+    "state": "on",
+    "attributes": {
+      "id": "zhurenfang_manual_sleep_lock",
+      "last_triggered": "2026-11-09T12:28:04.583176+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主人房手动关灯进入睡眠锁定"
+    },
+    "last_changed": "2026-10-31T07:56:14.361443+00:00",
+    "last_reported": "2026-11-09T12:28:04.584008+00:00",
+    "last_updated": "2026-11-09T12:28:04.584008+00:00",
+    "context": {
+      "id": "01M704FAK7HCYG5MCGHBP4G28W",
+      "parent_id": "01M704FAK6BX0HRSX33S2NC8Z2",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_ci_ri_jie_chu_guan_deng_fang_da_rao",
+    "state": "on",
+    "attributes": {
+      "id": "zhurenfang_sleep_lock_reset",
+      "last_triggered": "2026-11-08T02:00:00.394104+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主人房次日解除关灯防打扰"
+    },
+    "last_changed": "2026-10-12T11:52:46.195871+00:00",
+    "last_reported": "2026-11-08T02:00:00.394570+00:00",
+    "last_updated": "2026-11-08T02:00:00.394570+00:00",
+    "context": {
+      "id": "01M6WE4JM9V5KFQG81VG121Y7Y",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_bai_tian_kong_diao_wu_ren_san_jie_jian_ce_yu_guan_ji",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_ac_daytime_unoccupied_off",
+      "last_triggered": "2026-11-08T00:10:37.269670+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房白天空调无人三阶检测与关机"
+    },
+    "last_changed": "2026-10-12T11:52:46.195963+00:00",
+    "last_reported": "2026-11-08T00:10:37.270463+00:00",
+    "last_updated": "2026-11-08T00:10:37.270463+00:00",
+    "context": {
+      "id": "01M6W7W9ANAPQ8AE9AVY2DVCDV",
+      "parent_id": "01M6W6QNEMF7Q3D3858R95RMRT",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_kong_diao_bai_tian_wu_ren_jian_ce_ci_shu_zhong_zhi",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_ac_unoccupied_count_reset",
+      "last_triggered": "2026-11-09T14:03:33.853477+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房空调白天无人检测次数重置"
+    },
+    "last_changed": "2026-10-12T11:52:46.196041+00:00",
+    "last_reported": "2026-11-09T14:03:33.853790+00:00",
+    "last_updated": "2026-11-09T14:03:33.853790+00:00",
+    "context": {
+      "id": "01M709Y5JXCTFJDVP7F8DT4158",
+      "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_bai_tian_kong_diao_wu_ren_san_jie_jian_ce_yu_guan_ji",
+    "state": "on",
+    "attributes": {
+      "id": "master_ac_daytime_unoccupied_off",
+      "last_triggered": null,
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主人房白天空调无人三阶检测与关机"
+    },
+    "last_changed": "2026-10-12T11:52:46.196116+00:00",
+    "last_reported": "2026-10-12T11:52:46.196116+00:00",
+    "last_updated": "2026-10-12T11:52:46.196116+00:00",
+    "context": {
+      "id": "01M4QZAHVMQA6M1KGG60B5SE0A",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_kong_diao_bai_tian_wu_ren_jian_ce_ci_shu_zhong_zhi",
+    "state": "on",
+    "attributes": {
+      "id": "master_ac_unoccupied_count_reset",
+      "last_triggered": "2026-11-09T14:11:35.548989+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "主人房空调白天无人检测次数重置"
+    },
+    "last_changed": "2026-10-12T11:52:46.196193+00:00",
+    "last_reported": "2026-11-09T14:11:35.549314+00:00",
+    "last_updated": "2026-11-09T14:11:35.549314+00:00",
+    "context": {
+      "id": "01M70ACVZWF1YR3DRTRM7Q67X7",
+      "parent_id": "01M70ACVZW27SFYWEZGQRB0SPK",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.chu_fang_feng_shan_wu_ren_zi_dong_guan_bi_jie_chu_lei_da_si_suo_bao_hu",
+    "state": "on",
+    "attributes": {
+      "id": "chu_fang_feng_shan_zi_dong_guan_bi",
+      "last_triggered": "2026-11-09T12:43:07.123074+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "厨房风扇无人自动关闭 (解除雷达死锁保护)"
+    },
+    "last_changed": "2026-10-12T11:52:46.196269+00:00",
+    "last_reported": "2026-11-09T12:43:07.170644+00:00",
+    "last_updated": "2026-11-09T12:43:07.170644+00:00",
+    "context": {
+      "id": "01M705AVZJR70RACWY7M1C627Z",
+      "parent_id": "01M705AVZJVKPYGVK1WF0WAYC1",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_xiao_ai_yin_xiang_shang_xue_ri_qi_chuang_nao_zhong_07_20",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_school_day_morning_alarm_0720",
+      "last_triggered": "2026-11-08T23:20:00.308055+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "悦悦房小爱音箱上学日起床闹钟 (07:20)"
+    },
+    "last_changed": "2026-10-20T01:06:09.534609+00:00",
+    "last_reported": "2026-11-08T23:21:26.323360+00:00",
+    "last_updated": "2026-11-08T23:21:26.323360+00:00",
+    "context": {
+      "id": "01M6YQEYHKR43E89H70KRYRD0B",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_feng_shan_wu_ren_zi_dong_guan_bi_15fen_zhong_yan_shi",
+    "state": "on",
+    "attributes": {
+      "id": "ke_ting_feng_shan_wu_ren_zi_dong_guan_bi",
+      "last_triggered": "2026-11-08T23:45:09.922441+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅风扇无人自动关闭 (持续5分钟)"
+    },
+    "last_changed": "2026-11-07T11:57:13.593346+00:00",
+    "last_reported": "2026-11-08T23:45:09.923645+00:00",
+    "last_updated": "2026-11-08T23:45:09.923645+00:00",
+    "context": {
+      "id": "01M6YRTCS2AV5TZNCCYBSPT09G",
+      "parent_id": "01M6YRH7T0FZA7YY7GW6XQ7GFY",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_xiao_ai_yin_xiang_shang_xue_ri_chu_men_nao_zhong_07_40",
+    "state": "on",
+    "attributes": {
+      "id": "ke_ting_xiao_ai_shang_xue_ri_chu_men_nao_zhong_0740",
+      "last_triggered": "2026-11-08T23:40:00.161117+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "客厅小爱音箱上学日出门闹钟 (07:40)"
+    },
+    "last_changed": "2026-10-20T01:06:07.018025+00:00",
+    "last_reported": "2026-11-08T23:41:27.945003+00:00",
+    "last_updated": "2026-11-08T23:41:27.945003+00:00",
+    "context": {
+      "id": "01M6YRKM09FTADJ8483SCBNT5T",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_deng_guan_lian_dong_guan_feng_shan",
+    "state": "on",
+    "attributes": {
+      "id": "ke_ting_deng_guan_bi_lian_dong_guan_feng_shan",
+      "last_triggered": "2026-11-08T23:00:18.013730+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅灯关联动关风扇"
+    },
+    "last_changed": "2026-11-07T11:57:14.188843+00:00",
+    "last_reported": "2026-11-08T23:00:18.014035+00:00",
+    "last_updated": "2026-11-08T23:00:18.014035+00:00",
+    "context": {
+      "id": "01M6YP87YXRX1ZYR50CDTRWV41",
+      "parent_id": "01M6YP87X6WGNKAVGZN61D290S",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.jian_kong_yue_yue_fang_kong_diao_diao_xian_zi_dong_zhong_lian",
+    "state": "on",
+    "attributes": {
+      "id": "ha_watch_yueyue_ac_offline_20261008",
+      "last_triggered": "2026-11-09T11:50:59.480878+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "监控：悦悦房空调掉线自动重连"
+    },
+    "last_changed": "2026-10-12T11:52:46.196777+00:00",
+    "last_reported": "2026-11-09T11:52:39.243693+00:00",
+    "last_updated": "2026-11-09T11:52:39.243693+00:00",
+    "context": {
+      "id": "01M702EF2BSA4GH79NKN6R20KV",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.jian_kong_le_le_fang_kong_diao_diao_xian_ti_xing",
+    "state": "on",
+    "attributes": {
+      "id": "ha_watch_lele_ac_offline_20261008",
+      "last_triggered": "2026-11-09T01:03:38.626430+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "监控：乐乐房空调掉线提醒"
+    },
+    "last_changed": "2026-10-12T11:52:46.196853+00:00",
+    "last_reported": "2026-11-09T01:03:40.286315+00:00",
+    "last_updated": "2026-11-09T01:03:40.286315+00:00",
+    "context": {
+      "id": "01M6YXA342A127GRJ4QAX50Z20",
+      "parent_id": "01M6YVK5A154SS8WZ5HG1TRP87",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.jian_kong_zhu_ren_fang_kong_diao_diao_xian_ti_xing",
+    "state": "on",
+    "attributes": {
+      "id": "ha_watch_master_ac_offline_20261008",
+      "last_triggered": "2026-11-09T01:03:38.623262+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "监控：主人房空调掉线提醒"
+    },
+    "last_changed": "2026-10-12T11:52:46.196943+00:00",
+    "last_reported": "2026-11-09T01:03:40.286863+00:00",
+    "last_updated": "2026-11-09T01:03:40.286863+00:00",
+    "context": {
+      "id": "01M6YXA33ZK06MGN7AR0SYDA1T",
+      "parent_id": "01M6YVK59Y6J0NV4ZTXZ12G0AB",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.jian_kong_zao_shang_7dian_kong_diao_chi_xian_hui_zong",
+    "state": "on",
+    "attributes": {
+      "id": "ha_watch_ac_morning_digest_20261008",
+      "last_triggered": null,
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "监控：早上7点空调离线汇总"
+    },
+    "last_changed": "2026-10-12T11:52:46.197018+00:00",
+    "last_reported": "2026-10-12T11:52:46.197018+00:00",
+    "last_updated": "2026-10-12T11:52:46.197018+00:00",
+    "context": {
+      "id": "01M4QZAHVNAMK8TXAT73A7QCBW",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+    "state": "on",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "悦悦房-灯"
+    },
+    "last_changed": "2026-11-09T14:03:33.909086+00:00",
+    "last_reported": "2026-11-09T14:03:33.909086+00:00",
+    "last_updated": "2026-11-09T14:03:33.909086+00:00",
+    "context": {
+      "id": "01M709Y5JXYM4SHJFB23WDX2BD",
+      "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+    "state": "on",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "悦悦房-灯-副"
+    },
+    "last_changed": "2026-11-09T14:03:33.906302+00:00",
+    "last_reported": "2026-11-09T14:03:33.906302+00:00",
+    "last_updated": "2026-11-09T14:03:33.906302+00:00",
+    "context": {
+      "id": "01M709Y5JXYM4SHJFB23WDX2BD",
+      "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.chu_fang_yang_tai_deng",
+    "state": "unavailable",
+    "attributes": {
+      "restored": true,
+      "id": "1736918444739",
+      "friendly_name": "厨房阳台灯",
+      "supported_features": 0
+    },
+    "last_changed": "2026-10-12T11:53:08.302761+00:00",
+    "last_reported": "2026-10-12T11:53:08.302761+00:00",
+    "last_updated": "2026-10-12T11:53:08.302761+00:00",
+    "context": {
+      "id": "01M4QZB7EE4VBH24BYZNFSMGG8",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.chu_fang_yang_tai_guan_deng",
+    "state": "unavailable",
+    "attributes": {
+      "restored": true,
+      "id": "1736942674398",
+      "friendly_name": "厨房阳台关灯",
+      "supported_features": 0
+    },
+    "last_changed": "2026-10-12T11:53:08.302805+00:00",
+    "last_reported": "2026-10-12T11:53:08.302805+00:00",
+    "last_updated": "2026-10-12T11:53:08.302805+00:00",
+    "context": {
+      "id": "01M4QZB7EEYPZ9DTVVMCX4B1Z8",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_ci_ri_10dian_jie_chu_guan_deng_fang_da_rao",
+    "state": "unavailable",
+    "attributes": {
+      "restored": true,
+      "id": "yueyue_sleep_lock_reset_at_10am",
+      "friendly_name": "悦悦房次日10点解除关灯防打扰",
+      "supported_features": 0
+    },
+    "last_changed": "2026-10-12T11:53:08.302875+00:00",
+    "last_reported": "2026-10-12T11:53:08.302875+00:00",
+    "last_updated": "2026-10-12T11:53:08.302875+00:00",
+    "context": {
+      "id": "01M4QZB7EERH3JZ4EK86QENG7X",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_chuang_tou_deng_yu_shuang_kai_zuo_jian_lian_dong_tong_bu",
+    "state": "unavailable",
+    "attributes": {
+      "restored": true,
+      "id": "zhurenfang_bedside_dual_sync",
+      "friendly_name": "主人房床头灯与双开左键联动同步",
+      "supported_features": 0
+    },
+    "last_changed": "2026-10-12T11:53:08.302943+00:00",
+    "last_reported": "2026-10-12T11:53:08.302943+00:00",
+    "last_updated": "2026-10-12T11:53:08.302943+00:00",
+    "context": {
+      "id": "01M4QZB7EE50Q8CYBX778E2TZK",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_feng_shan_gan_rao_lei_da_zi_dong_guan_feng_shan",
+    "state": "on",
+    "attributes": {
+      "id": "ke_ting_fengshan_ganrao_guanji",
+      "last_triggered": "2026-11-08T13:15:00.500543+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "客厅风扇干扰雷达自动关风扇"
+    },
+    "last_changed": "2026-11-07T17:54:38.773513+00:00",
+    "last_reported": "2026-11-08T13:15:00.501629+00:00",
+    "last_updated": "2026-11-08T13:15:00.501629+00:00",
+    "context": {
+      "id": "01M6XMRHGMJC54PNPF1QGP4FQN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.jian_kong_chu_fang_deng_kai_guan_bu_xiang_ying_ti_xing",
+    "state": "on",
+    "attributes": {
+      "id": "kitchen_light_switch_stuck_alert",
+      "last_triggered": "2026-11-09T11:59:13.628688+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "监控：厨房灯开关不响应提醒"
+    },
+    "last_changed": "2026-10-26T16:18:57.082938+00:00",
+    "last_reported": "2026-11-09T11:59:13.629129+00:00",
+    "last_updated": "2026-11-09T11:59:13.629129+00:00",
+    "context": {
+      "id": "01M702TG6WV08A62XXPYCE72JZ",
+      "parent_id": "01M702TG6WA607P5V02W7S3CWZ",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.3051_hui_ke_mo_shi_kai_qi",
+    "state": "on",
+    "attributes": {
+      "id": "zk3051_guest_on",
+      "last_triggered": "2026-11-02T14:04:39.581891+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "3051 会客模式·开启"
+    },
+    "last_changed": "2026-11-02T03:32:09.774636+00:00",
+    "last_reported": "2026-11-02T14:04:39.633201+00:00",
+    "last_updated": "2026-11-02T14:04:39.633201+00:00",
+    "context": {
+      "id": "01M6E974RXWEXC5HDB2KY1JC46",
+      "parent_id": "01M6E974RXYS3GG7N1YMD9MNVC",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.3051_hui_ke_mo_shi_wu_ren_zi_dong_tui_chu",
+    "state": "on",
+    "attributes": {
+      "id": "zk3051_guest_auto_exit",
+      "last_triggered": null,
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "3051 会客模式·无人自动退出"
+    },
+    "last_changed": "2026-10-30T09:13:40.731011+00:00",
+    "last_reported": "2026-10-30T09:13:40.731011+00:00",
+    "last_updated": "2026-10-30T09:13:40.731011+00:00",
+    "context": {
+      "id": "01M661C63VGYCCGS4P89H419KV",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.3051_hui_ke_mo_shi_guan_bi",
+    "state": "on",
+    "attributes": {
+      "id": "zk3051_guest_off",
+      "last_triggered": "2026-10-31T07:55:24.479973+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "3051 会客模式·关闭"
+    },
+    "last_changed": "2026-10-30T09:13:40.901709+00:00",
+    "last_reported": "2026-10-31T07:55:24.534933+00:00",
+    "last_updated": "2026-10-31T07:55:24.534933+00:00",
+    "context": {
+      "id": "01M68F9JXZNDNT3PQVMR3FW0MB",
+      "parent_id": "01M68F9JXZ40ZS7MQ1A3EF5K53",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.3051_sheng_ri_mo_shi_kai_qi",
+    "state": "on",
+    "attributes": {
+      "id": "zk3051_birthday_on",
+      "last_triggered": "2026-11-02T14:04:46.420091+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "3051 生日模式·开启"
+    },
+    "last_changed": "2026-11-02T03:32:09.619867+00:00",
+    "last_reported": "2026-11-02T14:04:46.475692+00:00",
+    "last_updated": "2026-11-02T14:04:46.475692+00:00",
+    "context": {
+      "id": "01M6E97BEKG9PEK8H52GXRE3ZV",
+      "parent_id": "01M6E97BEK5B0MXPY71PVPZP53",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.3051_sheng_ri_mo_shi_guan_bi_hui_fu",
+    "state": "on",
+    "attributes": {
+      "id": "zk3051_birthday_off",
+      "last_triggered": "2026-11-02T05:44:50.444592+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "3051 生日模式·关闭恢复"
+    },
+    "last_changed": "2026-11-02T03:32:09.205613+00:00",
+    "last_reported": "2026-11-02T05:44:50.445116+00:00",
+    "last_updated": "2026-11-02T05:44:50.445116+00:00",
+    "context": {
+      "id": "01M6DCKYGCB96F0V3MNBN4YYEA",
+      "parent_id": "01M6DCKYGB746FZ8GE1BKH6YCH",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_zhu_fu_kai_guan_shuang_kong_zhuang_tai_shuang_xiang_tong_bu",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_two_way_switch_sync",
+      "last_triggered": "2026-11-09T14:03:33.909463+00:00",
+      "mode": "queued",
+      "current": 0,
+      "max": 10,
+      "friendly_name": "悦悦房主副开关双控状态双向同步"
+    },
+    "last_changed": "2026-11-09T14:12:11.219496+00:00",
+    "last_reported": "2026-11-09T14:12:11.219496+00:00",
+    "last_updated": "2026-11-09T14:12:11.219496+00:00",
+    "context": {
+      "id": "01M70ADYTKES1N2VE0SY19ZCCN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.zhu_ren_fang_zhu_fu_kai_guan_shuang_kong_zhuang_tai_shuang_xiang_tong_bu",
+    "state": "off",
+    "attributes": {
+      "id": "zhurenfang_two_way_switch_sync",
+      "last_triggered": "2026-11-02T16:50:00.460197+00:00",
+      "mode": "queued",
+      "current": 0,
+      "max": 10,
+      "friendly_name": "主人房主副开关双控状态双向同步"
+    },
+    "last_changed": "2026-11-02T23:38:04.018942+00:00",
+    "last_reported": "2026-11-02T23:38:04.018942+00:00",
+    "last_updated": "2026-11-02T23:38:04.018942+00:00",
+    "context": {
+      "id": "01M6FA12VJRMCB239ZMPTNBEYM",
+      "parent_id": null,
+      "user_id": "6e42ded3b6d8493489c8f03ee326ad8d"
+    }
+  },
+  {
+    "entity_id": "automation.3051_sheng_ri_mo_shi_shou_dong_cao_zuo_tui_chu",
+    "state": "on",
+    "attributes": {
+      "id": "zk3051_birthday_manual_exit",
+      "last_triggered": "2026-11-02T14:04:55.986459+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "3051 生日模式·手动操作退出"
+    },
+    "last_changed": "2026-11-02T03:38:08.530415+00:00",
+    "last_reported": "2026-11-02T14:04:55.986742+00:00",
+    "last_updated": "2026-11-02T14:04:55.986742+00:00",
+    "context": {
+      "id": "01M6E97MSJP0D2S0DZY65FQ0RY",
+      "parent_id": "01M6E97MR5XFD3BDEZ8Q874XVZ",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.le_le_fang_zhu_fu_kai_guan_shuang_kong_zhuang_tai_shuang_xiang_tong_bu",
+    "state": "on",
+    "attributes": {
+      "id": "lelefang_two_way_switch_sync",
+      "last_triggered": "2026-11-09T13:23:50.756769+00:00",
+      "mode": "queued",
+      "current": 0,
+      "max": 10,
+      "friendly_name": "乐乐房主副开关双控状态双向同步"
+    },
+    "last_changed": "2026-11-02T22:50:42.561751+00:00",
+    "last_reported": "2026-11-09T13:23:50.757088+00:00",
+    "last_updated": "2026-11-09T13:23:50.757088+00:00",
+    "context": {
+      "id": "01M707NEB4C6W51BDHFM5PHWPP",
+      "parent_id": "01M707NEB4FQY2GMS0SFY1C1MD",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.xi_wan_ji_fang_wan_hou_wei_qi_dong_ti_xing",
+    "state": "on",
+    "attributes": {
+      "id": "rx600pro_forgot_to_start",
+      "last_triggered": "2026-11-08T11:15:50.687006+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "洗碗机放碗后未启动提醒"
+    },
+    "last_changed": "2026-11-04T10:10:07.992926+00:00",
+    "last_reported": "2026-11-08T11:15:50.687317+00:00",
+    "last_updated": "2026-11-08T11:15:50.687317+00:00",
+    "context": {
+      "id": "01M6XDYB8YBNNXZZDE5TRZNGNC",
+      "parent_id": "01M6XCSQCYAZ3E40H5XDWC9KM8",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.xi_wan_ji_qi_dong_huo_kai_men_zi_dong_xiao_chu_ti_xing",
+    "state": "on",
+    "attributes": {
+      "id": "rx600pro_forgot_to_start_dismiss",
+      "last_triggered": "2026-11-08T10:55:06.404985+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "洗碗机启动或开门自动消除提醒"
+    },
+    "last_changed": "2026-11-04T10:10:15.428298+00:00",
+    "last_reported": "2026-11-08T10:55:06.405152+00:00",
+    "last_updated": "2026-11-08T10:55:06.405152+00:00",
+    "context": {
+      "id": "01M6XCRC54DSCEGJ69AMHX2F19",
+      "parent_id": "01M6XCRC541EM36DJHN8K6AZHE",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.xiao_zhi_ming_tian_tian_qi_geng_xin",
+    "state": "off",
+    "attributes": {
+      "id": "xiaozhi_mingtian_tianqi",
+      "last_triggered": "2026-11-05T14:00:00.133204+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "小智-明天天气更新"
+    },
+    "last_changed": "2026-11-05T14:47:01.017882+00:00",
+    "last_reported": "2026-11-05T14:47:01.017882+00:00",
+    "last_updated": "2026-11-05T14:47:01.017882+00:00",
+    "context": {
+      "id": "01M6P2TVMSAYKHDPPRZ5E1H3GE",
+      "parent_id": null,
+      "user_id": "6e42ded3b6d8493489c8f03ee326ad8d"
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_ji_ding_he_yu_tou_ying_yi_ying_yin_lian_dong_kai_ji_guan_ji_xie_tong",
+    "state": "on",
+    "attributes": {
+      "id": "ke_ting_ji_ding_he_tou_ying_lian_dong",
+      "last_triggered": "2026-11-07T18:40:08.657344+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "客厅机顶盒与投影仪影音联动 (开机关机协同)"
+    },
+    "last_changed": "2026-11-08T01:12:01.705875+00:00",
+    "last_reported": "2026-11-08T01:12:01.705875+00:00",
+    "last_updated": "2026-11-08T01:12:01.705875+00:00",
+    "context": {
+      "id": "01M6WBCQD9GQD75STM2C4BQF55",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_feng_shan_hong_wai_kong_zhi_zhi_xing",
+    "state": "on",
+    "attributes": {
+      "id": "ke_ting_feng_shan_kong_zhi_zhi_hang",
+      "last_triggered": "2026-11-08T23:45:09.922930+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "客厅风扇红外控制执行"
+    },
+    "last_changed": "2026-11-08T01:22:49.282581+00:00",
+    "last_reported": "2026-11-08T23:45:09.923445+00:00",
+    "last_updated": "2026-11-08T23:45:09.923445+00:00",
+    "context": {
+      "id": "01M6YRTCS2W11NB15MGQEH9H9H",
+      "parent_id": "01M6YRTCS2AV5TZNCCYBSPT09G",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.er_tong_da_ti_mo_shi_qi_dong",
+    "state": "on",
+    "attributes": {
+      "id": "kids_tv_mode_on",
+      "last_triggered": "2026-11-07T18:14:09.424032+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "儿童答题模式启动"
+    },
+    "last_changed": "2026-11-07T17:38:21.276315+00:00",
+    "last_reported": "2026-11-07T18:14:09.424339+00:00",
+    "last_updated": "2026-11-07T18:14:09.424339+00:00",
+    "context": {
+      "id": "01M6VKFJRF6HC1CW1A4DM2V816",
+      "parent_id": "01M6VKFJRFY9ARXB9JEG0R175C",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.er_tong_da_ti_mo_shi_guan_bi",
+    "state": "on",
+    "attributes": {
+      "id": "kids_tv_mode_off",
+      "last_triggered": "2026-11-07T18:14:00.094878+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "儿童答题模式关闭"
+    },
+    "last_changed": "2026-11-07T17:38:27.424562+00:00",
+    "last_reported": "2026-11-07T18:14:00.095205+00:00",
+    "last_updated": "2026-11-07T18:14:00.095205+00:00",
+    "context": {
+      "id": "01M6VKF9MYPYZB14TY1VPHD9HH",
+      "parent_id": "01M6VKF9MYDH16VQMQPDFQJ80T",
+      "user_id": null
+    }
+  }
+]

@@ -1,4 +1,64 @@
 {
+ "id": "1736917740057",
+ "alias": "玄关开灯",
+ "description": "开门或玄关有人移动，且夜间/暗光(日落后或门外暗光)时自动开启玄关走廊灯；夜间/暗光且全家无人第一人推门回家时额外联动厨房灯、客厅大灯与左右双路灯带，灯带2分钟迎宾后自动熄灭，大灯完全匹配客厅有人雷达托管；白天自然光下彻底屏蔽全屋联动与玄关开灯。；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
+   "id": "door_open",
+   "platform": "state",
+   "to": "on"
+  },
+  {
+   "entity_id": "event.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_motion_detected_e_2_1008",
+   "id": "motion_event",
+   "platform": "state"
+  },
+  {
+   "below": 2,
+   "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_no_motion_duration_p_2_1024",
+   "id": "motion_duration",
+   "platform": "numeric_state"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1117205015_blns3_on_p_2_1",
+     "state": "off"
+    },
+    {
+     "condition": "state",
+     "entity_id": "switch.bean_cn_1124140522_blns2_on_p_3_1",
+     "state": "off"
+    }
+   ]
+  },
+  {
+   "condition": "or",
+   "conditions": [
+    {
+     "condition": "state",
+     "entity_id": "sun.sun",
+     "state": "below_horizon"
+    },
+    {
+     "condition": "state",
+     "entity_id": "sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_illumination_p_2_1",
+     "state": "弱"
+    }
+   ]
+  },
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "state": "off",
+   "alias": "3051 生日中不动作"
+  }
+ ],
  "actions": [
   {
    "action": "switch.turn_on",
@@ -30,7 +90,7 @@
       },
       {
        "condition": "state",
-       "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+       "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
        "state": "off"
       },
       {
@@ -126,67 +186,7 @@
    ]
   }
  ],
- "alias": "玄关开灯",
- "conditions": [
-  {
-   "condition": "or",
-   "conditions": [
-    {
-     "condition": "state",
-     "entity_id": "switch.bean_cn_1117205015_blns3_on_p_2_1",
-     "state": "off"
-    },
-    {
-     "condition": "state",
-     "entity_id": "switch.bean_cn_1124140522_blns2_on_p_3_1",
-     "state": "off"
-    }
-   ]
-  },
-  {
-   "condition": "or",
-   "conditions": [
-    {
-     "condition": "state",
-     "entity_id": "sun.sun",
-     "state": "below_horizon"
-    },
-    {
-     "condition": "state",
-     "entity_id": "sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_illumination_p_2_1",
-     "state": "弱"
-    }
-   ]
-  },
-  {
-   "alias": "3051 生日中不动作",
-   "condition": "state",
-   "entity_id": "input_boolean.sheng_ri_mo_shi",
-   "state": "off"
-  }
- ],
- "description": "开门或玄关有人移动，且夜间/暗光(日落后或门外暗光)时自动开启玄关走廊灯；夜间/暗光且全家无人第一人推门回家时额外联动厨房灯、客厅大灯与左右双路灯带，灯带2分钟迎宾后自动熄灭，大灯完全匹配客厅有人雷达托管；白天自然光下彻底屏蔽全屋联动与玄关开灯。",
- "id": "1736917740057",
  "initial_state": true,
  "max": 10,
- "mode": "parallel",
- "triggers": [
-  {
-   "entity_id": "binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2",
-   "id": "door_open",
-   "platform": "state",
-   "to": "on"
-  },
-  {
-   "entity_id": "event.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_motion_detected_e_2_1008",
-   "id": "motion_event",
-   "platform": "state"
-  },
-  {
-   "below": 2,
-   "entity_id": "sensor.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_no_motion_duration_p_2_1024",
-   "id": "motion_duration",
-   "platform": "numeric_state"
-  }
- ]
+ "mode": "parallel"
 }

@@ -1,0 +1,83 @@
+{
+  "id": "yueyue_motion_light_off",
+  "alias": "悦悦房无人自动关灯",
+  "description": "悦悦房人在感应判定无人持续2分钟自动关灯(全天候24小时生效，任何情形不可禁用)",
+  "triggers": [
+    {
+      "platform": "state",
+      "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+      "to": "off",
+      "for": {
+        "minutes": 2
+      },
+      "id": "occupancy_cleared_2m"
+    },
+    {
+      "platform": "state",
+      "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+      "to": "on",
+      "for": {
+        "minutes": 2
+      },
+      "id": "switch_on_2m"
+    },
+    {
+      "platform": "state",
+      "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_no_one_duration_p_2_1079",
+      "id": "no_one_duration_tick"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "or",
+      "conditions": [
+        {
+          "condition": "state",
+          "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+          "state": "on"
+        },
+        {
+          "condition": "state",
+          "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+          "state": "on"
+        }
+      ]
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+      "state": "off"
+    },
+    {
+      "condition": "or",
+      "conditions": [
+        {
+          "condition": "trigger",
+          "id": "occupancy_cleared_2m"
+        },
+        {
+          "condition": "trigger",
+          "id": "switch_on_2m"
+        },
+        {
+          "condition": "numeric_state",
+          "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_no_one_duration_p_2_1079",
+          "above": 1
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action": "switch.turn_off",
+      "target": {
+        "entity_id": [
+          "switch.bean_cn_1124139478_blns2_on_p_2_1",
+          "switch.bean_cn_1124141619_blns1_on_p_2_1"
+        ]
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "restart"
+}

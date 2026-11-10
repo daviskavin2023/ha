@@ -450,7 +450,7 @@
     },
     {
       "id": "S12",
-      "name": "客厅第二雷达 ESP32 + LD2410",
+      "name": "客厅 LD2410（USB串口）",
       "room_id": "living",
       "kind": "presence",
       "position_px": null,
@@ -459,16 +459,20 @@
         "docs/2026-11-08-全屋人体存在感应拓扑与客厅双雷达布防基准.md",
         "PRD-2026-10-29-ESP32客厅雷达.md"
       ],
-      "entity_id": null,
-      "entity_status": "unbound",
-      "entity_source": null,
+      "entity_id": "binary_sensor.ke_ting_usblei_da_you_ren",
+      "entity_status": "usb_serial_live_verified_and_fused_with_hb01",
+      "entity_source": "usb-binding-2026-11-10.json",
       "height_m": null,
       "heading_deg": null,
       "coverage_polygon": null,
       "notes": "客厅电视柜中间的插座处；用户确认沿柜中段；安装高度、板面正向、精确坐标未测",
       "mounting_surface": "tv_console_outlet",
       "confirmation_source": "placement-confirmations.json#S12",
-      "relative_position": "客厅电视柜中间的插座处"
+      "relative_position": "客厅电视柜中间的插座处",
+      "connection_method": "LD2410 -> USB串口 -> HA serial JSON -> 模板有人实体",
+      "binding_status": "usb_serial_live_verified_and_fused_with_hb01",
+      "ha_device_id": null,
+      "fusion_entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren"
     },
     {
       "id": "D01",

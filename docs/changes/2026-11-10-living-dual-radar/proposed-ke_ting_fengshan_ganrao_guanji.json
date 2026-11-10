@@ -1,0 +1,49 @@
+{
+  "id": "ke_ting_fengshan_ganrao_guanji",
+  "alias": "客厅风扇干扰雷达自动关风扇",
+  "description": "客厅风扇开启时，雷达被风扇叶片误判为有人。若风扇开着、雷达连续10分钟报有人，且目标距离在4–6米(风扇所在距离段)，则通过红外自动关闭风扇(不动灯)，解除雷达死锁。；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+  "triggers": [
+    {
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "for": {
+        "minutes": 10
+      },
+      "platform": "state",
+      "to": "on"
+    },
+    {
+      "minutes": "/5",
+      "platform": "time_pattern"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai",
+      "state": "on"
+    },
+    {
+      "above": 9,
+      "condition": "numeric_state",
+      "entity_id": "sensor.linp_cn_1130732284_hb01_has_someone_duration_p_2_3"
+    },
+    {
+      "condition": "template",
+      "value_template": "{{ 4.0 <= states(\"sensor.linp_cn_1130732284_hb01_body_distance_p_3_3\")|float(0) <= 6.0 }}"
+    },
+    {
+      "condition": "template",
+      "value_template": "{{ state_attr('binary_sensor.ke_ting_shuang_lei_da_you_ren','usb_data_valid') == true and state_attr('binary_sensor.ke_ting_shuang_lei_da_you_ren','usb_occupancy') == false }}"
+    }
+  ],
+  "actions": [
+    {
+      "action": "input_boolean.turn_off",
+      "target": {
+        "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai"
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "single"
+}

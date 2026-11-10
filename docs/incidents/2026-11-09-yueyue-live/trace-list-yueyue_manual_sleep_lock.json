@@ -1,0 +1,67 @@
+[
+  {
+    "last_step": "action/1/then/0/default/1",
+    "run_id": "7ed18cb2ec3ba1bf0b5ee3b8f1b3469e",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-09T00:33:38.631335+00:00",
+      "finish": "2026-11-09T00:33:38.632308+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_manual_sleep_lock",
+    "trigger": "state of event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012"
+  },
+  {
+    "last_step": "action/1/then/0/default/1",
+    "run_id": "f4208bcd73063f106b20f27db1da2761",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-09T12:03:47.183497+00:00",
+      "finish": "2026-11-09T12:03:47.245705+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_manual_sleep_lock",
+    "trigger": "state of event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012"
+  },
+  {
+    "last_step": "action/1/then/0/default/1",
+    "run_id": "646c6e6f8fa27fad070aab6e2b85fda5",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-09T12:08:27.083946+00:00",
+      "finish": "2026-11-09T12:08:27.084952+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_manual_sleep_lock",
+    "trigger": "state of event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012"
+  },
+  {
+    "last_step": "action/1/then/0/choose/0/sequence/1",
+    "run_id": "4f7e5c5c0106cbbf7fe95602a2264a7e",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-09T12:47:41.015367+00:00",
+      "finish": "2026-11-09T12:47:41.074994+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_manual_sleep_lock",
+    "trigger": "state of event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012"
+  },
+  {
+    "last_step": "action/1/then/0/default/1",
+    "run_id": "4bfa7e8082a51197bdd55c8ace4c40cb",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-09T12:47:45.549519+00:00",
+      "finish": "2026-11-09T12:47:45.608326+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_manual_sleep_lock",
+    "trigger": "state of event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012"
+  }
+]

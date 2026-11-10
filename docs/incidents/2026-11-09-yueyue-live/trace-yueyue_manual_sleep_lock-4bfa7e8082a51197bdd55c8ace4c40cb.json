@@ -1,0 +1,415 @@
+{
+  "last_step": "action/1/then/0/default/1",
+  "run_id": "4bfa7e8082a51197bdd55c8ace4c40cb",
+  "state": "stopped",
+  "script_execution": "finished",
+  "timestamp": {
+    "start": "2026-11-09T12:47:45.549519+00:00",
+    "finish": "2026-11-09T12:47:45.608326+00:00"
+  },
+  "domain": "automation",
+  "item_id": "yueyue_manual_sleep_lock",
+  "trigger": "state of event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
+  "trace": {
+    "trigger/0": [
+      {
+        "path": "trigger/0",
+        "timestamp": "2026-11-09T12:47:45.549580+00:00",
+        "changed_variables": {
+          "this": {
+            "entity_id": "automation.yue_yue_fang_shou_dong_guan_deng_jin_ru_shui_mian_suo_ding",
+            "state": "on",
+            "attributes": {
+              "id": "yueyue_manual_sleep_lock",
+              "last_triggered": "2026-11-09T12:47:41.015534+00:00",
+              "mode": "restart",
+              "current": 0,
+              "friendly_name": "悦悦房手动关灯进入睡眠锁定"
+            },
+            "last_changed": "2026-10-31T07:48:36.863755+00:00",
+            "last_reported": "2026-11-09T12:47:41.074746+00:00",
+            "last_updated": "2026-11-09T12:47:41.074746+00:00",
+            "context": {
+              "id": "01M705K7EQ0VP5C40P1FMR3E7D",
+              "parent_id": "01M705K7EQBNC2PGTE2E3M0C54",
+              "user_id": null
+            }
+          },
+          "trigger": {
+            "id": "scene_switch_clicked",
+            "idx": "0",
+            "alias": null,
+            "platform": "state",
+            "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
+            "from_state": {
+              "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
+              "state": "2026-11-07T16:50:51.802+00:00",
+              "attributes": {
+                "event_types": [
+                  "单击"
+                ],
+                "event_type": "单击",
+                "按键类型": 1,
+                "device_class": "button",
+                "friendly_name": "悦悦房灯  BLE专用开关传感器 单击"
+              },
+              "last_changed": "2026-11-09T12:47:41.015242+00:00",
+              "last_reported": "2026-11-09T12:47:41.015242+00:00",
+              "last_updated": "2026-11-09T12:47:41.015242+00:00",
+              "context": {
+                "id": "01M705K7EQBNC2PGTE2E3M0C54",
+                "parent_id": null,
+                "user_id": null
+              }
+            },
+            "to_state": {
+              "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
+              "state": "2026-11-09T12:47:45.549+00:00",
+              "attributes": {
+                "event_types": [
+                  "单击"
+                ],
+                "event_type": "单击",
+                "按键类型": 1,
+                "device_class": "button",
+                "friendly_name": "悦悦房灯  BLE专用开关传感器 单击"
+              },
+              "last_changed": "2026-11-09T12:47:45.549434+00:00",
+              "last_reported": "2026-11-09T12:47:45.549434+00:00",
+              "last_updated": "2026-11-09T12:47:45.549434+00:00",
+              "context": {
+                "id": "01M705KBWD21FHBZNKMCSXQ652",
+                "parent_id": null,
+                "user_id": null
+              }
+            },
+            "for": null,
+            "attribute": null,
+            "description": "state of event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012"
+          }
+        }
+      }
+    ],
+    "condition/0": [
+      {
+        "path": "condition/0",
+        "timestamp": "2026-11-09T12:47:45.549598+00:00",
+        "result": {
+          "result": true
+        }
+      }
+    ],
+    "condition/0/conditions/0": [
+      {
+        "path": "condition/0/conditions/0",
+        "timestamp": "2026-11-09T12:47:45.549608+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "condition/0/conditions/1": [
+      {
+        "path": "condition/0/conditions/1",
+        "timestamp": "2026-11-09T12:47:45.549621+00:00",
+        "result": {
+          "result": true
+        }
+      }
+    ],
+    "action/0": [
+      {
+        "path": "action/0",
+        "timestamp": "2026-11-09T12:47:45.549715+00:00",
+        "changed_variables": {
+          "context": {
+            "id": "01M705KBWD4E8X9778ZDXJWTGN",
+            "parent_id": "01M705KBWD21FHBZNKMCSXQ652",
+            "user_id": null
+          }
+        }
+      }
+    ],
+    "action/0/if": [
+      {
+        "path": "action/0/if",
+        "timestamp": "2026-11-09T12:47:45.549752+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/0/if/condition/0": [
+      {
+        "path": "action/0/if/condition/0",
+        "timestamp": "2026-11-09T12:47:45.549768+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/1": [
+      {
+        "path": "action/1",
+        "timestamp": "2026-11-09T12:47:45.549795+00:00",
+        "result": {
+          "choice": "then"
+        }
+      }
+    ],
+    "action/1/if": [
+      {
+        "path": "action/1/if",
+        "timestamp": "2026-11-09T12:47:45.549813+00:00",
+        "result": {
+          "result": true
+        }
+      }
+    ],
+    "action/1/if/condition/0": [
+      {
+        "path": "action/1/if/condition/0",
+        "timestamp": "2026-11-09T12:47:45.549823+00:00",
+        "result": {
+          "result": true
+        }
+      }
+    ],
+    "action/1/then/0": [
+      {
+        "path": "action/1/then/0",
+        "timestamp": "2026-11-09T12:47:45.549883+00:00",
+        "result": {
+          "choice": "default"
+        }
+      }
+    ],
+    "action/1/then/0/choose/0": [
+      {
+        "path": "action/1/then/0/choose/0",
+        "timestamp": "2026-11-09T12:47:45.549926+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/1/then/0/choose/0/conditions/0": [
+      {
+        "path": "action/1/then/0/choose/0/conditions/0",
+        "timestamp": "2026-11-09T12:47:45.549939+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/1/then/0/choose/0/conditions/0/conditions/0": [
+      {
+        "path": "action/1/then/0/choose/0/conditions/0/conditions/0",
+        "timestamp": "2026-11-09T12:47:45.549949+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/1/then/0/choose/0/conditions/0/conditions/0/entity_id/0": [
+      {
+        "path": "action/1/then/0/choose/0/conditions/0/conditions/0/entity_id/0",
+        "timestamp": "2026-11-09T12:47:45.549958+00:00",
+        "result": {
+          "result": false,
+          "state": "off",
+          "wanted_state": "on"
+        }
+      }
+    ],
+    "action/1/then/0/choose/0/conditions/0/conditions/1": [
+      {
+        "path": "action/1/then/0/choose/0/conditions/0/conditions/1",
+        "timestamp": "2026-11-09T12:47:45.549978+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/1/then/0/choose/0/conditions/0/conditions/1/entity_id/0": [
+      {
+        "path": "action/1/then/0/choose/0/conditions/0/conditions/1/entity_id/0",
+        "timestamp": "2026-11-09T12:47:45.549987+00:00",
+        "result": {
+          "result": false,
+          "state": "off",
+          "wanted_state": "on"
+        }
+      }
+    ],
+    "action/1/then/0/default/0": [
+      {
+        "path": "action/1/then/0/default/0",
+        "timestamp": "2026-11-09T12:47:45.550047+00:00",
+        "child_id": {
+          "domain": "automation",
+          "item_id": "yueyue_two_way_switch_sync",
+          "run_id": "465a6f40dc8fc969e2e9afd4733af4ec"
+        },
+        "result": {
+          "params": {
+            "domain": "switch",
+            "service": "turn_on",
+            "service_data": {},
+            "target": {
+              "entity_id": [
+                "switch.bean_cn_1124139478_blns2_on_p_2_1",
+                "switch.bean_cn_1124141619_blns1_on_p_2_1"
+              ]
+            }
+          },
+          "running_script": false
+        }
+      }
+    ],
+    "action/1/then/0/default/1": [
+      {
+        "path": "action/1/then/0/default/1",
+        "timestamp": "2026-11-09T12:47:45.607858+00:00",
+        "result": {
+          "params": {
+            "domain": "input_boolean",
+            "service": "turn_off",
+            "service_data": {},
+            "target": {
+              "entity_id": [
+                "input_boolean.yue_yue_fang_guan_deng_mo_shi"
+              ]
+            }
+          },
+          "running_script": false
+        }
+      }
+    ]
+  },
+  "config": {
+    "id": "yueyue_manual_sleep_lock",
+    "alias": "悦悦房手动关灯进入睡眠锁定",
+    "description": "床头情景开关点按：开着则关灯并进入防打扰；关着则开灯并解除防打扰；每晚23:00自动锁定防打扰",
+    "triggers": [
+      {
+        "platform": "state",
+        "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
+        "id": "scene_switch_clicked"
+      },
+      {
+        "platform": "time",
+        "at": "23:00:00",
+        "id": "auto_lock_23pm"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "or",
+        "conditions": [
+          {
+            "condition": "trigger",
+            "id": "auto_lock_23pm"
+          },
+          {
+            "condition": "trigger",
+            "id": "scene_switch_clicked"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "if": [
+          {
+            "condition": "trigger",
+            "id": "auto_lock_23pm"
+          }
+        ],
+        "then": [
+          {
+            "action": "input_boolean.turn_on",
+            "target": {
+              "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi"
+            }
+          }
+        ]
+      },
+      {
+        "if": [
+          {
+            "condition": "trigger",
+            "id": "scene_switch_clicked"
+          }
+        ],
+        "then": [
+          {
+            "choose": [
+              {
+                "conditions": [
+                  {
+                    "condition": "or",
+                    "conditions": [
+                      {
+                        "condition": "state",
+                        "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+                        "state": "on"
+                      },
+                      {
+                        "condition": "state",
+                        "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+                        "state": "on"
+                      }
+                    ]
+                  }
+                ],
+                "sequence": [
+                  {
+                    "action": "switch.turn_off",
+                    "target": {
+                      "entity_id": [
+                        "switch.bean_cn_1124139478_blns2_on_p_2_1",
+                        "switch.bean_cn_1124141619_blns1_on_p_2_1"
+                      ]
+                    }
+                  },
+                  {
+                    "action": "input_boolean.turn_on",
+                    "target": {
+                      "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi"
+                    }
+                  }
+                ]
+              }
+            ],
+            "default": [
+              {
+                "action": "switch.turn_on",
+                "target": {
+                  "entity_id": [
+                    "switch.bean_cn_1124139478_blns2_on_p_2_1",
+                    "switch.bean_cn_1124141619_blns1_on_p_2_1"
+                  ]
+                }
+              },
+              {
+                "action": "input_boolean.turn_off",
+                "target": {
+                  "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "initial_state": true,
+    "mode": "restart"
+  },
+  "blueprint_inputs": null,
+  "context": {
+    "id": "01M705KBWD4E8X9778ZDXJWTGN",
+    "parent_id": "01M705KBWD21FHBZNKMCSXQ652",
+    "user_id": null
+  }
+}
