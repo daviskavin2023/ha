@@ -1,0 +1,48 @@
+# =============================================================================
+# 待审片段（可选，v2 刷写后再上）— 把固件 v2 附带的雷达配置存成 HA 实体
+# 不改 sensor.ld2410_usb_json 本身，不改任何现有模板/自动化。
+# serial 平台会把每行 JSON 设为该行的 attributes，所以 cfg/ms/ss 只在个别行出现；
+# 用触发式模板把它们「记住」。需 ha core check + 重启或 template 重载。
+# =============================================================================
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.ld2410_usb_json
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state is not none and trigger.to_state.attributes.cfg is mapping }}"
+    sensor:
+      - name: "客厅USB雷达 配置"
+        unique_id: living_usb_ld2410_cfg
+        state: "{% set c = trigger.to_state.attributes.cfg %}{{ 'ok' if c.ok else c.err | default('err') }}"
+        attributes:
+          max_move_gate: "{{ trigger.to_state.attributes.cfg.mg | default(none) }}"
+          max_still_gate: "{{ trigger.to_state.attributes.cfg.sg | default(none) }}"
+          idle_s: "{{ trigger.to_state.attributes.cfg.idle | default(none) }}"
+          radar_fw: "{{ trigger.to_state.attributes.cfg.fw | default(none) }}"
+          read_at: "{{ (now() - timedelta(seconds=trigger.to_state.attributes.cfg.age | default(0) | int)).isoformat() }}"
+  - triggers:
+      - trigger: state
+        entity_id: sensor.ld2410_usb_json
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state is not none and trigger.to_state.attributes.ms is list }}"
+    sensor:
+      - name: "客厅USB雷达 运动灵敏度"
+        unique_id: living_usb_ld2410_move_sens
+        state: "{{ trigger.to_state.attributes.ms | join(',') }}"
+  - triggers:
+      - trigger: state
+        entity_id: sensor.ld2410_usb_json
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.to_state is not none and trigger.to_state.attributes.ss is list }}"
+    sensor:
+      - name: "客厅USB雷达 静止灵敏度"
+        unique_id: living_usb_ld2410_still_sens
+        state: "{{ trigger.to_state.attributes.ss | join(',') }}"
+
+# 以后要从 HA 改参数（另走审核，本次不加）：
+# shell_command:
+#   ld2410_get: "printf 'GET\n' > /dev/serial/by-id/usb-1a86_USB_Single_Serial_5D33083851-if00"
+# 只在 HA serial 传感器正开着该口时写（不是最后一个关闭者，DTR 不会掉，不会复位板子）。
