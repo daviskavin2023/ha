@@ -1,0 +1,44 @@
+{
+  "id": "ke_ting_feng_shan_wu_ren_zi_dong_guan_bi",
+  "alias": "客厅风扇无人自动关闭 (持续5分钟)",
+  "description": "客厅无人持续5分钟以上自动设置风扇状态为off触发关闭；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+  "triggers": [
+    {
+      "platform": "state",
+      "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+      "to": "off",
+      "for": {
+        "minutes": 5
+      },
+      "id": "radar_off_5m"
+    },
+    {
+      "platform": "numeric_state",
+      "entity_id": "sensor.linp_cn_1130732284_hb01_no_one_duration_p_2_4",
+      "above": 4,
+      "id": "no_one_5m"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai",
+      "state": "on"
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+      "state": "off"
+    }
+  ],
+  "actions": [
+    {
+      "action": "input_boolean.turn_off",
+      "target": {
+        "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai"
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "restart"
+}

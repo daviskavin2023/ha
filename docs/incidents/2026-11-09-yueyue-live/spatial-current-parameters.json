@@ -1,0 +1,585 @@
+[
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_no_one_determine_time_p_2_2",
+    "state": "180",
+    "name": "客厅人在感应  雷达 无人判定时长",
+    "unit": "s",
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_shielding_distance_p_3_2",
+    "state": "31",
+    "name": "客厅人在感应 * 厂家设置 屏蔽距离（每个bit代表一个距离门）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_approach_distance_p_3_4",
+    "state": "1",
+    "name": "客厅人在感应 * 厂家设置 接近远离距离设置",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_someone_judge_time_p_3_5",
+    "state": "0",
+    "name": "客厅人在感应 * 厂家设置 有人延时判断时间（毫秒）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_move_threshold_high_p_3_9",
+    "state": "332178261",
+    "name": "客厅人在感应 * 厂家设置 运动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_move_threshold_low_p_3_10",
+    "state": "448096981",
+    "name": "客厅人在感应 * 厂家设置 运动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_miro_move_high_p_3_11",
+    "state": "448096981",
+    "name": "客厅人在感应 * 厂家设置 微动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130732284_hb01_miro_move_low_p_3_12",
+    "state": "448096981",
+    "name": "客厅人在感应 * 厂家设置 微动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_no_one_determine_time_p_2_2",
+    "state": "60",
+    "name": "厨房人体存在传感器  雷达 无人判定时长",
+    "unit": "s",
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_shielding_distance_p_3_2",
+    "state": "30",
+    "name": "厨房人体存在传感器 * 厂家设置 屏蔽距离（每个bit代表一个距离门）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_approach_distance_p_3_4",
+    "state": "1",
+    "name": "厨房人体存在传感器 * 厂家设置 接近远离距离设置",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_someone_judge_time_p_3_5",
+    "state": "100",
+    "name": "厨房人体存在传感器 * 厂家设置 有人延时判断时间（毫秒）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_move_threshold_high_p_3_9",
+    "state": "332178261",
+    "name": "厨房人体存在传感器 * 厂家设置 运动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_move_threshold_low_p_3_10",
+    "state": "448096981",
+    "name": "厨房人体存在传感器 * 厂家设置 运动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_miro_move_high_p_3_11",
+    "state": "448096981",
+    "name": "厨房人体存在传感器 * 厂家设置 微动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1134456435_hb01_miro_move_low_p_3_12",
+    "state": "448096981",
+    "name": "厨房人体存在传感器 * 厂家设置 微动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_no_one_determine_time_p_2_2",
+    "state": "30",
+    "name": "书房人体存在传感器  雷达 无人判定时长",
+    "unit": "s",
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_shielding_distance_p_3_2",
+    "state": "31",
+    "name": "书房人体存在传感器 * 厂家设置 屏蔽距离（每个bit代表一个距离门）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_approach_distance_p_3_4",
+    "state": "1",
+    "name": "书房人体存在传感器 * 厂家设置 接近远离距离设置",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_someone_judge_time_p_3_5",
+    "state": "100",
+    "name": "书房人体存在传感器 * 厂家设置 有人延时判断时间（毫秒）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_move_threshold_high_p_3_9",
+    "state": "332178261",
+    "name": "书房人体存在传感器 * 厂家设置 运动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_move_threshold_low_p_3_10",
+    "state": "448096981",
+    "name": "书房人体存在传感器 * 厂家设置 运动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_miro_move_high_p_3_11",
+    "state": "448096981",
+    "name": "书房人体存在传感器 * 厂家设置 微动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1130160808_hb01_miro_move_low_p_3_12",
+    "state": "448096981",
+    "name": "书房人体存在传感器 * 厂家设置 微动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_no_one_determine_time_p_2_2",
+    "state": "30",
+    "name": "主人房人在感应  雷达 无人判定时长",
+    "unit": "s",
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_shielding_distance_p_3_2",
+    "state": "255",
+    "name": "主人房人在感应 * 厂家设置 屏蔽距离（每个bit代表一个距离门）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_approach_distance_p_3_4",
+    "state": "1",
+    "name": "主人房人在感应 * 厂家设置 接近远离距离设置",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_someone_judge_time_p_3_5",
+    "state": "0",
+    "name": "主人房人在感应 * 厂家设置 有人延时判断时间（毫秒）",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_move_threshold_high_p_3_9",
+    "state": "332178261",
+    "name": "主人房人在感应 * 厂家设置 运动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_move_threshold_low_p_3_10",
+    "state": "448096981",
+    "name": "主人房人在感应 * 厂家设置 运动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_miro_move_high_p_3_11",
+    "state": "448096981",
+    "name": "主人房人在感应 * 厂家设置 微动灵敏度设置高32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.linp_cn_1207295174_hb01_miro_move_low_p_3_12",
+    "state": "448096981",
+    "name": "主人房人在感应 * 厂家设置 微动灵敏度设置低32bit",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "select.linp_cn_1130732284_hb01_sensitivity_p_3_8",
+    "state": "High",
+    "name": "客厅人在感应 * 厂家设置 灵敏度等级",
+    "unit": null,
+    "options": [
+      "Low",
+      "Middle",
+      "High",
+      "User-defined"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130732284_hb01_radar_function_onoff_p_3_31",
+    "state": "RADAR-ON",
+    "name": "客厅人在感应 * 厂家设置 用于开启/关闭雷达上报功能",
+    "unit": null,
+    "options": [
+      "RADAR-ON",
+      "RADAR-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130732284_hb01_approach_event_onoff_p_3_32",
+    "state": "APPROACH-ON",
+    "name": "客厅人在感应 * 厂家设置 接近远离事件开关",
+    "unit": null,
+    "options": [
+      "APPROACH-ON",
+      "APPROACH-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130732284_hb01_human_trigger_lv_p_3_34",
+    "state": "One Region",
+    "name": "客厅人在感应 * 厂家设置 有人触发等级设置(防误触功能)",
+    "unit": null,
+    "options": [
+      "One Region",
+      "Two Region",
+      "Three Region"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130732284_hb01_distance_display_en_p_3_35",
+    "state": "ON",
+    "name": "客厅人在感应 * 厂家设置 距离显示开关",
+    "unit": null,
+    "options": [
+      "ON",
+      "OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1134456435_hb01_sensitivity_p_3_8",
+    "state": "Middle",
+    "name": "厨房人体存在传感器 * 厂家设置 灵敏度等级",
+    "unit": null,
+    "options": [
+      "Low",
+      "Middle",
+      "High",
+      "User-defined"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1134456435_hb01_radar_function_onoff_p_3_31",
+    "state": "RADAR-ON",
+    "name": "厨房人体存在传感器 * 厂家设置 用于开启/关闭雷达上报功能",
+    "unit": null,
+    "options": [
+      "RADAR-ON",
+      "RADAR-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1134456435_hb01_approach_event_onoff_p_3_32",
+    "state": "APPROACH-ON",
+    "name": "厨房人体存在传感器 * 厂家设置 接近远离事件开关",
+    "unit": null,
+    "options": [
+      "APPROACH-ON",
+      "APPROACH-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1134456435_hb01_human_trigger_lv_p_3_34",
+    "state": "One Region",
+    "name": "厨房人体存在传感器 * 厂家设置 有人触发等级设置(防误触功能)",
+    "unit": null,
+    "options": [
+      "One Region",
+      "Two Region",
+      "Three Region"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1134456435_hb01_distance_display_en_p_3_35",
+    "state": "ON",
+    "name": "厨房人体存在传感器 * 厂家设置 距离显示开关",
+    "unit": null,
+    "options": [
+      "ON",
+      "OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130160808_hb01_sensitivity_p_3_8",
+    "state": "Middle",
+    "name": "书房人体存在传感器 * 厂家设置 灵敏度等级",
+    "unit": null,
+    "options": [
+      "Low",
+      "Middle",
+      "High",
+      "User-defined"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130160808_hb01_radar_function_onoff_p_3_31",
+    "state": "RADAR-ON",
+    "name": "书房人体存在传感器 * 厂家设置 用于开启/关闭雷达上报功能",
+    "unit": null,
+    "options": [
+      "RADAR-ON",
+      "RADAR-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130160808_hb01_approach_event_onoff_p_3_32",
+    "state": "APPROACH-OFF",
+    "name": "书房人体存在传感器 * 厂家设置 接近远离事件开关",
+    "unit": null,
+    "options": [
+      "APPROACH-ON",
+      "APPROACH-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130160808_hb01_human_trigger_lv_p_3_34",
+    "state": "One Region",
+    "name": "书房人体存在传感器 * 厂家设置 有人触发等级设置(防误触功能)",
+    "unit": null,
+    "options": [
+      "One Region",
+      "Two Region",
+      "Three Region"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1130160808_hb01_distance_display_en_p_3_35",
+    "state": "OFF",
+    "name": "书房人体存在传感器 * 厂家设置 距离显示开关",
+    "unit": null,
+    "options": [
+      "ON",
+      "OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1207295174_hb01_sensitivity_p_3_8",
+    "state": "Middle",
+    "name": "主人房人在感应 * 厂家设置 灵敏度等级",
+    "unit": null,
+    "options": [
+      "Low",
+      "Middle",
+      "High",
+      "User-defined"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1207295174_hb01_radar_function_onoff_p_3_31",
+    "state": "RADAR-ON",
+    "name": "主人房人在感应 * 厂家设置 用于开启/关闭雷达上报功能",
+    "unit": null,
+    "options": [
+      "RADAR-ON",
+      "RADAR-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1207295174_hb01_approach_event_onoff_p_3_32",
+    "state": "APPROACH-OFF",
+    "name": "主人房人在感应 * 厂家设置 接近远离事件开关",
+    "unit": null,
+    "options": [
+      "APPROACH-ON",
+      "APPROACH-OFF"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1207295174_hb01_human_trigger_lv_p_3_34",
+    "state": "One Region",
+    "name": "主人房人在感应 * 厂家设置 有人触发等级设置(防误触功能)",
+    "unit": null,
+    "options": [
+      "One Region",
+      "Two Region",
+      "Three Region"
+    ]
+  },
+  {
+    "entity_id": "select.linp_cn_1207295174_hb01_distance_display_en_p_3_35",
+    "state": "OFF",
+    "name": "主人房人在感应 * 厂家设置 距离显示开关",
+    "unit": null,
+    "options": [
+      "ON",
+      "OFF"
+    ]
+  },
+  {
+    "entity_id": "sensor.linp_cn_1130732284_hb01_body_distance_p_3_3",
+    "state": "5.65",
+    "name": "客厅人在感应 * 厂家设置 人体距离",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.linp_cn_1130732284_hb01_distance_bitmap_p_3_24",
+    "state": "0",
+    "name": "客厅人在感应 * 厂家设置 用于有人进入日志-附触发区段",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.linp_cn_1134456435_hb01_body_distance_p_3_3",
+    "state": "4.25",
+    "name": "厨房人体存在传感器 * 厂家设置 人体距离",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.linp_cn_1134456435_hb01_distance_bitmap_p_3_24",
+    "state": "2",
+    "name": "厨房人体存在传感器 * 厂家设置 用于有人进入日志-附触发区段",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.linp_cn_1130160808_hb01_body_distance_p_3_3",
+    "state": "3.18",
+    "name": "书房人体存在传感器 * 厂家设置 人体距离",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.linp_cn_1130160808_hb01_distance_bitmap_p_3_24",
+    "state": "0",
+    "name": "书房人体存在传感器 * 厂家设置 用于有人进入日志-附触发区段",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.linp_cn_1207295174_hb01_body_distance_p_3_3",
+    "state": "0",
+    "name": "主人房人在感应 * 厂家设置 人体距离",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.linp_cn_1207295174_hb01_distance_bitmap_p_3_24",
+    "state": "0",
+    "name": "主人房人在感应 * 厂家设置 用于有人进入日志-附触发区段",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.ld2410_living_room_radar_timeout",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar Timeout",
+    "unit": "s",
+    "options": null
+  },
+  {
+    "entity_id": "number.ld2410_living_room_radar_max_move_distance_gate",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar Max Move Distance Gate",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "number.ld2410_living_room_radar_max_still_distance_gate",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar Max Still Distance Gate",
+    "unit": null,
+    "options": null
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_moving_distance",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar Moving Distance",
+    "unit": "cm",
+    "options": null
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_still_distance",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar Still Distance",
+    "unit": "cm",
+    "options": null
+  },
+  {
+    "entity_id": "sensor.ld2410_living_room_radar_detection_distance",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar Detection Distance",
+    "unit": "cm",
+    "options": null
+  },
+  {
+    "entity_id": "select.chu_fang_ld2410_living_room_radar_assistant",
+    "state": "preferred",
+    "name": "LD2410 Living Room Radar Assistant",
+    "unit": null,
+    "options": [
+      "preferred",
+      "Home Assistant"
+    ]
+  },
+  {
+    "entity_id": "select.chu_fang_ld2410_living_room_radar_assistant_2",
+    "state": "preferred",
+    "name": "LD2410 Living Room Radar 助手 2",
+    "unit": null,
+    "options": [
+      "preferred",
+      "Home Assistant"
+    ]
+  },
+  {
+    "entity_id": "select.chu_fang_ld2410_living_room_radar_finished_speaking_detection",
+    "state": "default",
+    "name": "LD2410 Living Room Radar 讲话完毕检测",
+    "unit": null,
+    "options": [
+      "default",
+      "relaxed",
+      "aggressive"
+    ]
+  },
+  {
+    "entity_id": "select.chu_fang_ld2410_living_room_radar_wake_word",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar Wake word",
+    "unit": null,
+    "options": [
+      "no_wake_word"
+    ]
+  },
+  {
+    "entity_id": "select.chu_fang_ld2410_living_room_radar_wake_word_2",
+    "state": "unavailable",
+    "name": "LD2410 Living Room Radar 唤醒词 2",
+    "unit": null,
+    "options": [
+      "no_wake_word"
+    ]
+  }
+]

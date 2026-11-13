@@ -1,0 +1,1344 @@
+[
+  {
+    "entity_id": "input_boolean.yue_yue_fang_guan_deng_mo_shi",
+    "state": "off",
+    "attributes": {
+      "editable": false,
+      "icon": "mdi:sleep",
+      "friendly_name": "悦悦房关灯防打扰模式"
+    },
+    "last_changed": "2026-11-09T12:47:45.605646+00:00",
+    "last_reported": "2026-11-09T12:47:45.605646+00:00",
+    "last_updated": "2026-11-09T12:47:45.605646+00:00",
+    "context": {
+      "id": "01M705KBY5B1Q843ZFASPNVH3V",
+      "parent_id": "01M705KBWD4E8X9778ZDXJWTGN",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "binary_sensor.shang_xue_ri",
+    "state": "on",
+    "attributes": {
+      "today_date": "2026-11-09",
+      "today_name": "工作日",
+      "today_description": "上学日(工作日/调休上班)",
+      "tomorrow_date": "2026-11-10",
+      "tomorrow_name": "工作日",
+      "tomorrow_is_school_day": true,
+      "tomorrow_description": "明天是上学日 (乐乐07:00 / 悦悦07:20 / 主人房07:20 关空调)",
+      "icon": "mdi:school",
+      "friendly_name": "上学日"
+    },
+    "last_changed": "2026-11-08T16:00:02.109277+00:00",
+    "last_reported": "2026-11-08T16:00:02.109277+00:00",
+    "last_updated": "2026-11-08T16:00:02.109277+00:00",
+    "context": {
+      "id": "01M6XY6Q1W98S3XG6QBM50AYNR",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.le_le_fang_kong_diao_shang_xue_ri_zao_shang_7dian_guan_bi",
+    "state": "on",
+    "attributes": {
+      "id": "lele_ac_morning_off_20260917",
+      "last_triggered": "2026-11-08T23:00:00.391570+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "乐乐房空调上学日早上7点关闭"
+    },
+    "last_changed": "2026-10-12T11:52:46.194693+00:00",
+    "last_reported": "2026-11-08T23:00:00.395602+00:00",
+    "last_updated": "2026-11-08T23:00:00.395602+00:00",
+    "context": {
+      "id": "01M6YP7PR7VREWXKPZGKQZDZ2Z",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_ren_zai_gan_ying_kai_deng",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_motion_light_on",
+      "last_triggered": "2026-11-09T14:03:33.854031+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房人在感应开灯"
+    },
+    "last_changed": "2026-10-31T07:48:58.285022+00:00",
+    "last_reported": "2026-11-09T14:03:33.910457+00:00",
+    "last_updated": "2026-11-09T14:03:33.910457+00:00",
+    "context": {
+      "id": "01M709Y5JXYM4SHJFB23WDX2BD",
+      "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_shou_dong_guan_deng_jin_ru_shui_mian_suo_ding",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_manual_sleep_lock",
+      "last_triggered": "2026-11-09T12:47:45.549665+00:00",
+      "mode": "restart",
+      "current": 0,
+      "friendly_name": "悦悦房手动关灯进入睡眠锁定"
+    },
+    "last_changed": "2026-10-31T07:48:36.863755+00:00",
+    "last_reported": "2026-11-09T12:47:45.608183+00:00",
+    "last_updated": "2026-11-09T12:47:45.608183+00:00",
+    "context": {
+      "id": "01M705KBWD4E8X9778ZDXJWTGN",
+      "parent_id": "01M705KBWD21FHBZNKMCSXQ652",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_xiao_ai_yin_xiang_shang_xue_ri_qi_chuang_nao_zhong_07_20",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_school_day_morning_alarm_0720",
+      "last_triggered": "2026-11-08T23:20:00.308055+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "悦悦房小爱音箱上学日起床闹钟 (07:20)"
+    },
+    "last_changed": "2026-10-20T01:06:09.534609+00:00",
+    "last_reported": "2026-11-08T23:21:26.323360+00:00",
+    "last_updated": "2026-11-08T23:21:26.323360+00:00",
+    "context": {
+      "id": "01M6YQEYHKR43E89H70KRYRD0B",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.ke_ting_xiao_ai_yin_xiang_shang_xue_ri_chu_men_nao_zhong_07_40",
+    "state": "on",
+    "attributes": {
+      "id": "ke_ting_xiao_ai_shang_xue_ri_chu_men_nao_zhong_0740",
+      "last_triggered": "2026-11-08T23:40:00.161117+00:00",
+      "mode": "single",
+      "current": 0,
+      "friendly_name": "客厅小爱音箱上学日出门闹钟 (07:40)"
+    },
+    "last_changed": "2026-10-20T01:06:07.018025+00:00",
+    "last_reported": "2026-11-08T23:41:27.945003+00:00",
+    "last_updated": "2026-11-08T23:41:27.945003+00:00",
+    "context": {
+      "id": "01M6YRKM09FTADJ8483SCBNT5T",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "binary_sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_occupancy_status_p_2_1078",
+    "state": "on",
+    "attributes": {
+      "device_class": "occupancy",
+      "friendly_name": "悦悦房-人在感应"
+    },
+    "last_changed": "2026-11-09T14:03:33.853291+00:00",
+    "last_reported": "2026-11-09T14:03:33.853291+00:00",
+    "last_updated": "2026-11-09T14:03:33.853291+00:00",
+    "context": {
+      "id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.bean_cn_1124139478_blns2_toggle_a_2_1",
+    "state": "unknown",
+    "attributes": {
+      "friendly_name": "客房双开  客房灯 开关状态切换"
+    },
+    "last_changed": "2026-11-09T12:28:04.592476+00:00",
+    "last_reported": "2026-11-09T12:28:04.592476+00:00",
+    "last_updated": "2026-11-09T12:28:04.592476+00:00",
+    "context": {
+      "id": "01M704FAKG16R3E7P4V0E42JM2",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.bean_cn_1124139478_blns2_toggle_a_3_1",
+    "state": "unknown",
+    "attributes": {
+      "friendly_name": "客房双开  客房壁灯 开关状态切换"
+    },
+    "last_changed": "2026-11-09T12:28:04.592525+00:00",
+    "last_reported": "2026-11-09T12:28:04.592525+00:00",
+    "last_updated": "2026-11-09T12:28:04.592525+00:00",
+    "context": {
+      "id": "01M704FAKGWNTP8Z2F6GEH33E8",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.bean_cn_1124141619_blns1_toggle_a_2_1",
+    "state": "unknown",
+    "attributes": {
+      "friendly_name": "客房灯  开关 开关状态切换"
+    },
+    "last_changed": "2026-11-09T12:28:04.592928+00:00",
+    "last_reported": "2026-11-09T12:28:04.592928+00:00",
+    "last_updated": "2026-11-09T12:28:04.592928+00:00",
+    "context": {
+      "id": "01M704FAKG0X2TR7ZT8GS16JY9",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.xiaomi_cn_981493908_l05b_wake_up_a_5_1",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  智能音箱 唤醒"
+    },
+    "last_changed": "2026-11-05T15:56:38.942545+00:00",
+    "last_reported": "2026-11-05T15:56:38.942545+00:00",
+    "last_updated": "2026-11-05T15:56:38.942545+00:00",
+    "context": {
+      "id": "01M6P6TBMYR2PGC1XD9RWAAZ7C",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.xiaomi_cn_981493908_l05b_play_radio_a_5_2",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  智能音箱 播放电台"
+    },
+    "last_changed": "2026-11-05T15:56:38.942668+00:00",
+    "last_reported": "2026-11-05T15:56:38.942668+00:00",
+    "last_updated": "2026-11-05T15:56:38.942668+00:00",
+    "context": {
+      "id": "01M6P6TBMYAPJVS82TMESBFAYT",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.xiaomi_cn_981493908_l05b_play_music_a_5_5",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  智能音箱 播放音乐"
+    },
+    "last_changed": "2026-11-05T15:56:38.942721+00:00",
+    "last_reported": "2026-11-05T15:56:38.942721+00:00",
+    "last_updated": "2026-11-05T15:56:38.942721+00:00",
+    "context": {
+      "id": "01M6P6TBMY871G1DS0VMHRYGQK",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.xiaomi_cn_981493908_l05b_stop_alarm_a_6_1",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  闹钟 停止闹钟"
+    },
+    "last_changed": "2026-11-05T15:56:38.942767+00:00",
+    "last_reported": "2026-11-05T15:56:38.942767+00:00",
+    "last_updated": "2026-11-05T15:56:38.942767+00:00",
+    "context": {
+      "id": "01M6P6TBMYJK2GGQY3AMK3KFTX",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "button.xiaomi_cn_981493908_l05b_play_a_3_2",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  播放控制 播放"
+    },
+    "last_changed": "2026-11-05T15:56:38.942809+00:00",
+    "last_reported": "2026-11-05T15:56:38.942809+00:00",
+    "last_updated": "2026-11-05T15:56:38.942809+00:00",
+    "context": {
+      "id": "01M6P6TBMYAXHQA2250DXETBWV",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124139478_blns2_click_e_4_1",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "单击"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房双开  左键开关传感器 单击"
+    },
+    "last_changed": "2026-11-09T12:28:04.592569+00:00",
+    "last_reported": "2026-11-09T12:28:04.592569+00:00",
+    "last_updated": "2026-11-09T12:28:04.592569+00:00",
+    "context": {
+      "id": "01M704FAKGQAYA880S74VK070N",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124139478_blns2_double_click_e_4_2",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "双击"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房双开  左键开关传感器 双击"
+    },
+    "last_changed": "2026-11-09T12:28:04.592613+00:00",
+    "last_reported": "2026-11-09T12:28:04.592613+00:00",
+    "last_updated": "2026-11-09T12:28:04.592613+00:00",
+    "context": {
+      "id": "01M704FAKGQ58M47DPJF0MGC9C",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124139478_blns2_long_press_e_4_3",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "长按"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房双开  左键开关传感器 长按"
+    },
+    "last_changed": "2026-11-09T12:28:04.592655+00:00",
+    "last_reported": "2026-11-09T12:28:04.592655+00:00",
+    "last_updated": "2026-11-09T12:28:04.592655+00:00",
+    "context": {
+      "id": "01M704FAKGKQZ1Q1YP8WAGEKDS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124139478_blns2_click_e_5_1",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "单击"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房双开  右键开关传感器 单击"
+    },
+    "last_changed": "2026-11-09T12:28:04.592697+00:00",
+    "last_reported": "2026-11-09T12:28:04.592697+00:00",
+    "last_updated": "2026-11-09T12:28:04.592697+00:00",
+    "context": {
+      "id": "01M704FAKGQR3CXTA8DQ10N1DR",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124139478_blns2_double_click_e_5_2",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "双击"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房双开  右键开关传感器 双击"
+    },
+    "last_changed": "2026-11-09T12:28:04.592738+00:00",
+    "last_reported": "2026-11-09T12:28:04.592738+00:00",
+    "last_updated": "2026-11-09T12:28:04.592738+00:00",
+    "context": {
+      "id": "01M704FAKGFH8HTXR7ZYXRY4XG",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124139478_blns2_long_press_e_5_3",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "长按"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房双开  右键开关传感器 长按"
+    },
+    "last_changed": "2026-11-09T12:28:04.592775+00:00",
+    "last_reported": "2026-11-09T12:28:04.592775+00:00",
+    "last_updated": "2026-11-09T12:28:04.592775+00:00",
+    "context": {
+      "id": "01M704FAKG6EGVW70HJEZJ6PJ6",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124141619_blns1_click_e_3_1",
+    "state": "2026-11-08T17:36:12.537+00:00",
+    "attributes": {
+      "event_types": [
+        "单击"
+      ],
+      "event_type": "单击",
+      "device_class": "button",
+      "friendly_name": "客房灯  开关传感器 单击"
+    },
+    "last_changed": "2026-11-09T12:28:04.592983+00:00",
+    "last_reported": "2026-11-09T12:28:04.592983+00:00",
+    "last_updated": "2026-11-09T12:28:04.592983+00:00",
+    "context": {
+      "id": "01M704FAKG94HVKGJMHGZXR17Z",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124141619_blns1_double_click_e_3_2",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "双击"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房灯  开关传感器 双击"
+    },
+    "last_changed": "2026-11-09T12:28:04.593025+00:00",
+    "last_reported": "2026-11-09T12:28:04.593025+00:00",
+    "last_updated": "2026-11-09T12:28:04.593025+00:00",
+    "context": {
+      "id": "01M704FAKHT2PXMWY3XX54RR3R",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.bean_cn_1124141619_blns1_long_press_e_3_3",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "长按"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "客房灯  开关传感器 长按"
+    },
+    "last_changed": "2026-11-09T12:28:04.593074+00:00",
+    "last_reported": "2026-11-09T12:28:04.593074+00:00",
+    "last_updated": "2026-11-09T12:28:04.593074+00:00",
+    "context": {
+      "id": "01M704FAKHMFW98TWEKZWQ92A7",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_click_e_5_1012",
+    "state": "2026-11-09T12:47:45.549+00:00",
+    "attributes": {
+      "event_types": [
+        "单击"
+      ],
+      "event_type": "单击",
+      "按键类型": 1,
+      "device_class": "button",
+      "friendly_name": "悦悦房灯  BLE专用开关传感器 单击"
+    },
+    "last_changed": "2026-11-09T12:47:45.549434+00:00",
+    "last_reported": "2026-11-09T12:47:45.549434+00:00",
+    "last_updated": "2026-11-09T12:47:45.549434+00:00",
+    "context": {
+      "id": "01M705KBWD21FHBZNKMCSXQ652",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_double_click_e_5_1013",
+    "state": "2026-09-17T13:19:39.352+00:00",
+    "attributes": {
+      "event_types": [
+        "双击"
+      ],
+      "event_type": "双击",
+      "按键类型": 1,
+      "device_class": "button",
+      "friendly_name": "悦悦房灯  BLE专用开关传感器 双击"
+    },
+    "last_changed": "2026-11-09T12:47:41.016328+00:00",
+    "last_reported": "2026-11-09T12:47:41.016328+00:00",
+    "last_updated": "2026-11-09T12:47:41.016328+00:00",
+    "context": {
+      "id": "01M705K7ERB1QFGXTWF7N3TPHK",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_long_press_e_5_1014",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "长按"
+      ],
+      "event_type": null,
+      "device_class": "button",
+      "friendly_name": "悦悦房灯  BLE专用开关传感器 长按"
+    },
+    "last_changed": "2026-11-09T12:47:41.016385+00:00",
+    "last_reported": "2026-11-09T12:47:41.016385+00:00",
+    "last_updated": "2026-11-09T12:47:41.016385+00:00",
+    "context": {
+      "id": "01M705K7ERW9Z7Z2CAXCD2HP3P",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.lemesh_cn_blt_3_1kemn47ps4s01_ts0_device_be_reset_e_5_1028",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "设备被重启"
+      ],
+      "event_type": null,
+      "friendly_name": "悦悦房灯  BLE专用开关传感器 设备被重启"
+    },
+    "last_changed": "2026-11-09T12:47:41.016431+00:00",
+    "last_reported": "2026-11-09T12:47:41.016431+00:00",
+    "last_updated": "2026-11-09T12:47:41.016431+00:00",
+    "context": {
+      "id": "01M705K7ER8RSXMC42YQZ3J7DH",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "event.linp_cn_blt_3_1qa5uknk4cg01_es2_device_be_reset_e_2_1028",
+    "state": "unknown",
+    "attributes": {
+      "event_types": [
+        "设备被重置"
+      ],
+      "event_type": null,
+      "friendly_name": "悦悦房人在感应  标准 设备被重置"
+    },
+    "last_changed": "2026-11-09T12:28:04.593182+00:00",
+    "last_reported": "2026-11-09T12:28:04.593182+00:00",
+    "last_updated": "2026-11-09T12:28:04.593182+00:00",
+    "context": {
+      "id": "01M704FAKHXKYXRWXQM2JHX5HP",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "media_player.xiaomi_cn_981493908_l05b",
+    "state": "unavailable",
+    "attributes": {
+      "sound_mode_list": [
+        "Single Cycle"
+      ],
+      "device_class": "speaker",
+      "friendly_name": "悦悦房-小爱同学",
+      "supported_features": 87101
+    },
+    "last_changed": "2026-11-05T15:56:38.942892+00:00",
+    "last_reported": "2026-11-05T15:56:38.942892+00:00",
+    "last_updated": "2026-11-05T15:56:38.942892+00:00",
+    "context": {
+      "id": "01M6P6TBMYB1SAX0G9348CST2W",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "notify.xiaomi_cn_981493908_l05b_seek_a_3_1",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  播放控制 播放控制",
+      "supported_features": 0
+    },
+    "last_changed": "2026-11-05T15:56:38.942970+00:00",
+    "last_reported": "2026-11-05T15:56:38.942970+00:00",
+    "last_updated": "2026-11-05T15:56:38.942970+00:00",
+    "context": {
+      "id": "01M6P6TBMYAMTDY43RPX0P4QJJ",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "notify.xiaomi_cn_981493908_l05b_play_text_a_5_3",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  智能音箱 播放文本",
+      "supported_features": 0
+    },
+    "last_changed": "2026-11-05T15:56:38.943014+00:00",
+    "last_reported": "2026-11-05T15:56:38.943014+00:00",
+    "last_updated": "2026-11-05T15:56:38.943014+00:00",
+    "context": {
+      "id": "01M6P6TBMZNFEHQEHK1KYKG0YE",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "notify.xiaomi_cn_981493908_l05b_execute_text_directive_a_5_4",
+    "state": "unavailable",
+    "attributes": {
+      "friendly_name": "小爱音箱Play-妹妹  智能音箱 执行文本指令",
+      "supported_features": 0
+    },
+    "last_changed": "2026-11-05T15:56:38.943058+00:00",
+    "last_reported": "2026-11-05T15:56:38.943058+00:00",
+    "last_updated": "2026-11-05T15:56:38.943058+00:00",
+    "context": {
+      "id": "01M6P6TBMZ9D2MC38YQCXMDW7H",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_sw_timer_off_p_8_3",
+    "state": "0",
+    "attributes": {
+      "min": 0,
+      "max": 31,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关指示灯控制 开关点动功能"
+    },
+    "last_changed": "2026-11-09T12:28:05.611405+00:00",
+    "last_reported": "2026-11-09T12:28:05.611405+00:00",
+    "last_updated": "2026-11-09T12:28:05.611405+00:00",
+    "context": {
+      "id": "01M704FBKB2C30WV7Z0YV89K71",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_pwr_on_bits_p_8_5",
+    "state": "0",
+    "attributes": {
+      "min": 0,
+      "max": 31,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关指示灯控制 开关通电状态"
+    },
+    "last_changed": "2026-11-09T12:28:05.611447+00:00",
+    "last_reported": "2026-11-09T12:28:05.611447+00:00",
+    "last_updated": "2026-11-09T12:28:05.611447+00:00",
+    "context": {
+      "id": "01M704FBKBBH0DA1V8FFGVMP9H",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_sw_timer_off_time_p_8_6",
+    "state": "5",
+    "attributes": {
+      "min": 2,
+      "max": 36000,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关指示灯控制 开关点动时长"
+    },
+    "last_changed": "2026-11-09T12:28:05.611489+00:00",
+    "last_reported": "2026-11-09T12:28:05.611489+00:00",
+    "last_updated": "2026-11-09T12:28:05.611489+00:00",
+    "context": {
+      "id": "01M704FBKBAW73G8A1H938QAWX",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_switch_mutex_p_8_7",
+    "state": "0",
+    "attributes": {
+      "min": 0,
+      "max": 31,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关指示灯控制 开关互锁功能"
+    },
+    "last_changed": "2026-11-09T12:28:05.611528+00:00",
+    "last_reported": "2026-11-09T12:28:05.611528+00:00",
+    "last_updated": "2026-11-09T12:28:05.611528+00:00",
+    "context": {
+      "id": "01M704FBKBWWXRWKTGDK3DZ7H8",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_key_relay_map_p_8_8",
+    "state": "131328",
+    "attributes": {
+      "min": 0,
+      "max": 50529027,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关指示灯控制 按键继电器顺序"
+    },
+    "last_changed": "2026-11-09T12:28:05.611568+00:00",
+    "last_reported": "2026-11-09T12:28:05.611568+00:00",
+    "last_updated": "2026-11-09T12:28:05.611568+00:00",
+    "context": {
+      "id": "01M704FBKBXG8EMVC1ZASVP2D8",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_sw_flex_off_time_p_8_9",
+    "state": "3",
+    "attributes": {
+      "min": 1,
+      "max": 60,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关指示灯控制 凌动断电时长"
+    },
+    "last_changed": "2026-11-09T12:28:05.611607+00:00",
+    "last_reported": "2026-11-09T12:28:05.611607+00:00",
+    "last_updated": "2026-11-09T12:28:05.611607+00:00",
+    "context": {
+      "id": "01M704FBKBG8TF09C49FXSP850",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_sw_mode_p_8_10",
+    "state": "0",
+    "attributes": {
+      "min": 0,
+      "max": 255,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关指示灯控制 开关模式"
+    },
+    "last_changed": "2026-11-09T12:28:05.611645+00:00",
+    "last_reported": "2026-11-09T12:28:05.611645+00:00",
+    "last_updated": "2026-11-09T12:28:05.611645+00:00",
+    "context": {
+      "id": "01M704FBKB1DEV1K91XKCSRC04",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124139478_blns2_sk_ch_cmd_p_9_1",
+    "state": "unknown",
+    "attributes": {
+      "min": 0,
+      "max": 255,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房双开 * 开关双控功能 开关双控命令"
+    },
+    "last_changed": "2026-11-09T12:28:05.611681+00:00",
+    "last_reported": "2026-11-09T12:28:05.611681+00:00",
+    "last_updated": "2026-11-09T12:28:05.611681+00:00",
+    "context": {
+      "id": "01M704FBKB93TH0N2YBDYJYAZH",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124141619_blns1_sw_timer_off_p_6_3",
+    "state": "0",
+    "attributes": {
+      "min": 0,
+      "max": 31,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房灯 * 开关指示灯控制 开关点动功能"
+    },
+    "last_changed": "2026-11-09T12:28:05.613171+00:00",
+    "last_reported": "2026-11-09T12:28:05.613171+00:00",
+    "last_updated": "2026-11-09T12:28:05.613171+00:00",
+    "context": {
+      "id": "01M704FBKDMF233A0S9QJPTB1K",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124141619_blns1_pwr_on_bits_p_6_5",
+    "state": "0",
+    "attributes": {
+      "min": 0,
+      "max": 31,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房灯 * 开关指示灯控制 开关通电状态"
+    },
+    "last_changed": "2026-11-09T12:28:05.613216+00:00",
+    "last_reported": "2026-11-09T12:28:05.613216+00:00",
+    "last_updated": "2026-11-09T12:28:05.613216+00:00",
+    "context": {
+      "id": "01M704FBKDG4DH2X6DT2KN43J8",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124141619_blns1_sw_timer_off_time_p_6_6",
+    "state": "5",
+    "attributes": {
+      "min": 2,
+      "max": 36000,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房灯 * 开关指示灯控制 开关点动时长"
+    },
+    "last_changed": "2026-11-09T12:28:05.613256+00:00",
+    "last_reported": "2026-11-09T12:28:05.613256+00:00",
+    "last_updated": "2026-11-09T12:28:05.613256+00:00",
+    "context": {
+      "id": "01M704FBKDJV1TTVCDVJTFC4TE",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124141619_blns1_sw_flex_off_time_p_6_7",
+    "state": "3",
+    "attributes": {
+      "min": 1,
+      "max": 60,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房灯 * 开关指示灯控制 凌动断电时长"
+    },
+    "last_changed": "2026-11-09T12:28:05.613296+00:00",
+    "last_reported": "2026-11-09T12:28:05.613296+00:00",
+    "last_updated": "2026-11-09T12:28:05.613296+00:00",
+    "context": {
+      "id": "01M704FBKDGESYYDSSN1KTDHDW",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124141619_blns1_sw_mode_p_6_8",
+    "state": "0",
+    "attributes": {
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房灯 * 开关指示灯控制 开关模式"
+    },
+    "last_changed": "2026-11-09T12:28:05.613333+00:00",
+    "last_reported": "2026-11-09T12:28:05.613333+00:00",
+    "last_updated": "2026-11-09T12:28:05.613333+00:00",
+    "context": {
+      "id": "01M704FBKD6MAB5HGSYJ4A3FZS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.bean_cn_1124141619_blns1_sk_ch_cmd_p_7_1",
+    "state": "unknown",
+    "attributes": {
+      "min": 0,
+      "max": 255,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "客房灯 * 开关双控功能 开关双控命令"
+    },
+    "last_changed": "2026-11-09T12:28:05.613371+00:00",
+    "last_reported": "2026-11-09T12:28:05.613371+00:00",
+    "last_updated": "2026-11-09T12:28:05.613371+00:00",
+    "context": {
+      "id": "01M704FBKDQQZEGDYJK88GM1Q6",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "number.xiaomi_cn_981493908_l05b_ringtone_p_6_4",
+    "state": "unavailable",
+    "attributes": {
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "mode": "auto",
+      "friendly_name": "小爱音箱Play-妹妹  闹钟 铃声"
+    },
+    "last_changed": "2026-11-05T15:56:38.943118+00:00",
+    "last_reported": "2026-11-05T15:56:38.943118+00:00",
+    "last_updated": "2026-11-05T15:56:38.943118+00:00",
+    "context": {
+      "id": "01M6P6TBMZDBAWKPNAHK6P5Q57",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "select.bean_cn_1124139478_blns2_mode_p_2_2",
+    "state": "有线和无线开关",
+    "attributes": {
+      "options": [
+        "有线和无线开关",
+        "无线开关"
+      ],
+      "friendly_name": "客房双开  客房灯 模式"
+    },
+    "last_changed": "2026-11-09T12:28:05.611721+00:00",
+    "last_reported": "2026-11-09T12:28:05.611721+00:00",
+    "last_updated": "2026-11-09T12:28:05.611721+00:00",
+    "context": {
+      "id": "01M704FBKBJ6AFQYHCXE62R1Y7",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "select.bean_cn_1124139478_blns2_mode_p_3_2",
+    "state": "有线和无线开关",
+    "attributes": {
+      "options": [
+        "有线和无线开关",
+        "无线开关"
+      ],
+      "friendly_name": "客房双开  客房壁灯 模式"
+    },
+    "last_changed": "2026-11-09T12:28:05.611761+00:00",
+    "last_reported": "2026-11-09T12:28:05.611761+00:00",
+    "last_updated": "2026-11-09T12:28:05.611761+00:00",
+    "context": {
+      "id": "01M704FBKBRBC9D9T6Q167QRC0",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "select.bean_cn_1124141619_blns1_mode_p_2_2",
+    "state": "有线和无线开关",
+    "attributes": {
+      "options": [
+        "有线和无线开关",
+        "无线开关"
+      ],
+      "friendly_name": "客房灯  开关 模式"
+    },
+    "last_changed": "2026-11-09T12:28:05.613414+00:00",
+    "last_reported": "2026-11-09T12:28:05.613414+00:00",
+    "last_updated": "2026-11-09T12:28:05.613414+00:00",
+    "context": {
+      "id": "01M704FBKDWTHW0E13JKRB5BR1",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.xiaomi_cn_981493908_l05b_status_p_6_2",
+    "state": "unavailable",
+    "attributes": {
+      "options": [
+        "Idle",
+        "Busy"
+      ],
+      "device_class": "enum",
+      "icon": "mdi:format-text",
+      "friendly_name": "小爱音箱Play-妹妹  闹钟 工作状态"
+    },
+    "last_changed": "2026-11-05T15:56:38.943208+00:00",
+    "last_reported": "2026-11-05T15:56:38.943208+00:00",
+    "last_updated": "2026-11-05T15:56:38.943208+00:00",
+    "context": {
+      "id": "01M6P6TBMZ5SHG6WDFVQ6ESXN5",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.xiaomi_cn_981493908_l05b_fault_p_6_3",
+    "state": "unavailable",
+    "attributes": {
+      "options": [
+        "No Faults"
+      ],
+      "device_class": "enum",
+      "icon": "mdi:format-text",
+      "friendly_name": "小爱音箱Play-妹妹  闹钟 故障"
+    },
+    "last_changed": "2026-11-05T15:56:38.943256+00:00",
+    "last_reported": "2026-11-05T15:56:38.943256+00:00",
+    "last_updated": "2026-11-05T15:56:38.943256+00:00",
+    "context": {
+      "id": "01M6P6TBMZPWV0JBT0E2DX4KMS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.lemesh_cn_blt_3_1kemn47ps4s01_ts0_mode_p_3_1020",
+    "state": "unknown",
+    "attributes": {
+      "options": [
+        "Auto"
+      ],
+      "device_class": "enum",
+      "icon": "mdi:format-text",
+      "friendly_name": "悦悦房灯  开关传感器 模式"
+    },
+    "last_changed": "2026-11-09T12:47:42.017683+00:00",
+    "last_reported": "2026-11-09T12:47:42.017683+00:00",
+    "last_updated": "2026-11-09T12:47:42.017683+00:00",
+    "context": {
+      "id": "01M705K8E1JSVYV2N1NX7B1QCX",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.lemesh_cn_blt_3_1kemn47ps4s01_ts0_battery_level_p_4_1003",
+    "state": "63",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "battery",
+      "friendly_name": "悦悦房灯  电池 电池电量"
+    },
+    "last_changed": "2026-11-09T12:47:42.017856+00:00",
+    "last_reported": "2026-11-09T12:47:42.017856+00:00",
+    "last_updated": "2026-11-09T12:47:42.017856+00:00",
+    "context": {
+      "id": "01M705K8E1JXMY8KY7FZSRGQST",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.lemesh_cn_blt_3_1kemn47ps4s01_ts0_mode_p_5_1020",
+    "state": "unknown",
+    "attributes": {
+      "options": [
+        "极速单击模式",
+        "多功能模式"
+      ],
+      "device_class": "enum",
+      "icon": "mdi:format-text",
+      "friendly_name": "悦悦房灯  BLE专用开关传感器 模式"
+    },
+    "last_changed": "2026-11-09T12:47:42.017934+00:00",
+    "last_reported": "2026-11-09T12:47:42.017934+00:00",
+    "last_updated": "2026-11-09T12:47:42.017934+00:00",
+    "context": {
+      "id": "01M705K8E1GCDHG2560EH7WAZ9",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_has_someone_duration_p_2_1080",
+    "state": "unknown",
+    "attributes": {
+      "unit_of_measurement": "min",
+      "device_class": "duration",
+      "friendly_name": "悦悦房人在感应  标准 有人持续时长"
+    },
+    "last_changed": "2026-11-09T12:28:05.614307+00:00",
+    "last_reported": "2026-11-09T12:28:05.614307+00:00",
+    "last_updated": "2026-11-09T12:28:05.614307+00:00",
+    "context": {
+      "id": "01M704FBKEWK137BTGNY05EYKG",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_illumination_p_2_1005",
+    "state": "42",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "lx",
+      "device_class": "illuminance",
+      "friendly_name": "悦悦房人在感应  标准 光照度"
+    },
+    "last_changed": "2026-11-09T14:08:09.227613+00:00",
+    "last_reported": "2026-11-09T14:08:09.227613+00:00",
+    "last_updated": "2026-11-09T14:08:09.227613+00:00",
+    "context": {
+      "id": "01M70A6JGBB3DJ6YMRNB8JXV13",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_no_one_duration_p_2_1079",
+    "state": "0",
+    "attributes": {
+      "unit_of_measurement": "min",
+      "device_class": "duration",
+      "friendly_name": "悦悦房人在感应  标准 无人持续时长"
+    },
+    "last_changed": "2026-11-09T14:03:34.859478+00:00",
+    "last_reported": "2026-11-09T14:03:34.859478+00:00",
+    "last_updated": "2026-11-09T14:03:34.859478+00:00",
+    "context": {
+      "id": "01M709Y6JBT5TME2WEVEYT1KVE",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_battery_level_p_4_1003",
+    "state": "100",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "battery",
+      "friendly_name": "悦悦房人在感应  电池 电池电量"
+    },
+    "last_changed": "2026-11-09T12:28:05.614753+00:00",
+    "last_reported": "2026-11-09T12:28:05.614753+00:00",
+    "last_updated": "2026-11-09T12:28:05.614753+00:00",
+    "context": {
+      "id": "01M704FBKEQ1Z6EGCPSPSAD8Z9",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.linp_cn_blt_3_1qa5uknk4cg01_es2_customized_property_1_p_5_1018",
+    "state": "0",
+    "attributes": {
+      "friendly_name": "悦悦房人在感应  自定义 近距区间无人0有人1-255"
+    },
+    "last_changed": "2026-11-09T12:28:05.614803+00:00",
+    "last_reported": "2026-11-09T12:28:05.614803+00:00",
+    "last_updated": "2026-11-09T12:28:05.614803+00:00",
+    "context": {
+      "id": "01M704FBKEEMCRZMFFM9GN16DB",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+    "state": "on",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "悦悦房-灯"
+    },
+    "last_changed": "2026-11-09T14:03:33.909086+00:00",
+    "last_reported": "2026-11-09T14:03:33.909086+00:00",
+    "last_updated": "2026-11-09T14:03:33.909086+00:00",
+    "context": {
+      "id": "01M709Y5JXYM4SHJFB23WDX2BD",
+      "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124139478_blns2_on_p_3_1",
+    "state": "off",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "悦悦房-壁灯"
+    },
+    "last_changed": "2026-11-09T12:28:05.612983+00:00",
+    "last_reported": "2026-11-09T12:28:05.612983+00:00",
+    "last_updated": "2026-11-09T12:28:05.612983+00:00",
+    "context": {
+      "id": "01M704FBKCT2RWCD493KJFSSXD",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124139478_blns2_backlight_p_8_1",
+    "state": "on",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "客房双开 * 开关指示灯控制 关闭状态下背光"
+    },
+    "last_changed": "2026-11-09T12:28:05.613043+00:00",
+    "last_reported": "2026-11-09T12:28:05.613043+00:00",
+    "last_updated": "2026-11-09T12:28:05.613043+00:00",
+    "context": {
+      "id": "01M704FBKD0YTC19PM2878ZZ2R",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124139478_blns2_on_led_off_p_8_2",
+    "state": "off",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "客房双开 * 开关指示灯控制 常亮指示灯关闭"
+    },
+    "last_changed": "2026-11-09T12:28:05.613087+00:00",
+    "last_reported": "2026-11-09T12:28:05.613087+00:00",
+    "last_updated": "2026-11-09T12:28:05.613087+00:00",
+    "context": {
+      "id": "01M704FBKD0BZBB0KH51SFG3J6",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124139478_blns2_key_clicks_en_p_8_4",
+    "state": "off",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "客房双开 * 开关指示灯控制 按键多击使能"
+    },
+    "last_changed": "2026-11-09T12:28:05.613125+00:00",
+    "last_reported": "2026-11-09T12:28:05.613125+00:00",
+    "last_updated": "2026-11-09T12:28:05.613125+00:00",
+    "context": {
+      "id": "01M704FBKDFG34EB5XKTT50T6R",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+    "state": "on",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "悦悦房-灯-副"
+    },
+    "last_changed": "2026-11-09T14:03:33.906302+00:00",
+    "last_reported": "2026-11-09T14:03:33.906302+00:00",
+    "last_updated": "2026-11-09T14:03:33.906302+00:00",
+    "context": {
+      "id": "01M709Y5JXYM4SHJFB23WDX2BD",
+      "parent_id": "01M709Y5JX8CC7EP4VFH6C700J",
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124141619_blns1_backlight_p_6_1",
+    "state": "on",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "客房灯 * 开关指示灯控制 关闭状态下背光"
+    },
+    "last_changed": "2026-11-09T12:28:05.613949+00:00",
+    "last_reported": "2026-11-09T12:28:05.613949+00:00",
+    "last_updated": "2026-11-09T12:28:05.613949+00:00",
+    "context": {
+      "id": "01M704FBKD4M5W8PVC5TVH2S42",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124141619_blns1_on_led_off_p_6_2",
+    "state": "off",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "客房灯 * 开关指示灯控制 常亮指示灯关闭"
+    },
+    "last_changed": "2026-11-09T12:28:05.613992+00:00",
+    "last_reported": "2026-11-09T12:28:05.613992+00:00",
+    "last_updated": "2026-11-09T12:28:05.613992+00:00",
+    "context": {
+      "id": "01M704FBKD6BPF50PNAWT1J3CB",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.bean_cn_1124141619_blns1_key_clicks_en_p_6_4",
+    "state": "off",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "客房灯 * 开关指示灯控制 按键多击使能"
+    },
+    "last_changed": "2026-11-09T12:28:05.614030+00:00",
+    "last_reported": "2026-11-09T12:28:05.614030+00:00",
+    "last_updated": "2026-11-09T12:28:05.614030+00:00",
+    "context": {
+      "id": "01M704FBKE3RGKJ2W6M46MC6NR",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.xiaomi_cn_981493908_l05b_mute_p_4_1",
+    "state": "unavailable",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "小爱音箱Play-妹妹  麦克风 静音"
+    },
+    "last_changed": "2026-11-05T15:56:38.943304+00:00",
+    "last_reported": "2026-11-05T15:56:38.943304+00:00",
+    "last_updated": "2026-11-05T15:56:38.943304+00:00",
+    "context": {
+      "id": "01M6P6TBMZFZW6BH5DZ6VRCN12",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "switch.xiaomi_cn_981493908_l05b_on_p_6_1",
+    "state": "unavailable",
+    "attributes": {
+      "device_class": "switch",
+      "friendly_name": "小爱音箱Play-妹妹  闹钟 开关"
+    },
+    "last_changed": "2026-11-05T15:56:38.943345+00:00",
+    "last_reported": "2026-11-05T15:56:38.943345+00:00",
+    "last_updated": "2026-11-05T15:56:38.943345+00:00",
+    "context": {
+      "id": "01M6P6TBMZ1Y9TGV2ASP3KWZC4",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "automation.yue_yue_fang_zhu_fu_kai_guan_shuang_kong_zhuang_tai_shuang_xiang_tong_bu",
+    "state": "on",
+    "attributes": {
+      "id": "yueyue_two_way_switch_sync",
+      "last_triggered": "2026-11-09T14:03:33.909463+00:00",
+      "mode": "queued",
+      "current": 0,
+      "max": 10,
+      "friendly_name": "悦悦房主副开关双控状态双向同步"
+    },
+    "last_changed": "2026-11-02T15:59:51.555400+00:00",
+    "last_reported": "2026-11-09T14:03:33.909709+00:00",
+    "last_updated": "2026-11-09T14:03:33.909709+00:00",
+    "context": {
+      "id": "01M709Y5MN2679XQR5BY2ZZFGK",
+      "parent_id": "01M709Y5JXYM4SHJFB23WDX2BD",
+      "user_id": null
+    }
+  }
+]

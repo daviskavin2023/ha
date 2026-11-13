@@ -1,126 +1,225 @@
 {
- "actions": [
+ "id": "1736942757466",
+ "alias": "阳台关灯",
+ "description": "2026-11-10 草案：锁存「阳台有人」期间不按时间关；锁存后≥10秒客厅雷达在2.3米内测到走动=人回客厅→120秒后关（期间S04再动则取消，再走动则重新计时）；锁存时S04连续30分钟无动作兜底关；未锁存(手动开/雷达失效开)S04 5分钟无动作关；灯亮满2小时无条件关(硬上限)；灯关即清锁存；S13不参与",
+ "initial_state": true,
+ "mode": "restart",
+ "max_exceeded": "silent",
+ "triggers": [
   {
-   "action": "switch.turn_off",
-   "target": {
-    "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
-   }
+   "trigger": "state",
+   "entity_id": "sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian",
+   "not_to": [
+    "unknown",
+    "unavailable"
+   ],
+   "id": "exit_walk"
+  },
+  {
+   "trigger": "state",
+   "entity_id": "event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008",
+   "not_to": [
+    "unknown",
+    "unavailable"
+   ],
+   "id": "s04_motion"
+  },
+  {
+   "trigger": "template",
+   "value_template": "{% set e = states('event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008') %}{% set s04 = as_datetime(e) if e not in ['unknown','unavailable'] else none %}{% set ref = [s04, states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed] | reject('none') | max %}{{ is_state('switch.lemesh_cn_888711197_sw1f11_on_p_2_1','on') and is_state('input_boolean.yang_tai_you_ren','on') and (now() - ref).total_seconds() >= 1800 }}",
+   "id": "latched_30m"
+  },
+  {
+   "trigger": "template",
+   "value_template": "{% set e = states('event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008') %}{% set s04 = as_datetime(e) if e not in ['unknown','unavailable'] else none %}{% set ref = [s04, states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed] | reject('none') | max %}{{ is_state('switch.lemesh_cn_888711197_sw1f11_on_p_2_1','on') and is_state('input_boolean.yang_tai_you_ren','off') and (now() - ref).total_seconds() >= 300 }}",
+   "id": "unlatched_5m"
+  },
+  {
+   "trigger": "state",
+   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+   "to": "on",
+   "for": {
+    "hours": 2
+   },
+   "id": "hard_cap_2h"
+  },
+  {
+   "trigger": "state",
+   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+   "to": "off",
+   "id": "light_off"
+  },
+  {
+   "trigger": "homeassistant",
+   "event": "start",
+   "id": "ha_start"
   }
  ],
- "alias": "阳台关灯",
  "conditions": [
-  {
-   "condition": "state",
-   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
-   "state": "on"
-  },
   {
    "condition": "or",
    "conditions": [
     {
      "condition": "and",
+     "alias": "回客厅走动：已锁存、灯亮、锁存≥10秒(排除进门那段尾巴)",
      "conditions": [
       {
        "condition": "trigger",
-       "id": "ghost_cancel_35s"
+       "id": "exit_walk"
       },
       {
        "condition": "state",
-       "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
-       "state": "off"
-      }
-     ]
-    },
-    {
-     "condition": "and",
-     "conditions": [
+       "entity_id": "input_boolean.yang_tai_you_ren",
+       "state": "on"
+      },
       {
-       "condition": "trigger",
-       "id": "radar_clear_1m"
+       "condition": "state",
+       "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+       "state": "on"
       },
       {
        "condition": "template",
-       "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 60 }}"
+       "value_template": "{% set b = states.input_boolean.yang_tai_you_ren %}{{ b is not none and (now() - b.last_changed).total_seconds() >= 10 }}"
       }
      ]
     },
     {
      "condition": "and",
+     "alias": "S04再动：取消待关",
      "conditions": [
       {
        "condition": "trigger",
-       "id": "pir_no_motion_2m"
+       "id": "s04_motion"
       },
       {
        "condition": "state",
-       "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
-       "state": "off"
+       "entity_id": "input_boolean.yang_tai_you_ren",
+       "state": "on"
       }
      ]
     },
     {
      "condition": "trigger",
-     "id": "anti_clutter_pir_5m"
+     "id": [
+      "latched_30m",
+      "unlatched_5m",
+      "hard_cap_2h"
+     ]
     },
     {
      "condition": "and",
      "conditions": [
       {
        "condition": "trigger",
-       "id": "safety_cap_6m"
+       "id": [
+        "light_off",
+        "ha_start"
+       ]
       },
       {
-       "condition": "template",
-       "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 120 }}"
+       "condition": "state",
+       "entity_id": "input_boolean.yang_tai_you_ren",
+       "state": "on"
       }
      ]
     }
    ]
   }
  ],
- "description": "阳台关灯防线：35秒无雷达秒灭(防误触/过路)；离去雷达无人关灯；感应2被杂物卡死则5分钟门槛超时熔断；6分钟绝对强制定时兜底",
- "id": "1736942757466",
- "initial_state": true,
- "mode": "restart",
- "triggers": [
+ "actions": [
   {
-   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
-   "for": {
-    "seconds": 35
-   },
-   "id": "ghost_cancel_35s",
-   "platform": "state",
-   "to": "on"
-  },
-  {
-   "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
-   "for": {
-    "minutes": 1
-   },
-   "id": "radar_clear_1m",
-   "platform": "state",
-   "to": "off"
-  },
-  {
-   "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
-   "id": "pir_no_motion_2m",
-   "platform": "state",
-   "to": "120"
-  },
-  {
-   "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
-   "id": "anti_clutter_pir_5m",
-   "platform": "state",
-   "to": "300"
-  },
-  {
-   "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
-   "for": {
-    "minutes": 6
-   },
-   "id": "safety_cap_6m",
-   "platform": "state",
-   "to": "on"
+   "choose": [
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "exit_walk"
+      }
+     ],
+     "sequence": [
+      {
+       "delay": {
+        "seconds": 120
+       }
+      },
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+       }
+      },
+      {
+       "action": "input_boolean.turn_off",
+       "target": {
+        "entity_id": "input_boolean.yang_tai_you_ren"
+       }
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": "s04_motion"
+      }
+     ],
+     "sequence": [
+      {
+       "stop": "S04 有动作，取消待关"
+      }
+     ]
+    },
+    {
+     "conditions": [
+      {
+       "condition": "trigger",
+       "id": [
+        "latched_30m",
+        "unlatched_5m",
+        "hard_cap_2h"
+       ]
+      }
+     ],
+     "sequence": [
+      {
+       "action": "switch.turn_off",
+       "target": {
+        "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+       }
+      },
+      {
+       "action": "input_boolean.turn_off",
+       "target": {
+        "entity_id": "input_boolean.yang_tai_you_ren"
+       }
+      }
+     ]
+    }
+   ],
+   "default": [
+    {
+     "if": [
+      {
+       "condition": "not",
+       "conditions": [
+        {
+         "condition": "state",
+         "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+         "state": "on"
+        }
+       ]
+      }
+     ],
+     "then": [
+      {
+       "action": "input_boolean.turn_off",
+       "target": {
+        "entity_id": "input_boolean.yang_tai_you_ren"
+       }
+      }
+     ]
+    }
+   ]
   }
  ]
 }

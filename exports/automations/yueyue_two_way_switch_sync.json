@@ -1,4 +1,43 @@
 {
+ "id": "yueyue_two_way_switch_sync",
+ "alias": "悦悦房主副开关双控状态双向同步",
+ "description": "确保悦悦房主开关与副开关物理状态保持绝对一致，杜绝双控状态脱节与回弹；2026-11-09：仅真实on/off变化同步，过滤恢复和过期排队；修正turn_on/turn_off服务名",
+ "triggers": [
+  {
+   "platform": "state",
+   "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+   "id": "main_changed",
+   "from": "off",
+   "to": "on"
+  },
+  {
+   "platform": "state",
+   "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+   "id": "main_changed",
+   "from": "on",
+   "to": "off"
+  },
+  {
+   "platform": "state",
+   "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+   "id": "sub_changed",
+   "from": "off",
+   "to": "on"
+  },
+  {
+   "platform": "state",
+   "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+   "id": "sub_changed",
+   "from": "on",
+   "to": "off"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "template",
+   "value_template": "{{ trigger.from_state is not none and trigger.to_state is not none and trigger.from_state.state in ['on','off'] and trigger.to_state.state in ['on','off'] and trigger.from_state.state != trigger.to_state.state and states(trigger.entity_id) == trigger.to_state.state }}"
+  }
+ ],
  "actions": [
   {
    "choose": [
@@ -15,7 +54,7 @@
      ],
      "sequence": [
       {
-       "action": "switch.{{ states('switch.bean_cn_1124139478_blns2_on_p_2_1') }}",
+       "action": "switch.turn_{{ trigger.to_state.state }}",
        "target": {
         "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1"
        }
@@ -35,7 +74,7 @@
      ],
      "sequence": [
       {
-       "action": "switch.{{ states('switch.bean_cn_1124141619_blns1_on_p_2_1') }}",
+       "action": "switch.turn_{{ trigger.to_state.state }}",
        "target": {
         "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1"
        }
@@ -45,22 +84,6 @@
    ]
   }
  ],
- "alias": "悦悦房主副开关双控状态双向同步",
- "conditions": [],
- "description": "确保悦悦房主开关与副开关物理状态保持绝对一致，杜绝双控状态脱节与回弹",
- "id": "yueyue_two_way_switch_sync",
  "initial_state": true,
- "mode": "queued",
- "triggers": [
-  {
-   "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
-   "id": "main_changed",
-   "platform": "state"
-  },
-  {
-   "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
-   "id": "sub_changed",
-   "platform": "state"
-  }
- ]
+ "mode": "queued"
 }

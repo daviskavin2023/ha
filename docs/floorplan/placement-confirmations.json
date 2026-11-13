@@ -162,7 +162,7 @@
     },
     {
       "point_id": "S12",
-      "confirmed_at": "2026-11-09",
+      "confirmed_at": "2026-11-10",
       "user_statement": "电视柜中间",
       "room_id": "living",
       "mounting_surface": "电视柜插座处（设备放置/供电位置，是否固定安装待核）",
@@ -172,17 +172,32 @@
       "position_accuracy": "用户确认沿柜中段；安装高度、板面正向、精确坐标未测",
       "heading_deg": null,
       "ha_device_id": null,
-      "entity_id": null,
-      "binding_status": "ESP32/LD2410 device candidate; registry area mismatch requires review",
+      "entity_id": "binary_sensor.ke_ting_usblei_da_you_ren",
+      "binding_status": "usb_serial_live_verified_and_fused_with_hb01",
       "notes": [
-        "当前HA注册表中的设备“LD2410 Living Room Radar”分配在厨房区域；不据此覆盖用户确认位置。"
+        "当前HA注册表中的设备“LD2410 Living Room Radar”分配在厨房区域；不据此覆盖用户确认位置。",
+        "HA旧ESPHome LD2410记录仅为历史连接线索；用户指定蓝牙接入，应通过原生ld2410_ble新绑定。客卫proxy在线，但25秒监听未收到LD2410广播，尚未添加成功。",
+        "原生BLE集成已创建，蓝牙地址3E:42:C4:93:63:F5；客卫旁测试实体可用。旧ESPHome记录不是本次绑定；放回客厅后的信号与静坐覆盖尚待验证。",
+        "2026-11-10用户确认USB串口接入；实时HA实体可用，已纳入客厅双雷达占用。BLE旧记录保留历史，不作联动源；原电视柜中段位置保留，USB接线后未重新实测物理位置及覆盖。"
       ],
       "location_history": [
         {
           "date": "2026-11-08",
           "relative_position": "客厅电视柜插座处，靠近背景墙"
         }
-      ]
+      ],
+      "connection_method": "LD2410 -> USB串口 -> HA serial JSON -> 模板有人实体",
+      "binding_history": [
+        {
+          "date": "2026-11-09",
+          "entity_id": "binary_sensor.hlk_ld2410_63f5_occupancy",
+          "ha_device_id": "d7a14cf87f995778283cf8c0a63b903b",
+          "connection_method": "LD2410 BLE -> guest-bathroom-climate蓝牙代理 -> HA",
+          "status": "历史BLE绑定，已由USB串口作为自动化主源"
+        }
+      ],
+      "binding_source": "usb-binding-2026-11-10.json",
+      "fusion_entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren"
     },
     {
       "point_id": "L01",

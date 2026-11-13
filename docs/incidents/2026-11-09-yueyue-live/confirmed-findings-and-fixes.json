@@ -1,0 +1,57 @@
+{
+  "night_light_cause": "床头事件unavailable及恢复旧时间戳也触发切灯，非普通presence夜间开灯",
+  "night_examples": [
+    {
+      "local_time": "2026-11-09T01:50:04.772632+08:00",
+      "light_state": "on",
+      "source_automation": "automation.yue_yue_fang_shou_dong_guan_deng_jin_ru_shui_mian_suo_ding",
+      "button_state_immediately_before": "unavailable",
+      "button_state_local_time": "2026-11-09T01:50:04.669162+08:00"
+    },
+    {
+      "local_time": "2026-11-09T01:55:22.425436+08:00",
+      "light_state": "on",
+      "source_automation": "automation.yue_yue_fang_shou_dong_guan_deng_jin_ru_shui_mian_suo_ding",
+      "button_state_immediately_before": "unavailable",
+      "button_state_local_time": "2026-11-09T01:55:22.350612+08:00"
+    }
+  ],
+  "alarm_trace": {
+    "last_step": "action/24",
+    "run_id": "00857c45070ee13fcbbb2c684ed78d3b",
+    "state": "stopped",
+    "script_execution": "finished",
+    "timestamp": {
+      "start": "2026-11-08T23:20:00.307883+00:00",
+      "finish": "2026-11-08T23:21:26.323546+00:00"
+    },
+    "domain": "automation",
+    "item_id": "yueyue_school_day_morning_alarm_0720",
+    "trigger": "time"
+  },
+  "alarm_cause": "按时触发且上学日通过；播放器与notify从11月5日持续不可用，服务目标被跳过，缺少可用性失败分支",
+  "physical_sound_verified": false,
+  "fixed_automation_ids": [
+    "yueyue_manual_sleep_lock",
+    "yueyue_two_way_switch_sync",
+    "yueyue_school_day_morning_alarm_0720"
+  ],
+  "speaker_connectivity_restored": true,
+  "baseline_rule_and_device_state_changes": [],
+  "alarm_rule_apply_state_changes": [],
+  "alarm_physical_root_cause": "用户确认音箱电源被拔；已重新通电，用户反馈现在可以",
+  "restored_power_verified_by_ha": true,
+  "alarm_next_scheduled_run_verified": false,
+  "restored_entities": [
+    {
+      "entity_id": "media_player.xiaomi_cn_981493908_l05b",
+      "state": "on",
+      "last_changed": "2026-11-09T14:15:07.001431+00:00"
+    },
+    {
+      "entity_id": "notify.xiaomi_cn_981493908_l05b_execute_text_directive_a_5_4",
+      "state": "2026-11-04T23:21:27.311937+00:00",
+      "last_changed": "2026-11-09T14:15:06.001089+00:00"
+    }
+  ]
+}

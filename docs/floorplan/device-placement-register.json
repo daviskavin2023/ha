@@ -8919,20 +8919,10 @@
       "backend_area_id": "chu_fang",
       "backend_area_name": "厨房",
       "classification": "physical_device_candidate",
-      "placement_status": "partially_placed_from_user_confirmation",
-      "scope_note": "用户确认设备在客厅电视柜中间插座处；板面正向未确认；HA后台区域当前为厨房，待核对区域映射",
+      "placement_status": "pending_user_confirmation",
+      "scope_note": "待逐一确认物理位置",
       "layout_point_candidates": [],
-      "confirmed_floorplan_points": [
-        {
-          "point_id": "S12",
-          "room_id": "living",
-          "mounting_surface": "电视柜插座处（设备放置/供电位置，是否固定安装待核）",
-          "relative_position": "客厅电视柜中间的插座处",
-          "height_m": null,
-          "binding_status": "ESP32/LD2410 device candidate; registry area mismatch requires review",
-          "user_statement": "电视柜中间"
-        }
-      ],
+      "confirmed_floorplan_points": [],
       "entities": [
         {
           "entity_id": "number.ld2410_living_room_radar_timeout",
@@ -10538,18 +10528,22 @@
       "position_px": null,
       "position_accuracy": "用户确认沿柜中段；安装高度、板面正向、精确坐标未测",
       "heading_deg": null,
-      "ha_device_id": null,
-      "entity_id": null,
-      "binding_status": "ESP32/LD2410 device candidate; registry area mismatch requires review",
+      "ha_device_id": "d7a14cf87f995778283cf8c0a63b903b",
+      "entity_id": "binary_sensor.hlk_ld2410_63f5_occupancy",
+      "binding_status": "native_ld2410_ble_added_live_verified_near_proxy_living_reception_pending",
       "notes": [
-        "当前HA注册表中的设备“LD2410 Living Room Radar”分配在厨房区域；不据此覆盖用户确认位置。"
+        "当前HA注册表中的设备“LD2410 Living Room Radar”分配在厨房区域；不据此覆盖用户确认位置。",
+        "HA旧ESPHome LD2410记录仅为历史连接线索；用户指定蓝牙接入，应通过原生ld2410_ble新绑定。客卫proxy在线，但25秒监听未收到LD2410广播，尚未添加成功。",
+        "原生BLE集成已创建，蓝牙地址3E:42:C4:93:63:F5；客卫旁测试实体可用。旧ESPHome记录不是本次绑定；放回客厅后的信号与静坐覆盖尚待验证。"
       ],
       "location_history": [
         {
           "date": "2026-11-08",
           "relative_position": "客厅电视柜插座处，靠近背景墙"
         }
-      ]
+      ],
+      "connection_method": "LD2410 BLE -> guest-bathroom-climate蓝牙代理 -> HA",
+      "temporary_test_location": "用户临时移到客卫代理旁"
     },
     {
       "point_id": "L01",
@@ -11207,6 +11201,24 @@
       "user_statement": "大灯，壁灯早就没有",
       "physical_wall_light_present": false,
       "notes": "悦悦房双开旧右键名称或旧图壁灯不是现存灯具证据；不推断该键其他负载，不修改HA实体。"
+    }
+  ],
+  "live_binding_updates": [
+    {
+      "entry_id": "01M70D66ZPDT04Q7W9T85A5N2J",
+      "device_id": "d7a14cf87f995778283cf8c0a63b903b",
+      "area_id": "ke_ting",
+      "bluetooth_address": "3E:42:C4:93:63:F5",
+      "entry_state": "loaded",
+      "intended_point": "S12",
+      "temporary_test_location": "客卫蓝牙代理旁，用户临时搬动测试，未接灯光",
+      "captured_at": "2026-11-09T15:02:18.421034+00:00",
+      "primary_entity_id": "binary_sensor.hlk_ld2410_63f5_occupancy",
+      "motion_entity_id": "binary_sensor.hlk_ld2410_63f5_motion",
+      "permanent_location": "客厅电视柜中间",
+      "current_test_location": "用户临时移到客卫代理旁",
+      "living_room_reception_verified": false,
+      "automations_modified": false
     }
   ]
 }

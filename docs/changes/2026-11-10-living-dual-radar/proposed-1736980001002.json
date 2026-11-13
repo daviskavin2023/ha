@@ -1,0 +1,68 @@
+{
+  "id": "1736980001002",
+  "alias": "客厅风扇自动开启 (温度>=27℃且连续有人满2分钟)",
+  "description": "客厅温度达到27℃以上且连续有人满2分钟时，自动设置风扇状态为on触发开启；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+  "triggers": [
+    {
+      "platform": "state",
+      "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+      "to": "on",
+      "for": {
+        "minutes": 2
+      },
+      "id": "occupancy_2min"
+    },
+    {
+      "platform": "numeric_state",
+      "entity_id": "sensor.linp_cn_1130732284_hb01_has_someone_duration_p_2_3",
+      "above": 1,
+      "id": "duration_2min"
+    },
+    {
+      "platform": "numeric_state",
+      "entity_id": "sensor.miaomiaoc_cn_blt_3_1k06l11ckc801_t2_temperature_p_2_1",
+      "above": 26.9,
+      "id": "temp_above_27"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai",
+      "state": "off"
+    },
+    {
+      "condition": "numeric_state",
+      "entity_id": "sensor.miaomiaoc_cn_blt_3_1k06l11ckc801_t2_temperature_p_2_1",
+      "above": 26.9
+    },
+    {
+      "condition": "or",
+      "conditions": [
+        {
+          "condition": "state",
+          "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+          "state": "on",
+          "for": {
+            "minutes": 2
+          }
+        },
+        {
+          "condition": "numeric_state",
+          "entity_id": "sensor.linp_cn_1130732284_hb01_has_someone_duration_p_2_3",
+          "above": 1
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action": "input_boolean.turn_on",
+      "target": {
+        "entity_id": "input_boolean.ke_ting_feng_shan_zhuang_tai"
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "single"
+}

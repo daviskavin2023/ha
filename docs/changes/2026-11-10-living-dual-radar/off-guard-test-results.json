@@ -1,0 +1,38 @@
+[
+  {
+    "state": "on",
+    "elapsed_seconds": 300,
+    "expected": false,
+    "result": "False"
+  },
+  {
+    "state": "unavailable",
+    "elapsed_seconds": 300,
+    "expected": false,
+    "result": "False"
+  },
+  {
+    "state": "unknown",
+    "elapsed_seconds": 300,
+    "expected": false,
+    "result": "False"
+  },
+  {
+    "state": "off",
+    "elapsed_seconds": 119,
+    "expected": false,
+    "result": "False"
+  },
+  {
+    "state": "off",
+    "elapsed_seconds": 120,
+    "expected": true,
+    "result": "True"
+  },
+  {
+    "state": "off",
+    "elapsed_seconds": 180,
+    "expected": true,
+    "result": "True"
+  }
+]

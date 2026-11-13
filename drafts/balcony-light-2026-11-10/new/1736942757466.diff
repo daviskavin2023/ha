@@ -1,0 +1,256 @@
+2d1
+<     "alias": "\u9633\u53f0\u5173\u706f",
+4,5c3,4
+<     "description": "\u9633\u53f0\u5173\u706f\u9632\u7ebf\uff1a35\u79d2\u65e0\u96f7\u8fbe\u79d2\u706d(\u9632\u8bef\u89e6/\u8fc7\u8def)\uff1b\u79bb\u53bb\u96f7\u8fbe\u65e0\u4eba\u5173\u706f\uff1b\u611f\u5e942\u88ab\u6742\u7269\u5361\u6b7b\u52195\u5206\u949f\u95e8\u69db\u8d85\u65f6\u7194\u65ad\uff1b6\u5206\u949f\u7edd\u5bf9\u5f3a\u5236\u5b9a\u65f6\u515c\u5e95",
+<     "mode": "restart",
+---
+>     "alias": "\u9633\u53f0\u5173\u706f",
+>     "description": "2026-11-10 \u8349\u6848\uff1a\u9501\u5b58\u300c\u9633\u53f0\u6709\u4eba\u300d\u671f\u95f4\u4e0d\u6309\u65f6\u95f4\u5173\uff1b\u9501\u5b58\u540e\u226510\u79d2\u5ba2\u5385\u96f7\u8fbe\u57282.3\u7c73\u5185\u6d4b\u5230\u8d70\u52a8=\u4eba\u56de\u5ba2\u5385\u2192120\u79d2\u540e\u5173\uff08\u671f\u95f4S04\u518d\u52a8\u5219\u53d6\u6d88\uff0c\u518d\u8d70\u52a8\u5219\u91cd\u65b0\u8ba1\u65f6\uff09\uff1b\u9501\u5b58\u65f6S04\u8fde\u7eed30\u5206\u949f\u65e0\u52a8\u4f5c\u515c\u5e95\u5173\uff1b\u672a\u9501\u5b58(\u624b\u52a8\u5f00/\u96f7\u8fbe\u5931\u6548\u5f00)S04 5\u5206\u949f\u65e0\u52a8\u4f5c\u5173\uff1b\u706f\u4eae\u6ee12\u5c0f\u65f6\u65e0\u6761\u4ef6\u5173(\u786c\u4e0a\u9650)\uff1b\u706f\u5173\u5373\u6e05\u9501\u5b58\uff1bS13\u4e0d\u53c2\u4e0e",
+6a6,7
+>     "mode": "restart",
+>     "max_exceeded": "silent",
+9,15c10,16
+<             "id": "ghost_cancel_35s",
+<             "platform": "state",
+<             "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+<             "to": "on",
+<             "for": {
+<                 "seconds": 35
+<             }
+---
+>             "trigger": "state",
+>             "entity_id": "sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian",
+>             "not_to": [
+>                 "unknown",
+>                 "unavailable"
+>             ],
+>             "id": "exit_walk"
+18,24c19,25
+<             "id": "radar_clear_1m",
+<             "platform": "state",
+<             "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
+<             "to": "off",
+<             "for": {
+<                 "minutes": 1
+<             }
+---
+>             "trigger": "state",
+>             "entity_id": "event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008",
+>             "not_to": [
+>                 "unknown",
+>                 "unavailable"
+>             ],
+>             "id": "s04_motion"
+27,30c28,30
+<             "id": "pir_no_motion_2m",
+<             "platform": "state",
+<             "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
+<             "to": "120"
+---
+>             "trigger": "template",
+>             "value_template": "{% set e = states('event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008') %}{% set s04 = as_datetime(e) if e not in ['unknown','unavailable'] else none %}{% set ref = [s04, states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed] | reject('none') | max %}{{ is_state('switch.lemesh_cn_888711197_sw1f11_on_p_2_1','on') and is_state('input_boolean.yang_tai_you_ren','on') and (now() - ref).total_seconds() >= 1800 }}",
+>             "id": "latched_30m"
+33,36c33,35
+<             "id": "anti_clutter_pir_5m",
+<             "platform": "state",
+<             "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
+<             "to": "300"
+---
+>             "trigger": "template",
+>             "value_template": "{% set e = states('event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008') %}{% set s04 = as_datetime(e) if e not in ['unknown','unavailable'] else none %}{% set ref = [s04, states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed] | reject('none') | max %}{{ is_state('switch.lemesh_cn_888711197_sw1f11_on_p_2_1','on') and is_state('input_boolean.yang_tai_you_ren','off') and (now() - ref).total_seconds() >= 300 }}",
+>             "id": "unlatched_5m"
+39,40c38
+<             "id": "safety_cap_6m",
+<             "platform": "state",
+---
+>             "trigger": "state",
+44,48c42,45
+<                 "minutes": 6
+<             }
+<         }
+<     ],
+<     "conditions": [
+---
+>                 "hours": 2
+>             },
+>             "id": "hard_cap_2h"
+>         },
+50c47
+<             "condition": "state",
+---
+>             "trigger": "state",
+52c49,50
+<             "state": "on"
+---
+>             "to": "off",
+>             "id": "light_off"
+54a53,59
+>             "trigger": "homeassistant",
+>             "event": "start",
+>             "id": "ha_start"
+>         }
+>     ],
+>     "conditions": [
+>         {
+58a64
+>                     "alias": "\u56de\u5ba2\u5385\u8d70\u52a8\uff1a\u5df2\u9501\u5b58\u3001\u706f\u4eae\u3001\u9501\u5b58\u226510\u79d2(\u6392\u9664\u8fdb\u95e8\u90a3\u6bb5\u5c3e\u5df4)",
+62c68
+<                             "id": "ghost_cancel_35s"
+---
+>                             "id": "exit_walk"
+66,73c72,74
+<                             "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
+<                             "state": "off"
+<                         }
+<                     ]
+<                 },
+<                 {
+<                     "condition": "and",
+<                     "conditions": [
+---
+>                             "entity_id": "input_boolean.yang_tai_you_ren",
+>                             "state": "on"
+>                         },
+75,76c76,78
+<                             "condition": "trigger",
+<                             "id": "radar_clear_1m"
+---
+>                             "condition": "state",
+>                             "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+>                             "state": "on"
+80c82
+<                             "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 60 }}"
+---
+>                             "value_template": "{% set b = states.input_boolean.yang_tai_you_ren %}{{ b is not none and (now() - b.last_changed).total_seconds() >= 10 }}"
+85a88
+>                     "alias": "S04\u518d\u52a8\uff1a\u53d6\u6d88\u5f85\u5173",
+89c92
+<                             "id": "pir_no_motion_2m"
+---
+>                             "id": "s04_motion"
+93,94c96,97
+<                             "entity_id": "binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078",
+<                             "state": "off"
+---
+>                             "entity_id": "input_boolean.yang_tai_you_ren",
+>                             "state": "on"
+100c103,107
+<                     "id": "anti_clutter_pir_5m"
+---
+>                     "id": [
+>                         "latched_30m",
+>                         "unlatched_5m",
+>                         "hard_cap_2h"
+>                     ]
+107c114,117
+<                             "id": "safety_cap_6m"
+---
+>                             "id": [
+>                                 "light_off",
+>                                 "ha_start"
+>                             ]
+110,111c120,122
+<                             "condition": "template",
+<                             "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 120 }}"
+---
+>                             "condition": "state",
+>                             "entity_id": "input_boolean.yang_tai_you_ren",
+>                             "state": "on"
+120,123c131,222
+<             "action": "switch.turn_off",
+<             "target": {
+<                 "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+<             }
+---
+>             "choose": [
+>                 {
+>                     "conditions": [
+>                         {
+>                             "condition": "trigger",
+>                             "id": "exit_walk"
+>                         }
+>                     ],
+>                     "sequence": [
+>                         {
+>                             "delay": {
+>                                 "seconds": 120
+>                             }
+>                         },
+>                         {
+>                             "action": "switch.turn_off",
+>                             "target": {
+>                                 "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+>                             }
+>                         },
+>                         {
+>                             "action": "input_boolean.turn_off",
+>                             "target": {
+>                                 "entity_id": "input_boolean.yang_tai_you_ren"
+>                             }
+>                         }
+>                     ]
+>                 },
+>                 {
+>                     "conditions": [
+>                         {
+>                             "condition": "trigger",
+>                             "id": "s04_motion"
+>                         }
+>                     ],
+>                     "sequence": [
+>                         {
+>                             "stop": "S04 \u6709\u52a8\u4f5c\uff0c\u53d6\u6d88\u5f85\u5173"
+>                         }
+>                     ]
+>                 },
+>                 {
+>                     "conditions": [
+>                         {
+>                             "condition": "trigger",
+>                             "id": [
+>                                 "latched_30m",
+>                                 "unlatched_5m",
+>                                 "hard_cap_2h"
+>                             ]
+>                         }
+>                     ],
+>                     "sequence": [
+>                         {
+>                             "action": "switch.turn_off",
+>                             "target": {
+>                                 "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+>                             }
+>                         },
+>                         {
+>                             "action": "input_boolean.turn_off",
+>                             "target": {
+>                                 "entity_id": "input_boolean.yang_tai_you_ren"
+>                             }
+>                         }
+>                     ]
+>                 }
+>             ],
+>             "default": [
+>                 {
+>                     "if": [
+>                         {
+>                             "condition": "not",
+>                             "conditions": [
+>                                 {
+>                                     "condition": "state",
+>                                     "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+>                                     "state": "on"
+>                                 }
+>                             ]
+>                         }
+>                     ],
+>                     "then": [
+>                         {
+>                             "action": "input_boolean.turn_off",
+>                             "target": {
+>                                 "entity_id": "input_boolean.yang_tai_you_ren"
+>                             }
+>                         }
+>                     ]
+>                 }
+>             ]

@@ -1,4 +1,78 @@
 {
+ "id": "1749716052814",
+ "alias": "客厅舞台灯联动",
+ "description": "厨房与客厅同时有人、非观影且暗光(夜间或<35Lux且<85Lux)时点亮舞台灯；任一区无人、进入观影或强光时关闭舞台灯；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+ "triggers": [
+  {
+   "platform": "state",
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "to": "on"
+  },
+  {
+   "platform": "state",
+   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+   "to": "off"
+  },
+  {
+   "platform": "state",
+   "entity_id": "event.linp_cn_1134456435_hb01_approach_aloof_event_e_3_1"
+  },
+  {
+   "platform": "state",
+   "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5"
+  },
+  {
+   "platform": "state",
+   "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+   "to": "on"
+  },
+  {
+   "platform": "state",
+   "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+   "to": "off"
+  },
+  {
+   "platform": "state",
+   "entity_id": "event.linp_cn_1130732284_hb01_approach_aloof_event_e_3_1"
+  },
+  {
+   "platform": "state",
+   "entity_id": "sensor.linp_cn_1130732284_hb01_illumination_p_2_5"
+  },
+  {
+   "platform": "state",
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "to": "on"
+  },
+  {
+   "platform": "state",
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "to": "off"
+  },
+  {
+   "platform": "state",
+   "entity_id": "sun.sun"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off",
+   "alias": "3051 会客中不动作"
+  },
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.sheng_ri_mo_shi",
+   "state": "off",
+   "alias": "3051 生日中不动作"
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ states('binary_sensor.ke_ting_shuang_lei_da_you_ren') in ['on','off'] }}",
+   "alias": "双雷达占用未知时不执行舞台灯默认关闭分支"
+  }
+ ],
  "actions": [
   {
    "choose": [
@@ -6,7 +80,7 @@
      "conditions": [
       {
        "condition": "template",
-       "value_template": "{{ is_state('binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1', 'on') and\n   is_state('binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1', 'on') and\n   is_state('input_boolean.ke_ting_guan_ying_mo_shi', 'off') and\n   (\n     (is_state('switch.bean_cn_1124140556_blns2_on_p_2_1', 'on') and is_state('sun.sun', 'below_horizon'))\n     or\n     ((is_state('sun.sun', 'below_horizon') or states('sensor.linp_cn_1130732284_hb01_illumination_p_2_5') | float(0) < 35) and\n      states('sensor.linp_cn_1130732284_hb01_illumination_p_2_5') | float(0) < 85)\n   ) }}"
+       "value_template": "{{ is_state('binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1', 'on') and\n   is_state('binary_sensor.ke_ting_shuang_lei_da_you_ren', 'on') and\n   is_state('input_boolean.ke_ting_guan_ying_mo_shi', 'off') and\n   (\n     (is_state('switch.bean_cn_1124140556_blns2_on_p_2_1', 'on') and is_state('sun.sun', 'below_horizon'))\n     or\n     ((is_state('sun.sun', 'below_horizon') or states('sensor.linp_cn_1130732284_hb01_illumination_p_2_5') | float(0) < 35) and\n      states('sensor.linp_cn_1130732284_hb01_illumination_p_2_5') | float(0) < 85)\n   ) }}"
       }
      ],
      "sequence": [
@@ -40,75 +114,6 @@
    ]
   }
  ],
- "alias": "客厅舞台灯联动",
- "conditions": [
-  {
-   "alias": "3051 会客中不动作",
-   "condition": "state",
-   "entity_id": "input_boolean.hui_ke_mo_shi",
-   "state": "off"
-  },
-  {
-   "alias": "3051 生日中不动作",
-   "condition": "state",
-   "entity_id": "input_boolean.sheng_ri_mo_shi",
-   "state": "off"
-  }
- ],
- "description": "厨房与客厅同时有人、非观影且暗光(夜间或<35Lux且<85Lux)时点亮舞台灯；任一区无人、进入观影或强光时关闭舞台灯",
- "id": "1749716052814",
  "initial_state": true,
- "mode": "restart",
- "triggers": [
-  {
-   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
-   "platform": "state",
-   "to": "on"
-  },
-  {
-   "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
-   "platform": "state",
-   "to": "off"
-  },
-  {
-   "entity_id": "event.linp_cn_1134456435_hb01_approach_aloof_event_e_3_1",
-   "platform": "state"
-  },
-  {
-   "entity_id": "sensor.linp_cn_1134456435_hb01_illumination_p_2_5",
-   "platform": "state"
-  },
-  {
-   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
-   "platform": "state",
-   "to": "on"
-  },
-  {
-   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
-   "platform": "state",
-   "to": "off"
-  },
-  {
-   "entity_id": "event.linp_cn_1130732284_hb01_approach_aloof_event_e_3_1",
-   "platform": "state"
-  },
-  {
-   "entity_id": "sensor.linp_cn_1130732284_hb01_illumination_p_2_5",
-   "platform": "state"
-  },
-  {
-   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
-   "platform": "state",
-   "to": "on"
-  },
-  {
-   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
-   "platform": "state",
-   "to": "off"
-  },
-  {
-   "entity_id": "sun.sun",
-   "platform": "state"
-  }
- ]
+ "mode": "restart"
 }

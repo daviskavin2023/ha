@@ -1,0 +1,19 @@
+[
+  {
+    "flow_id": "01M70D3KRNPDGNYQBHNG08EBRY",
+    "handler": "ld2410_ble",
+    "context": {
+      "source": "bluetooth",
+      "discovery_key": {
+        "domain": "bluetooth",
+        "key": "3E:42:C4:93:63:F5",
+        "version": 1
+      },
+      "unique_id": "3E:42:C4:93:63:F5",
+      "title_placeholders": {
+        "name": "HLK-LD2410_63F5 (63F5)"
+      }
+    },
+    "step_id": "user"
+  }
+]

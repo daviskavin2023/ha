@@ -1,0 +1,35 @@
+# =============================================================================
+# 阳台灯 2026-11-10 草案 — 新增 2 个 helper（仅草稿，未写入 HA）
+# =============================================================================
+
+# ---- 1) 锁存：阳台有人 ----
+# 推荐 UI 创建：设置 → 设备与服务 → 辅助元素 → 新建「切换」，名称「阳台有人」，图标 mdi:account-check
+# 建完必须确认实体 ID = input_boolean.yang_tai_you_ren（不对就在实体设置里改成这个）
+# 不设 initial，重启后恢复原值；关灯自动化在 HA 启动时若灯不亮会清掉它。
+# 若改用 YAML（configuration.yaml 里已有 input_boolean: 键则并入，不要写第二个顶层键）：
+# input_boolean:
+#   yang_tai_you_ren:
+#     name: 阳台有人
+#     icon: mdi:account-check
+
+# ---- 2) 客厅雷达近处走动最后时间（触发式模板传感器）----
+# 并入 configuration.yaml 现有的 template: 列表（作为新的一项「- triggers:」），不要新开第二个 template: 键。
+# 只有 USB LD2410 报 moving=true 且 moving_distance<=230cm 时才刷新为当前时间；其他时候保持上一次值（重启后自动恢复）。
+# 生效：ha core check 通过 → 开发者工具 → YAML → 重新载入「模板实体」（不需要重启 core）。
+template:
+  - triggers:
+      - trigger: state
+        entity_id: sensor.ld2410_usb_json
+    conditions:
+      - condition: template
+        value_template: >-
+          {{ state_attr('sensor.ld2410_usb_json', 'moving') is sameas true
+             and (state_attr('sensor.ld2410_usb_json', 'moving_distance') | int(999)) <= 230 }}
+    sensor:
+      - name: "客厅雷达近处走动时间"
+        unique_id: living_usb_ld2410_near_walk_last
+        default_entity_id: sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian
+        device_class: timestamp
+        state: "{{ now().isoformat() }}"
+# 注：default_entity_id 是 2025.10+ 的键，现网 2026.9.2 支持；若 core check 报不认识，删掉这一行，
+#     再确认自动生成的实体 ID 是 sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian（不是就改实体 ID）。

@@ -1,0 +1,62 @@
+[
+  {
+    "case": "both_off",
+    "result": "off",
+    "expected": "off"
+  },
+  {
+    "case": "hb_on",
+    "result": "on",
+    "expected": "on"
+  },
+  {
+    "case": "usb_on",
+    "result": "on",
+    "expected": "on"
+  },
+  {
+    "case": "both_on",
+    "result": "on",
+    "expected": "on"
+  },
+  {
+    "case": "hb_failed_usb_on",
+    "result": "on",
+    "expected": "on"
+  },
+  {
+    "case": "hb_failed_usb_off",
+    "result": "unavailable",
+    "expected": "unavailable"
+  },
+  {
+    "case": "usb_failed_hb_off",
+    "result": "unavailable",
+    "expected": "unavailable"
+  },
+  {
+    "case": "usb_failed_hb_on",
+    "result": "on",
+    "expected": "on"
+  },
+  {
+    "case": "stale_usb_off",
+    "result": "unavailable",
+    "expected": "unavailable"
+  },
+  {
+    "case": "stale_usb_on",
+    "result": "unavailable",
+    "expected": "unavailable"
+  },
+  {
+    "case": "string_boolean_invalid",
+    "result": "unavailable",
+    "expected": "unavailable"
+  },
+  {
+    "case": "future_timestamp",
+    "result": "unavailable",
+    "expected": "unavailable"
+  }
+]

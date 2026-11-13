@@ -1,0 +1,76 @@
+{
+  "id": "zk3051_guest_auto_exit",
+  "alias": "3051 会客模式·无人自动退出",
+  "description": "客厅、厨房两个雷达同时连续 5 分钟没人 → 再等 5 分钟复查仍全部没人 → 退出会客",
+  "triggers": [
+    {
+      "trigger": "state",
+      "entity_id": [
+        "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+        "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1"
+      ],
+      "to": "off",
+      "for": {
+        "minutes": 5
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "input_boolean.hui_ke_mo_shi",
+      "state": "on"
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "state": "off",
+      "for": {
+        "minutes": 5
+      }
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+      "state": "off",
+      "for": {
+        "minutes": 5
+      }
+    }
+  ],
+  "actions": [
+    {
+      "delay": {
+        "minutes": 5
+      }
+    },
+    {
+      "condition": "state",
+      "entity_id": "input_boolean.hui_ke_mo_shi",
+      "state": "on"
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "state": "off",
+      "for": {
+        "minutes": 5
+      }
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.linp_cn_1134456435_hb01_occupancy_status_p_2_1",
+      "state": "off",
+      "for": {
+        "minutes": 5
+      }
+    },
+    {
+      "action": "input_boolean.turn_off",
+      "target": {
+        "entity_id": "input_boolean.hui_ke_mo_shi"
+      }
+    }
+  ],
+  "mode": "restart"
+}

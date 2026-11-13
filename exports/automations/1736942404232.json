@@ -1,4 +1,51 @@
 {
+ "id": "1736942404232",
+ "alias": "客厅关灯",
+ "description": "客厅无人持续 2 分钟后自动关闭所有灯光与灯带；投影仪在用时不执行 (风扇已彻底移出关灯列表，绝不误关风扇)；2026-11-10：客厅占用接入HB01+USB LD2410融合，失效不作无人；原场景门控和动作保留",
+ "triggers": [
+  {
+   "platform": "state",
+   "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+   "to": "off",
+   "for": {
+    "minutes": 2
+   },
+   "id": "no_one_2min"
+  },
+  {
+   "platform": "state",
+   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+   "to": "off",
+   "id": "movie_mode_off"
+  },
+  {
+   "platform": "time_pattern",
+   "seconds": "/30",
+   "id": "dual_radar_recheck"
+  }
+ ],
+ "conditions": [
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+   "state": "off"
+  },
+  {
+   "condition": "state",
+   "entity_id": "input_boolean.hui_ke_mo_shi",
+   "state": "off",
+   "alias": "3051 会客中不动作"
+  },
+  {
+   "condition": "template",
+   "value_template": "{{ is_state('binary_sensor.ke_ting_shuang_lei_da_you_ren','off') and (as_timestamp(now()) - as_timestamp(states.binary_sensor.ke_ting_shuang_lei_da_you_ren.last_changed)) >= 120 }}"
+  }
+ ],
  "actions": [
   {
    "action": "switch.turn_off",
@@ -22,50 +69,6 @@
    }
   }
  ],
- "alias": "客厅关灯",
- "conditions": [
-  {
-   "condition": "state",
-   "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
-   "state": "off"
-  },
-  {
-   "condition": "state",
-   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
-   "state": "off"
-  },
-  {
-   "alias": "3051 会客中不动作",
-   "condition": "state",
-   "entity_id": "input_boolean.hui_ke_mo_shi",
-   "state": "off"
-  }
- ],
- "description": "客厅无人持续 2 分钟后自动关闭所有灯光与灯带；投影仪在用时不执行 (风扇已彻底移出关灯列表，绝不误关风扇)",
- "id": "1736942404232",
  "initial_state": true,
- "mode": "restart",
- "triggers": [
-  {
-   "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
-   "for": {
-    "minutes": 2
-   },
-   "id": "no_one_2min",
-   "platform": "state",
-   "to": "off"
-  },
-  {
-   "above": 2,
-   "entity_id": "sensor.linp_cn_1130732284_hb01_no_one_duration_p_2_4",
-   "id": "no_one_duration_2",
-   "platform": "numeric_state"
-  },
-  {
-   "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
-   "id": "movie_mode_off",
-   "platform": "state",
-   "to": "off"
-  }
- ]
+ "mode": "restart"
 }

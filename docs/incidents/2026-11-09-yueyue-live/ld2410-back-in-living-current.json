@@ -1,0 +1,90 @@
+{
+  "captured_at": "2026-11-09T15:11:32.430781+00:00",
+  "states": [
+    {
+      "entity_id": "binary_sensor.hlk_ld2410_63f5_occupancy",
+      "state": "unavailable",
+      "attributes": {
+        "device_class": "occupancy",
+        "friendly_name": "客厅LD2410蓝牙雷达 此处有人"
+      },
+      "last_changed": "2026-11-09T15:05:44.716196+00:00",
+      "last_reported": "2026-11-09T15:05:44.716196+00:00",
+      "last_updated": "2026-11-09T15:05:44.716196+00:00",
+      "context": {
+        "id": "01M70DG10CH58RFZ7E2F0ZYRP2",
+        "parent_id": null,
+        "user_id": null
+      }
+    },
+    {
+      "entity_id": "binary_sensor.hlk_ld2410_63f5_motion",
+      "state": "unavailable",
+      "attributes": {
+        "device_class": "motion",
+        "friendly_name": "客厅LD2410蓝牙雷达 运动"
+      },
+      "last_changed": "2026-11-09T15:05:44.716032+00:00",
+      "last_reported": "2026-11-09T15:05:44.716032+00:00",
+      "last_updated": "2026-11-09T15:05:44.716032+00:00",
+      "context": {
+        "id": "01M70DG10C29W0ZGNRJFZP7X08",
+        "parent_id": null,
+        "user_id": null
+      }
+    },
+    {
+      "entity_id": "sensor.hlk_ld2410_63f5_detection_distance",
+      "state": "unavailable",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "cm",
+        "device_class": "distance",
+        "friendly_name": "客厅LD2410蓝牙雷达 检测距离"
+      },
+      "last_changed": "2026-11-09T15:05:44.716502+00:00",
+      "last_reported": "2026-11-09T15:05:44.716502+00:00",
+      "last_updated": "2026-11-09T15:05:44.716502+00:00",
+      "context": {
+        "id": "01M70DG10C09NDM5NVEF54KWT4",
+        "parent_id": null,
+        "user_id": null
+      }
+    },
+    {
+      "entity_id": "sensor.hlk_ld2410_63f5_static_target_energy",
+      "state": "unavailable",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "Target Energy",
+        "friendly_name": "客厅LD2410蓝牙雷达 静止目标能量"
+      },
+      "last_changed": "2026-11-09T15:05:44.716455+00:00",
+      "last_reported": "2026-11-09T15:05:44.716455+00:00",
+      "last_updated": "2026-11-09T15:05:44.716455+00:00",
+      "context": {
+        "id": "01M70DG10CKYY56XTA2WKF5GV2",
+        "parent_id": null,
+        "user_id": null
+      }
+    },
+    {
+      "entity_id": "sensor.hlk_ld2410_63f5_static_target_distance",
+      "state": "unavailable",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "cm",
+        "device_class": "distance",
+        "friendly_name": "客厅LD2410蓝牙雷达 静止目标距离"
+      },
+      "last_changed": "2026-11-09T15:05:44.716334+00:00",
+      "last_reported": "2026-11-09T15:05:44.716334+00:00",
+      "last_updated": "2026-11-09T15:05:44.716334+00:00",
+      "context": {
+        "id": "01M70DG10CFBSY15YZQ28QQASR",
+        "parent_id": null,
+        "user_id": null
+      }
+    }
+  ]
+}

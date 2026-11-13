@@ -39,39 +39,50 @@ sensor:
     temperature:
       name: "Bathroom Temperature"
       id: bath_temp
-      force_update: true
+      filters:
+        - round: 1
+        - or:
+            - delta: 0.2
+            - throttle: 60s
       on_value:
         then:
           - logger.log:
-              level: WARN
-              format: ">>> [实时 温度]: %.2f °C"
+              level: DEBUG
+              format: ">>> [实时 温度]: %.1f °C"
               args: [ 'x' ]
     humidity:
       name: "Bathroom Humidity"
       id: bath_humidity
-      force_update: true
+      filters:
+        - round: 1
+        - or:
+            - delta: 0.5
+            - throttle: 60s
       on_value:
         then:
           - logger.log:
-              level: WARN
-              format: ">>> [实时 湿度]: %.2f %%"
+              level: DEBUG
+              format: ">>> [实时 湿度]: %.1f %%"
               args: [ 'x' ]
     address: 0x44
-    update_interval: 2s
+    update_interval: 15s
 
   - platform: sgp4x
     voc_index:
       name: "Bathroom VOC Index"
       id: bath_voc
-      force_update: true
+      filters:
+        - or:
+            - delta: 2
+            - throttle: 60s
       on_value:
         then:
           - logger.log:
-              level: WARN
+              level: DEBUG
               format: ">>> [实时 异味指数 VOC]: %.0f"
               args: [ 'x' ]
     address: 0x59
     compensation:
       temperature_source: bath_temp
       humidity_source: bath_humidity
-    update_interval: 2s
+    update_interval: 15s

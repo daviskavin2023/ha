@@ -1,0 +1,219 @@
+{
+  "last_step": "action/0/choose/1/conditions/0",
+  "run_id": "55c53127731db486cde5e0c4148ce2ee",
+  "state": "stopped",
+  "script_execution": "finished",
+  "timestamp": {
+    "start": "2026-11-09T13:43:55.423333+00:00",
+    "finish": "2026-11-09T13:43:55.423665+00:00"
+  },
+  "domain": "automation",
+  "item_id": "yueyue_two_way_switch_sync",
+  "trigger": "state of switch.bean_cn_1124139478_blns2_on_p_2_1",
+  "trace": {
+    "trigger/0": [
+      {
+        "path": "trigger/0",
+        "timestamp": "2026-11-09T13:43:55.423347+00:00",
+        "changed_variables": {
+          "this": {
+            "entity_id": "automation.yue_yue_fang_zhu_fu_kai_guan_shuang_kong_zhuang_tai_shuang_xiang_tong_bu",
+            "state": "on",
+            "attributes": {
+              "id": "yueyue_two_way_switch_sync",
+              "last_triggered": "2026-11-09T13:43:55.420505+00:00",
+              "mode": "queued",
+              "current": 0,
+              "max": 10,
+              "friendly_name": "悦悦房主副开关双控状态双向同步"
+            },
+            "last_changed": "2026-11-02T15:59:51.555400+00:00",
+            "last_reported": "2026-11-09T13:43:55.421293+00:00",
+            "last_updated": "2026-11-09T13:43:55.421293+00:00",
+            "context": {
+              "id": "01M708T6RWZHENMEFVS036V19R",
+              "parent_id": "01M708T6Q9B3F2E6BAF0C7WV94",
+              "user_id": null
+            }
+          },
+          "trigger": {
+            "id": "main_changed",
+            "idx": "0",
+            "alias": null,
+            "platform": "state",
+            "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+            "from_state": {
+              "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+              "state": "off",
+              "attributes": {
+                "device_class": "switch",
+                "friendly_name": "悦悦房-灯"
+              },
+              "last_changed": "2026-11-09T13:03:11.841045+00:00",
+              "last_reported": "2026-11-09T13:03:11.841045+00:00",
+              "last_updated": "2026-11-09T13:03:11.841045+00:00",
+              "context": {
+                "id": "01M706FMDAGDWJCZ5W8KGJB4SE",
+                "parent_id": "01M706BZ78C72Y8NEMP8JTWPMD",
+                "user_id": null
+              }
+            },
+            "to_state": {
+              "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+              "state": "on",
+              "attributes": {
+                "device_class": "switch",
+                "friendly_name": "悦悦房-灯"
+              },
+              "last_changed": "2026-11-09T13:43:55.422993+00:00",
+              "last_reported": "2026-11-09T13:43:55.422993+00:00",
+              "last_updated": "2026-11-09T13:43:55.422993+00:00",
+              "context": {
+                "id": "01M708T6Q9B3F2E6BAF0C7WV94",
+                "parent_id": "01M708T6Q9JE1FXX8FV7XTZN9E",
+                "user_id": null
+              }
+            },
+            "for": null,
+            "attribute": null,
+            "description": "state of switch.bean_cn_1124139478_blns2_on_p_2_1"
+          }
+        }
+      }
+    ],
+    "action/0": [
+      {
+        "path": "action/0",
+        "timestamp": "2026-11-09T13:43:55.423428+00:00",
+        "changed_variables": {
+          "context": {
+            "id": "01M708T6RZ4QX42V1JSZPAK2W4",
+            "parent_id": "01M708T6Q9B3F2E6BAF0C7WV94",
+            "user_id": null
+          }
+        }
+      }
+    ],
+    "action/0/choose/0": [
+      {
+        "path": "action/0/choose/0",
+        "timestamp": "2026-11-09T13:43:55.423471+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/0/choose/0/conditions/0": [
+      {
+        "path": "action/0/choose/0/conditions/0",
+        "timestamp": "2026-11-09T13:43:55.423487+00:00",
+        "result": {
+          "result": true
+        }
+      }
+    ],
+    "action/0/choose/0/conditions/1": [
+      {
+        "path": "action/0/choose/0/conditions/1",
+        "timestamp": "2026-11-09T13:43:55.423502+00:00",
+        "result": {
+          "result": false,
+          "entities": [
+            "switch.bean_cn_1124141619_blns1_on_p_2_1",
+            "switch.bean_cn_1124139478_blns2_on_p_2_1"
+          ]
+        }
+      }
+    ],
+    "action/0/choose/1": [
+      {
+        "path": "action/0/choose/1",
+        "timestamp": "2026-11-09T13:43:55.423593+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ],
+    "action/0/choose/1/conditions/0": [
+      {
+        "path": "action/0/choose/1/conditions/0",
+        "timestamp": "2026-11-09T13:43:55.423606+00:00",
+        "result": {
+          "result": false
+        }
+      }
+    ]
+  },
+  "config": {
+    "id": "yueyue_two_way_switch_sync",
+    "alias": "悦悦房主副开关双控状态双向同步",
+    "description": "确保悦悦房主开关与副开关物理状态保持绝对一致，杜绝双控状态脱节与回弹",
+    "triggers": [
+      {
+        "platform": "state",
+        "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1",
+        "id": "main_changed"
+      },
+      {
+        "platform": "state",
+        "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1",
+        "id": "sub_changed"
+      }
+    ],
+    "conditions": [],
+    "actions": [
+      {
+        "choose": [
+          {
+            "conditions": [
+              {
+                "condition": "trigger",
+                "id": "main_changed"
+              },
+              {
+                "condition": "template",
+                "value_template": "{{ states('switch.bean_cn_1124139478_blns2_on_p_2_1') != states('switch.bean_cn_1124141619_blns1_on_p_2_1') and states('switch.bean_cn_1124139478_blns2_on_p_2_1') in ['on', 'off'] }}"
+              }
+            ],
+            "sequence": [
+              {
+                "action": "switch.{{ states('switch.bean_cn_1124139478_blns2_on_p_2_1') }}",
+                "target": {
+                  "entity_id": "switch.bean_cn_1124141619_blns1_on_p_2_1"
+                }
+              }
+            ]
+          },
+          {
+            "conditions": [
+              {
+                "condition": "trigger",
+                "id": "sub_changed"
+              },
+              {
+                "condition": "template",
+                "value_template": "{{ states('switch.bean_cn_1124139478_blns2_on_p_2_1') != states('switch.bean_cn_1124141619_blns1_on_p_2_1') and states('switch.bean_cn_1124141619_blns1_on_p_2_1') in ['on', 'off'] }}"
+              }
+            ],
+            "sequence": [
+              {
+                "action": "switch.{{ states('switch.bean_cn_1124141619_blns1_on_p_2_1') }}",
+                "target": {
+                  "entity_id": "switch.bean_cn_1124139478_blns2_on_p_2_1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "initial_state": true,
+    "mode": "queued"
+  },
+  "blueprint_inputs": null,
+  "context": {
+    "id": "01M708T6RZ4QX42V1JSZPAK2W4",
+    "parent_id": "01M708T6Q9B3F2E6BAF0C7WV94",
+    "user_id": null
+  }
+}

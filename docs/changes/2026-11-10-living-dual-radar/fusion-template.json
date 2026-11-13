@@ -1,0 +1,35 @@
+{
+  "triggers": [
+    {
+      "trigger": "state",
+      "entity_id": [
+        "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+        "binary_sensor.ke_ting_usblei_da_you_ren"
+      ]
+    },
+    {
+      "trigger": "time_pattern",
+      "seconds": "/5"
+    },
+    {
+      "trigger": "homeassistant",
+      "event": "start"
+    }
+  ],
+  "binary_sensor": [
+    {
+      "name": "客厅双雷达有人",
+      "unique_id": "living_room_dual_radar_occupancy",
+      "default_entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+      "device_class": "occupancy",
+      "state": "{% set p = states('sensor.ld2410_usb_json') | from_json({}) %}{% set src = states.sensor.ld2410_usb_json %}{% set age = as_timestamp(now()) - as_timestamp(src.last_reported, 0) %}{% set valid = p is mapping and p.get('occupancy') is boolean and 0 <= age <= 20 %}{{ is_state('binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1', 'on') or (valid and p.occupancy) }}",
+      "availability": "{% set p = states('sensor.ld2410_usb_json') | from_json({}) %}{% set src = states.sensor.ld2410_usb_json %}{% set age = as_timestamp(now()) - as_timestamp(src.last_reported, 0) %}{% set valid = p is mapping and p.get('occupancy') is boolean and 0 <= age <= 20 %}{{ is_state('binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1', 'on') or (valid and p.occupancy) or (is_state('binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1', 'off') and valid and not p.occupancy) }}",
+      "attributes": {
+        "hb01_state": "{{ states('binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1') }}",
+        "usb_data_valid": "{% set p = states('sensor.ld2410_usb_json') | from_json({}) %}{% set src = states.sensor.ld2410_usb_json %}{% set age = as_timestamp(now()) - as_timestamp(src.last_reported, 0) %}{% set valid = p is mapping and p.get('occupancy') is boolean and 0 <= age <= 20 %}{{ valid }}",
+        "usb_occupancy": "{% set p = states('sensor.ld2410_usb_json') | from_json({}) %}{% set src = states.sensor.ld2410_usb_json %}{% set age = as_timestamp(now()) - as_timestamp(src.last_reported, 0) %}{% set valid = p is mapping and p.get('occupancy') is boolean and 0 <= age <= 20 %}{{ p.occupancy if valid else 'invalid' }}",
+        "policy": "任一有效有人即有人；两路有效无人即无人；串口20秒未上报视为无效"
+      }
+    }
+  ]
+}

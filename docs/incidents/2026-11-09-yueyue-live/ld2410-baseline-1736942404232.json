@@ -1,0 +1,71 @@
+{
+  "id": "1736942404232",
+  "alias": "客厅关灯",
+  "description": "客厅无人持续 2 分钟后自动关闭所有灯光与灯带；投影仪在用时不执行 (风扇已彻底移出关灯列表，绝不误关风扇)",
+  "triggers": [
+    {
+      "platform": "state",
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "to": "off",
+      "for": {
+        "minutes": 2
+      },
+      "id": "no_one_2min"
+    },
+    {
+      "platform": "numeric_state",
+      "entity_id": "sensor.linp_cn_1130732284_hb01_no_one_duration_p_2_4",
+      "above": 2,
+      "id": "no_one_duration_2"
+    },
+    {
+      "platform": "state",
+      "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
+      "to": "off",
+      "id": "movie_mode_off"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.tou_ying_yi_zai_yong",
+      "state": "off"
+    },
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+      "state": "off"
+    },
+    {
+      "condition": "state",
+      "entity_id": "input_boolean.hui_ke_mo_shi",
+      "state": "off",
+      "alias": "3051 会客中不动作"
+    }
+  ],
+  "actions": [
+    {
+      "action": "switch.turn_off",
+      "target": {
+        "entity_id": [
+          "switch.bean_cn_1124140980_blns2_on_p_2_1",
+          "switch.bean_cn_1124140980_blns2_on_p_3_1",
+          "switch.bean_cn_1124140065_blns2_on_p_2_1",
+          "switch.bean_cn_1124140065_blns2_on_p_3_1",
+          "switch.bean_cn_1124140556_blns2_on_p_2_1",
+          "switch.bean_cn_1124140556_blns2_on_p_3_1",
+          "switch.bean_cn_1117205015_blns3_on_p_4_1",
+          "switch.wiing_cn_1169602959_bm1_on_p_2_1"
+        ]
+      }
+    },
+    {
+      "action": "input_boolean.turn_off",
+      "target": {
+        "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi"
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "restart"
+}

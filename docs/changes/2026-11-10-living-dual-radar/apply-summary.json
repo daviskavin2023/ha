@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-10",
+  "fusion_entity": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+  "source_entities": [
+    "binary_sensor.linp_cn_1130732284_hb01_occupancy_status_p_2_1",
+    "binary_sensor.ke_ting_usblei_da_you_ren"
+  ],
+  "updated_ids": [
+    "1736664474841",
+    "1736917740057",
+    "1736918907451",
+    "1736942404232",
+    "1736980001002",
+    "1749716052814",
+    "1789570686104",
+    "1789630647384",
+    "auto_lighting_self_healing_patrol",
+    "ke_ting_feng_shan_wu_ren_zi_dong_guan_bi",
+    "ke_ting_fengshan_ganrao_guanji",
+    "zk3051_guest_auto_exit",
+    "zk3051_guest_off"
+  ],
+  "skipped": [
+    {
+      "id": "ke_ting_manual_override_watcher",
+      "reason": "保持原禁用/不可用状态"
+    }
+  ],
+  "automation_enabled_state_differences": [],
+  "hardware_parameters_modified": false,
+  "manual_device_service_calls": false,
+  "usb_staleness_limit_seconds": 20,
+  "fusion_refresh_seconds": 5,
+  "normal_off_requires_both_off_seconds": 120,
+  "verification": "HA模板输入矩阵、check_config、逐ID保存后回读；未人工触发自动化或设备"
+}

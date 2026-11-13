@@ -1,0 +1,204 @@
+{
+  "id": "yueyue_school_day_morning_alarm_0720",
+  "alias": "悦悦房小爱音箱上学日起床闹钟 (07:20)",
+  "description": "上学日每天早上 07:20：音箱静音执行指令（不播报人声），音量从极低缓慢渐强到 0.18，约 1 分钟后渐弱，最后平滑停止；全程约 2 分钟",
+  "triggers": [
+    {
+      "at": "07:20:00",
+      "platform": "time"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "binary_sensor.shang_xue_ri",
+      "state": "on"
+    }
+  ],
+  "actions": [
+    {
+      "action": "media_player.volume_mute",
+      "data": {
+        "is_volume_muted": false
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.02
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "action": "notify.send_message",
+      "data": {
+        "message": "[\"播放轻音乐\", true]"
+      },
+      "target": {
+        "entity_id": "notify.xiaomi_cn_981493908_l05b_execute_text_directive_a_5_4"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 5
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.04
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 8
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.07
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 8
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.1
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 8
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.13
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 8
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.16
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 8
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.18
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 20
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.12
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 8
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.06
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 8
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.02
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "delay": {
+        "seconds": 5
+      }
+    },
+    {
+      "action": "notify.send_message",
+      "data": {
+        "message": "[\"停止播放\", true]"
+      },
+      "target": {
+        "entity_id": "notify.xiaomi_cn_981493908_l05b_execute_text_directive_a_5_4"
+      }
+    },
+    {
+      "action": "media_player.media_stop",
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    },
+    {
+      "action": "media_player.volume_set",
+      "data": {
+        "volume_level": 0.3
+      },
+      "target": {
+        "entity_id": "media_player.xiaomi_cn_981493908_l05b"
+      }
+    }
+  ],
+  "initial_state": true,
+  "mode": "single"
+}

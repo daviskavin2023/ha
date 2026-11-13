@@ -1,0 +1,63 @@
+4c4
+<     "description": "\u9633\u53f0\u6697\u5149(\u7167\u5ea6<35Lux\u6216\u65e5\u843d\u540e)\u4e14\u4eba\u4ece\u5ba2\u5385\u7a7f\u8fc7\u95e8\u69db\u8fdb\u5165\u9633\u53f0\u79d2\u5f00\u706f\uff1b\u767d\u5929\u9634\u6697\u66b4\u96e8\u5929\u5747\u80fd\u6b63\u5e38\u611f\u5e94\uff1b2026-11-10\uff1a\u5ba2\u5385\u5360\u7528\u63a5\u5165HB01+USB LD2410\u878d\u5408\uff0c\u5931\u6548\u4e0d\u4f5c\u65e0\u4eba\uff1b\u539f\u573a\u666f\u95e8\u63a7\u548c\u52a8\u4f5c\u4fdd\u7559",
+---
+>     "description": "\u9633\u53f0\u6697\u5149(\u7167\u5ea6<35Lux\u6216\u65e5\u843d\u540e)\u4e14S04\u89e6\u53d1\uff1b2026-11-10 \u8349\u6848\uff1a\u8981\u6c42\u5ba2\u5385USB\u96f7\u8fbe15\u79d2\u5185\u57282.3\u7c73\u5185\u6d4b\u5230\u8d70\u52a8\uff08\u5750\u6c99\u53d1\u7ea63.3\u7c73\u3001\u9759\u6b62\u4e0d\u7b97\uff09\uff0c\u901a\u8fc7\u5219\u5f00\u706f\u5e76\u7f6e\u300c\u9633\u53f0\u6709\u4eba\u300d\u9501\u5b58\uff1b\u96f7\u8fbeJSON\u4e0d\u53ef\u7528\u6216>60\u79d2\u672a\u4e0a\u62a5\u65f6\u9000\u56de\u65e7\u6761\u4ef6(\u5ba2\u5385\u53cc\u96f7\u8fbe\u6709\u4eba/3\u5206\u949f\u5185)\u4e14\u4e0d\u9501\u5b58\uff1bS13\u4e0d\u53c2\u4e0e",
+38a39
+>             "alias": "\u5ba2\u5385\u96f7\u8fbe\u8fd1\u5904\u8d70\u52a8\u95e8\u63a7(\u5931\u6548\u65f6\u9000\u56de\u65e7\u6761\u4ef6)",
+41,43c42,44
+<                     "condition": "state",
+<                     "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+<                     "state": "on"
+---
+>                     "condition": "template",
+>                     "alias": "\u96f7\u8fbe\u6709\u6548\u4e1415\u79d2\u51852.3\u7c73\u5185\u8d70\u52a8",
+>                     "value_template": "{% set j = states.sensor.ld2410_usb_json %}{% set fresh = j is not none and j.state not in ['unavailable','unknown'] and (now() - j.last_reported).total_seconds() <= 60 %}{% set nt = as_datetime(states('sensor.ke_ting_lei_da_jin_chu_zou_dong_shi_jian')) %}{{ fresh and nt is not none and (now() - nt).total_seconds() <= 15 }}"
+46,47c47,68
+<                     "condition": "template",
+<                     "value_template": "{{ (now() - states.binary_sensor.ke_ting_shuang_lei_da_you_ren.last_changed).total_seconds() < 180 }}"
+---
+>                     "condition": "and",
+>                     "alias": "\u96f7\u8fbe\u5931\u6548\u2192\u65e7\u6761\u4ef6",
+>                     "conditions": [
+>                         {
+>                             "condition": "template",
+>                             "value_template": "{% set j = states.sensor.ld2410_usb_json %}{% set fresh = j is not none and j.state not in ['unavailable','unknown'] and (now() - j.last_reported).total_seconds() <= 60 %}{{ not fresh }}"
+>                         },
+>                         {
+>                             "condition": "or",
+>                             "conditions": [
+>                                 {
+>                                     "condition": "state",
+>                                     "entity_id": "binary_sensor.ke_ting_shuang_lei_da_you_ren",
+>                                     "state": "on"
+>                                 },
+>                                 {
+>                                     "condition": "template",
+>                                     "value_template": "{{ (now() - states.binary_sensor.ke_ting_shuang_lei_da_you_ren.last_changed).total_seconds() < 180 }}"
+>                                 }
+>                             ]
+>                         }
+>                     ]
+53a75,79
+>             "variables": {
+>                 "radar_ok": "{% set j = states.sensor.ld2410_usb_json %}{% set fresh = j is not none and j.state not in ['unavailable','unknown'] and (now() - j.last_reported).total_seconds() <= 60 %}{{ fresh }}"
+>             }
+>         },
+>         {
+57a84,99
+>         },
+>         {
+>             "if": [
+>                 {
+>                     "condition": "template",
+>                     "value_template": "{{ radar_ok }}"
+>                 }
+>             ],
+>             "then": [
+>                 {
+>                     "action": "input_boolean.turn_on",
+>                     "target": {
+>                         "entity_id": "input_boolean.yang_tai_you_ren"
+>                     }
+>                 }
+>             ]

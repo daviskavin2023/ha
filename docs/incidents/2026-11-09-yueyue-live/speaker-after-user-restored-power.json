@@ -1,0 +1,42 @@
+[
+  {
+    "entity_id": "media_player.xiaomi_cn_981493908_l05b",
+    "state": "on",
+    "attributes": {
+      "sound_mode_list": [
+        "Single Cycle"
+      ],
+      "volume_level": 0.05,
+      "is_volume_muted": true,
+      "media_content_type": "music",
+      "device_class": "speaker",
+      "friendly_name": "悦悦房-小爱同学",
+      "supported_features": 87101
+    },
+    "last_changed": "2026-11-09T14:15:07.001431+00:00",
+    "last_reported": "2026-11-09T14:15:07.001431+00:00",
+    "last_updated": "2026-11-09T14:15:07.001431+00:00",
+    "context": {
+      "id": "01M70AKAFST7Y7E6FWW493NXJS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "notify.xiaomi_cn_981493908_l05b_execute_text_directive_a_5_4",
+    "state": "2026-11-04T23:21:27.311937+00:00",
+    "attributes": {
+      "action params": "[文本内容(str), 指令静默执行(bool)]",
+      "friendly_name": "小爱音箱Play-妹妹  智能音箱 执行文本指令",
+      "supported_features": 0
+    },
+    "last_changed": "2026-11-09T14:15:06.001089+00:00",
+    "last_reported": "2026-11-09T14:15:06.001089+00:00",
+    "last_updated": "2026-11-09T14:15:06.001089+00:00",
+    "context": {
+      "id": "01M70AK9GH3VT85B51Y4FZ96P2",
+      "parent_id": null,
+      "user_id": null
+    }
+  }
+]

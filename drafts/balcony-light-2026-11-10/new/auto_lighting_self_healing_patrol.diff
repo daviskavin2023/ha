@@ -1,0 +1,31 @@
+450a451
+>             "alias": "\u9633\u53f0\uff1a\u9501\u5b58\u65f6S04 30\u5206\u949f\u65e0\u52a8\u4f5c\u624d\u5173\uff1b\u672a\u9501\u5b58S04 5\u5206\u949f\u65e0\u52a8\u4f5c\u5173\uff1b\u4eae\u6ee12\u5c0f\u65f6\u5fc5\u5173(2026-11-10 \u8349\u6848)",
+453,465c454,460
+<                     "condition": "and",
+<                     "conditions": [
+<                         {
+<                             "above": 120,
+<                             "condition": "numeric_state",
+<                             "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024"
+<                         },
+<                         {
+<                             "condition": "state",
+<                             "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+<                             "state": "on"
+<                         }
+<                     ]
+---
+>                     "condition": "state",
+>                     "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+>                     "state": "on"
+>                 },
+>                 {
+>                     "condition": "template",
+>                     "value_template": "{% set e = states('event.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_motion_detected_e_2_1008') %}{% set s04 = as_datetime(e) if e not in ['unknown','unavailable'] else none %}{% set ref = [s04, states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed] | reject('none') | max %}{% set idle = (now() - ref).total_seconds() %}{% set on_for = (now() - states.switch.lemesh_cn_888711197_sw1f11_on_p_2_1.last_changed).total_seconds() %}{{ on_for >= 7200 or (idle >= 1800 if is_state('input_boolean.yang_tai_you_ren','on') else idle >= 300) }}"
+472a468,473
+>                     }
+>                 },
+>                 {
+>                     "action": "input_boolean.turn_off",
+>                     "target": {
+>                         "entity_id": "input_boolean.yang_tai_you_ren"

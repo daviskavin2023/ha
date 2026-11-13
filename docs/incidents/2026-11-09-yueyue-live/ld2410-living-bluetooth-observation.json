@@ -1,0 +1,22 @@
+{
+  "scanners": [
+    {
+      "source": "44:7B:30:4E:82:DE",
+      "connectable": true,
+      "name": "guest-bathroom-climate (44:7B:30:4E:82:DE)",
+      "adapter": "guest-bathroom-climate",
+      "scanner_type": "remote"
+    }
+  ],
+  "targets": [],
+  "distinct_advertiser_count": 50,
+  "observation_seconds": 25,
+  "allocations": [
+    {
+      "source": "44:7B:30:4E:82:DE",
+      "slots": 3,
+      "free": 3,
+      "allocated": []
+    }
+  ]
+}

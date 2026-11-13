@@ -30,7 +30,7 @@ point('S08','厨房补充PIR','kitchen','motion',None,[E('1736917627387')],'even
 point('S09','主卫存在感应','master_bath','presence',None,[E('1736920400997')],'binary_sensor.linp_cn_1114869602_hb01_occupancy_status_p_2_1',E('1736920400997'),'unlocated')
 point('S10','客卫存在感应','guest_bath','presence',None,[E('1740457164269')],'binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1',E('1740457164269'),'unlocated')
 point('S11','玄关PIR','entrance','motion',None,[E('1736917740057')],'event.linp_cn_blt_3_1k0srr2vokk00_hs1bb2_motion_detected_e_2_1008',E('1736917740057'),'unlocated')
-point('S12','客厅第二雷达 ESP32 + LD2410','living','presence',None,['docs/2026-11-08-全屋人体存在感应拓扑与客厅双雷达布防基准.md','PRD-2026-10-29-ESP32客厅雷达.md'],location='unlocated',notes='文档记录/候选位置：电视柜近走道端；未确认实际摆放及现用实体，不画作已安装点。')
+point('S12','客厅 LD2410（USB串口）','living','presence',None,['docs/2026-11-08-全屋人体存在感应拓扑与客厅双雷达布防基准.md','PRD-2026-10-29-ESP32客厅雷达.md'],location='unlocated',notes='文档记录/候选位置：电视柜近走道端；未确认实际摆放及现用实体，不画作已安装点。')
 point('D01','入户门磁','entrance','door',None,[E('1736917740057')],'binary_sensor.isa_cn_blt_3_1k06muhhs4o00_dw2hl_contact_state_p_2_2',E('1736917740057'),'unlocated','入户门已知在西侧；门磁在门框哪一侧未知。')
 point('L01','客厅主灯','living','light',[1200,995],['实景-06/07'],'switch.bean_cn_1124140556_blns2_on_p_3_1',E('1736664474841'),notes='水晶吸顶灯；照片投影到平面的示意位置。')
 point('L02','舞台灯','stage','light',[940,995],['实景-02/03/07'],'switch.bean_cn_1124140556_blns2_on_p_2_1',E('1749716052814'),notes='圆形吸顶灯；回路与照片灯具对应需最终确认。')
@@ -226,6 +226,14 @@ for cp in latest['confirmations']:
    if p['id']==cp['point_id']:
     p['notes']=cp['relative_position']+'；'+cp['position_accuracy']
     p['relative_position']=cp['relative_position']
+    if 'connection_method' in cp:p['connection_method']=cp['connection_method']
+    if 'binding_status' in cp:p['binding_status']=cp['binding_status']
+    if cp['point_id']=='S12' and cp.get('entity_id'):
+     p['ha_device_id']=cp['ha_device_id']
+     p['entity_id']=cp.get('entity_id')
+     p['entity_status']=cp.get('binding_status')
+     p['entity_source']=cp.get('binding_source','ld2410-ble-binding-2026-11-09.json')
+     p['temporary_test_location']=cp.get('temporary_test_location')
     p['position_status']='user_confirmed_relative'
     p['heading_deg']=cp.get('heading_deg')
 (ROOT/'home-layout.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
