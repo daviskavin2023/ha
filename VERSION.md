@@ -2,6 +2,18 @@
 
 > 2026-10-25 起版本号以 PRD.md 抬头为准，统一接续 v1.4.x（PRD 原为 v1.4.0）。下方 v0.1.0~v0.1.6 是 10-17~10-24 期间使用的旧编号，不改写，提交信息里的 (v0.1.x) 与之对应；提交 608d0d1 信息中的 (v0.1.7) 即本文件的 v1.4.1。
 
+## v1.4.8 (2026-11-14) — 儿童答题模式补齐、红外IP修复、双控同步修正与孤儿实体清理
+
+- **儿童答题模式补齐并改为 10 分钟一次**：
+  - 补全线上 `configuration.yaml` 缺失的 `input_text.kids_tv_ip`、`timer.kids_tv_timer`、`counter.kids_quiz_solved_count` 与 `shell_command`（`kids_tv_pause_and_quiz` / `kids_tv_resume_play`），上传 `www/quiz.html` 至 `/local/quiz.html` 并重启 HA Core 生效；
+  - 将 `timer.kids_tv_timer` 与客厅电视端 `StudyOnTV`（`10.10.10.180:8124`）定时周期统一调整为 **10 分钟**。
+- **智能红外遥控器恢复上线**：
+  - 排查确认断网后 DHCP 重分配新 IP `10.10.10.120`（MAC `20:f1:b2:2b:70:b4`），更新 HA `Tuya Local` 配置并重载恢复在线（`remote.zhi_neng_hong_wai_yao_kong_qi: on`）。
+- **双控同步服务名修正与幽灵实体清理**：
+  - 修正 `zhurenfang_two_way_switch_sync`（主人房）与 `lelefang_two_way_switch_sync`（乐乐房）中 `switch.{{ ... }}` 为 `switch.turn_{{ ... }}` 并热加载生效；
+  - 清理已停用的旧 `ld2410_ble`（`HLK-LD2410_63F5`）集成与监控自动化 `ha_watch_ld2410_ble_offline_reload_20261110`；
+  - 清理 4 个已被替换残留的 `unavailable` 孤儿自动化实体，全屋 `unavailable` 自动化清零。
+
 ## 2026-11-10 — 客厅USB LD2410与HB01占用融合
 
 - 新增客厅双雷达有人模板：任一有效有人即有人，两路有效无人即无人；USB数据超过20秒未上报不作无人。
