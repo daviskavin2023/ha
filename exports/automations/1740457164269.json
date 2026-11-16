@@ -1,9 +1,19 @@
 {
+ "id": "1740457164269",
+ "alias": "公卫开灯",
+ "description": "公卫有人立即开启排气扇；暗光(<70 Lux或日落后)同步开启公卫灯",
+ "triggers": [
+  {
+   "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
+   "platform": "state",
+   "to": "on"
+  }
+ ],
  "actions": [
   {
    "action": "switch.turn_on",
    "target": {
-    "entity_id": "switch.lemesh_cn_1124104134_sw3g01_on_p_2_1"
+    "entity_id": "switch.jyds_cn_2254155260_pt01_on_p_2_1"
    }
   },
   {
@@ -34,16 +44,6 @@
    ]
   }
  ],
- "alias": "公卫开灯",
- "description": "公卫有人立即开启排气扇；暗光(<70 Lux或日落后)同步开启公卫灯",
- "id": "1740457164269",
  "initial_state": true,
- "mode": "restart",
- "triggers": [
-  {
-   "entity_id": "binary_sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1",
-   "platform": "state",
-   "to": "on"
-  }
- ]
+ "mode": "restart"
 }
