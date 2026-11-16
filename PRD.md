@@ -280,8 +280,8 @@ mode: restart
 | 厨房阳台 | 阳台关灯 | `automation.yang_tai_guan_deng` | `1736942757466` | `switch.lemesh_sw1f11_90f6_switch` (生活阳台灯) | 阳台雷达无人持续 2 分钟 (20分钟绝对安全兜底) | **`on` 启用** |
 | **卫生间全域** | 主卫开灯 | `automation.zhu_wei_kai_deng` | `1736920400997` | `switch.bean_blns2_aa7d_left_switch_service` (排风)<br>`switch.bean_blns2_aa02_left_switch_service` (主卫灯) | 主卫雷达有人立即开排风；暗光开灯；人在持续长亮 | **`on` 启用** |
 | 卫生间全域 | 主卫关灯 | `automation.zhu_wei_guan_deng` | `1736943010121` | `switch.bean_blns2_aa02_left_switch_service` (灯)<br>`switch.bean_blns2_aa7d_left_switch_service` (排风) | 人走 30 秒关灯；人走 2 分钟彻底关停排气扇充分换气 | **`on` 启用** |
-| 卫生间全域 | 公卫开灯 | `automation.gong_wei_kai_deng` | `1740457164269` | `switch.lemesh_cn_1124104134_sw3g01_on_p_2_1` (公卫排气扇)<br>`switch.bean_cn_1124140333_blns2_on_p_3_1` (公卫灯) | 公卫雷达有人立即开排风；暗光开灯；人在持续长亮 (2026-09-19 替换新排气扇上线) | **`on` 启用** |
-| 卫生间全域 | 公卫关灯 | `automation.gong_wei_guan_deng` | `1740457273525` | `switch.bean_cn_1124140333_blns2_on_p_3_1` (公卫灯)<br>`switch.lemesh_cn_1124104134_sw3g01_on_p_2_1` (公卫排气扇) | 公卫雷达无人持续 30 秒关灯；无人持续 2 分钟关排气扇 (2026-09-19 替换新排气扇上线) | **`on` 启用** |
+| 卫生间全域 | 公卫开灯 | `automation.gong_wei_kai_deng` | `1740457164269` | `switch.jyds_cn_2254155260_pt01_on_p_2_1` (公卫排气扇)<br>`switch.bean_cn_1124140333_blns2_on_p_3_1` (公卫灯) | 公卫雷达有人立即开排风；暗光开灯；人在持续长亮 (2026-11 替换新排气扇开关上线) | **`on` 启用** |
+| 卫生间全域 | 公卫关灯 | `automation.gong_wei_guan_deng` | `1740457273525` | `switch.bean_cn_1124140333_blns2_on_p_3_1` (公卫灯)<br>`switch.jyds_cn_2254155260_pt01_on_p_2_1` (公卫排气扇) | 公卫雷达无人持续 30 秒关灯；无人持续 2 分钟关排气扇 (2026-11 替换新排气扇开关上线) | **`on` 启用** |
 | **卧室书房** | 书房开灯 | `automation.shu_fang_kai_deng` | `1736919449440` | `switch.bean_blns1_af08_switch` (书房灯)<br>`switch.bean_blns2_8844_right_switch_service` (主卧走廊灯) | 书房雷达有人且暗光，**同步点亮书房灯与主卧走廊灯**，人在长亮 | **`on` 启用** |
 | 卧室书房 | 书房关灯 | `automation.shu_fang_guan_deng` | `1736942879165` | `switch.bean_blns1_af08_switch` (书房灯)<br>`switch.bean_blns2_8844_right_switch_service` (主卧走廊灯) | 书房无人持续 2 分钟，**同步关闭书房灯与主卧走廊灯** | **`on` 启用** |
 | 卧室书房 | 主人房关灯模式 | `automation.zhu_ren_fang_guan_deng_mo_shi` | `1737093958838` | 主卧大灯与壁灯全灭；联动清扫书房与主卫灯；主卫排气延后1分钟关闭 | 主卧大灯按键关 (`a867 -> off`) 触发；已解绑门口开关 | **`on` 启用** |
