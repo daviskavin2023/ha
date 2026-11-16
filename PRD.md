@@ -449,11 +449,11 @@ mode: restart
 | :--- | :--- | :--- | :--- | :--- |
 | **主卫开灯** | `automation.zhu_wei_kai_deng` | `switch.bean_blns2_aa7d_left_switch_service`<br>(主卫排气扇 左键)<br>`switch.bean_blns2_aa02_left_switch_service`<br>(主卫灯 左键) | `sensor.linp_hb01_2636_occupancy_sensor`<br>(主卫感应 雷达)<br>`sensor.linp_hb01_2636_illumination` | **纠正幽灵实体与排气扇优先开**：原草稿误填不存在的 `c03d`、`c94f` 幽灵实体。升级为：① 有人进入（`has one`），主卫排气扇**无条件立即开启**换气；② 照度优化开灯：仅在暗光（`< 70 Lux`）或日落后夜间，同步点亮主卫照明。白天自然光明亮时不额外亮灯。 |
 | **主卫关灯** | `automation.zhu_wei_guan_deng` | `switch.bean_blns2_aa02_left_switch_service`<br>(主卫灯 左键)<br>`switch.bean_blns2_aa7d_left_switch_service`<br>(主卫排气扇 左键) | `sensor.linp_hb01_2636_occupancy_sensor` | **灯光30秒快关，排气扇延时2分钟充分排风**：按用户明确要求实施分级关停：① 人离开满 **30 秒**（`no one` 持续 30s），立即关闭主卫灯光节约电能；② 人离开满 **2 分钟**（`no one` 持续 120s），关闭主卫排气扇以抽净湿气异味。仪表盘手动测试具备一键双关兜底。 |
-| **公卫开灯** | `automation.gong_wei_kai_deng` | `switch.lemesh_cn_1124104134_sw3g01_on_p_2_1`<br>(公卫排气扇 按键)<br>`switch.bean_cn_1124140333_blns2_on_p_3_1`<br>(公卫灯 右键) | `sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1`<br>(公卫感应 雷达)<br>`sensor.linp_cn_1130167279_hb01_illumination_p_2_5` | **排气扇优先开+暗光开灯**：① 有人进入（`has one`），公卫排气扇**无条件立即开启**换气；② 照度优化开灯：暗光（`< 70 Lux`）或日落后夜间，同步开启公卫照明。（2026-09-19 已替换上线新开关 `1124104134`）。 |
-| **公卫关灯** | `automation.gong_wei_guan_deng` | `switch.bean_cn_1124140333_blns2_on_p_3_1`<br>(公卫灯 右键)<br>`switch.lemesh_cn_1124104134_sw3g01_on_p_2_1`<br>(公卫排气扇 按键) | `sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1` | **灯光30秒快关，排气扇延时2分钟充分排风**：按明确要求实施分级关停：① 人离开满 **30 秒** 立即关闭公卫灯光；② 人离开满 **2 分钟** 关闭公卫排气扇彻底抽净异味。（2026-09-19 已替换上线新开关 `1124104134`）。 |
+| **公卫开灯** | `automation.gong_wei_kai_deng` | `switch.jyds_cn_2254155260_pt01_on_p_2_1`<br>(公卫排气扇 按键)<br>`switch.bean_cn_1124140333_blns2_on_p_3_1`<br>(公卫灯 右键) | `sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1`<br>(公卫感应 雷达)<br>`sensor.linp_cn_1130167279_hb01_illumination_p_2_5` | **排气扇优先开+暗光开灯**：① 有人进入（`has one`），公卫排气扇**无条件立即开启**换气；② 照度优化开灯：暗光（`< 70 Lux`）或日落后夜间，同步开启公卫照明。（2026-11 已替换上线新开关 `2254155260`）。 |
+| **公卫关灯** | `automation.gong_wei_guan_deng` | `switch.bean_cn_1124140333_blns2_on_p_3_1`<br>(公卫灯 右键)<br>`switch.jyds_cn_2254155260_pt01_on_p_2_1`<br>(公卫排气扇 按键) | `sensor.linp_cn_1130167279_hb01_occupancy_status_p_2_1` | **灯光30秒快关，排气扇延时2分钟充分排风**：按明确要求实施分级关停：① 人离开满 **30 秒** 立即关闭公卫灯光；② 人离开满 **2 分钟** 关闭公卫排气扇彻底抽净异味。（2026-11 已替换上线新开关 `2254155260`）。 |
 
-**部署与运行态（2026-09-19 最新更正）**：
-- 2026-09-19 完成公卫排气扇硬件置换：旧设备 `1122664888` 报废停用，新设备 `1124104134`（`switch.lemesh_cn_1124104134_sw3g01_on_p_2_1`）正式接管公卫排气扇；
+**部署与运行态（2026-11 最新更正）**：
+- 2026-11 完成公卫排气扇硬件置换：旧设备 `1124104134` 停用，新设备 `2254155260`（`switch.jyds_cn_2254155260_pt01_on_p_2_1`）正式接管公卫排气扇；
 - 生产 `/config/automations.yaml` 开关灯规则已无感完成实体替换；
 - 控制看板 `lovelace.smart_home` 及原生看板已完成实体与卡片同步；
 - 执行 `check_config` 零报错，热重载已生效，物理动作遥控测试已验证通断正常。
