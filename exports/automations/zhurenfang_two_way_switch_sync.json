@@ -15,7 +15,7 @@
      ],
      "sequence": [
       {
-       "action": "switch.{{ states('switch.bean_cn_1124140146_blns2_on_p_2_1') }}",
+       "action": "switch.turn_{{ states('switch.bean_cn_1124140146_blns2_on_p_2_1') }}",
        "target": {
         "entity_id": "switch.bean_cn_1122795934_blns1_on_p_2_1"
        }
@@ -35,7 +35,7 @@
      ],
      "sequence": [
       {
-       "action": "switch.{{ states('switch.bean_cn_1122795934_blns1_on_p_2_1') }}",
+       "action": "switch.turn_{{ states('switch.bean_cn_1122795934_blns1_on_p_2_1') }}",
        "target": {
         "entity_id": "switch.bean_cn_1124140146_blns2_on_p_2_1"
        }
