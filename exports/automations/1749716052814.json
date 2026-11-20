@@ -1,7 +1,7 @@
 {
   "id": "1749716052814",
   "alias": "舞台灯联动",
-  "description": "舞台人体感应（ES2）独立控制舞台灯：会客模式强制开、生日模式强制关；平时舞台有人+非观影+暗光（夜间或感应光照度<35lx且<85lx）开，舞台无人/观影/强光关；观影期间不自动开也不自动关、允许手动开；2026-11-20 与厨房、客厅感应解耦",
+  "description": "舞台人体感应（ES2）独立控制舞台灯：会客模式强制开、生日模式强制关；平时舞台有人+非观影+（夜间或白天照度<35lx且<85lx）开，舞台无人/观影/白天强光关；夜间不看照度（v1.4.12，ES2光照度夜间受附近灯具干扰读数偏大）；观影期间不自动开也不自动关、允许手动开；与厨房、客厅感应解耦",
   "triggers": [
     {
       "platform": "state",
@@ -84,7 +84,7 @@
           "conditions": [
             {
               "condition": "template",
-              "value_template": "{% set ill = states('sensor.linp_cn_blt_3_1kn1n1huoc800_es2_illumination_p_2_1005') %}{% set lux = ill | float(999) %}{{ is_state('binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078','on') and is_state('input_boolean.ke_ting_guan_ying_mo_shi','off') and ((is_state('sun.sun','below_horizon') or lux < 35) and lux < 85) }}"
+              "value_template": "{% set ill = states('sensor.linp_cn_blt_3_1kn1n1huoc800_es2_illumination_p_2_1005') %}{% set lux = ill | float(999) %}{{ is_state('binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078','on') and is_state('input_boolean.ke_ting_guan_ying_mo_shi','off') and (is_state('sun.sun','below_horizon') or (lux < 35 and lux < 85)) }}"
             }
           ],
           "sequence": [
