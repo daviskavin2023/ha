@@ -1,7 +1,7 @@
 {
   "id": "1749716052814",
   "alias": "舞台灯联动",
-  "description": "舞台人体感应（ES2，原阳台ES2改名）独立控制舞台灯：舞台有人+非观影+暗光（夜间或舞台感应光照度<35lx且<85lx）开灯；舞台无人/观影中/强光关灯；观影期间本自动化完全不动（不自动开也不自动关，允许手动开）；2026-11-20 与厨房、客厅感应解耦，各管各的；会客/生日模式沿用全局屏蔽",
+  "description": "舞台人体感应（ES2）独立控制舞台灯：会客模式强制开、生日模式强制关；平时舞台有人+非观影+暗光（夜间或感应光照度<35lx且<85lx）开，舞台无人/观影/强光关；观影期间不自动开也不自动关、允许手动开；2026-11-20 与厨房、客厅感应解耦",
   "triggers": [
     {
       "platform": "state",
@@ -29,31 +29,57 @@
     },
     {
       "platform": "state",
+      "entity_id": "input_boolean.hui_ke_mo_shi"
+    },
+    {
+      "platform": "state",
+      "entity_id": "input_boolean.sheng_ri_mo_shi"
+    },
+    {
+      "platform": "state",
       "entity_id": "sun.sun"
     }
   ],
-  "conditions": [
-    {
-      "condition": "state",
-      "entity_id": "input_boolean.hui_ke_mo_shi",
-      "state": "off",
-      "alias": "3051 会客中不动作"
-    },
-    {
-      "condition": "state",
-      "entity_id": "input_boolean.sheng_ri_mo_shi",
-      "state": "off",
-      "alias": "3051 生日中不动作"
-    },
-    {
-      "condition": "template",
-      "value_template": "{{ states('binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078') in ['on','off'] }}",
-      "alias": "舞台感应不可用时不动作"
-    }
-  ],
+  "conditions": [],
   "actions": [
     {
       "choose": [
+        {
+          "conditions": [
+            {
+              "condition": "state",
+              "entity_id": "input_boolean.hui_ke_mo_shi",
+              "state": "on",
+              "alias": "会客模式：舞台灯强制开"
+            }
+          ],
+          "sequence": [
+            {
+              "action": "switch.turn_on",
+              "target": {
+                "entity_id": "switch.bean_cn_1124140556_blns2_on_p_2_1"
+              }
+            }
+          ]
+        },
+        {
+          "conditions": [
+            {
+              "condition": "state",
+              "entity_id": "input_boolean.sheng_ri_mo_shi",
+              "state": "on",
+              "alias": "生日模式：舞台灯强制关"
+            }
+          ],
+          "sequence": [
+            {
+              "action": "switch.turn_off",
+              "target": {
+                "entity_id": "switch.bean_cn_1124140556_blns2_on_p_2_1"
+              }
+            }
+          ]
+        },
         {
           "conditions": [
             {
@@ -74,6 +100,11 @@
       "default": [
         {
           "if": [
+            {
+              "condition": "template",
+              "value_template": "{{ states('binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078') in ['on','off'] }}",
+              "alias": "舞台感应不可用时不自动关"
+            },
             {
               "condition": "state",
               "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",

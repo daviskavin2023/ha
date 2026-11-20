@@ -2,7 +2,7 @@
 
 | 项目名称 | 3038-网关-ha (Home Assistant 智能家居网关中心) |
 | :--- | :--- |
-| **版本** | v1.4.10 |
+| **版本** | v1.4.11 |
 | **创建日期** | 2026-09-16 |
 | **最后修订** | 2026-11-20 |
 | **状态** | 全屋 42 条自动化已配置并全量上线运行；已全面部署工业级全天候自愈引擎（`auto_lighting_self_healing_patrol`），每 15 分钟闭环巡检客厅、厨房、卫浴、走廊、玄关、书房与阳台，彻底消除蓝牙 Mesh 丢包、幽灵灯、假关灯与死锁状态，实现零人工介入自主运维。同步修复玄关 48ms 秒关缺陷、客厅观影与手动防打扰冲突、厨房照度闭环脉冲自愈、悦悦房存在雷达休眠防抖与睡眠锁定逻辑。设备离线监控、低电量监控已按要求停用，夜间灯光扫尾检查继续运行。所有配置均经 check_config 校验并在生产环境热重载生效。 |
@@ -299,7 +299,7 @@ mode: restart
 | 走廊过道 | 走廊关灯 | `automation.zou_lang_guan_deng` | `1736942627898` | `switch.bean_blns1_70fc_switch` (走廊灯) | 常规无移动 1 分钟关灯；深夜起夜 (23:00-06:30) 30 秒快关 | **`on` 启用** |
 | **安防离家** | 离家模式 (全屋关灯关空调) | `automation.wan_an` (原晚安) | `1736920574936` | 全屋 19 路照明 + 3 台真实空调 (严禁关服务器与投影仪插座) | 门口无线开关手动按压，**15秒缓冲 + 瞬时全闭 + 5分钟巡检 + 开门即打断** | **`on` 启用** |
 | 安防离家 | 门未关提醒 (温和防打扰版) | `automation.men_wei_guan_ti_xing` | `1736915882262` | `text.xiaomi_l05b_3b10_play_text`<br>`media_player.xiaomi_l05b_3b10_play_control` | 大门开满 3 分钟温和提醒；**22:00-10:00 绝对禁音**；满5分钟二次补报后静默；关门立即终止 | **`on` 启用** |
-| **客厅全域** | 舞台灯联动 | `automation.ke_ting_wu_tai_deng_lian_dong` | `1749716052814` | `switch.bean_cn_1124140556_blns2_on_p_2_1` (舞台灯，唯一控制入口) | 舞台人体感应（ES2 `1kn1n1huoc800`，原阳台ES2改名）独立控制：舞台有人+非观影+暗光（夜间或感应光照度<35lx且<85lx）开，舞台无人/观影/强光关；观影期间本自动化完全不动、允许手动开（2026-11-20 与厨房、客厅感应解耦，各管各的） | **`on` 启用** |
+| **客厅全域** | 舞台灯联动 | `automation.ke_ting_wu_tai_deng_lian_dong` | `1749716052814` | `switch.bean_cn_1124140556_blns2_on_p_2_1` (舞台灯，唯一控制入口) | 舞台人体感应（ES2 `1kn1n1huoc800`，原阳台ES2改名）独立控制：会客模式强制开、生日模式强制关；平时舞台有人+非观影+暗光（夜间或感应光照度<35lx且<85lx）开，舞台无人/观影/强光关；观影期间本自动化完全不动、允许手动开（2026-11-20 与厨房、客厅感应解耦，各管各的） | **`on` 启用** |
 | **悦悦房** | 悦悦房人在感应开灯 | `automation.yue_yue_fang_ren_zai_gan_ying_kai_deng` | `yueyue_motion_light_on` | `switch.bean_cn_1124139478_blns2_on_p_2_1` (大灯) | ES2 人在雷达感应有人且暗光 (<35 Lux 或日落)；受睡眠防打扰门控 | **`on` 启用** |
 | 悦悦房 | 悦悦房无人自动关灯 | `automation.yue_yue_fang_wu_ren_zi_dong_guan_deng` | `yueyue_motion_light_off` | `switch.bean_cn_1124139478_blns2_on_p_2_1` (大灯) | ES2 人在雷达判定无人持续 2 分钟 (兼顾防抖与节能) | **`on` 启用** |
 | 悦悦房 | 悦悦房手动关灯进入睡眠锁定 | `automation.yue_yue_fang_shou_dong_guan_deng_jin_ru_shui_mian_suo_ding` | `yueyue_manual_sleep_lock` | `input_boolean.yue_yue_fang_guan_deng_mo_shi` | 夜间手动关大灯或按床头情景开关，激活睡眠锁定防打扰 | **`on` 启用** |
