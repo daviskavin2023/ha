@@ -40,13 +40,7 @@
       "entity_id": "sun.sun"
     }
   ],
-  "conditions": [
-    {
-      "condition": "template",
-      "value_template": "{{ states('binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078') in ['on','off'] }}",
-      "alias": "舞台感应不可用时不动作"
-    }
-  ],
+  "conditions": [],
   "actions": [
     {
       "choose": [
@@ -106,6 +100,11 @@
       "default": [
         {
           "if": [
+            {
+              "condition": "template",
+              "value_template": "{{ states('binary_sensor.linp_cn_blt_3_1kn1n1huoc800_es2_occupancy_status_p_2_1078') in ['on','off'] }}",
+              "alias": "舞台感应不可用时不自动关"
+            },
             {
               "condition": "state",
               "entity_id": "input_boolean.ke_ting_guan_ying_mo_shi",
