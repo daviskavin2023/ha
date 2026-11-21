@@ -49,7 +49,7 @@ for idx, (hx, hy) in enumerate([(3.0, 3.0), (49.0, 3.0), (3.0, 49.0), (49.0, 49.
              [("1", 0.0, 0.0, "circle", 4.2, 4.2, 2.2, "GND")])
 
 # 2. ESP32-C3 SuperMini (V1601): 18.0 x 22.52 mm, Type-C 朝上齐平板边, 跨距 15.24 mm
-ESP_L_NETS = ["+5V", "GND", "+3V3", "RADAR_RX_IO4", "RADAR_TX_IO3", "NC", "NC", "NC"]
+ESP_L_NETS = ["+5V", "GND", "+3V3", "RADAR_RX_IO4", "RADAR_TX_IO3", "BTN_IO2", "NC", "NC"]
 ESP_R_NETS = ["BUZZ_IO5", "I2C_SDA_IO6", "I2C_SCL_IO7", "NC", "NC", "NC", "NC", "NC"]
 add_comp("J_ESP_L", "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical",
          7.88, 3.80, pin_row(8, ESP_L_NETS, vertical=True), value="ESP_L",
@@ -128,6 +128,19 @@ add_comp("J_PWR", "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
          45.0, 7.0, pin_row(2, ["+5V", "GND"], vertical=False),
          value="EXT_5V",
          pin_labels=["5V", "G"])
+
+# 8. 预留蜂鸣器 3P 焊盘 (BEEP V3.0: VCC / IO / GND，建议用短线引到外壳出声口)
+add_comp("J_BUZZ", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+         44.0, 30.5, pin_row(3, ["+3V3", "BUZZ_IO5", "GND"], vertical=False),
+         value="BEEP_3P",
+         pin_labels=["3V", "IO", "G"])
+
+# 9. 预留 6x6mm 直插轻触按键 SW1 (跨接 BTN_IO2 与 GND，距 6.5mm 标准两脚/四脚间距)
+add_comp("SW1", "Button_Switch_THT:SW_PUSH_6mm",
+         17.0, 48.8,
+         [("1", 0.0, 0.0, "rect", 1.8, 1.8, 1.0, "BTN_IO2"),
+          ("2", 6.5, 0.0, "oval", 1.8, 1.8, 1.0, "GND")],
+         value="KEY_IO2")
 
 # ---------------------------------------------------------------------------
 # 2. 焊盘扁平化 & 网格路由器 (0.25mm 步长，MIN_CLEARANCE = 0.20mm)
@@ -436,6 +449,8 @@ draw_text(4.5, 24.4, "C1 100uF+", 0.25)
 draw_text(18.5, 24.4, "C3", 0.25)
 draw_text(44.2, 10.2, "C2", 0.25)
 draw_text(44.2, 5.2, "5V_IN", 0.25)
+draw_text(43.8, 28.6, "BEEP 3V/IO/G", 0.23)
+draw_text(18.5, 46.8, "SW1 KEY", 0.23)
 
 # ---------------------------------------------------------------------------
 # 4. 导出 Gerber ZIP & 1:1 SVG 预览
@@ -618,6 +633,8 @@ svg.append(f'<text x="{20.0*S}" y="{25.0*S}" font-size="10" fill="#fde047">C3</t
 svg.append(f'<text x="{44.2*S}" y="{11.0*S}" font-size="10" fill="#fde047">C2</text>')
 svg.append(f'<text x="{44.2*S}" y="{5.8*S}" font-size="10" fill="#fde047">5V_IN</text>')
 svg.append(f'<text x="{44.5*S}" y="{17.0*S}" font-size="9" fill="#94a3b8">R1 R2</text>')
+svg.append(f'<text x="{43.8*S}" y="{29.2*S}" font-size="9" fill="#fde047">BEEP(3V/IO/G)</text>')
+svg.append(f'<text x="{18.5*S}" y="{47.5*S}" font-size="9" fill="#fde047">SW1(IO2)</text>')
 svg.append('</g>')
 svg.append(f'<text x="{(BOARD_W*S+100)/2}" y="{BOARD_H*S+95}" text-anchor="middle" font-size="12" fill="#cbd5e1">红线=顶层(F.Cu) · 蓝线=底层(B.Cu) · 黄色方盘=Pin1 · 白框=模块实占轮廓</text>')
 svg.append('</svg>')
