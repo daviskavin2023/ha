@@ -1,0 +1,10 @@
+{
+  "board_size_mm": "52.0 x 52.0",
+  "smd_components": 0,
+  "tht_components": 16,
+  "total_pads": 50,
+  "routed_segments": 209,
+  "vias": 11,
+  "unrouted_links": 0,
+  "failed_link_details": []
+}
