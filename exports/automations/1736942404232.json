@@ -32,6 +32,11 @@
         "minutes": 3
       },
       "id": "bright_day_80"
+    },
+    {
+      "platform": "time_pattern",
+      "minutes": "/5",
+      "id": "bright_day_recheck"
     }
   ],
   "conditions": [],
