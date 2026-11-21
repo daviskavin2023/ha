@@ -10,10 +10,12 @@ esp32:
 # C3 SuperMini 的 USB 是原生 USB Serial/JTAG，日志走 USB，
 # UART0 (GPIO20/21) 全部留给 LD2410 雷达
 logger:
-  level: INFO
+  level: DEBUG
   hardware_uart: USB_SERIAL_JTAG
   logs:
-    ld2410: DEBUG
+    wifi: INFO
+    api: INFO
+    ota: INFO
 
 wifi:
   ssid: !secret wifi_ssid
