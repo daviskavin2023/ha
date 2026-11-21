@@ -1,1 +1,61 @@
-{"alias": "阳台关灯", "id": "1736942757466", "description": "阳台关灯防线：感应2被杂物卡死判5分钟门槛超时熔断；6分钟绝对强制定时兜底。2026-11-21 移除已下线 ES2 相关分支（ghost_cancel_35s/radar_clear_1m/pir_no_motion_2m 及其触发器），保留 PIR 防杂物 5 分钟熔断与 6 分钟兜底", "mode": "restart", "initial_state": true, "triggers": [{"id": "anti_clutter_pir_5m", "platform": "state", "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024", "to": "300"}, {"id": "safety_cap_6m", "platform": "state", "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1", "to": "on", "for": {"minutes": 6}}], "conditions": [{"condition": "state", "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1", "state": "on"}, {"condition": "or", "conditions": [{"condition": "trigger", "id": "anti_clutter_pir_5m"}, {"condition": "and", "conditions": [{"condition": "trigger", "id": "safety_cap_6m"}, {"condition": "template", "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 120 }}"}]}]}], "actions": [{"action": "switch.turn_off", "target": {"entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"}}]}
+{
+  "alias": "阳台关灯",
+  "id": "1736942757466",
+  "description": "阳台关灯防线：感应2被杂物卡死判5分钟门槛超时熔断；6分钟绝对强制定时兜底。2026-11-21 移除已下线 ES2 相关分支（ghost_cancel_35s/radar_clear_1m/pir_no_motion_2m 及其触发器），保留 PIR 防杂物 5 分钟熔断与 6 分钟兜底",
+  "mode": "restart",
+  "initial_state": true,
+  "triggers": [
+    {
+      "id": "anti_clutter_pir_5m",
+      "platform": "state",
+      "entity_id": "sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024",
+      "to": "300"
+    },
+    {
+      "id": "safety_cap_6m",
+      "platform": "state",
+      "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+      "to": "on",
+      "for": {
+        "minutes": 6
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "state",
+      "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1",
+      "state": "on"
+    },
+    {
+      "condition": "or",
+      "conditions": [
+        {
+          "condition": "trigger",
+          "id": "anti_clutter_pir_5m"
+        },
+        {
+          "condition": "and",
+          "conditions": [
+            {
+              "condition": "trigger",
+              "id": "safety_cap_6m"
+            },
+            {
+              "condition": "template",
+              "value_template": "{{ states('sensor.linp_cn_blt_3_1k0m2afv4cg01_hs1bb2_no_motion_duration_p_2_1024') | int(0) >= 120 }}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "action": "switch.turn_off",
+      "target": {
+        "entity_id": "switch.lemesh_cn_888711197_sw1f11_on_p_2_1"
+      }
+    }
+  ]
+}
