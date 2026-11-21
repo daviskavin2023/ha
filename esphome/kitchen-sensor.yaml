@@ -21,6 +21,9 @@ wifi:
   password: !secret wifi_password
   power_save_mode: NONE
   output_power: 8.5dBm
+  post_connect_roaming: false
+  enable_btm: false
+  enable_rrm: false
   reboot_timeout: 0s
 
 api:
@@ -34,8 +37,9 @@ ota:
 i2c:
   sda: GPIO6
   scl: GPIO7
-  scan: true
+  scan: false
   frequency: 100kHz
+  timeout: 10ms
 
 uart:
   id: radar_uart
