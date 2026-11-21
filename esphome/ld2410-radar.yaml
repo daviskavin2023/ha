@@ -23,6 +23,12 @@ logger:
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  output_power: 10.0dBm
+  power_save_mode: NONE
+  post_connect_roaming: false
+  enable_btm: false
+  enable_rrm: false
+  reboot_timeout: 0s
 
 api:
   encryption:
